@@ -15,21 +15,53 @@ namespace ChoholicsAnonymous
         public Main()
         {
             InitializeComponent();
+            
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        
+        #region UI event handlers
+        //submit the new member information from the form to memory 
+        private void newMem_submit_Click_1(object sender, EventArgs e)
         {
+            int day, month; 
+
             Member newMember = new Member();
-            newMember.firstName = newMem_firstName.Text;
-            newMember.lastName = newMem_lastName.Text;
-            newMember.email = newMem_email.Text; 
-            newMember.phoneNumber = newMem_phoneNumber.Text;
-            newMember.address.street = newMem_addStreet.Text;
-            newMember.address.state = newMem_addState.Text;
-            newMember.address.city = newMem_addCity.Text;
-            newMember.address.postalCode = newMem_addCity.Text;
-            newMember.ccNumber = newMem_ccNumber.Text; 
-            newMember.
+            newMember.FirstName              = newMem_firstName.Text;
+            newMember.LastName               = newMem_lastName.Text;
+            newMember.Email                  = newMem_email.Text;
+            newMember.PhoneNumber            = newMem_phoneNumber.Text;
+            newMember.Address.street         = newMem_addStreet.Text;
+            newMember.Address.state          = newMem_addState.Text;
+            newMember.Address.city           = newMem_addCity.Text;
+            newMember.Address.postalCode     = newMem_addCity.Text;
+            newMember.Payment.CardNumber     = newMem_ccNumber.Text;
+            newMember.Payment.Cvc            = newMem_cvc.Text;
+
+            if (int.TryParse(newMem_expMonth.Text, out month))
+            {
+                newMember.Payment.ExpDate.Month = month;
+            }
+            else
+            {
+                //throw error 
+                MessageBox.Show("Expiration Month is not in a valid form");
+                return; 
+            }
+            if (int.TryParse(newMem_expDay.Text, out day))
+            {
+                newMember.Payment.ExpDate.Day = day;
+            }
+            else
+            {
+                //throw error 
+                MessageBox.Show("Expiration Day is not in a valid form");
+                return; 
+            }
+            DataCenter.AddMember(newMember);
+            MessageBox.Show("Member Successfully Added"); 
         }
+        #endregion
+        #region Supporting Methods 
+        #endregion
     }
+
 }

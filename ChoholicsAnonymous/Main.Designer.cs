@@ -34,10 +34,11 @@
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newMemberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel_newMember = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.newMem_phoneNumber = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.newMem_submit = new System.Windows.Forms.Button();
             this.newMem_subLength = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.newMem_exp = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.newMem_cvc = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -61,9 +62,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.newMem_phoneNumber = new System.Windows.Forms.TextBox();
-            this.newMem_expDateSelect = new System.Windows.Forms.MonthCalendar();
+            this.newMem_expMonth = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.newMem_expDay = new System.Windows.Forms.TextBox();
             this.toolStrip1.SuspendLayout();
             this.panel_newMember.SuspendLayout();
             this.SuspendLayout();
@@ -75,7 +76,7 @@
             this.toolStripDropDownButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1335, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(1335, 31);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -88,7 +89,7 @@
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(79, 24);
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(79, 28);
             this.toolStripDropDownButton1.Text = "Member";
             // 
             // searchToolStripMenuItem
@@ -105,13 +106,14 @@
             // 
             // panel_newMember
             // 
-            this.panel_newMember.Controls.Add(this.newMem_expDateSelect);
+            this.panel_newMember.Controls.Add(this.newMem_expDay);
+            this.panel_newMember.Controls.Add(this.label17);
+            this.panel_newMember.Controls.Add(this.newMem_expMonth);
             this.panel_newMember.Controls.Add(this.newMem_phoneNumber);
             this.panel_newMember.Controls.Add(this.label16);
-            this.panel_newMember.Controls.Add(this.button1);
+            this.panel_newMember.Controls.Add(this.newMem_submit);
             this.panel_newMember.Controls.Add(this.newMem_subLength);
             this.panel_newMember.Controls.Add(this.label15);
-            this.panel_newMember.Controls.Add(this.newMem_exp);
             this.panel_newMember.Controls.Add(this.label14);
             this.panel_newMember.Controls.Add(this.newMem_cvc);
             this.panel_newMember.Controls.Add(this.label13);
@@ -136,23 +138,42 @@
             this.panel_newMember.Controls.Add(this.label3);
             this.panel_newMember.Controls.Add(this.label1);
             this.panel_newMember.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_newMember.Location = new System.Drawing.Point(0, 27);
+            this.panel_newMember.Location = new System.Drawing.Point(0, 31);
             this.panel_newMember.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_newMember.Name = "panel_newMember";
-            this.panel_newMember.Size = new System.Drawing.Size(1335, 729);
+            this.panel_newMember.Size = new System.Drawing.Size(1335, 725);
             this.panel_newMember.TabIndex = 1;
             // 
-            // button1
+            // newMem_phoneNumber
             // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(20, 625);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 43);
-            this.button1.TabIndex = 26;
-            this.button1.Text = "Submit";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.newMem_phoneNumber.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newMem_phoneNumber.Location = new System.Drawing.Point(128, 201);
+            this.newMem_phoneNumber.Margin = new System.Windows.Forms.Padding(4);
+            this.newMem_phoneNumber.Name = "newMem_phoneNumber";
+            this.newMem_phoneNumber.Size = new System.Drawing.Size(503, 26);
+            this.newMem_phoneNumber.TabIndex = 4;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.label16.Location = new System.Drawing.Point(19, 205);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(102, 19);
+            this.label16.TabIndex = 27;
+            this.label16.Text = "Phone Number";
+            // 
+            // newMem_submit
+            // 
+            this.newMem_submit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newMem_submit.Location = new System.Drawing.Point(20, 625);
+            this.newMem_submit.Margin = new System.Windows.Forms.Padding(4);
+            this.newMem_submit.Name = "newMem_submit";
+            this.newMem_submit.Size = new System.Drawing.Size(117, 43);
+            this.newMem_submit.TabIndex = 14;
+            this.newMem_submit.Text = "Submit";
+            this.newMem_submit.UseVisualStyleBackColor = true;
+            this.newMem_submit.Click += new System.EventHandler(this.newMem_submit_Click_1);
             // 
             // newMem_subLength
             // 
@@ -165,10 +186,10 @@
             "8 Months ",
             "12 Months "});
             this.newMem_subLength.Location = new System.Drawing.Point(240, 567);
-            this.newMem_subLength.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.newMem_subLength.Margin = new System.Windows.Forms.Padding(4);
             this.newMem_subLength.Name = "newMem_subLength";
             this.newMem_subLength.Size = new System.Drawing.Size(160, 25);
-            this.newMem_subLength.TabIndex = 25;
+            this.newMem_subLength.TabIndex = 13;
             // 
             // label15
             // 
@@ -180,33 +201,25 @@
             this.label15.TabIndex = 24;
             this.label15.Text = "Subscription Length";
             // 
-            // newMem_exp
-            // 
-            this.newMem_exp.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newMem_exp.Location = new System.Drawing.Point(328, 501);
-            this.newMem_exp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.newMem_exp.Name = "newMem_exp";
-            this.newMem_exp.Size = new System.Drawing.Size(207, 26);
-            this.newMem_exp.TabIndex = 23;
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.label14.Location = new System.Drawing.Point(288, 505);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(30, 19);
+            this.label14.Size = new System.Drawing.Size(33, 19);
             this.label14.TabIndex = 22;
-            this.label14.Text = "Exp";
+            this.label14.Text = "Exp:";
             // 
             // newMem_cvc
             // 
             this.newMem_cvc.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newMem_cvc.Location = new System.Drawing.Point(63, 501);
-            this.newMem_cvc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.newMem_cvc.Margin = new System.Windows.Forms.Padding(4);
+            this.newMem_cvc.MaxLength = 3;
             this.newMem_cvc.Name = "newMem_cvc";
             this.newMem_cvc.Size = new System.Drawing.Size(100, 26);
-            this.newMem_cvc.TabIndex = 21;
+            this.newMem_cvc.TabIndex = 10;
             // 
             // label13
             // 
@@ -222,10 +235,10 @@
             // 
             this.newMem_ccNumber.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newMem_ccNumber.Location = new System.Drawing.Point(171, 460);
-            this.newMem_ccNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.newMem_ccNumber.Margin = new System.Windows.Forms.Padding(4);
             this.newMem_ccNumber.Name = "newMem_ccNumber";
             this.newMem_ccNumber.Size = new System.Drawing.Size(453, 26);
-            this.newMem_ccNumber.TabIndex = 19;
+            this.newMem_ccNumber.TabIndex = 9;
             // 
             // label12
             // 
@@ -251,10 +264,10 @@
             // 
             this.newMem_addPCode.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newMem_addPCode.Location = new System.Drawing.Point(701, 346);
-            this.newMem_addPCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.newMem_addPCode.Margin = new System.Windows.Forms.Padding(4);
             this.newMem_addPCode.Name = "newMem_addPCode";
             this.newMem_addPCode.Size = new System.Drawing.Size(141, 26);
-            this.newMem_addPCode.TabIndex = 16;
+            this.newMem_addPCode.TabIndex = 8;
             // 
             // label10
             // 
@@ -270,10 +283,10 @@
             // 
             this.newMem_addState.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newMem_addState.Location = new System.Drawing.Point(391, 346);
-            this.newMem_addState.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.newMem_addState.Margin = new System.Windows.Forms.Padding(4);
             this.newMem_addState.Name = "newMem_addState";
             this.newMem_addState.Size = new System.Drawing.Size(141, 26);
-            this.newMem_addState.TabIndex = 14;
+            this.newMem_addState.TabIndex = 7;
             // 
             // label9
             // 
@@ -289,10 +302,10 @@
             // 
             this.newMem_addCity.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newMem_addCity.Location = new System.Drawing.Point(60, 346);
-            this.newMem_addCity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.newMem_addCity.Margin = new System.Windows.Forms.Padding(4);
             this.newMem_addCity.Name = "newMem_addCity";
             this.newMem_addCity.Size = new System.Drawing.Size(207, 26);
-            this.newMem_addCity.TabIndex = 12;
+            this.newMem_addCity.TabIndex = 6;
             // 
             // label8
             // 
@@ -308,10 +321,10 @@
             // 
             this.newMem_addStreet.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newMem_addStreet.Location = new System.Drawing.Point(75, 297);
-            this.newMem_addStreet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.newMem_addStreet.Margin = new System.Windows.Forms.Padding(4);
             this.newMem_addStreet.Name = "newMem_addStreet";
             this.newMem_addStreet.Size = new System.Drawing.Size(668, 26);
-            this.newMem_addStreet.TabIndex = 10;
+            this.newMem_addStreet.TabIndex = 5;
             // 
             // label7
             // 
@@ -337,19 +350,19 @@
             // 
             this.newMem_email.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newMem_email.Location = new System.Drawing.Point(71, 150);
-            this.newMem_email.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.newMem_email.Margin = new System.Windows.Forms.Padding(4);
             this.newMem_email.Name = "newMem_email";
             this.newMem_email.Size = new System.Drawing.Size(503, 26);
-            this.newMem_email.TabIndex = 7;
+            this.newMem_email.TabIndex = 3;
             // 
             // newMem_lastName
             // 
             this.newMem_lastName.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newMem_lastName.Location = new System.Drawing.Point(515, 102);
-            this.newMem_lastName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.newMem_lastName.Margin = new System.Windows.Forms.Padding(4);
             this.newMem_lastName.Name = "newMem_lastName";
             this.newMem_lastName.Size = new System.Drawing.Size(244, 26);
-            this.newMem_lastName.TabIndex = 6;
+            this.newMem_lastName.TabIndex = 2;
             // 
             // label4
             // 
@@ -366,10 +379,10 @@
             // 
             this.newMem_firstName.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newMem_firstName.Location = new System.Drawing.Point(107, 102);
-            this.newMem_firstName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.newMem_firstName.Margin = new System.Windows.Forms.Padding(4);
             this.newMem_firstName.Name = "newMem_firstName";
             this.newMem_firstName.Size = new System.Drawing.Size(244, 26);
-            this.newMem_firstName.TabIndex = 4;
+            this.newMem_firstName.TabIndex = 1;
             // 
             // label2
             // 
@@ -411,32 +424,35 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "New Member";
             // 
-            // label16
+            // newMem_expMonth
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.label16.Location = new System.Drawing.Point(19, 205);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(102, 19);
-            this.label16.TabIndex = 27;
-            this.label16.Text = "Phone Number";
+            this.newMem_expMonth.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newMem_expMonth.Location = new System.Drawing.Point(328, 501);
+            this.newMem_expMonth.Margin = new System.Windows.Forms.Padding(4);
+            this.newMem_expMonth.MaxLength = 2;
+            this.newMem_expMonth.Name = "newMem_expMonth";
+            this.newMem_expMonth.Size = new System.Drawing.Size(52, 26);
+            this.newMem_expMonth.TabIndex = 11;
             // 
-            // newMem_phoneNumber
+            // label17
             // 
-            this.newMem_phoneNumber.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newMem_phoneNumber.Location = new System.Drawing.Point(128, 201);
-            this.newMem_phoneNumber.Margin = new System.Windows.Forms.Padding(4);
-            this.newMem_phoneNumber.Name = "newMem_phoneNumber";
-            this.newMem_phoneNumber.Size = new System.Drawing.Size(503, 26);
-            this.newMem_phoneNumber.TabIndex = 28;
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.label17.Location = new System.Drawing.Point(387, 505);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(14, 19);
+            this.label17.TabIndex = 30;
+            this.label17.Text = "/";
             // 
-            // newMem_expDateSelect
+            // newMem_expDay
             // 
-            this.newMem_expDateSelect.Location = new System.Drawing.Point(543, 518);
-            this.newMem_expDateSelect.MaxSelectionCount = 1;
-            this.newMem_expDateSelect.Name = "newMem_expDateSelect";
-            this.newMem_expDateSelect.TabIndex = 29;
-            this.newMem_expDateSelect.Visible = false;
+            this.newMem_expDay.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newMem_expDay.Location = new System.Drawing.Point(408, 501);
+            this.newMem_expDay.Margin = new System.Windows.Forms.Padding(4);
+            this.newMem_expDay.MaxLength = 2;
+            this.newMem_expDay.Name = "newMem_expDay";
+            this.newMem_expDay.Size = new System.Drawing.Size(52, 26);
+            this.newMem_expDay.TabIndex = 12;
             // 
             // Main
             // 
@@ -483,17 +499,18 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox newMem_subLength;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox newMem_exp;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox newMem_cvc;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox newMem_ccNumber;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button newMem_submit;
         private System.Windows.Forms.TextBox newMem_phoneNumber;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.MonthCalendar newMem_expDateSelect;
+        private System.Windows.Forms.TextBox newMem_expDay;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox newMem_expMonth;
     }
 }
 
