@@ -65,8 +65,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel_home = new System.Windows.Forms.Panel();
-            this.label18 = new System.Windows.Forms.Label();
             this.panel_searchMem = new System.Windows.Forms.Panel();
             this.searchMem_panel_Results = new System.Windows.Forms.Panel();
             this.label24 = new System.Windows.Forms.Label();
@@ -118,20 +116,41 @@
             this.label42 = new System.Windows.Forms.Label();
             this.searchMem_bttn_update = new System.Windows.Forms.Button();
             this.searchMem_bttn_removeMem = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.panel_home = new System.Windows.Forms.Panel();
+            this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newProviderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripDropDownButton3 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.searchToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.newOperatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.panel_searchProvider = new System.Windows.Forms.Panel();
+            this.label43 = new System.Windows.Forms.Label();
+            this.panel_newProvider = new System.Windows.Forms.Panel();
+            this.label44 = new System.Windows.Forms.Label();
+            this.pane_print = new System.Windows.Forms.Panel();
+            this.label45 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.panel_newMember.SuspendLayout();
-            this.panel_home.SuspendLayout();
             this.panel_searchMem.SuspendLayout();
             this.searchMem_panel_Results.SuspendLayout();
             this.searchMem_panel_Name.SuspendLayout();
             this.searchMem_panel_ID.SuspendLayout();
+            this.panel_home.SuspendLayout();
+            this.panel_searchProvider.SuspendLayout();
+            this.panel_newProvider.SuspendLayout();
+            this.pane_print.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
             // 
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripDropDownButton1});
+            this.toolStripDropDownButton1,
+            this.toolStripDropDownButton2,
+            this.toolStripDropDownButton3,
+            this.toolStripLabel1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1123, 25);
@@ -153,7 +172,7 @@
             // toolMenu_search
             // 
             this.toolMenu_search.Name = "toolMenu_search";
-            this.toolMenu_search.Size = new System.Drawing.Size(146, 22);
+            this.toolMenu_search.Size = new System.Drawing.Size(180, 22);
             this.toolMenu_search.Tag = "mem_search";
             this.toolMenu_search.Text = "Search";
             this.toolMenu_search.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
@@ -161,7 +180,7 @@
             // newMemberToolStripMenuItem
             // 
             this.newMemberToolStripMenuItem.Name = "newMemberToolStripMenuItem";
-            this.newMemberToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.newMemberToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newMemberToolStripMenuItem.Tag = "newMember";
             this.newMemberToolStripMenuItem.Text = "New Member";
             this.newMemberToolStripMenuItem.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
@@ -516,26 +535,6 @@
             this.label1.Size = new System.Drawing.Size(191, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "New Member";
-            // 
-            // panel_home
-            // 
-            this.panel_home.Controls.Add(this.label18);
-            this.panel_home.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_home.Location = new System.Drawing.Point(0, 0);
-            this.panel_home.Name = "panel_home";
-            this.panel_home.Size = new System.Drawing.Size(1123, 782);
-            this.panel_home.TabIndex = 31;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(9, 22);
-            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(95, 37);
-            this.label18.TabIndex = 1;
-            this.label18.Text = "Home";
             // 
             // panel_searchMem
             // 
@@ -1075,15 +1074,153 @@
             this.searchMem_bttn_removeMem.Text = "Remove Member";
             this.searchMem_bttn_removeMem.UseVisualStyleBackColor = true;
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(9, 22);
+            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(95, 37);
+            this.label18.TabIndex = 1;
+            this.label18.Text = "Home";
+            // 
+            // panel_home
+            // 
+            this.panel_home.Controls.Add(this.label18);
+            this.panel_home.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_home.Location = new System.Drawing.Point(0, 0);
+            this.panel_home.Name = "panel_home";
+            this.panel_home.Size = new System.Drawing.Size(1123, 782);
+            this.panel_home.TabIndex = 31;
+            // 
+            // toolStripDropDownButton2
+            // 
+            this.toolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.searchToolStripMenuItem,
+            this.newProviderToolStripMenuItem});
+            this.toolStripDropDownButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton2.Image")));
+            this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
+            this.toolStripDropDownButton2.Size = new System.Drawing.Size(91, 22);
+            this.toolStripDropDownButton2.Text = "New Provider";
+            // 
+            // searchToolStripMenuItem
+            // 
+            this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.searchToolStripMenuItem.Text = "Search";
+            // 
+            // newProviderToolStripMenuItem
+            // 
+            this.newProviderToolStripMenuItem.Name = "newProviderToolStripMenuItem";
+            this.newProviderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newProviderToolStripMenuItem.Text = "New Provider";
+            // 
+            // toolStripDropDownButton3
+            // 
+            this.toolStripDropDownButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripDropDownButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.searchToolStripMenuItem1,
+            this.newOperatorToolStripMenuItem});
+            this.toolStripDropDownButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton3.Image")));
+            this.toolStripDropDownButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton3.Name = "toolStripDropDownButton3";
+            this.toolStripDropDownButton3.Size = new System.Drawing.Size(67, 22);
+            this.toolStripDropDownButton3.Text = "Operator";
+            // 
+            // searchToolStripMenuItem1
+            // 
+            this.searchToolStripMenuItem1.Name = "searchToolStripMenuItem1";
+            this.searchToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.searchToolStripMenuItem1.Text = "Search";
+            // 
+            // newOperatorToolStripMenuItem
+            // 
+            this.newOperatorToolStripMenuItem.Name = "newOperatorToolStripMenuItem";
+            this.newOperatorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newOperatorToolStripMenuItem.Text = "New Operator";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(32, 22);
+            this.toolStripLabel1.Text = "Print";
+            // 
+            // panel_searchProvider
+            // 
+            this.panel_searchProvider.Controls.Add(this.label43);
+            this.panel_searchProvider.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_searchProvider.Location = new System.Drawing.Point(0, 0);
+            this.panel_searchProvider.Name = "panel_searchProvider";
+            this.panel_searchProvider.Size = new System.Drawing.Size(1123, 782);
+            this.panel_searchProvider.TabIndex = 33;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.Location = new System.Drawing.Point(2, 29);
+            this.label43.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(220, 37);
+            this.label43.TabIndex = 3;
+            this.label43.Text = "Search Provider";
+            this.label43.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel_newProvider
+            // 
+            this.panel_newProvider.Controls.Add(this.label44);
+            this.panel_newProvider.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_newProvider.Location = new System.Drawing.Point(0, 0);
+            this.panel_newProvider.Name = "panel_newProvider";
+            this.panel_newProvider.Size = new System.Drawing.Size(1123, 782);
+            this.panel_newProvider.TabIndex = 34;
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.Location = new System.Drawing.Point(7, 29);
+            this.label44.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(193, 37);
+            this.label44.TabIndex = 3;
+            this.label44.Text = "New Provider";
+            // 
+            // pane_print
+            // 
+            this.pane_print.Controls.Add(this.label45);
+            this.pane_print.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pane_print.Location = new System.Drawing.Point(0, 0);
+            this.pane_print.Name = "pane_print";
+            this.pane_print.Size = new System.Drawing.Size(1123, 782);
+            this.pane_print.TabIndex = 35;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.Location = new System.Drawing.Point(13, 29);
+            this.label45.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(232, 37);
+            this.label45.TabIndex = 4;
+            this.label45.Text = "Print Documents";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1123, 782);
             this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.panel_newProvider);
+            this.Controls.Add(this.panel_searchProvider);
             this.Controls.Add(this.panel_searchMem);
             this.Controls.Add(this.panel_newMember);
             this.Controls.Add(this.panel_home);
+            this.Controls.Add(this.pane_print);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Main";
             this.Text = "Choholics Data Center";
@@ -1091,8 +1228,6 @@
             this.toolStrip1.PerformLayout();
             this.panel_newMember.ResumeLayout(false);
             this.panel_newMember.PerformLayout();
-            this.panel_home.ResumeLayout(false);
-            this.panel_home.PerformLayout();
             this.panel_searchMem.ResumeLayout(false);
             this.panel_searchMem.PerformLayout();
             this.searchMem_panel_Results.ResumeLayout(false);
@@ -1101,6 +1236,14 @@
             this.searchMem_panel_Name.PerformLayout();
             this.searchMem_panel_ID.ResumeLayout(false);
             this.searchMem_panel_ID.PerformLayout();
+            this.panel_home.ResumeLayout(false);
+            this.panel_home.PerformLayout();
+            this.panel_searchProvider.ResumeLayout(false);
+            this.panel_searchProvider.PerformLayout();
+            this.panel_newProvider.ResumeLayout(false);
+            this.panel_newProvider.PerformLayout();
+            this.pane_print.ResumeLayout(false);
+            this.pane_print.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1144,8 +1287,6 @@
         private System.Windows.Forms.TextBox newMem_expDay;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox newMem_expMonth;
-        private System.Windows.Forms.Panel panel_home;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Panel panel_searchMem;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Panel searchMem_panel_ID;
@@ -1197,6 +1338,21 @@
         private System.Windows.Forms.TextBox searchMem_res_memID;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
+        private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newProviderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton3;
+        private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem newOperatorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Panel panel_home;
+        private System.Windows.Forms.Panel panel_searchProvider;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Panel panel_newProvider;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Panel pane_print;
+        private System.Windows.Forms.Label label45;
     }
 }
 
