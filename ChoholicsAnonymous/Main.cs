@@ -62,6 +62,7 @@ namespace ChoholicsAnonymous
         }
 
         #region navigation menu handlers 
+        //swtich between panels when navigation toolbar is clicked 
         private void searchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ToolStripMenuItem item = (ToolStripMenuItem)sender;
@@ -70,7 +71,7 @@ namespace ChoholicsAnonymous
             switch (item.Tag)
             {
                 case "mem_search":
-                    
+                    panel_searchMem.Visible = true; 
                     break;
                 case "newMember":
                     panel_newMember.Visible = true; 
@@ -95,6 +96,11 @@ namespace ChoholicsAnonymous
             }
         }
         #endregion
+
+        private void searchMem_rad_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

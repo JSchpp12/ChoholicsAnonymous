@@ -68,6 +68,10 @@
             this.panel_home = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.panel_searchMem = new System.Windows.Forms.Panel();
+            this.searchMem_panel_ID = new System.Windows.Forms.Panel();
+            this.searchMem_radName = new System.Windows.Forms.RadioButton();
+            this.label20 = new System.Windows.Forms.Label();
+            this.searchMem_radID = new System.Windows.Forms.RadioButton();
             this.label19 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.panel_newMember.SuspendLayout();
@@ -82,7 +86,7 @@
             this.toolStripDropDownButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1335, 31);
+            this.toolStrip1.Size = new System.Drawing.Size(1335, 27);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -95,7 +99,7 @@
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(79, 28);
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(79, 24);
             this.toolStripDropDownButton1.Text = "Member";
             // 
             // toolMenu_search
@@ -158,7 +162,7 @@
             // 
             this.newMem_expDay.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newMem_expDay.Location = new System.Drawing.Point(407, 524);
-            this.newMem_expDay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.newMem_expDay.Margin = new System.Windows.Forms.Padding(4);
             this.newMem_expDay.MaxLength = 2;
             this.newMem_expDay.Name = "newMem_expDay";
             this.newMem_expDay.Size = new System.Drawing.Size(52, 26);
@@ -178,7 +182,7 @@
             // 
             this.newMem_expMonth.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newMem_expMonth.Location = new System.Drawing.Point(327, 524);
-            this.newMem_expMonth.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.newMem_expMonth.Margin = new System.Windows.Forms.Padding(4);
             this.newMem_expMonth.MaxLength = 2;
             this.newMem_expMonth.Name = "newMem_expMonth";
             this.newMem_expMonth.Size = new System.Drawing.Size(52, 26);
@@ -188,7 +192,7 @@
             // 
             this.newMem_phoneNumber.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newMem_phoneNumber.Location = new System.Drawing.Point(127, 224);
-            this.newMem_phoneNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.newMem_phoneNumber.Margin = new System.Windows.Forms.Padding(4);
             this.newMem_phoneNumber.Name = "newMem_phoneNumber";
             this.newMem_phoneNumber.Size = new System.Drawing.Size(503, 26);
             this.newMem_phoneNumber.TabIndex = 4;
@@ -207,7 +211,7 @@
             // 
             this.newMem_submit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newMem_submit.Location = new System.Drawing.Point(19, 648);
-            this.newMem_submit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.newMem_submit.Margin = new System.Windows.Forms.Padding(4);
             this.newMem_submit.Name = "newMem_submit";
             this.newMem_submit.Size = new System.Drawing.Size(117, 43);
             this.newMem_submit.TabIndex = 14;
@@ -226,7 +230,7 @@
             "8 Months ",
             "12 Months "});
             this.newMem_subLength.Location = new System.Drawing.Point(239, 590);
-            this.newMem_subLength.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.newMem_subLength.Margin = new System.Windows.Forms.Padding(4);
             this.newMem_subLength.Name = "newMem_subLength";
             this.newMem_subLength.Size = new System.Drawing.Size(160, 25);
             this.newMem_subLength.TabIndex = 13;
@@ -255,7 +259,7 @@
             // 
             this.newMem_cvc.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newMem_cvc.Location = new System.Drawing.Point(62, 524);
-            this.newMem_cvc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.newMem_cvc.Margin = new System.Windows.Forms.Padding(4);
             this.newMem_cvc.MaxLength = 3;
             this.newMem_cvc.Name = "newMem_cvc";
             this.newMem_cvc.Size = new System.Drawing.Size(100, 26);
@@ -275,7 +279,7 @@
             // 
             this.newMem_ccNumber.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newMem_ccNumber.Location = new System.Drawing.Point(170, 483);
-            this.newMem_ccNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.newMem_ccNumber.Margin = new System.Windows.Forms.Padding(4);
             this.newMem_ccNumber.Name = "newMem_ccNumber";
             this.newMem_ccNumber.Size = new System.Drawing.Size(453, 26);
             this.newMem_ccNumber.TabIndex = 9;
@@ -304,7 +308,7 @@
             // 
             this.newMem_addPCode.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newMem_addPCode.Location = new System.Drawing.Point(700, 369);
-            this.newMem_addPCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.newMem_addPCode.Margin = new System.Windows.Forms.Padding(4);
             this.newMem_addPCode.Name = "newMem_addPCode";
             this.newMem_addPCode.Size = new System.Drawing.Size(141, 26);
             this.newMem_addPCode.TabIndex = 8;
@@ -323,7 +327,7 @@
             // 
             this.newMem_addState.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newMem_addState.Location = new System.Drawing.Point(390, 369);
-            this.newMem_addState.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.newMem_addState.Margin = new System.Windows.Forms.Padding(4);
             this.newMem_addState.Name = "newMem_addState";
             this.newMem_addState.Size = new System.Drawing.Size(141, 26);
             this.newMem_addState.TabIndex = 7;
@@ -342,7 +346,7 @@
             // 
             this.newMem_addCity.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newMem_addCity.Location = new System.Drawing.Point(59, 369);
-            this.newMem_addCity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.newMem_addCity.Margin = new System.Windows.Forms.Padding(4);
             this.newMem_addCity.Name = "newMem_addCity";
             this.newMem_addCity.Size = new System.Drawing.Size(207, 26);
             this.newMem_addCity.TabIndex = 6;
@@ -361,7 +365,7 @@
             // 
             this.newMem_addStreet.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newMem_addStreet.Location = new System.Drawing.Point(74, 320);
-            this.newMem_addStreet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.newMem_addStreet.Margin = new System.Windows.Forms.Padding(4);
             this.newMem_addStreet.Name = "newMem_addStreet";
             this.newMem_addStreet.Size = new System.Drawing.Size(668, 26);
             this.newMem_addStreet.TabIndex = 5;
@@ -390,7 +394,7 @@
             // 
             this.newMem_email.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newMem_email.Location = new System.Drawing.Point(70, 173);
-            this.newMem_email.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.newMem_email.Margin = new System.Windows.Forms.Padding(4);
             this.newMem_email.Name = "newMem_email";
             this.newMem_email.Size = new System.Drawing.Size(503, 26);
             this.newMem_email.TabIndex = 3;
@@ -399,7 +403,7 @@
             // 
             this.newMem_lastName.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newMem_lastName.Location = new System.Drawing.Point(514, 125);
-            this.newMem_lastName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.newMem_lastName.Margin = new System.Windows.Forms.Padding(4);
             this.newMem_lastName.Name = "newMem_lastName";
             this.newMem_lastName.Size = new System.Drawing.Size(244, 26);
             this.newMem_lastName.TabIndex = 2;
@@ -419,7 +423,7 @@
             // 
             this.newMem_firstName.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newMem_firstName.Location = new System.Drawing.Point(106, 125);
-            this.newMem_firstName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.newMem_firstName.Margin = new System.Windows.Forms.Padding(4);
             this.newMem_firstName.Name = "newMem_firstName";
             this.newMem_firstName.Size = new System.Drawing.Size(244, 26);
             this.newMem_firstName.TabIndex = 1;
@@ -469,7 +473,7 @@
             this.panel_home.Controls.Add(this.label18);
             this.panel_home.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_home.Location = new System.Drawing.Point(0, 0);
-            this.panel_home.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel_home.Margin = new System.Windows.Forms.Padding(4);
             this.panel_home.Name = "panel_home";
             this.panel_home.Size = new System.Drawing.Size(1335, 756);
             this.panel_home.TabIndex = 31;
@@ -486,12 +490,61 @@
             // 
             // panel_searchMem
             // 
+            this.panel_searchMem.Controls.Add(this.searchMem_panel_ID);
+            this.panel_searchMem.Controls.Add(this.searchMem_radName);
+            this.panel_searchMem.Controls.Add(this.label20);
+            this.panel_searchMem.Controls.Add(this.searchMem_radID);
             this.panel_searchMem.Controls.Add(this.label19);
             this.panel_searchMem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_searchMem.Location = new System.Drawing.Point(0, 0);
             this.panel_searchMem.Name = "panel_searchMem";
             this.panel_searchMem.Size = new System.Drawing.Size(1335, 756);
             this.panel_searchMem.TabIndex = 32;
+            // 
+            // searchMem_panel_ID
+            // 
+            this.searchMem_panel_ID.Location = new System.Drawing.Point(26, 177);
+            this.searchMem_panel_ID.Name = "searchMem_panel_ID";
+            this.searchMem_panel_ID.Size = new System.Drawing.Size(614, 185);
+            this.searchMem_panel_ID.TabIndex = 6;
+            // 
+            // searchMem_radName
+            // 
+            this.searchMem_radName.AutoSize = true;
+            this.searchMem_radName.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchMem_radName.Location = new System.Drawing.Point(184, 145);
+            this.searchMem_radName.Name = "searchMem_radName";
+            this.searchMem_radName.Size = new System.Drawing.Size(122, 23);
+            this.searchMem_radName.TabIndex = 5;
+            this.searchMem_radName.TabStop = true;
+            this.searchMem_radName.Tag = "memName";
+            this.searchMem_radName.Text = "Member Name";
+            this.searchMem_radName.UseVisualStyleBackColor = true;
+            this.searchMem_radName.CheckedChanged += new System.EventHandler(this.searchMem_rad_CheckedChanged);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Segoe UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(16, 96);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(162, 32);
+            this.label20.TabIndex = 4;
+            this.label20.Text = "Search Criteria";
+            // 
+            // searchMem_radID
+            // 
+            this.searchMem_radID.AutoSize = true;
+            this.searchMem_radID.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchMem_radID.Location = new System.Drawing.Point(26, 145);
+            this.searchMem_radID.Name = "searchMem_radID";
+            this.searchMem_radID.Size = new System.Drawing.Size(100, 23);
+            this.searchMem_radID.TabIndex = 3;
+            this.searchMem_radID.TabStop = true;
+            this.searchMem_radID.Tag = "memID";
+            this.searchMem_radID.Text = "Member ID";
+            this.searchMem_radID.UseVisualStyleBackColor = true;
+            this.searchMem_radID.CheckedChanged += new System.EventHandler(this.searchMem_rad_CheckedChanged);
             // 
             // label19
             // 
@@ -570,6 +623,10 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Panel panel_searchMem;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Panel searchMem_panel_ID;
+        private System.Windows.Forms.RadioButton searchMem_radName;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.RadioButton searchMem_radID;
     }
 }
 
