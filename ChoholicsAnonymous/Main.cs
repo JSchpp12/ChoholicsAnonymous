@@ -30,11 +30,11 @@ namespace ChoholicsAnonymous
             newMember.LastName               = newMem_lastName.Text;
             newMember.Email                  = newMem_email.Text;
             newMember.PhoneNumber            = newMem_phoneNumber.Text;
-            newMember.Address.street         = newMem_addStreet.Text;
-            newMember.Address.state          = newMem_addState.Text;
-            newMember.Address.city           = newMem_addCity.Text;
-            newMember.Address.postalCode     = newMem_addCity.Text;
-            newMember.Payment.CardNumber     = newMem_ccNumber.Text;
+            newMember.Address.street         = newMem_Street.Text;
+            newMember.Address.state          = newMem_State.Text;
+            newMember.Address.city           = newMem_City.Text;
+            newMember.Address.postalCode     = newMem_City.Text;
+            newMember.Payment.CardNumber     = newMem_ccNum.Text;
             newMember.Payment.Cvc            = newMem_cvc.Text;
 
             if (int.TryParse(newMem_expMonth.Text, out month))
@@ -61,7 +61,30 @@ namespace ChoholicsAnonymous
             MessageBox.Show("Member Successfully Added"); 
         }
 
+        //changes which panel is displayed on the member search page based on which radio button is selected
+        private void searchMem_rad_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton button = (RadioButton)sender; 
+            if (button.Checked){
+                if (button.Tag.ToString() == "memID")
+                {
+                    searchMem_panel_ID.Visible = true;
+                    searchMem_panel_Name.Visible = false; 
+                }
+                else if(button.Tag.ToString() == "memName")
+                {
+                    searchMem_panel_ID.Visible = false;
+                    searchMem_panel_Name.Visible = true; 
+                }
+                else
+                {
+                    MessageBox.Show("An Unknown Error Has Occured when changing panels"); 
+                }
+            }
+        }
+
         #region navigation menu handlers 
+
         //swtich between panels when navigation toolbar is clicked 
         private void searchToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -83,9 +106,11 @@ namespace ChoholicsAnonymous
             Console.Write(sender.ToString());
          }
         #endregion 
+
         #endregion
 
         #region Supporting Methods 
+
         //hides all panels currently in the control (FORM)
         private void hideAllPanels()
         {
@@ -95,12 +120,13 @@ namespace ChoholicsAnonymous
                     c.Visible = false; 
             }
         }
-        #endregion
 
-        private void searchMem_rad_CheckedChanged(object sender, EventArgs e)
+        //want to use to control initilization of panels when they are set to visible 
+        private void panel__VisibleChanged(object sender, EventArgs e)
         {
 
         }
+        #endregion
     }
 
 }
