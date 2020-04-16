@@ -67,9 +67,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel_home = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.panel_newMember.SuspendLayout();
             this.panel_home.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -475,11 +478,30 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(12, 31);
+            this.label18.Location = new System.Drawing.Point(12, 27);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(113, 45);
             this.label18.TabIndex = 1;
             this.label18.Text = "Home";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label19);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1335, 756);
+            this.panel1.TabIndex = 32;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(12, 36);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(264, 45);
+            this.label19.TabIndex = 2;
+            this.label19.Text = "Search Member";
             // 
             // Main
             // 
@@ -487,8 +509,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1335, 756);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.panel_home);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel_newMember);
+            this.Controls.Add(this.panel_home);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Main";
             this.Text = "Choholics Data Center";
@@ -498,6 +521,8 @@
             this.panel_newMember.PerformLayout();
             this.panel_home.ResumeLayout(false);
             this.panel_home.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -543,6 +568,8 @@
         private System.Windows.Forms.TextBox newMem_expMonth;
         private System.Windows.Forms.Panel panel_home;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label19;
     }
 }
 
