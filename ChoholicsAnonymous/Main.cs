@@ -28,8 +28,8 @@ namespace ChoholicsAnonymous
             newMember.address.state = newMem_addState.Text;
             newMember.address.city = newMem_addCity.Text;
             newMember.address.postalCode = newMem_addCity.Text;
-            newMember.ccNumber = newMem_ccNumber.Text; 
-            newMember.
+            newMember.payment.cardNumber = newMem_ccNumber.Text; 
+            //still need to fill out date information 
         }
     }
 }

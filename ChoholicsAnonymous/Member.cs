@@ -14,7 +14,7 @@ namespace ChoholicsAnonymous
         public string phoneNumber { get; set; }
         public int memberID { get; set; }
         public int providerID { get; set; }
-        public int ccNumber { get; set; }
         public Address address { get; set; } 
+        public CreditCard payment { get; set; }
     }
 }
