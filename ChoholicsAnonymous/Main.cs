@@ -127,6 +127,12 @@ namespace ChoholicsAnonymous
 
         }
         #endregion
+
+        //searches for member information and populates GUI with retrieved information 
+        private void searchMem_bttn_search_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

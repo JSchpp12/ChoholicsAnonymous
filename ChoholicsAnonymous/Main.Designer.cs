@@ -666,6 +666,7 @@
             this.searchMem_bttn_search.TabIndex = 7;
             this.searchMem_bttn_search.Text = "Search";
             this.searchMem_bttn_search.UseVisualStyleBackColor = true;
+            this.searchMem_bttn_search.Click += new System.EventHandler(this.searchMem_bttn_search_Click);
             // 
             // searchMem_panel_ID
             // 

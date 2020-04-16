@@ -19,5 +19,17 @@ namespace ChoholicsAnonymous
         {
             memberSet.Add(newMember); 
         }
+
+        /*
+        public static Member searchMember(string firstName, string lastName)
+        {
+
+        }
+
+        public static Member searchMember(int memberID)
+        {
+
+        }
+        */ 
     }
 }
