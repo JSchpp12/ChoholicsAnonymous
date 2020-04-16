@@ -67,12 +67,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel_home = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel_searchMem = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.panel_newMember.SuspendLayout();
             this.panel_home.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.panel_searchMem.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -484,14 +484,14 @@
             this.label18.TabIndex = 1;
             this.label18.Text = "Home";
             // 
-            // panel1
+            // panel_searchMem
             // 
-            this.panel1.Controls.Add(this.label19);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1335, 756);
-            this.panel1.TabIndex = 32;
+            this.panel_searchMem.Controls.Add(this.label19);
+            this.panel_searchMem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_searchMem.Location = new System.Drawing.Point(0, 0);
+            this.panel_searchMem.Name = "panel_searchMem";
+            this.panel_searchMem.Size = new System.Drawing.Size(1335, 756);
+            this.panel_searchMem.TabIndex = 32;
             // 
             // label19
             // 
@@ -509,7 +509,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1335, 756);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel_searchMem);
             this.Controls.Add(this.panel_newMember);
             this.Controls.Add(this.panel_home);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -521,8 +521,8 @@
             this.panel_newMember.PerformLayout();
             this.panel_home.ResumeLayout(false);
             this.panel_home.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panel_searchMem.ResumeLayout(false);
+            this.panel_searchMem.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -568,7 +568,7 @@
         private System.Windows.Forms.TextBox newMem_expMonth;
         private System.Windows.Forms.Panel panel_home;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel_searchMem;
         private System.Windows.Forms.Label label19;
     }
 }
