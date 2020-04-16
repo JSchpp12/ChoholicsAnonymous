@@ -15,7 +15,8 @@ namespace ChoholicsAnonymous
         public Main()
         {
             InitializeComponent();
-            
+            hideAllPanels();
+            panel_home.Visible = true; 
         }
         
         #region UI event handlers
@@ -59,8 +60,40 @@ namespace ChoholicsAnonymous
             DataCenter.AddMember(newMember);
             MessageBox.Show("Member Successfully Added"); 
         }
+
+        #region navigation menu handlers 
+        private void searchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem item = (ToolStripMenuItem)sender;
+            hideAllPanels(); 
+
+            switch (item.Tag)
+            {
+                case "mem_search":
+                    
+                    break;
+                case "newMember":
+                    panel_newMember.Visible = true; 
+                    break;
+                default:
+                    MessageBox.Show("Panel Not Yet Created...");
+                    break;
+            }
+            Console.Write(sender.ToString());
+         }
+        #endregion 
         #endregion
+
         #region Supporting Methods 
+        //hides all panels currently in the control (FORM)
+        private void hideAllPanels()
+        {
+            foreach (Control c in this.Controls)
+            {
+                if (c is Panel)
+                    c.Visible = false; 
+            }
+        }
         #endregion
     }
 
