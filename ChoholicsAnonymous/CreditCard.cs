@@ -8,8 +8,13 @@ namespace ChoholicsAnonymous
 {
     class CreditCard
     {
-        public string cardNumber { get; set; }
-        public string cvc { get; set; }
-        public date expDate { get; set; }
+        public string CardNumber { get; set; }
+        public string Cvc { get; set; }
+        public Date ExpDate { get; set; }
+
+        public CreditCard()
+        {
+            this.ExpDate = new Date(); 
+        }
     }
 }

@@ -8,13 +8,36 @@ namespace ChoholicsAnonymous
 {
     class Member
     {
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public string email { get; set; }
-        public string phoneNumber { get; set; }
-        public int memberID { get; set; }
-        public int providerID { get; set; }
-        public Address address { get; set; } 
-        public CreditCard payment { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+        public string PhoneNumber { get; set; }
+        public int MemberID { get; set; }
+        public int ProviderID { get; set; }
+        public int CCNumber { get; set; }
+        public Address Address { get; set; } 
+        public CreditCard Payment { get; set; }
+        public Date SubscriptionExpiation { get; set; } //when the member's subscription will expire 
+        public Date SubscriptionStart { get; set; } //the day the member started their subscription
+
+        public Member()
+        {
+            String currDate = DateTime.Now.ToString();
+            DateTime dateValue = (Convert.ToDateTime(currDate.ToString()));
+            this.SubscriptionStart = new Date();
+            this.SubscriptionExpiation = new Date();
+            this.Payment = new CreditCard();
+            this.Address = new Address(); 
+
+            this.SubscriptionStart.Day = dateValue.Day;
+            this.SubscriptionStart.Month = dateValue.Month;
+            this.SubscriptionStart.Year = dateValue.Year;
+            this.MemberID = getNewMemberID(); 
+        }
+
+        private int getNewMemberID()
+        {
+            return DataCenter.MemberCount++; 
+        }
     }
 }
