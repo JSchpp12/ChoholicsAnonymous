@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChoholicsAnonymous
 {
-    class Date
+    public class Date
     {
         public int Month { get; set; }
         public int Day { get; set; }

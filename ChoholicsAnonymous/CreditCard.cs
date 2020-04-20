@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChoholicsAnonymous
 {
-    class CreditCard
+   public class CreditCard
     {
         public string CardNumber { get; set; }
         public string Cvc { get; set; }

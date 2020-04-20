@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChoholicsAnonymous
 {
-    class Address
+   public class Address
     {
         public string street { get; set; } 
         public string state { get; set; }

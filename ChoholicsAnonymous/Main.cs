@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Serialization;
+using ChoholicsAnonymous;
+
 
 namespace ChoholicsAnonymous
 {
@@ -16,7 +21,8 @@ namespace ChoholicsAnonymous
         {
             InitializeComponent();
             hideAllPanels();
-            panel_home.Visible = true; 
+            panel_home.Visible = true;
+          readMembers("C:/Users/sagar/source/repos/ChoholicsAnonymous/ChoholicsAnonymous/Member.xml");
         }
         
         #region UI event handlers
@@ -30,16 +36,16 @@ namespace ChoholicsAnonymous
             newMember.LastName               = newMem_lastName.Text;
             newMember.Email                  = newMem_email.Text;
             newMember.PhoneNumber            = newMem_phoneNumber.Text;
-            newMember.Address.street         = newMem_Street.Text;
-            newMember.Address.state          = newMem_State.Text;
-            newMember.Address.city           = newMem_City.Text;
-            newMember.Address.postalCode     = newMem_City.Text;
-            newMember.Payment.CardNumber     = newMem_ccNum.Text;
-            newMember.Payment.Cvc            = newMem_cvc.Text;
+           // newMember.Address.street         = newMem_Street.Text;
+           // newMember.Address.state          = newMem_State.Text;
+            //newMember.Address.city           = newMem_City.Text;
+            //newMember.Address.postalCode     = newMem_City.Text;
+            //newMember.Payment.CardNumber     = newMem_ccNum.Text;
+            //newMember.Payment.Cvc            = newMem_cvc.Text;
 
             if (int.TryParse(newMem_expMonth.Text, out month))
             {
-                newMember.Payment.ExpDate.Month = month;
+               // newMember.Payment.ExpDate.Month = month;
             }
             else
             {
@@ -49,7 +55,7 @@ namespace ChoholicsAnonymous
             }
             if (int.TryParse(newMem_expDay.Text, out day))
             {
-                newMember.Payment.ExpDate.Day = day;
+                //newMember.Payment.ExpDate.Day = day;
             }
             else
             {
@@ -128,9 +134,28 @@ namespace ChoholicsAnonymous
         }
         #endregion
 
+        public void readMembers(string path)
+        {
+
+          XmlSerializer reader = new XmlSerializer(typeof(HashSet<Member>));
+          StreamReader file = new  StreamReader(path);
+          DataCenter.memberSet = (HashSet<Member>)  reader.Deserialize(file);
+            file.Close();
+        }
+
         //searches for member information and populates GUI with retrieved information 
         private void searchMem_bttn_search_Click(object sender, EventArgs e)
         {
+            
+
+            //to write to a file 
+            
+            XmlSerializer serial = new XmlSerializer(typeof(HashSet<Member>));
+            StreamWriter file = new StreamWriter("C:/Users/sagar/source/repos/ChoholicsAnonymous/ChoholicsAnonymous/Member.xml");
+            serial.Serialize(file,DataCenter.memberSet);
+            file.Close();
+           
+
 
         }
 
