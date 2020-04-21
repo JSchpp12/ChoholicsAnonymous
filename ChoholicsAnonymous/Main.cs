@@ -22,7 +22,7 @@ namespace ChoholicsAnonymous
             InitializeComponent();
             hideAllPanels();
             panel_home.Visible = true;
-          readMembers("C:/Users/sagar/source/repos/ChoholicsAnonymous/ChoholicsAnonymous/Member.xml");
+            readMembers("Member.xml");
         }
         
         #region UI event handlers
@@ -134,11 +134,13 @@ namespace ChoholicsAnonymous
         }
         #endregion
 
-        public void readMembers(string path)
+        public void readMembers(string filePath)
         {
+            string path = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName; // return the application.exe current folder
+            string fileName = Path.Combine(path, filePath);
 
-          XmlSerializer reader = new XmlSerializer(typeof(HashSet<Member>));
-          StreamReader file = new  StreamReader(path);
+            XmlSerializer reader = new XmlSerializer(typeof(HashSet<Member>));
+          StreamReader file = new  StreamReader(fileName);
           DataCenter.memberSet = (HashSet<Member>)  reader.Deserialize(file);
             file.Close();
         }
@@ -146,12 +148,15 @@ namespace ChoholicsAnonymous
         //searches for member information and populates GUI with retrieved information 
         private void searchMem_bttn_search_Click(object sender, EventArgs e)
         {
-            
+
 
             //to write to a file 
-            
+            string filePath = "Member.xml";
+            string path = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName; // return the application.exe current folder
+            string fileName = Path.Combine(path, filePath);
+
             XmlSerializer serial = new XmlSerializer(typeof(HashSet<Member>));
-            StreamWriter file = new StreamWriter("C:/Users/sagar/source/repos/ChoholicsAnonymous/ChoholicsAnonymous/Member.xml");
+            StreamWriter file = new StreamWriter(fileName);
             serial.Serialize(file,DataCenter.memberSet);
             file.Close();
            
