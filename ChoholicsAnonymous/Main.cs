@@ -134,13 +134,12 @@ namespace ChoholicsAnonymous
         }
         #endregion
 
-        public void readMembers(string filePath)
+        public void readMembers(string fileName)
         {
-            string path = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName; // return the application.exe current folder
-            string fileName = Path.Combine(path, filePath);
-
+            string path = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
+            string filePath = path.Replace("\\bin\\Debug","\\"+fileName);
             XmlSerializer reader = new XmlSerializer(typeof(HashSet<Member>));
-          StreamReader file = new  StreamReader(fileName);
+          StreamReader file = new  StreamReader(filePath);
           DataCenter.memberSet = (HashSet<Member>)  reader.Deserialize(file);
             file.Close();
         }
@@ -150,13 +149,11 @@ namespace ChoholicsAnonymous
         {
 
 
-            //to write to a file 
-            string filePath = "Member.xml";
-            string path = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName; // return the application.exe current folder
-            string fileName = Path.Combine(path, filePath);
-
+            //to write to a file
+            string path = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
+            string temp = path.Replace("\\bin\\Debug", "\\Member.xml");
             XmlSerializer serial = new XmlSerializer(typeof(HashSet<Member>));
-            StreamWriter file = new StreamWriter(fileName);
+            StreamWriter file = new StreamWriter(temp);
             serial.Serialize(file,DataCenter.memberSet);
             file.Close();
            

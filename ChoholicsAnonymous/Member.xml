@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfMember xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Member>
+    <FirstName>test1</FirstName>
+    <LastName />
+    <Email />
+    <PhoneNumber />
+    <MemberID>0</MemberID>
+    <ProviderID>0</ProviderID>
+    <CCNumber>0</CCNumber>
+    <Address />
+    <Payment>
+      <ExpDate>
+        <Month>0</Month>
+        <Day>0</Day>
+        <Year>0</Year>
+      </ExpDate>
+    </Payment>
+    <SubscriptionExpiation>
+      <Month>0</Month>
+      <Day>0</Day>
+      <Year>0</Year>
+    </SubscriptionExpiation>
+    <SubscriptionStart>
+      <Month>4</Month>
+      <Day>20</Day>
+      <Year>2020</Year>
+    </SubscriptionStart>
+  </Member>
+  <Member>
+    <FirstName>test2</FirstName>
+    <LastName />
+    <Email />
+    <PhoneNumber />
+    <MemberID>1</MemberID>
+    <ProviderID>0</ProviderID>
+    <CCNumber>0</CCNumber>
+    <Address />
+    <Payment>
+      <ExpDate>
+        <Month>0</Month>
+        <Day>0</Day>
+        <Year>0</Year>
+      </ExpDate>
+    </Payment>
+    <SubscriptionExpiation>
+      <Month>0</Month>
+      <Day>0</Day>
+      <Year>0</Year>
+    </SubscriptionExpiation>
+    <SubscriptionStart>
+      <Month>4</Month>
+      <Day>20</Day>
+      <Year>2020</Year>
+    </SubscriptionStart>
+  </Member>
+</ArrayOfMember>
