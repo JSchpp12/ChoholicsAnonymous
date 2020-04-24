@@ -134,6 +134,9 @@ namespace ChoholicsAnonymous
 
         }
 
+        private void label61_Click(object sender, EventArgs e)
+        {
+                    }
     }
 
 }
