@@ -11,7 +11,9 @@ using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
 using ChoholicsAnonymous;
-
+using System.Runtime.Serialization;
+using System.Xml.Linq;
+using Newtonsoft.Json;
 
 namespace ChoholicsAnonymous
 {
@@ -22,22 +24,22 @@ namespace ChoholicsAnonymous
             InitializeComponent();
             hideAllPanels();
             panel_home.Visible = true;
-            readMembers("Member.xml");
+            //  readMembers("Member.xml");
         }
-        
+
         #region UI event handlers
         //submit the new member information from the form to memory 
         private void newMem_submit_Click_1(object sender, EventArgs e)
         {
-            int day, month; 
+            int day, month;
 
             Member newMember = new Member();
-            newMember.FirstName              = newMem_firstName.Text;
-            newMember.LastName               = newMem_lastName.Text;
-            newMember.Email                  = newMem_email.Text;
-            newMember.PhoneNumber            = newMem_phoneNumber.Text;
-           // newMember.Address.street         = newMem_Street.Text;
-           // newMember.Address.state          = newMem_State.Text;
+            newMember.FirstName = newMem_firstName.Text;
+            newMember.LastName = newMem_lastName.Text;
+            newMember.Email = newMem_email.Text;
+            newMember.PhoneNumber = newMem_phoneNumber.Text;
+            // newMember.Address.street         = newMem_Street.Text;
+            // newMember.Address.state          = newMem_State.Text;
             //newMember.Address.city           = newMem_City.Text;
             //newMember.Address.postalCode     = newMem_City.Text;
             //newMember.Payment.CardNumber     = newMem_ccNum.Text;
@@ -45,13 +47,13 @@ namespace ChoholicsAnonymous
 
             if (int.TryParse(newMem_expMonth.Text, out month))
             {
-               // newMember.Payment.ExpDate.Month = month;
+                // newMember.Payment.ExpDate.Month = month;
             }
             else
             {
                 //throw error 
                 MessageBox.Show("Expiration Month is not in a valid form");
-                return; 
+                return;
             }
             if (int.TryParse(newMem_expDay.Text, out day))
             {
@@ -61,30 +63,30 @@ namespace ChoholicsAnonymous
             {
                 //throw error 
                 MessageBox.Show("Expiration Day is not in a valid form");
-                return; 
+                return;
             }
             DataCenter.AddMember(newMember);
-            MessageBox.Show("Member Successfully Added"); 
+            MessageBox.Show("Member Successfully Added");
         }
 
         //changes which panel is displayed on the member search page based on which radio button is selected
         private void searchMem_rad_CheckedChanged(object sender, EventArgs e)
         {
-            RadioButton button = (RadioButton)sender; 
-            if (button.Checked){
+            RadioButton button = (RadioButton)sender;
+            if (button.Checked) {
                 if (button.Tag.ToString() == "memID")
                 {
                     searchMem_panel_ID.Visible = true;
-                    searchMem_panel_Name.Visible = false; 
+                    searchMem_panel_Name.Visible = false;
                 }
-                else if(button.Tag.ToString() == "memName")
+                else if (button.Tag.ToString() == "memName")
                 {
                     searchMem_panel_ID.Visible = false;
-                    searchMem_panel_Name.Visible = true; 
+                    searchMem_panel_Name.Visible = true;
                 }
                 else
                 {
-                    MessageBox.Show("An Unknown Error Has Occured when changing panels"); 
+                    MessageBox.Show("An Unknown Error Has Occured when changing panels");
                 }
             }
         }
@@ -95,22 +97,22 @@ namespace ChoholicsAnonymous
         private void searchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ToolStripMenuItem item = (ToolStripMenuItem)sender;
-            hideAllPanels(); 
+            hideAllPanels();
 
             switch (item.Tag)
             {
                 case "mem_search":
-                    panel_searchMem.Visible = true; 
+                    panel_searchMem.Visible = true;
                     break;
                 case "newMember":
-                    panel_newMember.Visible = true; 
+                    panel_newMember.Visible = true;
                     break;
                 default:
                     MessageBox.Show("Panel Not Yet Created...");
                     break;
             }
             Console.Write(sender.ToString());
-         }
+        }
         #endregion 
 
         #endregion
@@ -123,7 +125,7 @@ namespace ChoholicsAnonymous
             foreach (Control c in this.Controls)
             {
                 if (c is Panel)
-                    c.Visible = false; 
+                    c.Visible = false;
             }
         }
 
@@ -137,10 +139,10 @@ namespace ChoholicsAnonymous
         public void readMembers(string fileName)
         {
             string path = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
-            string filePath = path.Replace("\\bin\\Debug","\\"+fileName);
+            string filePath = path.Replace("\\bin\\Debug", "\\" + fileName);
             XmlSerializer reader = new XmlSerializer(typeof(HashSet<Member>));
-          StreamReader file = new  StreamReader(filePath);
-          DataCenter.memberSet = (HashSet<Member>)  reader.Deserialize(file);
+            StreamReader file = new StreamReader(filePath);
+            //  DataCenter.memberSet = (HashSet<Member>)  reader.Deserialize(file);
             file.Close();
         }
 
@@ -150,17 +152,45 @@ namespace ChoholicsAnonymous
 
 
             //to write to a file
-            string path = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
-            string temp = path.Replace("\\bin\\Debug", "\\Member.xml");
-            XmlSerializer serial = new XmlSerializer(typeof(HashSet<Member>));
-            StreamWriter file = new StreamWriter(temp);
-            serial.Serialize(file,DataCenter.memberSet);
-            file.Close();
+            /*  string path = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
+              string temp = path.Replace("\\bin\\Debug", "\\Member.xml");
+              XmlSerializer serial = new XmlSerializer(typeof(HashSet<Member>));
+              StreamWriter file = new StreamWriter(temp);
+              serial.Serialize(file,DataCenter.memberSet);
+              file.Close();
+             */
+
+            var myJson = JsonConvert.SerializeObject(DataCenter.memberSet);
+            var myXml = JsonConvert.DeserializeXNode(myJson.ToString(), "root");
+            myXml.Save("123.xml");
+
+            //To search
+            DataCenter.searchMember(2);
+
+            //To delete
+
+
+            //To update
            
+
+
+
 
 
         }
 
+        private void searchMem_bttn_update_Click(object sender, EventArgs e)
+        {
+            DataCenter.memberSet[1].Email = searchMem_res_email.Text;
+        }
+
+        private void searchMem_bttn_removeMem_Click(object sender, EventArgs e)
+        {
+            int memberId = 0; //need to pass it dynamically
+            DataCenter.memberSet.Remove(memberId);
+        }
     }
 
-}
+    }
+
+

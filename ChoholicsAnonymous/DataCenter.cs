@@ -12,13 +12,13 @@ namespace ChoholicsAnonymous
     {
         public static int MemberCount { get; set; }
         public static int ProviderCount { get; set; }
-        public static HashSet<Member> memberSet = new HashSet<Member>();
+        public static Dictionary<int, Member> memberSet = new Dictionary<int, Member>();
         private static HashSet<Provider> providerSet = new HashSet<Provider>();
 
         //add a member to the data set
         public static void AddMember(Member newMember)
         {
-            memberSet.Add(newMember); 
+            memberSet.Add(newMember.MemberID, newMember); 
         }
 
         /*
@@ -31,22 +31,22 @@ namespace ChoholicsAnonymous
         public static Member searchMember(int memberID)
         {
             Member memberObj = new Member();
-            //XmlDocument doc = new XmlDocument();
-            //doc.Load("Member.xml");
-            //foreach (XmlNode node in doc.DocumentElement)
-            //{
-            //    int id = Int32.Parse(node.Attributes[0].InnerText);
-            //    if(id == memberID)
-            //    {
-            //        foreach (XmlNode child in doc.ChildNodes)
-            //        {
-            //            Console.WriteLine(child.InnerText);
-            //        }
-            //    }
-            //}
+            //DataCenter.memberSet.Contains(object.Member())
+            if(DataCenter.memberSet.ContainsKey(memberID))
+            {
+                memberObj = memberSet[memberID];
+            }
+
 
             return memberObj;
         }
+
+        public static  void deleteMember(int memberID)
+        {
+            DataCenter.memberSet.Remove(memberID);
+        }
+
+       
         
     }
 }
