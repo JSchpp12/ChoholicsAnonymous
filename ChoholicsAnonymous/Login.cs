@@ -59,34 +59,50 @@ namespace ChoholicsAnonymous
             if (User.Manager == true)
             {
                 if (verifyLogin(login_managerID.ToString()))
-                    User.UserID = login_managerID.ToString(); 
+                    User.UserID = login_managerID.ToString();
+                else
+                    invalidID = true; 
             }
             if (User.Operator == true)
             {
                 if (verifyLogin(login_operatorID.ToString()))
                     User.UserID = login_operatorID.ToString();
+                else
+                    invalidID = true; 
             }
             if (User.Provider == true)
             {
                 if (verifyLogin(login_providerID.ToString()))
-                    User.UserID = login_providerID.ToString(); 
+                    User.UserID = login_providerID.ToString();
+                else
+                    invalidID = true; 
             }
-            try
+            if (!invalidID)
             {
-                Form newMainForm = new Main();
-                newMainForm.Show(); 
-                this.Hide(); 
+                try
+                {
+                    Form newMainForm = new Main();
+                    newMainForm.Show();
+                    this.Hide();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while changing pages \n " + ex.Message);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("An error occurred while changing pages \n " + ex.Message); 
+                MessageBox.Show("User ID is invalid"); 
             }
+            
         }
 
         //verifys if the given login is valid, returns true if so 
         private bool verifyLogin(string id)
         {
-            if (id.Length > 0)
+            char temp = id[0]; 
+            //check if the first char is a blank
+            if (id[0] != 'S') 
             {
                 return true;
             }
