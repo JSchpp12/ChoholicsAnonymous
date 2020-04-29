@@ -31,11 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.toolMenu_search = new System.Windows.Forms.ToolStripMenuItem();
-            this.newMemberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip_search = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip_NewMember = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newProviderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip_searchProvider = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip_newProvider = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripDropDownButton3 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolStrip_viewReports = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip_runReports = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip_billing = new System.Windows.Forms.ToolStripButton();
             this.panel_newMember = new System.Windows.Forms.Panel();
             this.newMem_expDay = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -143,10 +147,7 @@
             this.label44 = new System.Windows.Forms.Label();
             this.pane_billing = new System.Windows.Forms.Panel();
             this.label45 = new System.Windows.Forms.Label();
-            this.toolStripDropDownButton3 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.viewReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.runReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripButton_billing = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip_verify = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.panel_newMember.SuspendLayout();
             this.panel_searchMem.SuspendLayout();
@@ -165,7 +166,7 @@
             this.toolStripDropDownButton1,
             this.toolStripDropDownButton2,
             this.toolStripDropDownButton3,
-            this.toolStripButton_billing});
+            this.toolStrip_billing});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1123, 25);
@@ -176,53 +177,87 @@
             // 
             this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolMenu_search,
-            this.newMemberToolStripMenuItem});
+            this.toolStrip_verify,
+            this.toolStrip_search,
+            this.toolStrip_NewMember});
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
             this.toolStripDropDownButton1.Size = new System.Drawing.Size(65, 22);
             this.toolStripDropDownButton1.Text = "Member";
             // 
-            // toolMenu_search
+            // toolStrip_search
             // 
-            this.toolMenu_search.Name = "toolMenu_search";
-            this.toolMenu_search.Size = new System.Drawing.Size(180, 22);
-            this.toolMenu_search.Tag = "mem_search";
-            this.toolMenu_search.Text = "Search";
-            this.toolMenu_search.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+            this.toolStrip_search.Name = "toolStrip_search";
+            this.toolStrip_search.Size = new System.Drawing.Size(180, 22);
+            this.toolStrip_search.Tag = "mem_search";
+            this.toolStrip_search.Text = "Search";
+            this.toolStrip_search.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
             // 
-            // newMemberToolStripMenuItem
+            // toolStrip_NewMember
             // 
-            this.newMemberToolStripMenuItem.Name = "newMemberToolStripMenuItem";
-            this.newMemberToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.newMemberToolStripMenuItem.Tag = "newMember";
-            this.newMemberToolStripMenuItem.Text = "New Member";
-            this.newMemberToolStripMenuItem.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+            this.toolStrip_NewMember.Name = "toolStrip_NewMember";
+            this.toolStrip_NewMember.Size = new System.Drawing.Size(180, 22);
+            this.toolStrip_NewMember.Tag = "newMember";
+            this.toolStrip_NewMember.Text = "New Member";
+            this.toolStrip_NewMember.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
             // 
             // toolStripDropDownButton2
             // 
             this.toolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.searchToolStripMenuItem,
-            this.newProviderToolStripMenuItem});
+            this.toolStrip_searchProvider,
+            this.toolStrip_newProvider});
             this.toolStripDropDownButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton2.Image")));
             this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
             this.toolStripDropDownButton2.Size = new System.Drawing.Size(64, 22);
             this.toolStripDropDownButton2.Text = "Provider";
             // 
-            // searchToolStripMenuItem
+            // toolStrip_searchProvider
             // 
-            this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
-            this.searchToolStripMenuItem.Text = "Search";
+            this.toolStrip_searchProvider.Name = "toolStrip_searchProvider";
+            this.toolStrip_searchProvider.Size = new System.Drawing.Size(180, 22);
+            this.toolStrip_searchProvider.Text = "Search";
             // 
-            // newProviderToolStripMenuItem
+            // toolStrip_newProvider
             // 
-            this.newProviderToolStripMenuItem.Name = "newProviderToolStripMenuItem";
-            this.newProviderToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
-            this.newProviderToolStripMenuItem.Text = "New Provider";
+            this.toolStrip_newProvider.Name = "toolStrip_newProvider";
+            this.toolStrip_newProvider.Size = new System.Drawing.Size(180, 22);
+            this.toolStrip_newProvider.Text = "New Provider";
+            // 
+            // toolStripDropDownButton3
+            // 
+            this.toolStripDropDownButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripDropDownButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStrip_viewReports,
+            this.toolStrip_runReports});
+            this.toolStripDropDownButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton3.Image")));
+            this.toolStripDropDownButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton3.Name = "toolStripDropDownButton3";
+            this.toolStripDropDownButton3.Size = new System.Drawing.Size(72, 22);
+            this.toolStripDropDownButton3.Text = "Reporting";
+            // 
+            // toolStrip_viewReports
+            // 
+            this.toolStrip_viewReports.Name = "toolStrip_viewReports";
+            this.toolStrip_viewReports.Size = new System.Drawing.Size(180, 22);
+            this.toolStrip_viewReports.Text = "View Reports";
+            // 
+            // toolStrip_runReports
+            // 
+            this.toolStrip_runReports.Name = "toolStrip_runReports";
+            this.toolStrip_runReports.Size = new System.Drawing.Size(180, 22);
+            this.toolStrip_runReports.Text = "Run Reports";
+            // 
+            // toolStrip_billing
+            // 
+            this.toolStrip_billing.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStrip_billing.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_billing.Image")));
+            this.toolStrip_billing.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_billing.Name = "toolStrip_billing";
+            this.toolStrip_billing.Size = new System.Drawing.Size(44, 22);
+            this.toolStrip_billing.Text = "Billing";
             // 
             // panel_newMember
             // 
@@ -259,7 +294,7 @@
             this.panel_newMember.Controls.Add(this.label1);
             this.panel_newMember.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_newMember.Location = new System.Drawing.Point(0, 0);
-            this.panel_newMember.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel_newMember.Margin = new System.Windows.Forms.Padding(2);
             this.panel_newMember.Name = "panel_newMember";
             this.panel_newMember.Size = new System.Drawing.Size(1123, 782);
             this.panel_newMember.TabIndex = 1;
@@ -587,7 +622,7 @@
             this.panel_searchMem.Controls.Add(this.label19);
             this.panel_searchMem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_searchMem.Location = new System.Drawing.Point(0, 0);
-            this.panel_searchMem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel_searchMem.Margin = new System.Windows.Forms.Padding(2);
             this.panel_searchMem.Name = "panel_searchMem";
             this.panel_searchMem.Size = new System.Drawing.Size(1123, 782);
             this.panel_searchMem.TabIndex = 32;
@@ -981,7 +1016,7 @@
             this.searchMem_panel_Name.Controls.Add(this.searchMem_inFirstName);
             this.searchMem_panel_Name.Controls.Add(this.label22);
             this.searchMem_panel_Name.Location = new System.Drawing.Point(20, 144);
-            this.searchMem_panel_Name.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchMem_panel_Name.Margin = new System.Windows.Forms.Padding(2);
             this.searchMem_panel_Name.Name = "searchMem_panel_Name";
             this.searchMem_panel_Name.Size = new System.Drawing.Size(460, 40);
             this.searchMem_panel_Name.TabIndex = 7;
@@ -1038,7 +1073,7 @@
             this.searchMem_panel_ID.Controls.Add(this.searchMem_inMemID);
             this.searchMem_panel_ID.Controls.Add(this.label21);
             this.searchMem_panel_ID.Location = new System.Drawing.Point(20, 144);
-            this.searchMem_panel_ID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchMem_panel_ID.Margin = new System.Windows.Forms.Padding(2);
             this.searchMem_panel_ID.Name = "searchMem_panel_ID";
             this.searchMem_panel_ID.Size = new System.Drawing.Size(460, 40);
             this.searchMem_panel_ID.TabIndex = 6;
@@ -1066,7 +1101,7 @@
             this.searchMem_radName.AutoSize = true;
             this.searchMem_radName.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchMem_radName.Location = new System.Drawing.Point(138, 118);
-            this.searchMem_radName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchMem_radName.Margin = new System.Windows.Forms.Padding(2);
             this.searchMem_radName.Name = "searchMem_radName";
             this.searchMem_radName.Size = new System.Drawing.Size(99, 17);
             this.searchMem_radName.TabIndex = 5;
@@ -1092,7 +1127,7 @@
             this.searchMem_radID.AutoSize = true;
             this.searchMem_radID.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchMem_radID.Location = new System.Drawing.Point(20, 118);
-            this.searchMem_radID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchMem_radID.Margin = new System.Windows.Forms.Padding(2);
             this.searchMem_radID.Name = "searchMem_radID";
             this.searchMem_radID.Size = new System.Drawing.Size(81, 17);
             this.searchMem_radID.TabIndex = 3;
@@ -1171,7 +1206,7 @@
             // 
             this.newPro_bttn_submit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newPro_bttn_submit.Location = new System.Drawing.Point(23, 392);
-            this.newPro_bttn_submit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.newPro_bttn_submit.Margin = new System.Windows.Forms.Padding(2);
             this.newPro_bttn_submit.Name = "newPro_bttn_submit";
             this.newPro_bttn_submit.Size = new System.Drawing.Size(88, 35);
             this.newPro_bttn_submit.TabIndex = 20;
@@ -1181,7 +1216,7 @@
             // servicesOffered
             // 
             this.servicesOffered.Location = new System.Drawing.Point(24, 350);
-            this.servicesOffered.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.servicesOffered.Margin = new System.Windows.Forms.Padding(2);
             this.servicesOffered.Name = "servicesOffered";
             this.servicesOffered.Size = new System.Drawing.Size(238, 20);
             this.servicesOffered.TabIndex = 19;
@@ -1200,7 +1235,7 @@
             // newPro_postal
             // 
             this.newPro_postal.Location = new System.Drawing.Point(473, 268);
-            this.newPro_postal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.newPro_postal.Margin = new System.Windows.Forms.Padding(2);
             this.newPro_postal.Name = "newPro_postal";
             this.newPro_postal.Size = new System.Drawing.Size(135, 20);
             this.newPro_postal.TabIndex = 17;
@@ -1208,7 +1243,7 @@
             // newPro_state
             // 
             this.newPro_state.Location = new System.Drawing.Point(265, 268);
-            this.newPro_state.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.newPro_state.Margin = new System.Windows.Forms.Padding(2);
             this.newPro_state.Name = "newPro_state";
             this.newPro_state.Size = new System.Drawing.Size(135, 20);
             this.newPro_state.TabIndex = 16;
@@ -1216,7 +1251,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(56, 268);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(135, 20);
             this.textBox2.TabIndex = 15;
@@ -1275,7 +1310,7 @@
             // newPro_phoneNumber
             // 
             this.newPro_phoneNumber.Location = new System.Drawing.Point(106, 155);
-            this.newPro_phoneNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.newPro_phoneNumber.Margin = new System.Windows.Forms.Padding(2);
             this.newPro_phoneNumber.Name = "newPro_phoneNumber";
             this.newPro_phoneNumber.Size = new System.Drawing.Size(185, 20);
             this.newPro_phoneNumber.TabIndex = 9;
@@ -1305,7 +1340,7 @@
             // newProName
             // 
             this.newProName.Location = new System.Drawing.Point(106, 122);
-            this.newProName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.newProName.Margin = new System.Windows.Forms.Padding(2);
             this.newProName.Name = "newProName";
             this.newProName.Size = new System.Drawing.Size(185, 20);
             this.newProName.TabIndex = 6;
@@ -1363,38 +1398,11 @@
             this.label45.TabIndex = 4;
             this.label45.Text = "Billing";
             // 
-            // toolStripDropDownButton3
+            // toolStrip_verify
             // 
-            this.toolStripDropDownButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripDropDownButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewReportsToolStripMenuItem,
-            this.runReportsToolStripMenuItem});
-            this.toolStripDropDownButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton3.Image")));
-            this.toolStripDropDownButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton3.Name = "toolStripDropDownButton3";
-            this.toolStripDropDownButton3.Size = new System.Drawing.Size(72, 22);
-            this.toolStripDropDownButton3.Text = "Reporting";
-            // 
-            // viewReportsToolStripMenuItem
-            // 
-            this.viewReportsToolStripMenuItem.Name = "viewReportsToolStripMenuItem";
-            this.viewReportsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.viewReportsToolStripMenuItem.Text = "View Reports";
-            // 
-            // runReportsToolStripMenuItem
-            // 
-            this.runReportsToolStripMenuItem.Name = "runReportsToolStripMenuItem";
-            this.runReportsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.runReportsToolStripMenuItem.Text = "Run Reports";
-            // 
-            // toolStripButton_billing
-            // 
-            this.toolStripButton_billing.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton_billing.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_billing.Image")));
-            this.toolStripButton_billing.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton_billing.Name = "toolStripButton_billing";
-            this.toolStripButton_billing.Size = new System.Drawing.Size(44, 22);
-            this.toolStripButton_billing.Text = "Billing";
+            this.toolStrip_verify.Name = "toolStrip_verify";
+            this.toolStrip_verify.Size = new System.Drawing.Size(180, 22);
+            this.toolStrip_verify.Text = "Verify";
             // 
             // Main
             // 
@@ -1408,9 +1416,10 @@
             this.Controls.Add(this.pane_billing);
             this.Controls.Add(this.panel_newProvider);
             this.Controls.Add(this.panel_searchProvider);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Main";
             this.Text = "Choholics Data Center";
+            this.Load += new System.EventHandler(this.Main_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel_newMember.ResumeLayout(false);
@@ -1438,8 +1447,8 @@
 
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
-        private System.Windows.Forms.ToolStripMenuItem toolMenu_search;
-        private System.Windows.Forms.ToolStripMenuItem newMemberToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStrip_search;
+        private System.Windows.Forms.ToolStripMenuItem toolStrip_NewMember;
         private System.Windows.Forms.Panel panel_newMember;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
@@ -1524,8 +1533,8 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
-        private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newProviderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStrip_searchProvider;
+        private System.Windows.Forms.ToolStripMenuItem toolStrip_newProvider;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Panel panel_home;
         private System.Windows.Forms.Panel panel_searchProvider;
@@ -1551,9 +1560,10 @@
         private System.Windows.Forms.Button newPro_bttn_submit;
         private System.Windows.Forms.TextBox servicesOffered;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton3;
-        private System.Windows.Forms.ToolStripMenuItem viewReportsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem runReportsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripButton toolStripButton_billing;
+        private System.Windows.Forms.ToolStripMenuItem toolStrip_viewReports;
+        private System.Windows.Forms.ToolStripMenuItem toolStrip_runReports;
+        private System.Windows.Forms.ToolStripButton toolStrip_billing;
+        private System.Windows.Forms.ToolStripMenuItem toolStrip_verify;
     }
 }
 

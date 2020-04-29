@@ -121,7 +121,7 @@ namespace ChoholicsAnonymous
             }
         }
 
-        //want to use to control initilization of panels when they are set to visible 
+        //want to use to control initilization of panels when they are set to visible  --UNUSED--
         private void panel__VisibleChanged(object sender, EventArgs e)
         {
 
@@ -136,6 +136,32 @@ namespace ChoholicsAnonymous
 
         private void label61_Click(object sender, EventArgs e)
         {
+        }
+
+        //customize interface depending on who is viewing the page -- mainly the toolbar 
+        private void Main_Load(object sender, EventArgs e)
+        {
+            //set the toolbar for whichever user is logged in 
+            if (User.Manager == true)
+            {
+                toolStrip_NewMember.Visible      = false;
+                toolStrip_newProvider.Visible    = false;
+                toolStrip_billing.Visible        = false; 
+            }
+            else if (User.Provider == true)
+            {
+                toolStrip_
+
+            }
+            else if (User.Operator == true)
+            {
+                
+
+            }
+            else
+            {
+                MessageBox.Show("User information not set correctly upon login"); 
+            }
         }
     }
 
