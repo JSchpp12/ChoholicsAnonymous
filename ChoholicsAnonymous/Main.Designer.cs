@@ -30,13 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.toolStrip_search = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip_NewMember = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolStrip_member = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolStrip_verifyMember = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip_searchMember = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip_newMember = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip_provider = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStrip_searchProvider = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip_newProvider = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripDropDownButton3 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolStrip_reporting = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStrip_viewReports = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip_runReports = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip_billing = new System.Windows.Forms.ToolStripButton();
@@ -147,7 +148,8 @@
             this.label44 = new System.Windows.Forms.Label();
             this.pane_billing = new System.Windows.Forms.Panel();
             this.label45 = new System.Windows.Forms.Label();
-            this.toolStrip_verify = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip_providerDirectory = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip_print = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.panel_newMember.SuspendLayout();
             this.panel_searchMem.SuspendLayout();
@@ -163,56 +165,64 @@
             // 
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripDropDownButton1,
-            this.toolStripDropDownButton2,
-            this.toolStripDropDownButton3,
-            this.toolStrip_billing});
+            this.toolStrip_member,
+            this.toolStrip_provider,
+            this.toolStrip_reporting,
+            this.toolStrip_billing,
+            this.toolStrip_print});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1123, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripDropDownButton1
+            // toolStrip_member
             // 
-            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStrip_verify,
-            this.toolStrip_search,
-            this.toolStrip_NewMember});
-            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
-            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(65, 22);
-            this.toolStripDropDownButton1.Text = "Member";
+            this.toolStrip_member.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStrip_member.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStrip_verifyMember,
+            this.toolStrip_searchMember,
+            this.toolStrip_newMember});
+            this.toolStrip_member.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_member.Image")));
+            this.toolStrip_member.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_member.Name = "toolStrip_member";
+            this.toolStrip_member.Size = new System.Drawing.Size(65, 22);
+            this.toolStrip_member.Text = "Member";
             // 
-            // toolStrip_search
+            // toolStrip_verifyMember
             // 
-            this.toolStrip_search.Name = "toolStrip_search";
-            this.toolStrip_search.Size = new System.Drawing.Size(180, 22);
-            this.toolStrip_search.Tag = "mem_search";
-            this.toolStrip_search.Text = "Search";
-            this.toolStrip_search.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+            this.toolStrip_verifyMember.Name = "toolStrip_verifyMember";
+            this.toolStrip_verifyMember.Size = new System.Drawing.Size(180, 22);
+            this.toolStrip_verifyMember.Text = "Verify";
             // 
-            // toolStrip_NewMember
+            // toolStrip_searchMember
             // 
-            this.toolStrip_NewMember.Name = "toolStrip_NewMember";
-            this.toolStrip_NewMember.Size = new System.Drawing.Size(180, 22);
-            this.toolStrip_NewMember.Tag = "newMember";
-            this.toolStrip_NewMember.Text = "New Member";
-            this.toolStrip_NewMember.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+            this.toolStrip_searchMember.Name = "toolStrip_searchMember";
+            this.toolStrip_searchMember.Size = new System.Drawing.Size(180, 22);
+            this.toolStrip_searchMember.Tag = "mem_search";
+            this.toolStrip_searchMember.Text = "Search";
+            this.toolStrip_searchMember.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
             // 
-            // toolStripDropDownButton2
+            // toolStrip_newMember
             // 
-            this.toolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStrip_newMember.Name = "toolStrip_newMember";
+            this.toolStrip_newMember.Size = new System.Drawing.Size(180, 22);
+            this.toolStrip_newMember.Tag = "newMember";
+            this.toolStrip_newMember.Text = "New Member";
+            this.toolStrip_newMember.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+            // 
+            // toolStrip_provider
+            // 
+            this.toolStrip_provider.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStrip_provider.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStrip_searchProvider,
-            this.toolStrip_newProvider});
-            this.toolStripDropDownButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton2.Image")));
-            this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
-            this.toolStripDropDownButton2.Size = new System.Drawing.Size(64, 22);
-            this.toolStripDropDownButton2.Text = "Provider";
+            this.toolStrip_newProvider,
+            this.toolStrip_providerDirectory});
+            this.toolStrip_provider.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_provider.Image")));
+            this.toolStrip_provider.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_provider.Name = "toolStrip_provider";
+            this.toolStrip_provider.Size = new System.Drawing.Size(64, 22);
+            this.toolStrip_provider.Text = "Provider";
             // 
             // toolStrip_searchProvider
             // 
@@ -226,17 +236,17 @@
             this.toolStrip_newProvider.Size = new System.Drawing.Size(180, 22);
             this.toolStrip_newProvider.Text = "New Provider";
             // 
-            // toolStripDropDownButton3
+            // toolStrip_reporting
             // 
-            this.toolStripDropDownButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripDropDownButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStrip_reporting.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStrip_reporting.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStrip_viewReports,
             this.toolStrip_runReports});
-            this.toolStripDropDownButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton3.Image")));
-            this.toolStripDropDownButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton3.Name = "toolStripDropDownButton3";
-            this.toolStripDropDownButton3.Size = new System.Drawing.Size(72, 22);
-            this.toolStripDropDownButton3.Text = "Reporting";
+            this.toolStrip_reporting.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_reporting.Image")));
+            this.toolStrip_reporting.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_reporting.Name = "toolStrip_reporting";
+            this.toolStrip_reporting.Size = new System.Drawing.Size(72, 22);
+            this.toolStrip_reporting.Text = "Reporting";
             // 
             // toolStrip_viewReports
             // 
@@ -298,6 +308,7 @@
             this.panel_newMember.Name = "panel_newMember";
             this.panel_newMember.Size = new System.Drawing.Size(1123, 782);
             this.panel_newMember.TabIndex = 1;
+            this.panel_newMember.Visible = false;
             // 
             // newMem_expDay
             // 
@@ -626,6 +637,7 @@
             this.panel_searchMem.Name = "panel_searchMem";
             this.panel_searchMem.Size = new System.Drawing.Size(1123, 782);
             this.panel_searchMem.TabIndex = 32;
+            this.panel_searchMem.Visible = false;
             this.panel_searchMem.VisibleChanged += new System.EventHandler(this.panel__VisibleChanged);
             // 
             // searchMem_panel_Results
@@ -1175,6 +1187,7 @@
             this.panel_searchProvider.Name = "panel_searchProvider";
             this.panel_searchProvider.Size = new System.Drawing.Size(1123, 782);
             this.panel_searchProvider.TabIndex = 33;
+            this.panel_searchProvider.Visible = false;
             // 
             // panel_newProvider
             // 
@@ -1201,6 +1214,7 @@
             this.panel_newProvider.Name = "panel_newProvider";
             this.panel_newProvider.Size = new System.Drawing.Size(1123, 782);
             this.panel_newProvider.TabIndex = 34;
+            this.panel_newProvider.Visible = false;
             // 
             // newPro_bttn_submit
             // 
@@ -1398,11 +1412,20 @@
             this.label45.TabIndex = 4;
             this.label45.Text = "Billing";
             // 
-            // toolStrip_verify
+            // toolStrip_providerDirectory
             // 
-            this.toolStrip_verify.Name = "toolStrip_verify";
-            this.toolStrip_verify.Size = new System.Drawing.Size(180, 22);
-            this.toolStrip_verify.Text = "Verify";
+            this.toolStrip_providerDirectory.Name = "toolStrip_providerDirectory";
+            this.toolStrip_providerDirectory.Size = new System.Drawing.Size(180, 22);
+            this.toolStrip_providerDirectory.Text = "Provider Directory";
+            // 
+            // toolStrip_print
+            // 
+            this.toolStrip_print.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStrip_print.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_print.Image")));
+            this.toolStrip_print.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_print.Name = "toolStrip_print";
+            this.toolStrip_print.Size = new System.Drawing.Size(36, 22);
+            this.toolStrip_print.Text = "Print";
             // 
             // Main
             // 
@@ -1410,12 +1433,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1123, 782);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.panel_searchMem);
-            this.Controls.Add(this.panel_newMember);
             this.Controls.Add(this.panel_home);
             this.Controls.Add(this.pane_billing);
             this.Controls.Add(this.panel_newProvider);
             this.Controls.Add(this.panel_searchProvider);
+            this.Controls.Add(this.panel_searchMem);
+            this.Controls.Add(this.panel_newMember);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Main";
             this.Text = "Choholics Data Center";
@@ -1446,9 +1469,9 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
-        private System.Windows.Forms.ToolStripMenuItem toolStrip_search;
-        private System.Windows.Forms.ToolStripMenuItem toolStrip_NewMember;
+        private System.Windows.Forms.ToolStripDropDownButton toolStrip_member;
+        private System.Windows.Forms.ToolStripMenuItem toolStrip_searchMember;
+        private System.Windows.Forms.ToolStripMenuItem toolStrip_newMember;
         private System.Windows.Forms.Panel panel_newMember;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
@@ -1532,7 +1555,7 @@
         private System.Windows.Forms.TextBox searchMem_res_memID;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
+        private System.Windows.Forms.ToolStripDropDownButton toolStrip_provider;
         private System.Windows.Forms.ToolStripMenuItem toolStrip_searchProvider;
         private System.Windows.Forms.ToolStripMenuItem toolStrip_newProvider;
         private System.Windows.Forms.Label label18;
@@ -1559,11 +1582,13 @@
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Button newPro_bttn_submit;
         private System.Windows.Forms.TextBox servicesOffered;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton3;
+        private System.Windows.Forms.ToolStripDropDownButton toolStrip_reporting;
         private System.Windows.Forms.ToolStripMenuItem toolStrip_viewReports;
         private System.Windows.Forms.ToolStripMenuItem toolStrip_runReports;
         private System.Windows.Forms.ToolStripButton toolStrip_billing;
-        private System.Windows.Forms.ToolStripMenuItem toolStrip_verify;
+        private System.Windows.Forms.ToolStripMenuItem toolStrip_verifyMember;
+        private System.Windows.Forms.ToolStripMenuItem toolStrip_providerDirectory;
+        private System.Windows.Forms.ToolStripButton toolStrip_print;
     }
 }
 

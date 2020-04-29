@@ -100,9 +100,9 @@ namespace ChoholicsAnonymous
         //verifys if the given login is valid, returns true if so 
         private bool verifyLogin(string id)
         {
-            char temp = id[0]; 
+            char temp = id[1]; 
             //check if the first char is a blank
-            if (id[0] != 'S') 
+            if (temp != 'S') 
             {
                 return true;
             }
