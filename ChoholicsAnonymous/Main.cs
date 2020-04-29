@@ -18,8 +18,18 @@ namespace ChoholicsAnonymous
             hideAllPanels();
             panel_home.Visible = true; 
         }
-        
+
         #region UI event handlers
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            hideAllPanels();
+            panel_home.Visible = true; 
+            //show required items
+            initilizeToolbar(); 
+
+        }
+
         //submit the new member information from the form to memory 
         private void newMem_submit_Click_1(object sender, EventArgs e)
         {
@@ -117,14 +127,46 @@ namespace ChoholicsAnonymous
             foreach (Control c in this.Controls)
             {
                 if (c is Panel)
-                    c.Visible = false; 
+                    c.Visible = false;
             }
         }
 
-        //want to use to control initilization of panels when they are set to visible 
+        //want to use to control initilization of panels when they are set to visible  --UNUSED--
         private void panel__VisibleChanged(object sender, EventArgs e)
         {
 
+        }
+
+        //customize the toolbar based on what type of user is logged into system
+        private void initilizeToolbar()
+        {
+            //set the toolbar for whichever user is logged in 
+            if (User.Manager == true)
+            {
+                toolStrip_verifyMember.Visible       = false;
+                toolStrip_newMember.Visible          = false;
+                toolStrip_providerDirectory.Visible  = false;
+                toolStrip_newProvider.Visible        = false;
+                toolStrip_billing.Visible            = false;
+                toolStrip_print.Visible              = false;
+                
+            }
+            else if (User.Provider == true)
+            {
+                toolStrip_newMember.Visible          = false;
+                toolStrip_newProvider.Visible        = false;
+                toolStrip_runReports.Visible         = false;
+                toolStrip_print.Visible              = false; 
+            }
+            else if (User.Operator == true)
+            {
+                toolStrip_billing.Visible            = false;
+                toolStrip_reporting.Visible          = false; 
+            }
+            else
+            {
+                MessageBox.Show("User information not set correctly upon login");
+            }
         }
         #endregion
 
@@ -133,10 +175,6 @@ namespace ChoholicsAnonymous
         {
 
         }
-
-        private void label61_Click(object sender, EventArgs e)
-        {
-                    }
     }
 
 }
