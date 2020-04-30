@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfMember xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Member>
-    <FirstName>test1</FirstName>
-    <LastName />
-    <Email />
-    <PhoneNumber />
+    <FirstName>chand</FirstName>
+    <LastName>Haryani</LastName>
+    <Email>chand@test.com</Email>
+    <PhoneNumber>419111222</PhoneNumber>
     <MemberID>0</MemberID>
     <ProviderID>0</ProviderID>
     <CCNumber>0</CCNumber>
-    <Address />
+    <Address>
+      <street>abc street</street>
+      <state>OH</state>
+      <city>Toledo</city>
+      <postalCode>Toledo</postalCode>
+    </Address>
     <Payment>
+      <CardNumber>12345678989</CardNumber>
+      <Cvc>123</Cvc>
       <ExpDate>
-        <Month>0</Month>
-        <Day>0</Day>
+        <Month>6</Month>
+        <Day>20</Day>
         <Year>0</Year>
       </ExpDate>
     </Payment>
@@ -23,23 +30,64 @@
     </SubscriptionExpiation>
     <SubscriptionStart>
       <Month>4</Month>
-      <Day>20</Day>
+      <Day>30</Day>
       <Year>2020</Year>
     </SubscriptionStart>
   </Member>
   <Member>
-    <FirstName>test2</FirstName>
-    <LastName />
-    <Email />
-    <PhoneNumber />
+    <FirstName>Jacob</FirstName>
+    <LastName>Schaupp</LastName>
+    <Email>Jacob@test.com</Email>
+    <PhoneNumber>419333222</PhoneNumber>
     <MemberID>1</MemberID>
     <ProviderID>0</ProviderID>
     <CCNumber>0</CCNumber>
-    <Address />
+    <Address>
+      <street>xyz street</street>
+      <state>OH</state>
+      <city>Sylvania</city>
+      <postalCode>Sylvania</postalCode>
+    </Address>
     <Payment>
+      <CardNumber>987654321</CardNumber>
+      <Cvc>321</Cvc>
       <ExpDate>
-        <Month>0</Month>
-        <Day>0</Day>
+        <Month>8</Month>
+        <Day>20</Day>
+        <Year>0</Year>
+      </ExpDate>
+    </Payment>
+    <SubscriptionExpiation>
+      <Month>7</Month>
+      <Day>30</Day>
+      <Year>2020</Year>
+    </SubscriptionExpiation>
+    <SubscriptionStart>
+      <Month>4</Month>
+      <Day>30</Day>
+      <Year>2020</Year>
+    </SubscriptionStart>
+  </Member>
+  <Member>
+    <FirstName>Apple</FirstName>
+    <LastName>T</LastName>
+    <Email>apple@test.com</Email>
+    <PhoneNumber>419333444</PhoneNumber>
+    <MemberID>2</MemberID>
+    <ProviderID>0</ProviderID>
+    <CCNumber>0</CCNumber>
+    <Address>
+      <street>ijk street</street>
+      <state>OH</state>
+      <city>Perrysburg</city>
+      <postalCode>Perrysburg</postalCode>
+    </Address>
+    <Payment>
+      <CardNumber>556454789</CardNumber>
+      <Cvc>010</Cvc>
+      <ExpDate>
+        <Month>9</Month>
+        <Day>20</Day>
         <Year>0</Year>
       </ExpDate>
     </Payment>
@@ -50,7 +98,7 @@
     </SubscriptionExpiation>
     <SubscriptionStart>
       <Month>4</Month>
-      <Day>20</Day>
+      <Day>30</Day>
       <Year>2020</Year>
     </SubscriptionStart>
   </Member>

@@ -73,6 +73,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel_searchMem = new System.Windows.Forms.Panel();
+            this.searchMem_bttn_search = new System.Windows.Forms.Button();
+            this.searchMem_panel_ID = new System.Windows.Forms.Panel();
+            this.searchMem_inMemID = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.searchMem_radName = new System.Windows.Forms.RadioButton();
+            this.label20 = new System.Windows.Forms.Label();
+            this.searchMem_radID = new System.Windows.Forms.RadioButton();
+            this.label19 = new System.Windows.Forms.Label();
             this.searchMem_panel_Results = new System.Windows.Forms.Panel();
             this.searchMem_bttn_removeMem = new System.Windows.Forms.Button();
             this.searchMem_bttn_update = new System.Windows.Forms.Button();
@@ -115,14 +123,6 @@
             this.label23 = new System.Windows.Forms.Label();
             this.searchMem_inFirstName = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.searchMem_bttn_search = new System.Windows.Forms.Button();
-            this.searchMem_panel_ID = new System.Windows.Forms.Panel();
-            this.searchMem_inMemID = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.searchMem_radName = new System.Windows.Forms.RadioButton();
-            this.label20 = new System.Windows.Forms.Label();
-            this.searchMem_radID = new System.Windows.Forms.RadioButton();
-            this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.panel_home = new System.Windows.Forms.Panel();
             this.panel_searchProvider = new System.Windows.Forms.Panel();
@@ -134,9 +134,9 @@
             this.toolStrip1.SuspendLayout();
             this.panel_newMember.SuspendLayout();
             this.panel_searchMem.SuspendLayout();
+            this.searchMem_panel_ID.SuspendLayout();
             this.searchMem_panel_Results.SuspendLayout();
             this.searchMem_panel_Name.SuspendLayout();
-            this.searchMem_panel_ID.SuspendLayout();
             this.panel_home.SuspendLayout();
             this.panel_searchProvider.SuspendLayout();
             this.panel_newProvider.SuspendLayout();
@@ -172,7 +172,7 @@
             // toolMenu_search
             // 
             this.toolMenu_search.Name = "toolMenu_search";
-            this.toolMenu_search.Size = new System.Drawing.Size(224, 26);
+            this.toolMenu_search.Size = new System.Drawing.Size(182, 26);
             this.toolMenu_search.Tag = "mem_search";
             this.toolMenu_search.Text = "Search";
             this.toolMenu_search.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
@@ -180,7 +180,7 @@
             // newMemberToolStripMenuItem
             // 
             this.newMemberToolStripMenuItem.Name = "newMemberToolStripMenuItem";
-            this.newMemberToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.newMemberToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
             this.newMemberToolStripMenuItem.Tag = "newMember";
             this.newMemberToolStripMenuItem.Text = "New Member";
             this.newMemberToolStripMenuItem.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
@@ -194,19 +194,19 @@
             this.toolStripDropDownButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton2.Image")));
             this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
-            this.toolStripDropDownButton2.Size = new System.Drawing.Size(112, 28);
+            this.toolStripDropDownButton2.Size = new System.Drawing.Size(112, 24);
             this.toolStripDropDownButton2.Text = "New Provider";
             // 
             // searchToolStripMenuItem
             // 
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.searchToolStripMenuItem.Text = "Search";
             // 
             // newProviderToolStripMenuItem
             // 
             this.newProviderToolStripMenuItem.Name = "newProviderToolStripMenuItem";
-            this.newProviderToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.newProviderToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.newProviderToolStripMenuItem.Text = "New Provider";
             // 
             // toolStripDropDownButton3
@@ -218,7 +218,7 @@
             this.toolStripDropDownButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton3.Image")));
             this.toolStripDropDownButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton3.Name = "toolStripDropDownButton3";
-            this.toolStripDropDownButton3.Size = new System.Drawing.Size(83, 28);
+            this.toolStripDropDownButton3.Size = new System.Drawing.Size(83, 24);
             this.toolStripDropDownButton3.Text = "Operator";
             // 
             // searchToolStripMenuItem1
@@ -236,7 +236,7 @@
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(39, 28);
+            this.toolStripLabel1.Size = new System.Drawing.Size(39, 24);
             this.toolStripLabel1.Text = "Print";
             // 
             // panel_newMember
@@ -591,14 +591,14 @@
             // 
             // panel_searchMem
             // 
-            this.panel_searchMem.Controls.Add(this.searchMem_panel_Results);
-            this.panel_searchMem.Controls.Add(this.searchMem_panel_Name);
             this.panel_searchMem.Controls.Add(this.searchMem_bttn_search);
             this.panel_searchMem.Controls.Add(this.searchMem_panel_ID);
             this.panel_searchMem.Controls.Add(this.searchMem_radName);
             this.panel_searchMem.Controls.Add(this.label20);
             this.panel_searchMem.Controls.Add(this.searchMem_radID);
             this.panel_searchMem.Controls.Add(this.label19);
+            this.panel_searchMem.Controls.Add(this.searchMem_panel_Results);
+            this.panel_searchMem.Controls.Add(this.searchMem_panel_Name);
             this.panel_searchMem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_searchMem.Location = new System.Drawing.Point(0, 27);
             this.panel_searchMem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -606,6 +606,98 @@
             this.panel_searchMem.Size = new System.Drawing.Size(1497, 935);
             this.panel_searchMem.TabIndex = 32;
             this.panel_searchMem.VisibleChanged += new System.EventHandler(this.panel__VisibleChanged);
+            // 
+            // searchMem_bttn_search
+            // 
+            this.searchMem_bttn_search.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchMem_bttn_search.Location = new System.Drawing.Point(648, 180);
+            this.searchMem_bttn_search.Margin = new System.Windows.Forms.Padding(4);
+            this.searchMem_bttn_search.Name = "searchMem_bttn_search";
+            this.searchMem_bttn_search.Size = new System.Drawing.Size(112, 37);
+            this.searchMem_bttn_search.TabIndex = 7;
+            this.searchMem_bttn_search.Text = "Search";
+            this.searchMem_bttn_search.UseVisualStyleBackColor = true;
+            this.searchMem_bttn_search.Click += new System.EventHandler(this.searchMem_bttn_search_Click);
+            // 
+            // searchMem_panel_ID
+            // 
+            this.searchMem_panel_ID.Controls.Add(this.searchMem_inMemID);
+            this.searchMem_panel_ID.Controls.Add(this.label21);
+            this.searchMem_panel_ID.Location = new System.Drawing.Point(27, 177);
+            this.searchMem_panel_ID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.searchMem_panel_ID.Name = "searchMem_panel_ID";
+            this.searchMem_panel_ID.Size = new System.Drawing.Size(613, 49);
+            this.searchMem_panel_ID.TabIndex = 6;
+            // 
+            // searchMem_inMemID
+            // 
+            this.searchMem_inMemID.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchMem_inMemID.Location = new System.Drawing.Point(91, 11);
+            this.searchMem_inMemID.Margin = new System.Windows.Forms.Padding(4);
+            this.searchMem_inMemID.Name = "searchMem_inMemID";
+            this.searchMem_inMemID.Size = new System.Drawing.Size(280, 27);
+            this.searchMem_inMemID.TabIndex = 1;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(4, 16);
+            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(76, 17);
+            this.label21.TabIndex = 0;
+            this.label21.Text = "Member ID";
+            // 
+            // searchMem_radName
+            // 
+            this.searchMem_radName.AutoSize = true;
+            this.searchMem_radName.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchMem_radName.Location = new System.Drawing.Point(184, 145);
+            this.searchMem_radName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.searchMem_radName.Name = "searchMem_radName";
+            this.searchMem_radName.Size = new System.Drawing.Size(122, 23);
+            this.searchMem_radName.TabIndex = 5;
+            this.searchMem_radName.TabStop = true;
+            this.searchMem_radName.Tag = "memName";
+            this.searchMem_radName.Text = "Member Name";
+            this.searchMem_radName.UseVisualStyleBackColor = true;
+            this.searchMem_radName.CheckedChanged += new System.EventHandler(this.searchMem_rad_CheckedChanged);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Segoe UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(16, 96);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(162, 32);
+            this.label20.TabIndex = 4;
+            this.label20.Text = "Search Criteria";
+            // 
+            // searchMem_radID
+            // 
+            this.searchMem_radID.AutoSize = true;
+            this.searchMem_radID.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchMem_radID.Location = new System.Drawing.Point(27, 145);
+            this.searchMem_radID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.searchMem_radID.Name = "searchMem_radID";
+            this.searchMem_radID.Size = new System.Drawing.Size(100, 23);
+            this.searchMem_radID.TabIndex = 3;
+            this.searchMem_radID.TabStop = true;
+            this.searchMem_radID.Tag = "memID";
+            this.searchMem_radID.Text = "Member ID";
+            this.searchMem_radID.UseVisualStyleBackColor = true;
+            this.searchMem_radID.CheckedChanged += new System.EventHandler(this.searchMem_rad_CheckedChanged);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(12, 36);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(264, 45);
+            this.label19.TabIndex = 2;
+            this.label19.Text = "Search Member";
             // 
             // searchMem_panel_Results
             // 
@@ -1069,98 +1161,6 @@
             this.label22.TabIndex = 0;
             this.label22.Text = "First Name";
             // 
-            // searchMem_bttn_search
-            // 
-            this.searchMem_bttn_search.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchMem_bttn_search.Location = new System.Drawing.Point(648, 180);
-            this.searchMem_bttn_search.Margin = new System.Windows.Forms.Padding(4);
-            this.searchMem_bttn_search.Name = "searchMem_bttn_search";
-            this.searchMem_bttn_search.Size = new System.Drawing.Size(112, 37);
-            this.searchMem_bttn_search.TabIndex = 7;
-            this.searchMem_bttn_search.Text = "Search";
-            this.searchMem_bttn_search.UseVisualStyleBackColor = true;
-            this.searchMem_bttn_search.Click += new System.EventHandler(this.searchMem_bttn_search_Click);
-            // 
-            // searchMem_panel_ID
-            // 
-            this.searchMem_panel_ID.Controls.Add(this.searchMem_inMemID);
-            this.searchMem_panel_ID.Controls.Add(this.label21);
-            this.searchMem_panel_ID.Location = new System.Drawing.Point(27, 177);
-            this.searchMem_panel_ID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.searchMem_panel_ID.Name = "searchMem_panel_ID";
-            this.searchMem_panel_ID.Size = new System.Drawing.Size(613, 49);
-            this.searchMem_panel_ID.TabIndex = 6;
-            // 
-            // searchMem_inMemID
-            // 
-            this.searchMem_inMemID.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchMem_inMemID.Location = new System.Drawing.Point(91, 11);
-            this.searchMem_inMemID.Margin = new System.Windows.Forms.Padding(4);
-            this.searchMem_inMemID.Name = "searchMem_inMemID";
-            this.searchMem_inMemID.Size = new System.Drawing.Size(280, 27);
-            this.searchMem_inMemID.TabIndex = 1;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(4, 16);
-            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(76, 17);
-            this.label21.TabIndex = 0;
-            this.label21.Text = "Member ID";
-            // 
-            // searchMem_radName
-            // 
-            this.searchMem_radName.AutoSize = true;
-            this.searchMem_radName.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchMem_radName.Location = new System.Drawing.Point(184, 145);
-            this.searchMem_radName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.searchMem_radName.Name = "searchMem_radName";
-            this.searchMem_radName.Size = new System.Drawing.Size(122, 23);
-            this.searchMem_radName.TabIndex = 5;
-            this.searchMem_radName.TabStop = true;
-            this.searchMem_radName.Tag = "memName";
-            this.searchMem_radName.Text = "Member Name";
-            this.searchMem_radName.UseVisualStyleBackColor = true;
-            this.searchMem_radName.CheckedChanged += new System.EventHandler(this.searchMem_rad_CheckedChanged);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Segoe UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(16, 96);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(162, 32);
-            this.label20.TabIndex = 4;
-            this.label20.Text = "Search Criteria";
-            // 
-            // searchMem_radID
-            // 
-            this.searchMem_radID.AutoSize = true;
-            this.searchMem_radID.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchMem_radID.Location = new System.Drawing.Point(27, 145);
-            this.searchMem_radID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.searchMem_radID.Name = "searchMem_radID";
-            this.searchMem_radID.Size = new System.Drawing.Size(100, 23);
-            this.searchMem_radID.TabIndex = 3;
-            this.searchMem_radID.TabStop = true;
-            this.searchMem_radID.Tag = "memID";
-            this.searchMem_radID.Text = "Member ID";
-            this.searchMem_radID.UseVisualStyleBackColor = true;
-            this.searchMem_radID.CheckedChanged += new System.EventHandler(this.searchMem_rad_CheckedChanged);
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(12, 36);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(264, 45);
-            this.label19.TabIndex = 2;
-            this.label19.Text = "Search Member";
-            // 
             // label18
             // 
             this.label18.AutoSize = true;
@@ -1257,18 +1257,19 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Main";
             this.Text = "Choholics Data Center";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_FormClosed);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel_newMember.ResumeLayout(false);
             this.panel_newMember.PerformLayout();
             this.panel_searchMem.ResumeLayout(false);
             this.panel_searchMem.PerformLayout();
+            this.searchMem_panel_ID.ResumeLayout(false);
+            this.searchMem_panel_ID.PerformLayout();
             this.searchMem_panel_Results.ResumeLayout(false);
             this.searchMem_panel_Results.PerformLayout();
             this.searchMem_panel_Name.ResumeLayout(false);
             this.searchMem_panel_Name.PerformLayout();
-            this.searchMem_panel_ID.ResumeLayout(false);
-            this.searchMem_panel_ID.PerformLayout();
             this.panel_home.ResumeLayout(false);
             this.panel_home.PerformLayout();
             this.panel_searchProvider.ResumeLayout(false);

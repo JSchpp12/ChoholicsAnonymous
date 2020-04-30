@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using System.Xml.Serialization;
 
 namespace ChoholicsAnonymous
 {
@@ -12,40 +14,60 @@ namespace ChoholicsAnonymous
     {
         public static int MemberCount { get; set; }
         public static int ProviderCount { get; set; }
-        public static Dictionary<int, Member> memberSet = new Dictionary<int, Member>();
+        public static List<Member> memberList = new List<Member>();
         private static HashSet<Provider> providerSet = new HashSet<Provider>();
+
 
         //add a member to the data set
         public static void AddMember(Member newMember)
         {
-            memberSet.Add(newMember.MemberID, newMember); 
+            memberList.Add(newMember);
+            writeMembersToFile("Member.xml");
+            
         }
 
-        /*
-        public static Member searchMember(string firstName, string lastName)
+        public static void writeMembersToFile(string fileName)
         {
+            
+             string path = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
+             string temp = path.Replace("\\bin\\Debug", "\\"+ fileName);
+             XmlSerializer serial = new XmlSerializer(typeof(List<Member>));
+             StreamWriter file = new StreamWriter(temp);
+             serial.Serialize(file, DataCenter.memberList);
+             file.Close();
 
         }
-        */
+       
 
-        public static Member searchMember(int memberID)
+        
+        public static Member searchMember(int memberId)
         {
-            Member memberObj = new Member();
-            //DataCenter.memberSet.Contains(object.Member())
-            if(DataCenter.memberSet.ContainsKey(memberID))
+            Member memberResult = new Member();
+            for (int i = 0; i<memberList.Count(); i++)
             {
-                memberObj = memberSet[memberID];
+                if (memberList[i].MemberID == memberId)
+                {
+                    memberResult = memberList[i];
+                    break;
+                }
             }
-
-
-            return memberObj;
+            return memberResult;
         }
+        
 
-        public static  void deleteMember(int memberID)
+        public static  void deleteMember(int memberId)
         {
-            DataCenter.memberSet.Remove(memberID);
+                for (int i = 0; i < DataCenter.memberList.Count(); i++)
+            {
+                if (memberList[i].MemberID == memberId)
+                {
+                    DataCenter.memberList.Remove(memberList[i]);
+                    break;
+                }
+            }
         }
 
+        
        
         
     }
