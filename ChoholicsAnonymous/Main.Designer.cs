@@ -146,13 +146,25 @@
             this.label47 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
-            this.pane_billing = new System.Windows.Forms.Panel();
+            this.panel_billing = new System.Windows.Forms.Panel();
             this.label45 = new System.Windows.Forms.Label();
             this.panel_verifyMember = new System.Windows.Forms.Panel();
-            this.label43 = new System.Windows.Forms.Label();
-            this.label54 = new System.Windows.Forms.Label();
+            this.billing_verify = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.verifyMember_verify = new System.Windows.Forms.Button();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label55 = new System.Windows.Forms.Label();
+            this.billing_panel_session = new System.Windows.Forms.Panel();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label58 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label59 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label60 = new System.Windows.Forms.Label();
+            this.billing_session_submit = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.panel_newMember.SuspendLayout();
             this.panel_searchMem.SuspendLayout();
@@ -161,8 +173,9 @@
             this.searchMem_panel_ID.SuspendLayout();
             this.panel_home.SuspendLayout();
             this.panel_newProvider.SuspendLayout();
-            this.pane_billing.SuspendLayout();
+            this.panel_billing.SuspendLayout();
             this.panel_verifyMember.SuspendLayout();
+            this.billing_panel_session.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -196,13 +209,13 @@
             // toolStrip_verifyMember
             // 
             this.toolStrip_verifyMember.Name = "toolStrip_verifyMember";
-            this.toolStrip_verifyMember.Size = new System.Drawing.Size(146, 22);
+            this.toolStrip_verifyMember.Size = new System.Drawing.Size(180, 22);
             this.toolStrip_verifyMember.Text = "Verify";
             // 
             // toolStrip_searchMember
             // 
             this.toolStrip_searchMember.Name = "toolStrip_searchMember";
-            this.toolStrip_searchMember.Size = new System.Drawing.Size(146, 22);
+            this.toolStrip_searchMember.Size = new System.Drawing.Size(180, 22);
             this.toolStrip_searchMember.Tag = "mem_search";
             this.toolStrip_searchMember.Text = "Search";
             this.toolStrip_searchMember.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
@@ -210,7 +223,7 @@
             // toolStrip_newMember
             // 
             this.toolStrip_newMember.Name = "toolStrip_newMember";
-            this.toolStrip_newMember.Size = new System.Drawing.Size(146, 22);
+            this.toolStrip_newMember.Size = new System.Drawing.Size(180, 22);
             this.toolStrip_newMember.Tag = "newMember";
             this.toolStrip_newMember.Text = "New Member";
             this.toolStrip_newMember.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
@@ -231,19 +244,19 @@
             // toolStrip_searchProvider
             // 
             this.toolStrip_searchProvider.Name = "toolStrip_searchProvider";
-            this.toolStrip_searchProvider.Size = new System.Drawing.Size(169, 22);
+            this.toolStrip_searchProvider.Size = new System.Drawing.Size(180, 22);
             this.toolStrip_searchProvider.Text = "Search";
             // 
             // toolStrip_newProvider
             // 
             this.toolStrip_newProvider.Name = "toolStrip_newProvider";
-            this.toolStrip_newProvider.Size = new System.Drawing.Size(169, 22);
+            this.toolStrip_newProvider.Size = new System.Drawing.Size(180, 22);
             this.toolStrip_newProvider.Text = "New Provider";
             // 
             // toolStrip_providerDirectory
             // 
             this.toolStrip_providerDirectory.Name = "toolStrip_providerDirectory";
-            this.toolStrip_providerDirectory.Size = new System.Drawing.Size(169, 22);
+            this.toolStrip_providerDirectory.Size = new System.Drawing.Size(180, 22);
             this.toolStrip_providerDirectory.Text = "Provider Directory";
             // 
             // toolStrip_reporting
@@ -261,13 +274,13 @@
             // toolStrip_viewReports
             // 
             this.toolStrip_viewReports.Name = "toolStrip_viewReports";
-            this.toolStrip_viewReports.Size = new System.Drawing.Size(142, 22);
+            this.toolStrip_viewReports.Size = new System.Drawing.Size(180, 22);
             this.toolStrip_viewReports.Text = "View Reports";
             // 
             // toolStrip_runReports
             // 
             this.toolStrip_runReports.Name = "toolStrip_runReports";
-            this.toolStrip_runReports.Size = new System.Drawing.Size(142, 22);
+            this.toolStrip_runReports.Size = new System.Drawing.Size(180, 22);
             this.toolStrip_runReports.Text = "Run Reports";
             // 
             // toolStrip_billing
@@ -277,7 +290,9 @@
             this.toolStrip_billing.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStrip_billing.Name = "toolStrip_billing";
             this.toolStrip_billing.Size = new System.Drawing.Size(44, 22);
+            this.toolStrip_billing.Tag = "billing";
             this.toolStrip_billing.Text = "Billing";
+            this.toolStrip_billing.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
             // 
             // toolStrip_print
             // 
@@ -1183,7 +1198,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(9, 22);
+            this.label18.Location = new System.Drawing.Point(19, 29);
             this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(95, 37);
@@ -1390,14 +1405,14 @@
             this.label44.TabIndex = 3;
             this.label44.Text = "New Provider";
             // 
-            // pane_billing
+            // panel_billing
             // 
-            this.pane_billing.Controls.Add(this.label45);
-            this.pane_billing.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pane_billing.Location = new System.Drawing.Point(0, 0);
-            this.pane_billing.Name = "pane_billing";
-            this.pane_billing.Size = new System.Drawing.Size(1123, 782);
-            this.pane_billing.TabIndex = 35;
+            this.panel_billing.Controls.Add(this.label45);
+            this.panel_billing.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_billing.Location = new System.Drawing.Point(0, 0);
+            this.panel_billing.Name = "panel_billing";
+            this.panel_billing.Size = new System.Drawing.Size(1123, 782);
+            this.panel_billing.TabIndex = 35;
             // 
             // label45
             // 
@@ -1412,7 +1427,9 @@
             // 
             // panel_verifyMember
             // 
-            this.panel_verifyMember.Controls.Add(this.verifyMember_verify);
+            this.panel_verifyMember.Controls.Add(this.label56);
+            this.panel_verifyMember.Controls.Add(this.billing_panel_session);
+            this.panel_verifyMember.Controls.Add(this.billing_verify);
             this.panel_verifyMember.Controls.Add(this.textBox1);
             this.panel_verifyMember.Controls.Add(this.label54);
             this.panel_verifyMember.Controls.Add(this.label43);
@@ -1422,16 +1439,24 @@
             this.panel_verifyMember.Size = new System.Drawing.Size(1123, 782);
             this.panel_verifyMember.TabIndex = 36;
             // 
-            // label43
+            // billing_verify
             // 
-            this.label43.AutoSize = true;
-            this.label43.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(9, 29);
-            this.label43.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(209, 37);
-            this.label43.TabIndex = 1;
-            this.label43.Text = "Verify Member";
+            this.billing_verify.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.billing_verify.Location = new System.Drawing.Point(392, 84);
+            this.billing_verify.Margin = new System.Windows.Forms.Padding(2);
+            this.billing_verify.Name = "billing_verify";
+            this.billing_verify.Size = new System.Drawing.Size(88, 35);
+            this.billing_verify.TabIndex = 21;
+            this.billing_verify.Text = "Verify";
+            this.billing_verify.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(84, 93);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(291, 20);
+            this.textBox1.TabIndex = 7;
             // 
             // label54
             // 
@@ -1444,24 +1469,145 @@
             this.label54.TabIndex = 6;
             this.label54.Text = "Member ID";
             // 
-            // textBox1
+            // label43
             // 
-            this.textBox1.Location = new System.Drawing.Point(84, 93);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(291, 20);
-            this.textBox1.TabIndex = 7;
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.Location = new System.Drawing.Point(9, 29);
+            this.label43.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(99, 37);
+            this.label43.TabIndex = 1;
+            this.label43.Text = "Billing";
             // 
-            // verifyMember_verify
+            // textBox2
             // 
-            this.verifyMember_verify.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.verifyMember_verify.Location = new System.Drawing.Point(392, 84);
-            this.verifyMember_verify.Margin = new System.Windows.Forms.Padding(2);
-            this.verifyMember_verify.Name = "verifyMember_verify";
-            this.verifyMember_verify.Size = new System.Drawing.Size(88, 35);
-            this.verifyMember_verify.TabIndex = 21;
-            this.verifyMember_verify.Text = "Verify";
-            this.verifyMember_verify.UseVisualStyleBackColor = true;
+            this.textBox2.Location = new System.Drawing.Point(96, 50);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(162, 20);
+            this.textBox2.TabIndex = 23;
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label55.Location = new System.Drawing.Point(6, 53);
+            this.label55.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(86, 13);
+            this.label55.TabIndex = 22;
+            this.label55.Text = "Date of Service:";
+            // 
+            // billing_panel_session
+            // 
+            this.billing_panel_session.Controls.Add(this.billing_session_submit);
+            this.billing_panel_session.Controls.Add(this.textBox5);
+            this.billing_panel_session.Controls.Add(this.textBox4);
+            this.billing_panel_session.Controls.Add(this.label60);
+            this.billing_panel_session.Controls.Add(this.label59);
+            this.billing_panel_session.Controls.Add(this.label58);
+            this.billing_panel_session.Controls.Add(this.textBox3);
+            this.billing_panel_session.Controls.Add(this.label57);
+            this.billing_panel_session.Controls.Add(this.textBox2);
+            this.billing_panel_session.Controls.Add(this.label55);
+            this.billing_panel_session.Location = new System.Drawing.Point(17, 168);
+            this.billing_panel_session.Name = "billing_panel_session";
+            this.billing_panel_session.Size = new System.Drawing.Size(610, 388);
+            this.billing_panel_session.TabIndex = 24;
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label56.Location = new System.Drawing.Point(81, 122);
+            this.label56.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(81, 25);
+            this.label56.TabIndex = 25;
+            this.label56.Text = "Verified!";
+            this.label56.UseWaitCursor = true;
+            this.label56.Visible = false;
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Font = new System.Drawing.Font("Segoe UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label57.Location = new System.Drawing.Point(4, 7);
+            this.label57.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(167, 25);
+            this.label57.TabIndex = 6;
+            this.label57.Text = "Session Information";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(96, 79);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(162, 20);
+            this.textBox3.TabIndex = 24;
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label58.Location = new System.Drawing.Point(17, 82);
+            this.label58.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(75, 13);
+            this.label58.TabIndex = 25;
+            this.label58.Text = "Service Code:";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(96, 109);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(162, 20);
+            this.textBox4.TabIndex = 26;
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label59.Location = new System.Drawing.Point(1, 112);
+            this.label59.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(91, 13);
+            this.label59.TabIndex = 25;
+            this.label59.Text = "Name of Service:";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(96, 141);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(162, 20);
+            this.textBox5.TabIndex = 27;
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label60.Location = new System.Drawing.Point(28, 144);
+            this.label60.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(64, 13);
+            this.label60.TabIndex = 25;
+            this.label60.Text = "Comments:";
+            // 
+            // billing_session_submit
+            // 
+            this.billing_session_submit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.billing_session_submit.Location = new System.Drawing.Point(9, 181);
+            this.billing_session_submit.Margin = new System.Windows.Forms.Padding(2);
+            this.billing_session_submit.Name = "billing_session_submit";
+            this.billing_session_submit.Size = new System.Drawing.Size(88, 35);
+            this.billing_session_submit.TabIndex = 26;
+            this.billing_session_submit.Text = "Submit";
+            this.billing_session_submit.UseVisualStyleBackColor = true;
             // 
             // Main
             // 
@@ -1471,7 +1617,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panel_verifyMember);
             this.Controls.Add(this.panel_home);
-            this.Controls.Add(this.pane_billing);
+            this.Controls.Add(this.panel_billing);
             this.Controls.Add(this.panel_newProvider);
             this.Controls.Add(this.panel_searchProvider);
             this.Controls.Add(this.panel_searchMem);
@@ -1496,10 +1642,12 @@
             this.panel_home.PerformLayout();
             this.panel_newProvider.ResumeLayout(false);
             this.panel_newProvider.PerformLayout();
-            this.pane_billing.ResumeLayout(false);
-            this.pane_billing.PerformLayout();
+            this.panel_billing.ResumeLayout(false);
+            this.panel_billing.PerformLayout();
             this.panel_verifyMember.ResumeLayout(false);
             this.panel_verifyMember.PerformLayout();
+            this.billing_panel_session.ResumeLayout(false);
+            this.billing_panel_session.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1602,7 +1750,7 @@
         private System.Windows.Forms.Panel panel_searchProvider;
         private System.Windows.Forms.Panel panel_newProvider;
         private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.Panel pane_billing;
+        private System.Windows.Forms.Panel panel_billing;
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.TextBox newProvider_postal;
         private System.Windows.Forms.TextBox newProvider_state;
@@ -1628,9 +1776,21 @@
         private System.Windows.Forms.ToolStripButton toolStrip_print;
         private System.Windows.Forms.Panel panel_verifyMember;
         private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.Button verifyMember_verify;
+        private System.Windows.Forms.Button billing_verify;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.Panel billing_panel_session;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.Button billing_session_submit;
     }
 }
 

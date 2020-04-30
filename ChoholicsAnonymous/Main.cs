@@ -104,11 +104,14 @@ namespace ChoholicsAnonymous
             switch (item.Tag)
             {
                 case "mem_search":
-                    panel_searchMem.Visible = true; 
+                    panel_searchMem.Visible  = true; 
                     break;
                 case "newMember":
-                    panel_newMember.Visible = true; 
+                    panel_newMember.Visible  = true; 
                     break;
+                case "billing":
+                    panel_billing.Visible    = true; 
+                    break; 
                 default:
                     MessageBox.Show("Panel Not Yet Created...");
                     break;
