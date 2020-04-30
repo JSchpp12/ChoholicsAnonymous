@@ -197,6 +197,18 @@ namespace ChoholicsAnonymous
                 case "newProvider":
                     panel_newProvider.Visible = true;
                     break;
+                case "searchProvider":
+                    panel_searchProvider.Visible = true; 
+                    break;
+                case "runReports":
+                    panel_runReports.Visible = true; 
+                    break;
+                case "viewReports":
+                    panel_viewReports.Visible = true;
+                    break;
+                case "print":
+                    panel_print.Visible = true;
+                    break; 
                 default:
                     MessageBox.Show("Panel Not Yet Created...");
                     break;
