@@ -141,11 +141,15 @@
             this.newProvider_phoneNumber = new System.Windows.Forms.TextBox();
             this.label49 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
-            this.newProvider_name = new System.Windows.Forms.TextBox();
-            this.label47 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
+            this.newProvider_name = new System.Windows.Forms.TextBox();
+            this.label47 = new System.Windows.Forms.Label();
             this.panel_verifyMember = new System.Windows.Forms.Panel();
+            this.verifyMember_verified = new System.Windows.Forms.Label();
+            this.verifyMember_verify = new System.Windows.Forms.Button();
+            this.verifyMember_memberID = new System.Windows.Forms.TextBox();
+            this.label74 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
             this.panel_billing = new System.Windows.Forms.Panel();
             this.label56 = new System.Windows.Forms.Label();
@@ -189,35 +193,31 @@
             this.label63 = new System.Windows.Forms.Label();
             this.label64 = new System.Windows.Forms.Label();
             this.label61 = new System.Windows.Forms.Label();
-            this.verifyMember_memberID = new System.Windows.Forms.TextBox();
-            this.label74 = new System.Windows.Forms.Label();
-            this.verifyMember_verified = new System.Windows.Forms.Label();
-            this.verifyMember_verify = new System.Windows.Forms.Button();
             this.panel_viewReports = new System.Windows.Forms.Panel();
-            this.label75 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.label76 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.viewReports_reportWeek = new System.Windows.Forms.TextBox();
-            this.label77 = new System.Windows.Forms.Label();
+            this.viewReports_panel_monthContainer = new System.Windows.Forms.Panel();
+            this.viewReports_prompt = new System.Windows.Forms.Label();
             this.viewReports_monthSelect = new System.Windows.Forms.MonthCalendar();
+            this.label77 = new System.Windows.Forms.Label();
+            this.viewReports_reportWeek = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label76 = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label75 = new System.Windows.Forms.Label();
             this.panel_runReports = new System.Windows.Forms.Panel();
+            this.runReports_panel_monthContainer = new System.Windows.Forms.Panel();
+            this.label81 = new System.Windows.Forms.Label();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.label78 = new System.Windows.Forms.Label();
             this.runReports_reportWeek = new System.Windows.Forms.TextBox();
             this.runReports_reportType = new System.Windows.Forms.ComboBox();
             this.label79 = new System.Windows.Forms.Label();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.label80 = new System.Windows.Forms.Label();
-            this.viewReports_prompt = new System.Windows.Forms.Label();
-            this.viewReports_panel_monthContainer = new System.Windows.Forms.Panel();
-            this.runReports_panel_monthContainer = new System.Windows.Forms.Panel();
-            this.label81 = new System.Windows.Forms.Label();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.panel_print = new System.Windows.Forms.Panel();
-            this.label82 = new System.Windows.Forms.Label();
-            this.label83 = new System.Windows.Forms.Label();
-            this.print_selectDocument = new System.Windows.Forms.ComboBox();
             this.print_print = new System.Windows.Forms.Button();
+            this.print_selectDocument = new System.Windows.Forms.ComboBox();
+            this.label83 = new System.Windows.Forms.Label();
+            this.label82 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.panel_newMember.SuspendLayout();
             this.panel_searchMem.SuspendLayout();
@@ -232,8 +232,8 @@
             this.panel_searchProvider.SuspendLayout();
             this.searchProvider_panel_searchResults.SuspendLayout();
             this.panel_viewReports.SuspendLayout();
-            this.panel_runReports.SuspendLayout();
             this.viewReports_panel_monthContainer.SuspendLayout();
+            this.panel_runReports.SuspendLayout();
             this.runReports_panel_monthContainer.SuspendLayout();
             this.panel_print.SuspendLayout();
             this.SuspendLayout();
@@ -306,7 +306,7 @@
             // toolStrip_searchProvider
             // 
             this.toolStrip_searchProvider.Name = "toolStrip_searchProvider";
-            this.toolStrip_searchProvider.Size = new System.Drawing.Size(180, 22);
+            this.toolStrip_searchProvider.Size = new System.Drawing.Size(169, 22);
             this.toolStrip_searchProvider.Tag = "searchProvider";
             this.toolStrip_searchProvider.Text = "Search";
             this.toolStrip_searchProvider.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
@@ -314,7 +314,7 @@
             // toolStrip_newProvider
             // 
             this.toolStrip_newProvider.Name = "toolStrip_newProvider";
-            this.toolStrip_newProvider.Size = new System.Drawing.Size(180, 22);
+            this.toolStrip_newProvider.Size = new System.Drawing.Size(169, 22);
             this.toolStrip_newProvider.Tag = "newProvider";
             this.toolStrip_newProvider.Text = "New Provider";
             this.toolStrip_newProvider.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
@@ -322,7 +322,7 @@
             // toolStrip_providerDirectory
             // 
             this.toolStrip_providerDirectory.Name = "toolStrip_providerDirectory";
-            this.toolStrip_providerDirectory.Size = new System.Drawing.Size(180, 22);
+            this.toolStrip_providerDirectory.Size = new System.Drawing.Size(169, 22);
             this.toolStrip_providerDirectory.Text = "Provider Directory";
             this.toolStrip_providerDirectory.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
             // 
@@ -341,7 +341,7 @@
             // toolStrip_viewReports
             // 
             this.toolStrip_viewReports.Name = "toolStrip_viewReports";
-            this.toolStrip_viewReports.Size = new System.Drawing.Size(180, 22);
+            this.toolStrip_viewReports.Size = new System.Drawing.Size(142, 22);
             this.toolStrip_viewReports.Tag = "viewReports";
             this.toolStrip_viewReports.Text = "View Reports";
             this.toolStrip_viewReports.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
@@ -349,7 +349,7 @@
             // toolStrip_runReports
             // 
             this.toolStrip_runReports.Name = "toolStrip_runReports";
-            this.toolStrip_runReports.Size = new System.Drawing.Size(180, 22);
+            this.toolStrip_runReports.Size = new System.Drawing.Size(142, 22);
             this.toolStrip_runReports.Tag = "runReports";
             this.toolStrip_runReports.Text = "Run Reports";
             this.toolStrip_runReports.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
@@ -1427,25 +1427,6 @@
             this.label48.TabIndex = 7;
             this.label48.Text = "Address";
             // 
-            // newProvider_name
-            // 
-            this.newProvider_name.Location = new System.Drawing.Point(106, 122);
-            this.newProvider_name.Margin = new System.Windows.Forms.Padding(2);
-            this.newProvider_name.Name = "newProvider_name";
-            this.newProvider_name.Size = new System.Drawing.Size(185, 20);
-            this.newProvider_name.TabIndex = 6;
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label47.Location = new System.Drawing.Point(20, 124);
-            this.label47.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(36, 13);
-            this.label47.TabIndex = 5;
-            this.label47.Text = "Name";
-            // 
             // label46
             // 
             this.label46.AutoSize = true;
@@ -1468,6 +1449,25 @@
             this.label44.TabIndex = 3;
             this.label44.Text = "New Provider";
             // 
+            // newProvider_name
+            // 
+            this.newProvider_name.Location = new System.Drawing.Point(106, 122);
+            this.newProvider_name.Margin = new System.Windows.Forms.Padding(2);
+            this.newProvider_name.Name = "newProvider_name";
+            this.newProvider_name.Size = new System.Drawing.Size(185, 20);
+            this.newProvider_name.TabIndex = 6;
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label47.Location = new System.Drawing.Point(20, 124);
+            this.label47.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(36, 13);
+            this.label47.TabIndex = 5;
+            this.label47.Text = "Name";
+            // 
             // panel_verifyMember
             // 
             this.panel_verifyMember.Controls.Add(this.verifyMember_verified);
@@ -1480,6 +1480,50 @@
             this.panel_verifyMember.Name = "panel_verifyMember";
             this.panel_verifyMember.Size = new System.Drawing.Size(1123, 782);
             this.panel_verifyMember.TabIndex = 35;
+            // 
+            // verifyMember_verified
+            // 
+            this.verifyMember_verified.AutoSize = true;
+            this.verifyMember_verified.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.verifyMember_verified.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.verifyMember_verified.Location = new System.Drawing.Point(107, 126);
+            this.verifyMember_verified.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.verifyMember_verified.Name = "verifyMember_verified";
+            this.verifyMember_verified.Size = new System.Drawing.Size(81, 25);
+            this.verifyMember_verified.TabIndex = 27;
+            this.verifyMember_verified.Text = "Verified!";
+            this.verifyMember_verified.UseWaitCursor = true;
+            this.verifyMember_verified.Visible = false;
+            // 
+            // verifyMember_verify
+            // 
+            this.verifyMember_verify.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.verifyMember_verify.Location = new System.Drawing.Point(415, 78);
+            this.verifyMember_verify.Margin = new System.Windows.Forms.Padding(2);
+            this.verifyMember_verify.Name = "verifyMember_verify";
+            this.verifyMember_verify.Size = new System.Drawing.Size(88, 35);
+            this.verifyMember_verify.TabIndex = 26;
+            this.verifyMember_verify.Text = "Verify";
+            this.verifyMember_verify.UseVisualStyleBackColor = true;
+            // 
+            // verifyMember_memberID
+            // 
+            this.verifyMember_memberID.Location = new System.Drawing.Point(110, 89);
+            this.verifyMember_memberID.Margin = new System.Windows.Forms.Padding(2);
+            this.verifyMember_memberID.Name = "verifyMember_memberID";
+            this.verifyMember_memberID.Size = new System.Drawing.Size(283, 20);
+            this.verifyMember_memberID.TabIndex = 8;
+            // 
+            // label74
+            // 
+            this.label74.AutoSize = true;
+            this.label74.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label74.Location = new System.Drawing.Point(40, 92);
+            this.label74.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(66, 13);
+            this.label74.TabIndex = 7;
+            this.label74.Text = "Member ID:";
             // 
             // label45
             // 
@@ -1937,50 +1981,6 @@
             this.label61.TabIndex = 4;
             this.label61.Text = "Search Provider";
             // 
-            // verifyMember_memberID
-            // 
-            this.verifyMember_memberID.Location = new System.Drawing.Point(110, 89);
-            this.verifyMember_memberID.Margin = new System.Windows.Forms.Padding(2);
-            this.verifyMember_memberID.Name = "verifyMember_memberID";
-            this.verifyMember_memberID.Size = new System.Drawing.Size(283, 20);
-            this.verifyMember_memberID.TabIndex = 8;
-            // 
-            // label74
-            // 
-            this.label74.AutoSize = true;
-            this.label74.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label74.Location = new System.Drawing.Point(40, 92);
-            this.label74.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label74.Name = "label74";
-            this.label74.Size = new System.Drawing.Size(66, 13);
-            this.label74.TabIndex = 7;
-            this.label74.Text = "Member ID:";
-            // 
-            // verifyMember_verified
-            // 
-            this.verifyMember_verified.AutoSize = true;
-            this.verifyMember_verified.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.verifyMember_verified.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.verifyMember_verified.Location = new System.Drawing.Point(107, 126);
-            this.verifyMember_verified.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.verifyMember_verified.Name = "verifyMember_verified";
-            this.verifyMember_verified.Size = new System.Drawing.Size(81, 25);
-            this.verifyMember_verified.TabIndex = 27;
-            this.verifyMember_verified.Text = "Verified!";
-            this.verifyMember_verified.UseWaitCursor = true;
-            this.verifyMember_verified.Visible = false;
-            // 
-            // verifyMember_verify
-            // 
-            this.verifyMember_verify.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.verifyMember_verify.Location = new System.Drawing.Point(415, 78);
-            this.verifyMember_verify.Margin = new System.Windows.Forms.Padding(2);
-            this.verifyMember_verify.Name = "verifyMember_verify";
-            this.verifyMember_verify.Size = new System.Drawing.Size(88, 35);
-            this.verifyMember_verify.TabIndex = 26;
-            this.verifyMember_verify.Text = "Verify";
-            this.verifyMember_verify.UseVisualStyleBackColor = true;
-            // 
             // panel_viewReports
             // 
             this.panel_viewReports.Controls.Add(this.viewReports_panel_monthContainer);
@@ -1996,36 +1996,51 @@
             this.panel_viewReports.Size = new System.Drawing.Size(1123, 782);
             this.panel_viewReports.TabIndex = 38;
             // 
-            // label75
+            // viewReports_panel_monthContainer
             // 
-            this.label75.AutoSize = true;
-            this.label75.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label75.Location = new System.Drawing.Point(9, 29);
-            this.label75.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label75.Name = "label75";
-            this.label75.Size = new System.Drawing.Size(188, 37);
-            this.label75.TabIndex = 1;
-            this.label75.Text = "View Reports";
+            this.viewReports_panel_monthContainer.Controls.Add(this.viewReports_prompt);
+            this.viewReports_panel_monthContainer.Controls.Add(this.viewReports_monthSelect);
+            this.viewReports_panel_monthContainer.Location = new System.Drawing.Point(319, 25);
+            this.viewReports_panel_monthContainer.Name = "viewReports_panel_monthContainer";
+            this.viewReports_panel_monthContainer.Size = new System.Drawing.Size(249, 203);
+            this.viewReports_panel_monthContainer.TabIndex = 16;
+            this.viewReports_panel_monthContainer.Visible = false;
             // 
-            // richTextBox1
+            // viewReports_prompt
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(12, 234);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(1099, 511);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "";
-            this.richTextBox1.Visible = false;
+            this.viewReports_prompt.AutoSize = true;
+            this.viewReports_prompt.Font = new System.Drawing.Font("Segoe UI Light", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewReports_prompt.Location = new System.Drawing.Point(2, 8);
+            this.viewReports_prompt.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.viewReports_prompt.Name = "viewReports_prompt";
+            this.viewReports_prompt.Size = new System.Drawing.Size(161, 25);
+            this.viewReports_prompt.TabIndex = 15;
+            this.viewReports_prompt.Text = "Select Bolded Dates";
             // 
-            // label76
+            // viewReports_monthSelect
             // 
-            this.label76.AutoSize = true;
-            this.label76.Font = new System.Drawing.Font("Segoe UI Light", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label76.Location = new System.Drawing.Point(15, 81);
-            this.label76.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label76.Name = "label76";
-            this.label76.Size = new System.Drawing.Size(106, 25);
-            this.label76.TabIndex = 10;
-            this.label76.Text = "Report Type:";
+            this.viewReports_monthSelect.Location = new System.Drawing.Point(7, 34);
+            this.viewReports_monthSelect.Name = "viewReports_monthSelect";
+            this.viewReports_monthSelect.TabIndex = 14;
+            // 
+            // label77
+            // 
+            this.label77.AutoSize = true;
+            this.label77.Font = new System.Drawing.Font("Segoe UI Light", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label77.Location = new System.Drawing.Point(9, 153);
+            this.label77.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(113, 25);
+            this.label77.TabIndex = 13;
+            this.label77.Text = "Report Week:";
+            // 
+            // viewReports_reportWeek
+            // 
+            this.viewReports_reportWeek.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewReports_reportWeek.Location = new System.Drawing.Point(127, 155);
+            this.viewReports_reportWeek.Name = "viewReports_reportWeek";
+            this.viewReports_reportWeek.Size = new System.Drawing.Size(121, 22);
+            this.viewReports_reportWeek.TabIndex = 12;
             // 
             // comboBox1
             // 
@@ -2040,30 +2055,36 @@
             this.comboBox1.Size = new System.Drawing.Size(121, 25);
             this.comboBox1.TabIndex = 11;
             // 
-            // viewReports_reportWeek
+            // label76
             // 
-            this.viewReports_reportWeek.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewReports_reportWeek.Location = new System.Drawing.Point(127, 155);
-            this.viewReports_reportWeek.Name = "viewReports_reportWeek";
-            this.viewReports_reportWeek.Size = new System.Drawing.Size(121, 22);
-            this.viewReports_reportWeek.TabIndex = 12;
+            this.label76.AutoSize = true;
+            this.label76.Font = new System.Drawing.Font("Segoe UI Light", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label76.Location = new System.Drawing.Point(15, 81);
+            this.label76.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(106, 25);
+            this.label76.TabIndex = 10;
+            this.label76.Text = "Report Type:";
             // 
-            // label77
+            // richTextBox1
             // 
-            this.label77.AutoSize = true;
-            this.label77.Font = new System.Drawing.Font("Segoe UI Light", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label77.Location = new System.Drawing.Point(9, 153);
-            this.label77.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(113, 25);
-            this.label77.TabIndex = 13;
-            this.label77.Text = "Report Week:";
+            this.richTextBox1.Location = new System.Drawing.Point(12, 234);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(1099, 511);
+            this.richTextBox1.TabIndex = 2;
+            this.richTextBox1.Text = "";
+            this.richTextBox1.Visible = false;
             // 
-            // viewReports_monthSelect
+            // label75
             // 
-            this.viewReports_monthSelect.Location = new System.Drawing.Point(7, 34);
-            this.viewReports_monthSelect.Name = "viewReports_monthSelect";
-            this.viewReports_monthSelect.TabIndex = 14;
+            this.label75.AutoSize = true;
+            this.label75.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label75.Location = new System.Drawing.Point(9, 29);
+            this.label75.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(188, 37);
+            this.label75.TabIndex = 1;
+            this.label75.Text = "View Reports";
             // 
             // panel_runReports
             // 
@@ -2079,6 +2100,33 @@
             this.panel_runReports.Name = "panel_runReports";
             this.panel_runReports.Size = new System.Drawing.Size(1123, 782);
             this.panel_runReports.TabIndex = 39;
+            // 
+            // runReports_panel_monthContainer
+            // 
+            this.runReports_panel_monthContainer.Controls.Add(this.label81);
+            this.runReports_panel_monthContainer.Controls.Add(this.monthCalendar1);
+            this.runReports_panel_monthContainer.Location = new System.Drawing.Point(333, 25);
+            this.runReports_panel_monthContainer.Name = "runReports_panel_monthContainer";
+            this.runReports_panel_monthContainer.Size = new System.Drawing.Size(249, 203);
+            this.runReports_panel_monthContainer.TabIndex = 17;
+            this.runReports_panel_monthContainer.Visible = false;
+            // 
+            // label81
+            // 
+            this.label81.AutoSize = true;
+            this.label81.Font = new System.Drawing.Font("Segoe UI Light", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label81.Location = new System.Drawing.Point(2, 8);
+            this.label81.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label81.Name = "label81";
+            this.label81.Size = new System.Drawing.Size(161, 25);
+            this.label81.TabIndex = 15;
+            this.label81.Text = "Select Bolded Dates";
+            // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.Location = new System.Drawing.Point(7, 34);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 14;
             // 
             // label78
             // 
@@ -2143,54 +2191,6 @@
             this.label80.TabIndex = 1;
             this.label80.Text = "Run Reports";
             // 
-            // viewReports_prompt
-            // 
-            this.viewReports_prompt.AutoSize = true;
-            this.viewReports_prompt.Font = new System.Drawing.Font("Segoe UI Light", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewReports_prompt.Location = new System.Drawing.Point(2, 8);
-            this.viewReports_prompt.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.viewReports_prompt.Name = "viewReports_prompt";
-            this.viewReports_prompt.Size = new System.Drawing.Size(161, 25);
-            this.viewReports_prompt.TabIndex = 15;
-            this.viewReports_prompt.Text = "Select Bolded Dates";
-            // 
-            // viewReports_panel_monthContainer
-            // 
-            this.viewReports_panel_monthContainer.Controls.Add(this.viewReports_prompt);
-            this.viewReports_panel_monthContainer.Controls.Add(this.viewReports_monthSelect);
-            this.viewReports_panel_monthContainer.Location = new System.Drawing.Point(319, 25);
-            this.viewReports_panel_monthContainer.Name = "viewReports_panel_monthContainer";
-            this.viewReports_panel_monthContainer.Size = new System.Drawing.Size(249, 203);
-            this.viewReports_panel_monthContainer.TabIndex = 16;
-            this.viewReports_panel_monthContainer.Visible = false;
-            // 
-            // runReports_panel_monthContainer
-            // 
-            this.runReports_panel_monthContainer.Controls.Add(this.label81);
-            this.runReports_panel_monthContainer.Controls.Add(this.monthCalendar1);
-            this.runReports_panel_monthContainer.Location = new System.Drawing.Point(333, 25);
-            this.runReports_panel_monthContainer.Name = "runReports_panel_monthContainer";
-            this.runReports_panel_monthContainer.Size = new System.Drawing.Size(249, 203);
-            this.runReports_panel_monthContainer.TabIndex = 17;
-            this.runReports_panel_monthContainer.Visible = false;
-            // 
-            // label81
-            // 
-            this.label81.AutoSize = true;
-            this.label81.Font = new System.Drawing.Font("Segoe UI Light", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label81.Location = new System.Drawing.Point(2, 8);
-            this.label81.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label81.Name = "label81";
-            this.label81.Size = new System.Drawing.Size(161, 25);
-            this.label81.TabIndex = 15;
-            this.label81.Text = "Select Bolded Dates";
-            // 
-            // monthCalendar1
-            // 
-            this.monthCalendar1.Location = new System.Drawing.Point(7, 34);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 14;
-            // 
             // panel_print
             // 
             this.panel_print.Controls.Add(this.print_print);
@@ -2203,27 +2203,16 @@
             this.panel_print.Size = new System.Drawing.Size(1123, 782);
             this.panel_print.TabIndex = 40;
             // 
-            // label82
+            // print_print
             // 
-            this.label82.AutoSize = true;
-            this.label82.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label82.Location = new System.Drawing.Point(5, 29);
-            this.label82.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label82.Name = "label82";
-            this.label82.Size = new System.Drawing.Size(80, 37);
-            this.label82.TabIndex = 1;
-            this.label82.Text = "Print";
-            // 
-            // label83
-            // 
-            this.label83.AutoSize = true;
-            this.label83.Font = new System.Drawing.Font("Segoe UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label83.Location = new System.Drawing.Point(7, 81);
-            this.label83.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label83.Name = "label83";
-            this.label83.Size = new System.Drawing.Size(148, 25);
-            this.label83.TabIndex = 7;
-            this.label83.Text = "Select Document";
+            this.print_print.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.print_print.Location = new System.Drawing.Point(307, 75);
+            this.print_print.Margin = new System.Windows.Forms.Padding(2);
+            this.print_print.Name = "print_print";
+            this.print_print.Size = new System.Drawing.Size(88, 35);
+            this.print_print.TabIndex = 22;
+            this.print_print.Text = "Print";
+            this.print_print.UseVisualStyleBackColor = true;
             // 
             // print_selectDocument
             // 
@@ -2237,16 +2226,27 @@
             this.print_selectDocument.Size = new System.Drawing.Size(143, 25);
             this.print_selectDocument.TabIndex = 8;
             // 
-            // print_print
+            // label83
             // 
-            this.print_print.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.print_print.Location = new System.Drawing.Point(307, 75);
-            this.print_print.Margin = new System.Windows.Forms.Padding(2);
-            this.print_print.Name = "print_print";
-            this.print_print.Size = new System.Drawing.Size(88, 35);
-            this.print_print.TabIndex = 22;
-            this.print_print.Text = "Print";
-            this.print_print.UseVisualStyleBackColor = true;
+            this.label83.AutoSize = true;
+            this.label83.Font = new System.Drawing.Font("Segoe UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label83.Location = new System.Drawing.Point(7, 81);
+            this.label83.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label83.Name = "label83";
+            this.label83.Size = new System.Drawing.Size(148, 25);
+            this.label83.TabIndex = 7;
+            this.label83.Text = "Select Document";
+            // 
+            // label82
+            // 
+            this.label82.AutoSize = true;
+            this.label82.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label82.Location = new System.Drawing.Point(5, 29);
+            this.label82.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label82.Name = "label82";
+            this.label82.Size = new System.Drawing.Size(80, 37);
+            this.label82.TabIndex = 1;
+            this.label82.Text = "Print";
             // 
             // Main
             // 
@@ -2254,7 +2254,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1123, 782);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.panel_print);
             this.Controls.Add(this.panel_billing);
             this.Controls.Add(this.panel_home);
             this.Controls.Add(this.panel_runReports);
@@ -2264,6 +2263,7 @@
             this.Controls.Add(this.panel_newProvider);
             this.Controls.Add(this.panel_searchMem);
             this.Controls.Add(this.panel_newMember);
+            this.Controls.Add(this.panel_print);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Main";
             this.Text = "Choholics Data Center";
@@ -2296,10 +2296,10 @@
             this.searchProvider_panel_searchResults.PerformLayout();
             this.panel_viewReports.ResumeLayout(false);
             this.panel_viewReports.PerformLayout();
-            this.panel_runReports.ResumeLayout(false);
-            this.panel_runReports.PerformLayout();
             this.viewReports_panel_monthContainer.ResumeLayout(false);
             this.viewReports_panel_monthContainer.PerformLayout();
+            this.panel_runReports.ResumeLayout(false);
+            this.panel_runReports.PerformLayout();
             this.runReports_panel_monthContainer.ResumeLayout(false);
             this.runReports_panel_monthContainer.PerformLayout();
             this.panel_print.ResumeLayout(false);
