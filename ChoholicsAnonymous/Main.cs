@@ -98,24 +98,29 @@ namespace ChoholicsAnonymous
         //swtich between panels when navigation toolbar is clicked 
         private void searchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ToolStripMenuItem item = (ToolStripMenuItem)sender;
-            hideAllPanels(); 
-
-            switch (item.Tag)
+            string tag = "";
+           
+            try
             {
-                case "mem_search":
-                    panel_searchMem.Visible  = true; 
-                    break;
-                case "newMember":
-                    panel_newMember.Visible  = true; 
-                    break;
-                case "billing":
-                    panel_billing.Visible    = true; 
-                    break; 
-                default:
-                    MessageBox.Show("Panel Not Yet Created...");
-                    break;
+                //cast dropdown menu items
+                ToolStripMenuItem item = (ToolStripMenuItem)sender;
+                tag = item.Text; 
+            }catch (InvalidCastException ex)
+            {
+                try
+                {
+                    //cast buttons
+                    ToolStripButton item = (ToolStripButton)sender;
+                    tag = item.Text; 
+                }catch (Exception oEx)
+                {
+                    MessageBox.Show("An Unknown Error Occured While Casting Panel Information -- " + oEx.Message); 
+                }
             }
+
+
+            hideAllPanels();
+            switchPanel(tag); 
             Console.Write(sender.ToString());
          }
         #endregion 
@@ -169,6 +174,32 @@ namespace ChoholicsAnonymous
             else
             {
                 MessageBox.Show("User information not set correctly upon login");
+            }
+        }
+
+        //swtich which panel is visible to the user
+        private void switchPanel(string buttonTag)
+        {
+            switch (buttonTag)
+            {
+                case "mem_search":
+                    panel_searchMem.Visible = true;
+                    break;
+                case "newMember":
+                    panel_newMember.Visible = true;
+                    break;
+                case "billing":
+                    panel_billing.Visible = true;
+                    break;
+                case "verify":
+                    panel_verifyMember.Visible = true;
+                    break;
+                case "newProvider":
+                    panel_newProvider.Visible = true;
+                    break;
+                default:
+                    MessageBox.Show("Panel Not Yet Created...");
+                    break;
             }
         }
         #endregion
