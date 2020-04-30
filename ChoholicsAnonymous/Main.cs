@@ -191,7 +191,7 @@ namespace ChoholicsAnonymous
              searchMem_res_lastName.Text   = searchResults.LastName;
              searchMem_res_email.Text      = searchResults.Email;
              searchMem_res_street.Text     = searchResults.Address.street;
-             searchMem_res_city.Text = searchResults.Address.city;
+             searchMem_res_city.Text       = searchResults.Address.city;
              searchMem_res_state.Text      = searchResults.Address.state;
              searchMem_res_post.Text       = searchResults.Address.postalCode;
              searchMem_res_ccNum.Text      = searchResults.Payment.CardNumber;
@@ -227,20 +227,21 @@ namespace ChoholicsAnonymous
         private void searchMem_bttn_update_Click(object sender, EventArgs e)
         {
 
-            DataCenter.memberList[Int32.Parse(searchMem_res_memID.Text)].MemberID = Int32.Parse(searchMem_res_memID.Text);
-            DataCenter.memberList[Int32.Parse(searchMem_res_memID.Text)].FirstName = searchMem_res_firstName.Text;
-            DataCenter.memberList[Int32.Parse(searchMem_res_memID.Text)].LastName = searchMem_res_lastName.Text;
-            DataCenter.memberList[Int32.Parse(searchMem_res_memID.Text)].Email = searchMem_res_email.Text;
-            DataCenter.memberList[Int32.Parse(searchMem_res_memID.Text)].Address.street = searchMem_res_street.Text;
-            DataCenter.memberList[Int32.Parse(searchMem_res_memID.Text)].Address.city = searchMem_res_city.Text;
-            DataCenter.memberList[Int32.Parse(searchMem_res_memID.Text)].Address.state = searchMem_res_state.Text;
-            DataCenter.memberList[Int32.Parse(searchMem_res_memID.Text)].Address.postalCode = searchMem_res_post.Text;
-            DataCenter.memberList[Int32.Parse(searchMem_res_memID.Text)].Payment.CardNumber = searchMem_res_ccNum.Text;
-            DataCenter.memberList[Int32.Parse(searchMem_res_memID.Text)].Payment.Cvc = searchMem_res_cvc.Text;
-            string month = searchMem_res_ccExp.Text.Substring(0, 2);
-            string year = searchMem_res_ccExp.Text.Substring(2, 2);
-            DataCenter.memberList[Int32.Parse(searchMem_res_memID.Text)].Payment.ExpDate.Month = Int32.Parse(month);
-            DataCenter.memberList[Int32.Parse(searchMem_res_memID.Text)].Payment.ExpDate.Year = Int32.Parse(year);
+            //DataCenter.memberList[Int32.Parse(searchMem_res_inMemID.Text)].MemberID = Int32.Parse(searchMem_res_memID.Text);
+            DataCenter.memberList[Int32.Parse(searchMem_inMemID.Text)].FirstName = searchMem_res_firstName.Text;
+            
+            DataCenter.memberList[Int32.Parse(searchMem_inMemID.Text)].LastName = searchMem_res_lastName.Text;
+            DataCenter.memberList[Int32.Parse(searchMem_inMemID.Text)].Email = searchMem_res_email.Text;
+            DataCenter.memberList[Int32.Parse(searchMem_inMemID.Text)].Address.street = searchMem_res_street.Text;
+            DataCenter.memberList[Int32.Parse(searchMem_inMemID.Text)].Address.city = searchMem_res_city.Text;
+            DataCenter.memberList[Int32.Parse(searchMem_inMemID.Text)].Address.state = searchMem_res_state.Text;
+            DataCenter.memberList[Int32.Parse(searchMem_inMemID.Text)].Address.postalCode = searchMem_res_post.Text;
+            DataCenter.memberList[Int32.Parse(searchMem_inMemID.Text)].Payment.CardNumber = searchMem_res_ccNum.Text;
+            DataCenter.memberList[Int32.Parse(searchMem_inMemID.Text)].Payment.Cvc = searchMem_res_cvc.Text;
+            //string month = searchMem_res_ccExp.Text.Substring(0, 2);
+            //string year = searchMem_res_ccExp.Text.Substring(2, 2);
+            //DataCenter.memberList[Int32.Parse(searchMem_inMemID.Text)].Payment.ExpDate.Month = Int32.Parse(month);
+            //DataCenter.memberList[Int32.Parse(searchMem_inMemID.Text)].Payment.ExpDate.Year = Int32.Parse(year);
 
 
             //still gotta update subscription expiry data, service type, provider id.
