@@ -109,6 +109,7 @@
             this.searchMem_res_street = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
+            this.searchMem_res_birthday = new System.Windows.Forms.TextBox();
             this.searchMem_res_email = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.searchMem_res_lastName = new System.Windows.Forms.TextBox();
@@ -132,7 +133,6 @@
             this.label44 = new System.Windows.Forms.Label();
             this.pane_print = new System.Windows.Forms.Panel();
             this.label45 = new System.Windows.Forms.Label();
-            this.searchMem_res_birthday = new System.Windows.Forms.TextBox();
             this.toolStrip1.SuspendLayout();
             this.panel_newMember.SuspendLayout();
             this.panel_searchMem.SuspendLayout();
@@ -603,10 +603,10 @@
             this.panel_searchMem.Controls.Add(this.searchMem_panel_Results);
             this.panel_searchMem.Controls.Add(this.searchMem_panel_Name);
             this.panel_searchMem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_searchMem.Location = new System.Drawing.Point(0, 25);
+            this.panel_searchMem.Location = new System.Drawing.Point(0, 0);
             this.panel_searchMem.Margin = new System.Windows.Forms.Padding(2);
             this.panel_searchMem.Name = "panel_searchMem";
-            this.panel_searchMem.Size = new System.Drawing.Size(1123, 757);
+            this.panel_searchMem.Size = new System.Drawing.Size(1123, 782);
             this.panel_searchMem.TabIndex = 32;
             this.panel_searchMem.VisibleChanged += new System.EventHandler(this.panel__VisibleChanged);
             // 
@@ -1001,6 +1001,14 @@
             this.label30.TabIndex = 18;
             this.label30.Text = "Member Address";
             // 
+            // searchMem_res_birthday
+            // 
+            this.searchMem_res_birthday.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchMem_res_birthday.Location = new System.Drawing.Point(77, 164);
+            this.searchMem_res_birthday.Name = "searchMem_res_birthday";
+            this.searchMem_res_birthday.Size = new System.Drawing.Size(307, 22);
+            this.searchMem_res_birthday.TabIndex = 17;
+            // 
             // searchMem_res_email
             // 
             this.searchMem_res_email.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1226,26 +1234,18 @@
             this.label45.TabIndex = 4;
             this.label45.Text = "Print Documents";
             // 
-            // searchMem_res_birthday
-            // 
-            this.searchMem_res_birthday.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchMem_res_birthday.Location = new System.Drawing.Point(77, 164);
-            this.searchMem_res_birthday.Name = "searchMem_res_birthday";
-            this.searchMem_res_birthday.Size = new System.Drawing.Size(307, 22);
-            this.searchMem_res_birthday.TabIndex = 17;
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1123, 782);
-            this.Controls.Add(this.panel_searchMem);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panel_newMember);
             this.Controls.Add(this.panel_home);
             this.Controls.Add(this.pane_print);
             this.Controls.Add(this.panel_newProvider);
             this.Controls.Add(this.panel_searchProvider);
+            this.Controls.Add(this.panel_searchMem);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Main";
             this.Text = "Choholics Data Center";
