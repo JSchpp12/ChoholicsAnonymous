@@ -23,25 +23,41 @@ namespace ChoholicsAnonymous
 
         public Member()
         {
-            String currDate              = DateTime.Now.ToString();
-            DateTime dateValue           = (Convert.ToDateTime(currDate.ToString()));
             this.SubscriptionStart       = new Date();
             this.SubscriptionExpiation   = new Date();
             this.Payment                 = new CreditCard();
             this.Address                 = new Address(); 
-            this.SubscriptionStart.Day   = dateValue.Day;
-            this.SubscriptionStart.Month = dateValue.Month;
-            this.SubscriptionStart.Year  = dateValue.Year;
-            this.MemberID                = getNewMemberID(); 
         }
 
+        //if true will include the current date in the member object and give the member a new id
+        public Member(bool newMember)
+        {
+            if (newMember)
+            {
+                //creating a new member for submission
+                String currDate                  = DateTime.Now.ToString();
+                DateTime dateValue               = (Convert.ToDateTime(currDate.ToString()));
+                this.SubscriptionStart           = new Date();
+                this.SubscriptionExpiation       = new Date();
+                this.Payment                     = new CreditCard();
+                this.Address                     = new Address();
+                this.SubscriptionStart.Day       = dateValue.Day;
+                this.SubscriptionStart.Month     = dateValue.Month;
+                this.SubscriptionStart.Year      = dateValue.Year;
+                this.MemberID                    = getNewMemberID();
+            }
+            else
+            {
+                this.SubscriptionStart       = new Date();
+                this.SubscriptionExpiation   = new Date();
+                this.Payment                 = new CreditCard();
+                this.Address                 = new Address();
+            }
+
+        }
         private int getNewMemberID()
         {
             return DataCenter.MemberCount++; 
         }
-
-       
-
-        
     }
 }

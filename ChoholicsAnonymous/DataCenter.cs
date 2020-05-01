@@ -17,7 +17,6 @@ namespace ChoholicsAnonymous
         public static List<Member> memberList = new List<Member>();
         private static HashSet<Provider> providerSet = new HashSet<Provider>();
 
-
         //add a member to the data set
         public static void AddMember(Member newMember)
         {
@@ -33,12 +32,31 @@ namespace ChoholicsAnonymous
              string temp = path.Replace("\\bin\\Debug", "\\"+ fileName);
              XmlSerializer serial = new XmlSerializer(typeof(List<Member>));
              StreamWriter file = new StreamWriter(temp);
-             serial.Serialize(file, DataCenter.memberList);
+             serial.Serialize(file, memberList);
              file.Close();
-
         }
        
+        //read all files and build structures for data storage 
+        public static void initilize()
+        {
+            readMembers("Member.xml");
+        }
 
+        //update the member information in the list 
+        public static bool updateMember(Member updatedMember)
+        {
+            int indexOfMember = getIndexOfMember(updatedMember.MemberID);
+            if (indexOfMember != -1)
+            {
+                memberList[indexOfMember] = updatedMember;
+                return true;
+            }
+            else
+            {
+                //fail state
+                return false; 
+            }
+        }
         
         public static Member searchMember(int memberId)
         {
@@ -53,22 +71,51 @@ namespace ChoholicsAnonymous
             }
             return memberResult;
         }
-        
 
-        public static  void deleteMember(int memberId)
+
+        public static void deleteMember(int memberID)
         {
-                for (int i = 0; i < DataCenter.memberList.Count(); i++)
+            for (int i = 0; i < memberList.Count(); i++)
             {
-                if (memberList[i].MemberID == memberId)
+                if (memberList[i].MemberID == memberID)
                 {
-                    DataCenter.memberList.Remove(memberList[i]);
+                    memberList.Remove(memberList[i]);
                     break;
                 }
             }
         }
 
-        
-       
-        
+        //returns the index of the member object in the list based on the given member id
+        private static int getIndexOfMember(int memberID)
+        {
+            int none = -1; 
+            for (int i = 0; i < memberList.Count(); i++)
+            {
+                if (memberList[i].MemberID == memberID)
+                {
+                    return i; 
+                }     
+            }
+            return none; //will return -1 if member is not in list 
+        }
+
+        //returns member id of member object at a given index
+        private static int getMemberId(int index)
+        {
+            if (index < memberList.Count())
+                return memberList[index].MemberID;
+            else
+                return -1; 
+        }
+
+        private static void readMembers(string fileName)
+        {
+            string path = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
+            string filePath = path.Replace("\\bin\\Debug", "\\" + fileName);
+            XmlSerializer reader = new XmlSerializer(typeof(List<Member>));
+            StreamReader file = new StreamReader(filePath);
+            DataCenter.memberList = (List<Member>)reader.Deserialize(file);
+            file.Close();
+        }
     }
 }

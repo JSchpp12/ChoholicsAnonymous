@@ -13,7 +13,6 @@ using System.Xml.Serialization;
 using ChoholicsAnonymous;
 using System.Runtime.Serialization;
 using System.Xml.Linq;
-using Newtonsoft.Json;
 
 namespace ChoholicsAnonymous
 {
@@ -24,7 +23,6 @@ namespace ChoholicsAnonymous
             InitializeComponent();
             hideAllPanels();
             panel_home.Visible = true;
-            readMembers("Member.xml");
         }
 
         #region UI event handlers
@@ -33,7 +31,7 @@ namespace ChoholicsAnonymous
         {
             int day, month;
 
-            Member newMember = new Member();
+            Member newMember = new Member(true);
             newMember.FirstName = newMem_firstName.Text;
             newMember.LastName = newMem_lastName.Text;
             newMember.Email = newMem_email.Text;
@@ -169,22 +167,12 @@ namespace ChoholicsAnonymous
         }
         #endregion
 
-        public void readMembers(string fileName)
-        {
-            string path = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
-            string filePath = path.Replace("\\bin\\Debug", "\\" + fileName);
-            XmlSerializer reader = new XmlSerializer(typeof(List<Member>));
-            StreamReader file = new StreamReader(filePath);
-            DataCenter.memberList = (List<Member>)  reader.Deserialize(file);
-            file.Close();
 
-        
-        }
 
         //searches for member information and populates GUI with retrieved information 
         private void searchMem_bttn_search_Click(object sender, EventArgs e)
         {
-            Member searchResults = DataCenter.searchMember(Int32.Parse(searchMem_inMemID.Text));
+             Member searchResults = DataCenter.searchMember(Int32.Parse(searchMem_inMemID.Text));
 
             
              searchMem_res_firstName.Text  = searchResults.FirstName;
@@ -196,32 +184,6 @@ namespace ChoholicsAnonymous
              searchMem_res_post.Text       = searchResults.Address.postalCode;
              searchMem_res_ccNum.Text      = searchResults.Payment.CardNumber;
              searchMem_res_cvc.Text        = searchResults.Payment.Cvc;
-
-
-
-
-
-
-            //If we want dictionary to xml
-            /*
-            var myJson = JsonConvert.SerializeObject(DataCenter.memberSet);
-            var myXml = JsonConvert.DeserializeXNode(myJson.ToString(), "root");
-            myXml.Save("123.xml");
-            */
-
-            //To search
-            //DataCenter.searchMember(2);
-
-            //To delete
-
-
-            //To update
-
-
-
-
-
-
         }
 
         private void searchMem_bttn_update_Click(object sender, EventArgs e)
@@ -257,7 +219,6 @@ namespace ChoholicsAnonymous
            DataCenter.writeMembersToFile("Member.xml");
         }
     }
-
-    }
+}
 
 
