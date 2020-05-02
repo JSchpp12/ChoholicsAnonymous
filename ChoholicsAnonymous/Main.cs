@@ -104,7 +104,7 @@ namespace ChoholicsAnonymous
             {
                 //cast dropdown menu items
                 ToolStripMenuItem item = (ToolStripMenuItem)sender;
-                tag = item.Text; 
+                tag = item.Tag.ToString(); 
             }catch (InvalidCastException ex)
             {
                 try

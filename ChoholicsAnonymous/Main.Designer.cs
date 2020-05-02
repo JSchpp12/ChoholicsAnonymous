@@ -269,7 +269,7 @@
             // toolStrip_verifyMember
             // 
             this.toolStrip_verifyMember.Name = "toolStrip_verifyMember";
-            this.toolStrip_verifyMember.Size = new System.Drawing.Size(146, 22);
+            this.toolStrip_verifyMember.Size = new System.Drawing.Size(180, 22);
             this.toolStrip_verifyMember.Tag = "verify";
             this.toolStrip_verifyMember.Text = "Verify";
             this.toolStrip_verifyMember.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
@@ -277,7 +277,7 @@
             // toolStrip_searchMember
             // 
             this.toolStrip_searchMember.Name = "toolStrip_searchMember";
-            this.toolStrip_searchMember.Size = new System.Drawing.Size(146, 22);
+            this.toolStrip_searchMember.Size = new System.Drawing.Size(180, 22);
             this.toolStrip_searchMember.Tag = "mem_search";
             this.toolStrip_searchMember.Text = "Search";
             this.toolStrip_searchMember.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
@@ -285,7 +285,7 @@
             // toolStrip_newMember
             // 
             this.toolStrip_newMember.Name = "toolStrip_newMember";
-            this.toolStrip_newMember.Size = new System.Drawing.Size(146, 22);
+            this.toolStrip_newMember.Size = new System.Drawing.Size(180, 22);
             this.toolStrip_newMember.Tag = "newMember";
             this.toolStrip_newMember.Text = "New Member";
             this.toolStrip_newMember.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
@@ -341,7 +341,7 @@
             // toolStrip_viewReports
             // 
             this.toolStrip_viewReports.Name = "toolStrip_viewReports";
-            this.toolStrip_viewReports.Size = new System.Drawing.Size(142, 22);
+            this.toolStrip_viewReports.Size = new System.Drawing.Size(180, 22);
             this.toolStrip_viewReports.Tag = "viewReports";
             this.toolStrip_viewReports.Text = "View Reports";
             this.toolStrip_viewReports.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
@@ -349,7 +349,7 @@
             // toolStrip_runReports
             // 
             this.toolStrip_runReports.Name = "toolStrip_runReports";
-            this.toolStrip_runReports.Size = new System.Drawing.Size(142, 22);
+            this.toolStrip_runReports.Size = new System.Drawing.Size(180, 22);
             this.toolStrip_runReports.Tag = "runReports";
             this.toolStrip_runReports.Text = "Run Reports";
             this.toolStrip_runReports.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
