@@ -102,4 +102,38 @@
       <Year>2020</Year>
     </SubscriptionStart>
   </Member>
+  <Member>
+    <FirstName>Jacob</FirstName>
+    <LastName />
+    <Email />
+    <PhoneNumber />
+    <MemberID>0</MemberID>
+    <ProviderID>0</ProviderID>
+    <CCNumber>0</CCNumber>
+    <Address>
+      <street />
+      <state />
+      <city />
+      <postalCode />
+    </Address>
+    <Payment>
+      <CardNumber />
+      <Cvc />
+      <ExpDate>
+        <Month>1</Month>
+        <Day>12</Day>
+        <Year>0</Year>
+      </ExpDate>
+    </Payment>
+    <SubscriptionExpiation>
+      <Month>0</Month>
+      <Day>0</Day>
+      <Year>0</Year>
+    </SubscriptionExpiation>
+    <SubscriptionStart>
+      <Month>5</Month>
+      <Day>1</Day>
+      <Year>2020</Year>
+    </SubscriptionStart>
+  </Member>
 </ArrayOfMember>

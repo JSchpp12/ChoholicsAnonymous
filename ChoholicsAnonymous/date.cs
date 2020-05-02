@@ -27,13 +27,9 @@ namespace ChoholicsAnonymous
             {
                 if (dateString[i] == '-')
                 {
-                    
-                    positionCount = 0;
-                    previousPosition = i;
-                    conversionCount++;
                     switch (conversionCount)
                     {
-                        case 1:
+                        case 0:
                             try
                             {
                                 tempContainer = dateString.Substring(previousPosition, positionCount);
@@ -44,7 +40,7 @@ namespace ChoholicsAnonymous
                                 throw new System.InvalidCastException(ex.Message);
                             }
                             break;
-                        case 2:
+                        case 1:
                             try
                             {
                                 tempContainer = dateString.Substring(previousPosition, positionCount);
@@ -55,7 +51,7 @@ namespace ChoholicsAnonymous
                                 throw new System.InvalidCastException(ex.Message);
                             }
                             break;
-                        case 3:
+                        case 2:
                             try
                             {
                                 tempContainer = dateString.Substring(i+1);
@@ -69,6 +65,9 @@ namespace ChoholicsAnonymous
                         default:
                             throw new System.ArgumentException("An Unknown Error Has Occured");
                     }
+                    positionCount = 0;
+                    previousPosition = i;
+                    conversionCount++;
                 }
                 else
                     positionCount++;
@@ -78,10 +77,10 @@ namespace ChoholicsAnonymous
         }
 
         //converts the date object to the correct date string format
-        public string convString()
+        public string convToString()
         {
             string dateString;
-            dateString = this.Month.ToString() + "-" + this.Day.ToString() + this.Year.ToString();
+            dateString = this.Month.ToString() + "-" + this.Day.ToString() + "-" + this.Year.ToString();
             return dateString; 
         }
     }

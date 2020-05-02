@@ -23,6 +23,8 @@ namespace ChoholicsAnonymous
             InitializeComponent();
             hideAllPanels();
             panel_home.Visible = true;
+            DataCenter.initilize();
+            Date test = new Date("07-12-1998"); 
         }
 
         #region UI event handlers

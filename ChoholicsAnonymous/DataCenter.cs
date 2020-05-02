@@ -22,7 +22,6 @@ namespace ChoholicsAnonymous
         {
             memberList.Add(newMember);
             writeMembersToFile("Member.xml");
-            
         }
 
         public static void writeMembersToFile(string fileName)
