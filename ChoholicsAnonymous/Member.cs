@@ -40,7 +40,7 @@ namespace ChoholicsAnonymous
                 String currDate                  = DateTime.Now.ToString();
                 DateTime dateValue               = (Convert.ToDateTime(currDate.ToString()));
                 this.SubscriptionStart           = new Date();
-                this.SubscriptionExpiation       = new Date();
+                this.SubscriptionExpiration = new Date();
                 this.Payment                     = new CreditCard();
                 this.Address                     = new Address();
                 this.SubscriptionStart.Day       = dateValue.Day;
@@ -51,7 +51,7 @@ namespace ChoholicsAnonymous
             else
             {
                 this.SubscriptionStart       = new Date();
-                this.SubscriptionExpiation   = new Date();
+                this.SubscriptionExpiration = new Date();
                 this.Payment                 = new CreditCard();
                 this.Address                 = new Address();
             }

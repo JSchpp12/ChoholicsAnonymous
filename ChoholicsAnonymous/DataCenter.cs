@@ -15,25 +15,35 @@ namespace ChoholicsAnonymous
         public static int MemberCount { get; set; }
         public static int ProviderCount { get; set; }
         public static List<Member> memberList = new List<Member>();
-        private static HashSet<Provider> providerSet = new HashSet<Provider>();
+        public static List<Provider> providerList = new List<Provider>();
 
         //add a member to the data set
         public static void AddMember(Member newMember)
         {
             memberList.Add(newMember);
-            writeMembersToFile("Member.xml");
+            //writeMembersToFile("Member.xml");
             
         }
 
-        public static void writeMembersToFile(string fileName)
+        public static void writeToFile(string fileName, string dataType)
         {
             
-             string path = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
-             string temp = path.Replace("\\bin\\Debug", "\\"+ fileName);
-             XmlSerializer serial = new XmlSerializer(typeof(List<Member>));
-             StreamWriter file = new StreamWriter(temp);
-             serial.Serialize(file, memberList);
-             file.Close();
+             string fullPath = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
+             string editedPath = fullPath.Replace("\\bin\\Debug", "\\"+ fileName);
+            if (dataType == "member")
+            {
+                XmlSerializer serial = new XmlSerializer(typeof(List<Member>));
+                StreamWriter file = new StreamWriter(editedPath);
+                serial.Serialize(file, memberList);
+                file.Close();
+            }
+            else if (dataType == "provider")
+            {
+                XmlSerializer serial = new XmlSerializer(typeof(List<Provider>));
+                StreamWriter file = new StreamWriter(editedPath);
+                serial.Serialize(file, providerList);
+                file.Close();
+            }          
         }
        
         //read all files and build structures for data storage 
@@ -117,5 +127,18 @@ namespace ChoholicsAnonymous
             DataCenter.memberList = (List<Member>)reader.Deserialize(file);
             file.Close();
         }
+
+        //Provider functions start here
+        public static void addProvider(Provider newProvider)
+        {
+            providerList.Add(newProvider);
+           // writeMembersToFile("Member.xml");
+
+        }
+
+
+
+
+
     }
 }

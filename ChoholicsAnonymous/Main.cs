@@ -16,7 +16,8 @@ namespace ChoholicsAnonymous
         {
             InitializeComponent();
             hideAllPanels();
-            panel_home.Visible = true; 
+            panel_home.Visible = true;
+            DataCenter.initilize();
         }
 
         #region UI event handlers
@@ -104,15 +105,16 @@ namespace ChoholicsAnonymous
             {
                 //cast dropdown menu items
                 ToolStripMenuItem item = (ToolStripMenuItem)sender;
-                tag = item.Text; 
+                tag = item.Tag.ToString(); 
             }catch (InvalidCastException ex)
             {
                 try
                 {
                     //cast buttons
                     ToolStripButton item = (ToolStripButton)sender;
-                    tag = item.Text; 
-                }catch (Exception oEx)
+                    tag = item.Tag.ToString();
+                }
+                catch (Exception oEx)
                 {
                     MessageBox.Show("An Unknown Error Occured While Casting Panel Information -- " + oEx.Message); 
                 }
@@ -219,7 +221,43 @@ namespace ChoholicsAnonymous
         //searches for member information and populates GUI with retrieved information 
         private void searchMem_bttn_search_Click(object sender, EventArgs e)
         {
+            Member searchResults = DataCenter.searchMember(Int32.Parse(searchMem_inMemID.Text));
 
+
+            searchMem_res_firstName.Text = searchResults.FirstName;
+            searchMem_res_lastName.Text = searchResults.LastName;
+            searchMem_res_email.Text = searchResults.Email;
+            searchMem_res_street.Text = searchResults.Address.street;
+            searchMem_res_city.Text = searchResults.Address.city;
+            searchMem_res_state.Text = searchResults.Address.state;
+            searchMem_res_post.Text = searchResults.Address.postalCode;
+            searchMem_res_ccNum.Text = searchResults.Payment.CardNumber;
+            searchMem_res_cvc.Text = searchResults.Payment.Cvc;
+        }
+
+        //Provider events start here
+
+        private void newPro_bttn_submit_Click(object sender, EventArgs e)
+        {
+            int day, month;
+
+            Provider newProvider = new Provider();
+
+            newProvider.ProviderName = newProvider_name.Text;
+            newProvider.PhoneNumber = newProvider_phoneNumber.Text;
+            newProvider.Address.street = newProvider_street.Text;
+            newProvider.Address.city = newProvider_city.Text;
+            newProvider.Address.state = newProvider_state.Text;
+            newProvider.Address.postalCode = newProvider_postal.Text;
+            DataCenter.addProvider(newProvider);
+            MessageBox.Show("Provider Successfully Added");
+        }
+
+
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DataCenter.writeToFile("Member.xml", "member");
+            DataCenter.writeToFile("Provider.xml", "provider");
         }
     }
 
