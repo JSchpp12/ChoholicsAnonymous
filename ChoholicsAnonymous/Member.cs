@@ -15,16 +15,15 @@ namespace ChoholicsAnonymous
         public string PhoneNumber { get; set; }
         public int MemberID { get; set; }
         public int ProviderID { get; set; }
-        public int CCNumber { get; set; }
         public Address Address { get; set; } 
         public CreditCard Payment { get; set; }
-        public Date SubscriptionExpiation { get; set; } //when the member's subscription will expire 
+        public Date SubscriptionExpiration { get; set; } //when the member's subscription will expire 
         public Date SubscriptionStart { get; set; } //the day the member started their subscription
 
         public Member()
         {
             this.SubscriptionStart       = new Date();
-            this.SubscriptionExpiation   = new Date();
+            this.SubscriptionExpiration  = new Date();
             this.Payment                 = new CreditCard();
             this.Address                 = new Address(); 
         }

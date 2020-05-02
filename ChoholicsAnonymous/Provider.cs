@@ -8,5 +8,21 @@ namespace ChoholicsAnonymous
 {
     class Provider
     {
+        public string  ProviderName { get; set; }
+        public string  PhoneNumber  { get; set; }
+        public int     ProviderID   { get; set; }
+        public Address Address      { get; set; }
+        
+        public Provider()
+        {
+            this.Address    = new Address();
+            this.ProviderID = getNewProviderID();
+        }
+
+        private int getNewProviderID()
+        {
+            return DataCenter.ProviderCount++;
+        }
+
     }
 }
