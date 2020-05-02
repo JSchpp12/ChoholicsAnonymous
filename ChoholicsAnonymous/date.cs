@@ -17,10 +17,6 @@ namespace ChoholicsAnonymous
         {}
 
         //converts a date object to the display format MM-DD-YYYY
-        //throws a InvalidCastException if the date does not only contain numbers ex(a5-12-1965)
-        //throws a Arguemnt Exception if the string passed is not in the format MM-DD-YYYY
-        //----WILL WORK WITH THE FORMAT OF DD-MM-YYYY
-        // but the DD will be taken as MM
         public Date(string dateString)
         {
             string tempContainer;
@@ -29,7 +25,7 @@ namespace ChoholicsAnonymous
 
             for (int i = 0; i < dateString.Length; i++)
             {
-                if (dateString[i] == '-' || i == dateString.Length - 1)
+                if (dateString[i] == '-')
                 {
                     switch (conversionCount)
                     {
@@ -58,7 +54,7 @@ namespace ChoholicsAnonymous
                         case 2:
                             try
                             {
-                                tempContainer = dateString.Substring(previousPosition);
+                                tempContainer = dateString.Substring(i+1);
                                 this.Year = Int32.Parse(tempContainer);
                             }
                             catch (FormatException ex)
@@ -70,7 +66,7 @@ namespace ChoholicsAnonymous
                             throw new System.ArgumentException("An Unknown Error Has Occured");
                     }
                     positionCount = 0;
-                    previousPosition = i+1;
+                    previousPosition = i;
                     conversionCount++;
                 }
                 else
