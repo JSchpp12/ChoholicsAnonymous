@@ -18,14 +18,14 @@ namespace ChoholicsAnonymous
         public int CCNumber { get; set; }
         public Address Address { get; set; } 
         public CreditCard Payment { get; set; }
-        public Date SubscriptionExpiation { get; set; } //when the member's subscription will expire 
+        public Date SubscriptionExpiration { get; set; } //when the member's subscription will expire 
         public Date SubscriptionStart { get; set; } //the day the member started their subscription
         public Date Birthday { get; set; }
 
         public Member()
         {
             this.SubscriptionStart       = new Date();
-            this.SubscriptionExpiation   = new Date();
+            this.SubscriptionExpiration = new Date();
             this.Birthday                = new Date(); 
             this.Payment                 = new CreditCard();
             this.Address                 = new Address(); 
@@ -40,7 +40,8 @@ namespace ChoholicsAnonymous
                 String currDate                  = DateTime.Now.ToString();
                 DateTime dateValue               = (Convert.ToDateTime(currDate.ToString()));
                 this.SubscriptionStart           = new Date();
-                this.SubscriptionExpiration = new Date();
+                this.SubscriptionExpiration      = new Date();
+                this.Birthday                    = new Date(); 
                 this.Payment                     = new CreditCard();
                 this.Address                     = new Address();
                 this.SubscriptionStart.Day       = dateValue.Day;

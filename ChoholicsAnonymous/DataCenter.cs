@@ -22,14 +22,14 @@ namespace ChoholicsAnonymous
         {
             memberList.Add(newMember);
             //writeMembersToFile("Member.xml");
-            
+
         }
 
         public static void writeToFile(string fileName, string dataType)
         {
-            
-             string fullPath = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
-             string editedPath = fullPath.Replace("\\bin\\Debug", "\\"+ fileName);
+
+            string fullPath = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
+            string editedPath = fullPath.Replace("\\bin\\Debug", "\\" + fileName);
             if (dataType == "member")
             {
                 XmlSerializer serial = new XmlSerializer(typeof(List<Member>));
@@ -43,9 +43,9 @@ namespace ChoholicsAnonymous
                 StreamWriter file = new StreamWriter(editedPath);
                 serial.Serialize(file, providerList);
                 file.Close();
-            }          
+            }
         }
-       
+
         //read all files and build structures for data storage 
         public static void initilize()
         {
@@ -64,14 +64,14 @@ namespace ChoholicsAnonymous
             else
             {
                 //fail state
-                return false; 
+                return false;
             }
         }
-        
+
         public static Member searchMember(int memberId)
         {
             Member memberResult = new Member();
-            for (int i = 0; i<memberList.Count(); i++)
+            for (int i = 0; i < memberList.Count(); i++)
             {
                 if (memberList[i].MemberID == memberId)
                 {
@@ -98,13 +98,13 @@ namespace ChoholicsAnonymous
         //returns the index of the member object in the list based on the given member id
         private static int getIndexOfMember(int memberID)
         {
-            int none = -1; 
+            int none = -1;
             for (int i = 0; i < memberList.Count(); i++)
             {
                 if (memberList[i].MemberID == memberID)
                 {
-                    return i; 
-                }     
+                    return i;
+                }
             }
             return none; //will return -1 if member is not in list 
         }
@@ -115,7 +115,7 @@ namespace ChoholicsAnonymous
             if (index < memberList.Count())
                 return memberList[index].MemberID;
             else
-                return -1; 
+                return -1;
         }
 
         private static void readMembers(string fileName)
@@ -132,13 +132,8 @@ namespace ChoholicsAnonymous
         public static void addProvider(Provider newProvider)
         {
             providerList.Add(newProvider);
-           // writeMembersToFile("Member.xml");
+            // writeMembersToFile("Member.xml");
 
         }
-
-
-
-
-
     }
 }
