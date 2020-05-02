@@ -7,6 +7,7 @@
     <PhoneNumber>419111222</PhoneNumber>
     <MemberID>0</MemberID>
     <ProviderID>0</ProviderID>
+    <CCNumber>0</CCNumber>
     <Address>
       <street>abc street</street>
       <state>OH</state>
@@ -22,11 +23,11 @@
         <Year>0</Year>
       </ExpDate>
     </Payment>
-    <SubscriptionExpiration>
+    <SubscriptionExpiation>
       <Month>0</Month>
       <Day>0</Day>
       <Year>0</Year>
-    </SubscriptionExpiration>
+    </SubscriptionExpiation>
     <SubscriptionStart>
       <Month>4</Month>
       <Day>30</Day>
@@ -45,6 +46,7 @@
     <PhoneNumber>419333222</PhoneNumber>
     <MemberID>1</MemberID>
     <ProviderID>0</ProviderID>
+    <CCNumber>0</CCNumber>
     <Address>
       <street>xyz street</street>
       <state>OH</state>
@@ -60,11 +62,11 @@
         <Year>0</Year>
       </ExpDate>
     </Payment>
-    <SubscriptionExpiration>
-      <Month>0</Month>
-      <Day>0</Day>
-      <Year>0</Year>
-    </SubscriptionExpiration>
+    <SubscriptionExpiation>
+      <Month>7</Month>
+      <Day>30</Day>
+      <Year>2020</Year>
+    </SubscriptionExpiation>
     <SubscriptionStart>
       <Month>4</Month>
       <Day>30</Day>
@@ -83,6 +85,7 @@
     <PhoneNumber>419333444</PhoneNumber>
     <MemberID>2</MemberID>
     <ProviderID>0</ProviderID>
+    <CCNumber>0</CCNumber>
     <Address>
       <street>ijk street</street>
       <state>OH</state>
@@ -98,11 +101,11 @@
         <Year>0</Year>
       </ExpDate>
     </Payment>
-    <SubscriptionExpiration>
+    <SubscriptionExpiation>
       <Month>0</Month>
       <Day>0</Day>
       <Year>0</Year>
-    </SubscriptionExpiration>
+    </SubscriptionExpiation>
     <SubscriptionStart>
       <Month>4</Month>
       <Day>30</Day>
@@ -152,38 +155,5 @@
       <Day>0</Day>
       <Year>0</Year>
     </Birthday>
-  </Member>
-  <Member>
-    <FirstName>test</FirstName>
-    <LastName />
-    <Email />
-    <PhoneNumber />
-    <MemberID>0</MemberID>
-    <ProviderID>0</ProviderID>
-    <Address>
-      <street />
-      <state />
-      <city />
-      <postalCode />
-    </Address>
-    <Payment>
-      <CardNumber />
-      <Cvc />
-      <ExpDate>
-        <Month>1</Month>
-        <Day>20</Day>
-        <Year>0</Year>
-      </ExpDate>
-    </Payment>
-    <SubscriptionExpiration>
-      <Month>0</Month>
-      <Day>0</Day>
-      <Year>0</Year>
-    </SubscriptionExpiration>
-    <SubscriptionStart>
-      <Month>0</Month>
-      <Day>0</Day>
-      <Year>0</Year>
-    </SubscriptionStart>
   </Member>
 </ArrayOfMember>
