@@ -43,35 +43,35 @@ namespace ChoholicsAnonymous
             newMember.Address.postalCode = newMem_City.Text;
             newMember.Payment.CardNumber = newMem_ccNum.Text;
             newMember.Payment.Cvc = newMem_cvc.Text;
-            newMember.Birthday = new Date(newMem_birthday.Text.ToString()); 
+            //newMember.Birthday = new Date(newMem_birthday.Text.ToString()); 
             string subLength = newMem_subLength.Text;
             DateTime date = DateTime.Now;
             switch (subLength)
             {
                 case "1 Month":
-                    newMember.SubscriptionExpiation.Month = date.Month + 1;
-                    newMember.SubscriptionExpiation.Day = date.Day;
-                    newMember.SubscriptionExpiation.Year = date.Year;
+                    newMember.SubscriptionExpiration.Month = date.Month + 1;
+                    newMember.SubscriptionExpiration.Day = date.Day;
+                    newMember.SubscriptionExpiration.Year = date.Year;
                     break;
                 case "2 Months":
-                    newMember.SubscriptionExpiation.Month = date.Month + 2;
-                    newMember.SubscriptionExpiation.Day = date.Day;
-                    newMember.SubscriptionExpiation.Year = date.Year;
+                    newMember.SubscriptionExpiration.Month = date.Month + 2;
+                    newMember.SubscriptionExpiration.Day = date.Day;
+                    newMember.SubscriptionExpiration.Year = date.Year;
                     break;
                 case "3 Months":
-                    newMember.SubscriptionExpiation.Month = date.Month + 3;
-                    newMember.SubscriptionExpiation.Day = date.Day;
-                    newMember.SubscriptionExpiation.Year = date.Year;
+                    newMember.SubscriptionExpiration.Month = date.Month + 3;
+                    newMember.SubscriptionExpiration.Day = date.Day;
+                    newMember.SubscriptionExpiration.Year = date.Year;
                     break;
                 case "8 Months":
-                    newMember.SubscriptionExpiation.Month = date.Month + 8;
-                    newMember.SubscriptionExpiation.Day = date.Day;
-                    newMember.SubscriptionExpiation.Year = date.Year;
+                    newMember.SubscriptionExpiration.Month = date.Month + 8;
+                    newMember.SubscriptionExpiration.Day = date.Day;
+                    newMember.SubscriptionExpiration.Year = date.Year;
                     break;
                 case "12 Months":
-                    newMember.SubscriptionExpiation.Month = date.Month;
-                    newMember.SubscriptionExpiation.Day = date.Day;
-                    newMember.SubscriptionExpiation.Year = date.Year + 1;
+                    newMember.SubscriptionExpiration.Month = date.Month;
+                    newMember.SubscriptionExpiration.Day = date.Day;
+                    newMember.SubscriptionExpiration.Year = date.Year + 1;
                     break;
                     //need to add cases for more months
             }
@@ -220,7 +220,7 @@ namespace ChoholicsAnonymous
 
         private void Main_FormClosed(object sender, FormClosedEventArgs e)
         {
-           DataCenter.writeMembersToFile("Member.xml");
+           //DataCenter.writeMembersToFile("Member.xml");
         }
     }
 }
