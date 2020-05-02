@@ -25,7 +25,7 @@ namespace ChoholicsAnonymous
 
             for (int i = 0; i < dateString.Length; i++)
             {
-                if (dateString[i] == '-')
+                if (dateString[i] == '-' || i == dateString.Length-1)
                 {
                     switch (conversionCount)
                     {
@@ -54,7 +54,7 @@ namespace ChoholicsAnonymous
                         case 2:
                             try
                             {
-                                tempContainer = dateString.Substring(i+1);
+                                tempContainer = dateString.Substring(previousPosition);
                                 this.Year = Int32.Parse(tempContainer);
                             }
                             catch (FormatException ex)
@@ -66,7 +66,7 @@ namespace ChoholicsAnonymous
                             throw new System.ArgumentException("An Unknown Error Has Occured");
                     }
                     positionCount = 0;
-                    previousPosition = i;
+                    previousPosition = i+1;
                     conversionCount++;
                 }
                 else
