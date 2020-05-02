@@ -111,7 +111,7 @@ namespace ChoholicsAnonymous
                 {
                     //cast buttons
                     ToolStripButton item = (ToolStripButton)sender;
-                    tag = item.Text; 
+                    tag = item.Tag.ToString(); 
                 }catch (Exception oEx)
                 {
                     MessageBox.Show("An Unknown Error Occured While Casting Panel Information -- " + oEx.Message); 
