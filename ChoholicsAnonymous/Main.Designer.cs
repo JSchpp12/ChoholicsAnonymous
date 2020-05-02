@@ -133,6 +133,7 @@
             this.label44 = new System.Windows.Forms.Label();
             this.pane_print = new System.Windows.Forms.Panel();
             this.label45 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.panel_newMember.SuspendLayout();
             this.panel_searchMem.SuspendLayout();
@@ -243,6 +244,7 @@
             // 
             // panel_newMember
             // 
+            this.panel_newMember.Controls.Add(this.label47);
             this.panel_newMember.Controls.Add(this.newMem_expDay);
             this.panel_newMember.Controls.Add(this.label17);
             this.panel_newMember.Controls.Add(this.newMem_expMonth);
@@ -313,7 +315,7 @@
             // newMem_phoneNumber
             // 
             this.newMem_phoneNumber.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newMem_phoneNumber.Location = new System.Drawing.Point(95, 182);
+            this.newMem_phoneNumber.Location = new System.Drawing.Point(80, 164);
             this.newMem_phoneNumber.Name = "newMem_phoneNumber";
             this.newMem_phoneNumber.Size = new System.Drawing.Size(378, 22);
             this.newMem_phoneNumber.TabIndex = 4;
@@ -322,12 +324,12 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.label16.Location = new System.Drawing.Point(14, 186);
+            this.label16.Location = new System.Drawing.Point(32, 167);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(84, 13);
+            this.label16.Size = new System.Drawing.Size(43, 13);
             this.label16.TabIndex = 27;
-            this.label16.Text = "Phone Number";
+            this.label16.Text = "Phone:";
             // 
             // newMem_bttn_submit
             // 
@@ -517,7 +519,7 @@
             // newMem_email
             // 
             this.newMem_email.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newMem_email.Location = new System.Drawing.Point(52, 141);
+            this.newMem_email.Location = new System.Drawing.Point(80, 133);
             this.newMem_email.Name = "newMem_email";
             this.newMem_email.Size = new System.Drawing.Size(378, 22);
             this.newMem_email.TabIndex = 3;
@@ -534,11 +536,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.label4.Location = new System.Drawing.Point(320, 106);
+            this.label4.Location = new System.Drawing.Point(318, 106);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 13);
+            this.label4.Size = new System.Drawing.Size(62, 13);
             this.label4.TabIndex = 5;
-            this.label4.Text = "Last Name";
+            this.label4.Text = "Last Name:";
             // 
             // newMem_firstName
             // 
@@ -563,12 +565,12 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.label5.Location = new System.Drawing.Point(14, 144);
+            this.label5.Location = new System.Drawing.Point(38, 136);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(34, 13);
+            this.label5.Size = new System.Drawing.Size(37, 13);
             this.label5.TabIndex = 2;
-            this.label5.Text = "Email";
+            this.label5.Text = "Email:";
             // 
             // label3
             // 
@@ -577,9 +579,9 @@
             this.label3.Location = new System.Drawing.Point(14, 106);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 13);
+            this.label3.Size = new System.Drawing.Size(64, 13);
             this.label3.TabIndex = 2;
-            this.label3.Text = "First Name";
+            this.label3.Text = "First Name:";
             // 
             // label1
             // 
@@ -1234,6 +1236,17 @@
             this.label45.TabIndex = 4;
             this.label45.Text = "Print Documents";
             // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.label47.Location = new System.Drawing.Point(32, 206);
+            this.label47.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(43, 13);
+            this.label47.TabIndex = 31;
+            this.label47.Text = "Phone:";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1381,6 +1394,7 @@
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.TextBox searchMem_res_birthday;
+        private System.Windows.Forms.Label label47;
     }
 }
 

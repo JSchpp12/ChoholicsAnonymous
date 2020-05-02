@@ -33,6 +33,11 @@
       <Day>30</Day>
       <Year>2020</Year>
     </SubscriptionStart>
+    <Birthday>
+      <Month>0</Month>
+      <Day>0</Day>
+      <Year>0</Year>
+    </Birthday>
   </Member>
   <Member>
     <FirstName>Jacob</FirstName>
@@ -67,6 +72,11 @@
       <Day>30</Day>
       <Year>2020</Year>
     </SubscriptionStart>
+    <Birthday>
+      <Month>0</Month>
+      <Day>0</Day>
+      <Year>0</Year>
+    </Birthday>
   </Member>
   <Member>
     <FirstName>Apple</FirstName>
@@ -101,6 +111,11 @@
       <Day>30</Day>
       <Year>2020</Year>
     </SubscriptionStart>
+    <Birthday>
+      <Month>0</Month>
+      <Day>0</Day>
+      <Year>0</Year>
+    </Birthday>
   </Member>
   <Member>
     <FirstName>Jacob</FirstName>
@@ -135,5 +150,10 @@
       <Day>1</Day>
       <Year>2020</Year>
     </SubscriptionStart>
+    <Birthday>
+      <Month>0</Month>
+      <Day>0</Day>
+      <Year>0</Year>
+    </Birthday>
   </Member>
 </ArrayOfMember>

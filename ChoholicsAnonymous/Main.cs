@@ -24,7 +24,6 @@ namespace ChoholicsAnonymous
             hideAllPanels();
             panel_home.Visible = true;
             DataCenter.initilize();
-            Date test = new Date("07-12-1998"); 
         }
 
         #region UI event handlers
@@ -44,6 +43,7 @@ namespace ChoholicsAnonymous
             newMember.Address.postalCode = newMem_City.Text;
             newMember.Payment.CardNumber = newMem_ccNum.Text;
             newMember.Payment.Cvc = newMem_cvc.Text;
+            newMember.Birthday = new Date(newMem_birthday.Text.ToString()); 
             string subLength = newMem_subLength.Text;
             DateTime date = DateTime.Now;
             switch (subLength)
@@ -186,22 +186,24 @@ namespace ChoholicsAnonymous
              searchMem_res_post.Text       = searchResults.Address.postalCode;
              searchMem_res_ccNum.Text      = searchResults.Payment.CardNumber;
              searchMem_res_cvc.Text        = searchResults.Payment.Cvc;
+             searchMem_res_birthday.Text = searchResults.Birthday.convToString(); 
         }
 
         private void searchMem_bttn_update_Click(object sender, EventArgs e)
         {
-
+            int memberID = Int32.Parse(searchMem_inMemID.Text);
             //DataCenter.memberList[Int32.Parse(searchMem_res_inMemID.Text)].MemberID = Int32.Parse(searchMem_res_memID.Text);
-            DataCenter.memberList[Int32.Parse(searchMem_inMemID.Text)].FirstName = searchMem_res_firstName.Text;
+            DataCenter.memberList[memberID].FirstName = searchMem_res_firstName.Text;
             
-            DataCenter.memberList[Int32.Parse(searchMem_inMemID.Text)].LastName = searchMem_res_lastName.Text;
-            DataCenter.memberList[Int32.Parse(searchMem_inMemID.Text)].Email = searchMem_res_email.Text;
-            DataCenter.memberList[Int32.Parse(searchMem_inMemID.Text)].Address.street = searchMem_res_street.Text;
-            DataCenter.memberList[Int32.Parse(searchMem_inMemID.Text)].Address.city = searchMem_res_city.Text;
-            DataCenter.memberList[Int32.Parse(searchMem_inMemID.Text)].Address.state = searchMem_res_state.Text;
-            DataCenter.memberList[Int32.Parse(searchMem_inMemID.Text)].Address.postalCode = searchMem_res_post.Text;
-            DataCenter.memberList[Int32.Parse(searchMem_inMemID.Text)].Payment.CardNumber = searchMem_res_ccNum.Text;
-            DataCenter.memberList[Int32.Parse(searchMem_inMemID.Text)].Payment.Cvc = searchMem_res_cvc.Text;
+            DataCenter.memberList[memberID].LastName = searchMem_res_lastName.Text;
+            DataCenter.memberList[memberID].Email = searchMem_res_email.Text;
+            DataCenter.memberList[memberID].Address.street = searchMem_res_street.Text;
+            DataCenter.memberList[memberID].Address.city = searchMem_res_city.Text;
+            DataCenter.memberList[memberID].Address.state = searchMem_res_state.Text;
+            DataCenter.memberList[memberID].Address.postalCode = searchMem_res_post.Text;
+            DataCenter.memberList[memberID].Payment.CardNumber = searchMem_res_ccNum.Text;
+            DataCenter.memberList[memberID].Payment.Cvc = searchMem_res_cvc.Text;
+            DataCenter.memberList[memberID].Birthday = new Date(searchMem_res_birthday.Text.ToString()); 
             //string month = searchMem_res_ccExp.Text.Substring(0, 2);
             //string year = searchMem_res_ccExp.Text.Substring(2, 2);
             //DataCenter.memberList[Int32.Parse(searchMem_inMemID.Text)].Payment.ExpDate.Month = Int32.Parse(month);
