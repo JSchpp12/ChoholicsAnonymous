@@ -50,9 +50,10 @@
             // login_radManager
             // 
             this.login_radManager.AutoSize = true;
-            this.login_radManager.Location = new System.Drawing.Point(32, 52);
+            this.login_radManager.Location = new System.Drawing.Point(43, 64);
+            this.login_radManager.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.login_radManager.Name = "login_radManager";
-            this.login_radManager.Size = new System.Drawing.Size(67, 17);
+            this.login_radManager.Size = new System.Drawing.Size(85, 21);
             this.login_radManager.TabIndex = 0;
             this.login_radManager.TabStop = true;
             this.login_radManager.Tag = "manager";
@@ -63,9 +64,10 @@
             // login_radOperator
             // 
             this.login_radOperator.AutoSize = true;
-            this.login_radOperator.Location = new System.Drawing.Point(155, 52);
+            this.login_radOperator.Location = new System.Drawing.Point(207, 64);
+            this.login_radOperator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.login_radOperator.Name = "login_radOperator";
-            this.login_radOperator.Size = new System.Drawing.Size(66, 17);
+            this.login_radOperator.Size = new System.Drawing.Size(86, 21);
             this.login_radOperator.TabIndex = 1;
             this.login_radOperator.TabStop = true;
             this.login_radOperator.Tag = "operator";
@@ -76,9 +78,10 @@
             // login_radProvider
             // 
             this.login_radProvider.AutoSize = true;
-            this.login_radProvider.Location = new System.Drawing.Point(296, 52);
+            this.login_radProvider.Location = new System.Drawing.Point(395, 64);
+            this.login_radProvider.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.login_radProvider.Name = "login_radProvider";
-            this.login_radProvider.Size = new System.Drawing.Size(64, 17);
+            this.login_radProvider.Size = new System.Drawing.Size(82, 21);
             this.login_radProvider.TabIndex = 2;
             this.login_radProvider.TabStop = true;
             this.login_radProvider.Tag = "provider";
@@ -90,27 +93,30 @@
             // 
             this.panel_managerID.Controls.Add(this.login_managerID);
             this.panel_managerID.Controls.Add(this.label1);
-            this.panel_managerID.Location = new System.Drawing.Point(32, 75);
+            this.panel_managerID.Location = new System.Drawing.Point(43, 92);
+            this.panel_managerID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel_managerID.Name = "panel_managerID";
-            this.panel_managerID.Size = new System.Drawing.Size(328, 100);
+            this.panel_managerID.Size = new System.Drawing.Size(437, 123);
             this.panel_managerID.TabIndex = 3;
             this.panel_managerID.Visible = false;
             // 
             // login_managerID
             // 
             this.login_managerID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.login_managerID.Location = new System.Drawing.Point(76, 39);
+            this.login_managerID.Location = new System.Drawing.Point(101, 48);
+            this.login_managerID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.login_managerID.Name = "login_managerID";
-            this.login_managerID.Size = new System.Drawing.Size(179, 25);
+            this.login_managerID.Size = new System.Drawing.Size(237, 29);
             this.login_managerID.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 42);
+            this.label1.Location = new System.Drawing.Point(4, 52);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 13);
+            this.label1.Size = new System.Drawing.Size(85, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "Manager ID:";
             // 
@@ -118,27 +124,30 @@
             // 
             this.panel_operatorID.Controls.Add(this.login_operatorID);
             this.panel_operatorID.Controls.Add(this.label2);
-            this.panel_operatorID.Location = new System.Drawing.Point(32, 75);
+            this.panel_operatorID.Location = new System.Drawing.Point(43, 92);
+            this.panel_operatorID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel_operatorID.Name = "panel_operatorID";
-            this.panel_operatorID.Size = new System.Drawing.Size(328, 100);
+            this.panel_operatorID.Size = new System.Drawing.Size(437, 123);
             this.panel_operatorID.TabIndex = 4;
             this.panel_operatorID.Visible = false;
             // 
             // login_operatorID
             // 
             this.login_operatorID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.login_operatorID.Location = new System.Drawing.Point(76, 39);
+            this.login_operatorID.Location = new System.Drawing.Point(101, 48);
+            this.login_operatorID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.login_operatorID.Name = "login_operatorID";
-            this.login_operatorID.Size = new System.Drawing.Size(179, 25);
+            this.login_operatorID.Size = new System.Drawing.Size(237, 29);
             this.login_operatorID.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 42);
+            this.label2.Location = new System.Drawing.Point(4, 52);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 13);
+            this.label2.Size = new System.Drawing.Size(86, 19);
             this.label2.TabIndex = 0;
             this.label2.Text = "Operator ID:";
             // 
@@ -146,36 +155,40 @@
             // 
             this.panel_providerID.Controls.Add(this.login_providerID);
             this.panel_providerID.Controls.Add(this.label3);
-            this.panel_providerID.Location = new System.Drawing.Point(32, 75);
+            this.panel_providerID.Location = new System.Drawing.Point(43, 92);
+            this.panel_providerID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel_providerID.Name = "panel_providerID";
-            this.panel_providerID.Size = new System.Drawing.Size(328, 100);
+            this.panel_providerID.Size = new System.Drawing.Size(437, 123);
             this.panel_providerID.TabIndex = 4;
             this.panel_providerID.Visible = false;
             // 
             // login_providerID
             // 
             this.login_providerID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.login_providerID.Location = new System.Drawing.Point(76, 39);
+            this.login_providerID.Location = new System.Drawing.Point(101, 48);
+            this.login_providerID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.login_providerID.Name = "login_providerID";
-            this.login_providerID.Size = new System.Drawing.Size(179, 25);
+            this.login_providerID.Size = new System.Drawing.Size(237, 29);
             this.login_providerID.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 42);
+            this.label3.Location = new System.Drawing.Point(4, 52);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(66, 13);
+            this.label3.Size = new System.Drawing.Size(81, 19);
             this.label3.TabIndex = 0;
             this.label3.Text = "Provider ID:";
             // 
             // login_bttn_login
             // 
             this.login_bttn_login.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.login_bttn_login.Location = new System.Drawing.Point(32, 192);
+            this.login_bttn_login.Location = new System.Drawing.Point(43, 236);
+            this.login_bttn_login.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.login_bttn_login.Name = "login_bttn_login";
-            this.login_bttn_login.Size = new System.Drawing.Size(84, 30);
+            this.login_bttn_login.Size = new System.Drawing.Size(112, 37);
             this.login_bttn_login.TabIndex = 8;
             this.login_bttn_login.Text = "Login";
             this.login_bttn_login.UseVisualStyleBackColor = true;
@@ -186,26 +199,26 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(25, 9);
-            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label19.Location = new System.Drawing.Point(33, 11);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(325, 37);
+            this.label19.Size = new System.Drawing.Size(392, 45);
             this.label19.TabIndex = 9;
             this.label19.Text = "Enter Login Information";
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(406, 270);
+            this.ClientSize = new System.Drawing.Size(541, 332);
             this.Controls.Add(this.label19);
-            this.Controls.Add(this.panel_operatorID);
-            this.Controls.Add(this.panel_managerID);
             this.Controls.Add(this.login_bttn_login);
             this.Controls.Add(this.login_radProvider);
             this.Controls.Add(this.login_radOperator);
             this.Controls.Add(this.login_radManager);
             this.Controls.Add(this.panel_providerID);
+            this.Controls.Add(this.panel_operatorID);
+            this.Controls.Add(this.panel_managerID);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Login";
             this.Text = "Login";
             this.panel_managerID.ResumeLayout(false);
