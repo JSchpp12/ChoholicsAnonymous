@@ -167,7 +167,10 @@
             this.label54 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.panel_searchProvider = new System.Windows.Forms.Panel();
+            this.searchProvider_search = new System.Windows.Forms.Button();
             this.searchProvider_panel_searchResults = new System.Windows.Forms.Panel();
+            this.label67 = new System.Windows.Forms.Label();
+            this.searchProvider_res_providerID = new System.Windows.Forms.TextBox();
             this.searchProvider_remove = new System.Windows.Forms.Button();
             this.searchProvider_update = new System.Windows.Forms.Button();
             this.searchProvider_res_postalCode = new System.Windows.Forms.TextBox();
@@ -214,9 +217,6 @@
             this.print_selectDocument = new System.Windows.Forms.ComboBox();
             this.label83 = new System.Windows.Forms.Label();
             this.label82 = new System.Windows.Forms.Label();
-            this.label67 = new System.Windows.Forms.Label();
-            this.searchProvider_res_providerID = new System.Windows.Forms.TextBox();
-            this.searchProvider_search = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.panel_newMember.SuspendLayout();
             this.panel_searchMem.SuspendLayout();
@@ -1071,6 +1071,7 @@
             this.searchMem_res_memID.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchMem_res_memID.Location = new System.Drawing.Point(76, 81);
             this.searchMem_res_memID.Name = "searchMem_res_memID";
+            this.searchMem_res_memID.ReadOnly = true;
             this.searchMem_res_memID.Size = new System.Drawing.Size(187, 22);
             this.searchMem_res_memID.TabIndex = 11;
             // 
@@ -1713,6 +1714,17 @@
             this.panel_searchProvider.Size = new System.Drawing.Size(1123, 782);
             this.panel_searchProvider.TabIndex = 37;
             // 
+            // searchProvider_search
+            // 
+            this.searchProvider_search.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchProvider_search.Location = new System.Drawing.Point(288, 102);
+            this.searchProvider_search.Margin = new System.Windows.Forms.Padding(2);
+            this.searchProvider_search.Name = "searchProvider_search";
+            this.searchProvider_search.Size = new System.Drawing.Size(88, 35);
+            this.searchProvider_search.TabIndex = 27;
+            this.searchProvider_search.Text = "Search";
+            this.searchProvider_search.UseVisualStyleBackColor = true;
+            // 
             // searchProvider_panel_searchResults
             // 
             this.searchProvider_panel_searchResults.Controls.Add(this.label67);
@@ -1738,6 +1750,25 @@
             this.searchProvider_panel_searchResults.Name = "searchProvider_panel_searchResults";
             this.searchProvider_panel_searchResults.Size = new System.Drawing.Size(719, 439);
             this.searchProvider_panel_searchResults.TabIndex = 11;
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.label67.Location = new System.Drawing.Point(5, 77);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(66, 13);
+            this.label67.TabIndex = 13;
+            this.label67.Text = "Provider ID:";
+            // 
+            // searchProvider_res_providerID
+            // 
+            this.searchProvider_res_providerID.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchProvider_res_providerID.Location = new System.Drawing.Point(77, 74);
+            this.searchProvider_res_providerID.Name = "searchProvider_res_providerID";
+            this.searchProvider_res_providerID.ReadOnly = true;
+            this.searchProvider_res_providerID.Size = new System.Drawing.Size(180, 22);
+            this.searchProvider_res_providerID.TabIndex = 12;
             // 
             // searchProvider_remove
             // 
@@ -2209,35 +2240,6 @@
             this.label82.Size = new System.Drawing.Size(80, 37);
             this.label82.TabIndex = 1;
             this.label82.Text = "Print";
-            // 
-            // label67
-            // 
-            this.label67.AutoSize = true;
-            this.label67.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.label67.Location = new System.Drawing.Point(5, 77);
-            this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(66, 13);
-            this.label67.TabIndex = 13;
-            this.label67.Text = "Provider ID:";
-            // 
-            // searchProvider_res_providerID
-            // 
-            this.searchProvider_res_providerID.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchProvider_res_providerID.Location = new System.Drawing.Point(77, 74);
-            this.searchProvider_res_providerID.Name = "searchProvider_res_providerID";
-            this.searchProvider_res_providerID.Size = new System.Drawing.Size(180, 22);
-            this.searchProvider_res_providerID.TabIndex = 12;
-            // 
-            // searchProvider_search
-            // 
-            this.searchProvider_search.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchProvider_search.Location = new System.Drawing.Point(288, 102);
-            this.searchProvider_search.Margin = new System.Windows.Forms.Padding(2);
-            this.searchProvider_search.Name = "searchProvider_search";
-            this.searchProvider_search.Size = new System.Drawing.Size(88, 35);
-            this.searchProvider_search.TabIndex = 27;
-            this.searchProvider_search.Text = "Search";
-            this.searchProvider_search.UseVisualStyleBackColor = true;
             // 
             // Main
             // 
