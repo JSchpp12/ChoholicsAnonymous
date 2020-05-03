@@ -8,13 +8,13 @@ namespace ChoholicsAnonymous
 {
     class Session
     {
-        int sessionID { get; set; }
-        int serviceType { get; set; }
-        int memberID { get; set; }
-        int providerID { get; set; }
-        Date DateOfSession { get; set; }
-        Date TimeOfCreation { get; set; } //time when the session object is created 
-        string comments { get; set; }
+        public int    sessionID      { get; set; }
+        public int    serviceType    { get; set; }
+        public int    memberID       { get; set; }
+        public int    providerID     { get; set; }
+        public Date   DateOfSession  { get; set; }
+        public Date   TimeOfCreation { get; set; } //time when the session object is created 
+        public string comments       { get; set; }
 
         public Session()
         {

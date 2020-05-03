@@ -8,16 +8,16 @@ namespace ChoholicsAnonymous
 {
     class Member
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
-        public string PhoneNumber { get; set; }
-        public int MemberID { get; set; }
-        public int ProviderID { get; set; }
-        public Address Address { get; set; } 
-        public CreditCard Payment { get; set; }
-        public Date SubscriptionExpiration { get; set; } //when the member's subscription will expire 
-        public Date SubscriptionStart { get; set; } //the day the member started their subscription
+        public string     FirstName              { get; set; }
+        public string     LastName               { get; set; }
+        public string     Email                  { get; set; }
+        public string     PhoneNumber            { get; set; }
+        public int        MemberID               { get; set; }
+        public int        ProviderID             { get; set; }
+        public Address    Address                { get; set; } 
+        public CreditCard Payment                { get; set; }
+        public Date       SubscriptionExpiration { get; set; } //when the member's subscription will expire 
+        public Date       SubscriptionStart      { get; set; } //the day the member started their subscription
 
         public Member()
         {
