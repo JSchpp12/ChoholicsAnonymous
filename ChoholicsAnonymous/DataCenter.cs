@@ -17,7 +17,7 @@ namespace ChoholicsAnonymous
         public static int ProviderCount { get; set; }
         public static List<Member> MemberList = new List<Member>();
         public static List<Provider> ProviderList = new List<Provider>();
-        public static List<AbvSession> abvSessList = new List<AbvSession>();
+        public static List<AbvSession> AbvSessionList = new List<AbvSession>();
 
         //add a member to the data set
         public static void addMember(Member newMember)
@@ -46,13 +46,28 @@ namespace ChoholicsAnonymous
                 serial.Serialize(file, ProviderList);
                 file.Close();
             }
+            else if (dataType == "abvSession")
+            {
+                string abvSessionFile = fullPath.Replace("\\bin\\Debug", "\\SessionsDirectory\\" + fileName);
+                XmlSerializer serial = new XmlSerializer(typeof(List<AbvSession>));
+                StreamWriter file = new StreamWriter(abvSessionFile);
+                serial.Serialize(file, AbvSessionList);
+                file.Close();
+            }
         }
 
         //read all files and build structures for data storage 
         public static void initilize()
         {
-            readMembers("Members.xml");
-            SessionCount = getSessionCount("sessionCount.txt");
+            readInformation("Members.xml");
+            readInformation("Providers.xml");
+            readInformation("abvSessions.xml");
+
+            //working of session below with hard coded parameters,
+            Session sessionFromsessionID = getSessionInfo_sessionID(1);
+            List<Session> sessions_memID = getSessionInfo_memberID(44);
+            List<Session> sessions_provID = getSessionInfo_providerID(55);
+
         }
 
         //update the member information in the list 
@@ -123,14 +138,26 @@ namespace ChoholicsAnonymous
                 return -1;
         }
 
-        private static void readMembers(string fileName)
+        private static void readInformation(string fileName)
         {
             string path = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
-            string filePath = path.Replace("\\bin\\Debug", "\\" + fileName);
-            XmlSerializer reader = new XmlSerializer(typeof(List<Member>));
-            StreamReader file = new StreamReader(filePath);
-            DataCenter.MemberList = (List<Member>)reader.Deserialize(file);
-            file.Close();
+            if (fileName == "Members.xml")
+            {
+                string filePath = path.Replace("\\bin\\Debug", "\\" + fileName);
+                XmlSerializer reader = new XmlSerializer(typeof(List<Member>));
+                StreamReader file = new StreamReader(filePath);
+                DataCenter.MemberList = (List<Member>)reader.Deserialize(file);
+                file.Close();
+            }
+            else if (fileName == "abvSessions.xml")
+            {
+                string filePath = path.Replace("\\bin\\Debug", "\\SessionsDirectory\\" + fileName);
+                XmlSerializer reader = new XmlSerializer(typeof(List<AbvSession>));
+                StreamReader file = new StreamReader(filePath);
+                DataCenter.AbvSessionList = (List<AbvSession>)reader.Deserialize(file);
+                file.Close();
+
+            }
         }
 
         public static bool memberExists(int id)
@@ -188,7 +215,7 @@ namespace ChoholicsAnonymous
             newSession.MemberID = memberID;
             newSession.SessionID = sessionID;
             newSession.ProviderID = providerID;
-            abvSessList.Add(newSession); 
+            AbvSessionList.Add(newSession); 
         }
 
      
@@ -204,28 +231,67 @@ namespace ChoholicsAnonymous
             file.Close();
 
             //to write number of sessions in file
-            string sessionCountFile = fullPath.Replace("\\bin\\Debug", "\\SessionsDirectory\\" + "sessionCount.txt");
-            using (StreamWriter sw = new StreamWriter(sessionCountFile))
-            {
+            //string sessionCountFile = fullPath.Replace("\\bin\\Debug", "\\SessionsDirectory\\" + "sessionCount.txt");
+            //using (StreamWriter sw = new StreamWriter(sessionCountFile))
+            //{
 
-               sw.WriteLine(SessionCount);
-                
-            }
+            //   sw.WriteLine(SessionCount);
 
+            //}
         }
+      
 
-        public static int getSessionCount(string fileName)
+        //public static int getSessionCount(string fileName)
+        //{
+        //    string fullPath = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
+        //    string sessionCountFile = fullPath.Replace("\\bin\\Debug", "\\SessionsDirectory\\" + fileName);
+        //    string value;
+        //    using (StreamReader sr = new StreamReader(sessionCountFile))
+        //    {
+        //        value = sr.ReadLine();
+                
+        //    }
+        //    return Convert.ToInt32(value);
+        //}
+
+        public static Session getSessionInfo_sessionID(int sessionID)
         {
-            string fullPath = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
-            string sessionCountFile = fullPath.Replace("\\bin\\Debug", "\\SessionsDirectory\\" + fileName);
-            int count;
-            using (StreamReader sr = new StreamReader(sessionCountFile))
-            {
-                count = sr.Read();
-                
-            }
-            return count;
+            Session sessionInfo = new Session();
+            string path = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
+            string filePath = path.Replace("\\bin\\Debug", "\\SessionsDirectory\\" +"session"+ sessionID.ToString() +".xml");
+            XmlSerializer reader = new XmlSerializer(typeof(Session));
+            StreamReader file = new StreamReader(filePath);
+            sessionInfo = (Session)reader.Deserialize(file);
+            file.Close();
+            return sessionInfo;
         }
+
+        public static List<Session> getSessionInfo_memberID(int memberID)
+        {
+            List<Session> sessionList = new List<Session>();
+            for(int i = 0; i < AbvSessionList.Count(); i++ )
+            {
+                if(AbvSessionList[i].MemberID == memberID)
+                {
+                    sessionList.Add(getSessionInfo_sessionID(AbvSessionList[i].SessionID));
+                }
+            }
+            return sessionList;
+        }
+
+        public static List<Session> getSessionInfo_providerID(int providerID)
+        {
+            List<Session> sessionList = new List<Session>();
+            for (int i = 0; i < AbvSessionList.Count(); i++)
+            {
+                if (AbvSessionList[i].ProviderID == providerID)
+                {
+                    sessionList.Add(getSessionInfo_sessionID(AbvSessionList[i].SessionID));
+                }
+            }
+            return sessionList;
+        }
+
 
     }
 }

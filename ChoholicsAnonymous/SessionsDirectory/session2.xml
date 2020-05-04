@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Session xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <sessionID>0</sessionID>
-  <memberID>44</memberID>
+  <sessionID>2</sessionID>
+  <memberID>1</memberID>
   <providerID>1</providerID>
   <DateOfSession>
-    <Month>11</Month>
-    <Day>12</Day>
+    <Month>1</Month>
+    <Day>11</Day>
     <Year>2020</Year>
   </DateOfSession>
   <TimeOfCreation>
@@ -13,7 +13,7 @@
     <Day>3</Day>
     <Year>2020</Year>
   </TimeOfCreation>
-  <Comments>com1</Comments>
-  <serviceID>1</serviceID>
-  <serviceName>test1</serviceName>
+  <Comments>coms2</Comments>
+  <serviceID>5</serviceID>
+  <serviceName>test2</serviceName>
 </Session>

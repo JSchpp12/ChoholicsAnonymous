@@ -12,7 +12,7 @@ namespace ChoholicsAnonymous
        // public int serviceType { get; set; } //may not need it
        public int memberID { get; set; }
        public int providerID { get; set; }
-      // public Date DateOfSession { get; set; } //Date of S
+       public Date DateOfSession { get; set; } //Date of S
        public Date TimeOfCreation { get; set; } //time when the session object is created 
        public string Comments { get; set; }
        //public string DateOfService { get; set; } // make i
@@ -32,7 +32,7 @@ namespace ChoholicsAnonymous
 
         private int getSessionID()
         {
-            return DataCenter.MemberCount++;
+            return DataCenter.AbvSessionList.Count();
         }
         //this will add the new session object to the end of the sessions file
         //could also add abvSession object to list in datacenter

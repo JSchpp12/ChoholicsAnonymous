@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChoholicsAnonymous
 {
-    class AbvSession
+   public class AbvSession
     {
         public int SessionID { get; set; }
         public int MemberID { get; set; }

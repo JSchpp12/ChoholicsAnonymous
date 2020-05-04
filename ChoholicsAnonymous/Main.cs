@@ -350,6 +350,8 @@ namespace ChoholicsAnonymous
         private void Main_FormClosed(object sender, FormClosedEventArgs e)
         {
             DataCenter.writeToFile("Members.xml", "member");
+            DataCenter.writeToFile("Providers.xml", "provider");
+            DataCenter.writeToFile("abvSessions.xml", "abvSession");
         }
 
         private void searchProvider_search_Click(object sender, EventArgs e)
@@ -371,12 +373,26 @@ namespace ChoholicsAnonymous
             Session newSession = new Session();
             newSession.memberID = Int32.Parse(session_MemberID.Text);
             newSession.providerID = Int32.Parse(User.UserID);
-            //newSession.DateOfService = session_serviceDate.Text;
+            
+            try
+            {
+                Date newDate = new Date(session_serviceDate.Text);
+                newSession.DateOfSession = newDate;
+            }
+            catch (InvalidCastException ex)
+            {
+                //if there are letters where there should be numbers 
+            }
+            catch (ArgumentException ex)
+            {
+                //date is not in valid format of MM-DD-YYYY
+            }
+            
             newSession.serviceID = Int32.Parse(session_serviceCode.Text);
             newSession.serviceName = session_service_Name.Text;
             newSession.Comments = session_Comments.Text;
 
-            //add to abvSessList
+            //add to AbvSessionList
             DataCenter.addAbvSession(newSession.memberID, newSession.sessionID, newSession.providerID);
             
 
@@ -401,6 +417,17 @@ namespace ChoholicsAnonymous
                 MessageBox.Show("Member with id: " + memID + " does not exist");
             }
             */ 
+        }
+
+        private void billing_verify_Click(object sender, EventArgs e)
+        {
+            int memID = Int32.Parse(session_MemberID.Text);
+
+            if (DataCenter.memberExists(memID))
+            {
+                verifyMember_verified.Visible = true;
+                MessageBox.Show("Member with id: " + memID + "exists");
+            }
         }
     }  
     
