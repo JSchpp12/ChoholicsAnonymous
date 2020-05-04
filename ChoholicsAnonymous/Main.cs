@@ -370,8 +370,8 @@ namespace ChoholicsAnonymous
         {
             Session newSession = new Session();
             newSession.memberID = Int32.Parse(session_MemberID.Text);
-            //session.providerID =
-            newSession.DateOfService = session_serviceDate.Text;
+            newSession.providerID = Int32.Parse(User.UserID);
+            //newSession.DateOfService = session_serviceDate.Text;
             newSession.serviceID = Int32.Parse(session_serviceCode.Text);
             newSession.serviceName = session_service_Name.Text;
             newSession.Comments = session_Comments.Text;

@@ -73,7 +73,7 @@ namespace ChoholicsAnonymous
             if (User.Provider == true)
             {
                 if (verifyLogin(login_providerID.ToString()))
-                    User.UserID = login_providerID.ToString();
+                    User.UserID = login_providerID.Text;
                 else
                     invalidID = true; 
             }

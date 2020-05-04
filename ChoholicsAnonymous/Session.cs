@@ -9,13 +9,13 @@ namespace ChoholicsAnonymous
     public class Session
     {
        public int sessionID { get; set; }
-       public int serviceType { get; set; } //may not need it
+       // public int serviceType { get; set; } //may not need it
        public int memberID { get; set; }
        public int providerID { get; set; }
-       public Date DateOfSession { get; set; }
+      // public Date DateOfSession { get; set; } //Date of S
        public Date TimeOfCreation { get; set; } //time when the session object is created 
        public string Comments { get; set; }
-       public string DateOfService { get; set; }
+       //public string DateOfService { get; set; } // make i
        public int serviceID { get; set; }
        public string serviceName { get; set; }
         public Session()
