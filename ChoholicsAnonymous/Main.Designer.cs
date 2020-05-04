@@ -152,7 +152,7 @@
             this.label74 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
             this.panel_billing = new System.Windows.Forms.Panel();
-            this.label56 = new System.Windows.Forms.Label();
+            this.verify_SessionMember = new System.Windows.Forms.Label();
             this.billing_panel_session = new System.Windows.Forms.Panel();
             this.billing_session_submit = new System.Windows.Forms.Button();
             this.session_Comments = new System.Windows.Forms.TextBox();
@@ -1565,7 +1565,7 @@
             // 
             // panel_billing
             // 
-            this.panel_billing.Controls.Add(this.label56);
+            this.panel_billing.Controls.Add(this.verify_SessionMember);
             this.panel_billing.Controls.Add(this.billing_panel_session);
             this.panel_billing.Controls.Add(this.billing_verify);
             this.panel_billing.Controls.Add(this.session_MemberID);
@@ -1578,18 +1578,18 @@
             this.panel_billing.Size = new System.Drawing.Size(1497, 962);
             this.panel_billing.TabIndex = 36;
             // 
-            // label56
+            // verify_SessionMember
             // 
-            this.label56.AutoSize = true;
-            this.label56.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label56.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label56.Location = new System.Drawing.Point(108, 150);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(103, 32);
-            this.label56.TabIndex = 25;
-            this.label56.Text = "Verified!";
-            this.label56.UseWaitCursor = true;
-            this.label56.Visible = false;
+            this.verify_SessionMember.AutoSize = true;
+            this.verify_SessionMember.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.verify_SessionMember.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.verify_SessionMember.Location = new System.Drawing.Point(108, 150);
+            this.verify_SessionMember.Name = "verify_SessionMember";
+            this.verify_SessionMember.Size = new System.Drawing.Size(103, 32);
+            this.verify_SessionMember.TabIndex = 25;
+            this.verify_SessionMember.Text = "Verified!";
+            this.verify_SessionMember.UseWaitCursor = true;
+            this.verify_SessionMember.Visible = false;
             // 
             // billing_panel_session
             // 
@@ -2487,7 +2487,7 @@
         private System.Windows.Forms.Button billing_verify;
         private System.Windows.Forms.TextBox session_MemberID;
         private System.Windows.Forms.Label label54;
-        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.Label verify_SessionMember;
         private System.Windows.Forms.Panel billing_panel_session;
         private System.Windows.Forms.TextBox session_Comments;
         private System.Windows.Forms.TextBox session_service_Name;

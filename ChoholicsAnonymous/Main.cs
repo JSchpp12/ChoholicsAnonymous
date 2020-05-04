@@ -425,8 +425,8 @@ namespace ChoholicsAnonymous
 
             if (DataCenter.memberExists(memID))
             {
-                verifyMember_verified.Visible = true;
-                MessageBox.Show("Member with id: " + memID + "exists");
+                verify_SessionMember.Visible = true;
+                MessageBox.Show("Member with id: " + memID + " exists");
             }
         }
     }  
