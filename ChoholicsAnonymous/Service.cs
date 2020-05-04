@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChoholicsAnonymous
 {
-    class Service
+    public class Service
     {
         public int ID { get; set; }
         public int Fee { get; set; } //the cost of the service

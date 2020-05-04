@@ -63,6 +63,7 @@ namespace ChoholicsAnonymous
             readInformation("Members.xml");
             readInformation("Providers.xml");
             readInformation("abvSessions.xml");
+            initilizeServices(); 
 
             //working of session below with hard coded parameters,
             Session sessionFromsessionID = getSessionInfo_sessionID(1);
@@ -295,11 +296,12 @@ namespace ChoholicsAnonymous
 
         public static void initilizeServices()
         {
-            //string fullPath = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
-            //string editedPath = fullPath.Replace("\\bin\\Debug", "\\" + "ProviderDirectory.txt");
-            XmlSerializer serial = new XmlSerializer(typeof(List<Service>));
-            StreamWriter file = new StreamWriter("ProviderDirectory.xml");
-            serial.Serialize(file, MemberList);
+            string fullPath = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
+            string editedPath = fullPath.Replace("\\bin\\Debug", "\\" + "ProviderDirectory.xml");
+
+            XmlSerializer reader = new XmlSerializer(typeof(List<Service>));
+            StreamReader file = new StreamReader(editedPath);
+            ServiceList = (List<Service>)reader.Deserialize(file); 
             file.Close();
         }
     }

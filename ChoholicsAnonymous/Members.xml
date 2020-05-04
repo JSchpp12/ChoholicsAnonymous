@@ -132,4 +132,42 @@
       <Year>2020</Year>
     </SubscriptionStart>
   </Member>
+  <Member>
+    <FirstName>Jacob</FirstName>
+    <LastName>jsfd</LastName>
+    <Email>jfjf</Email>
+    <PhoneNumber>312</PhoneNumber>
+    <MemberID>1</MemberID>
+    <ProviderID>0</ProviderID>
+    <Address>
+      <street>jfjd</street>
+      <state>jfdj</state>
+      <city>jfj</city>
+      <postalCode>jfj</postalCode>
+    </Address>
+    <Payment>
+      <CardNumber />
+      <Cvc />
+      <ExpDate>
+        <Month>12</Month>
+        <Day>12</Day>
+        <Year>0</Year>
+      </ExpDate>
+    </Payment>
+    <SubscriptionExpiration>
+      <Month>0</Month>
+      <Day>0</Day>
+      <Year>0</Year>
+    </SubscriptionExpiration>
+    <SubscriptionStart>
+      <Month>5</Month>
+      <Day>4</Day>
+      <Year>2020</Year>
+    </SubscriptionStart>
+    <Birthday>
+      <Month>0</Month>
+      <Day>0</Day>
+      <Year>0</Year>
+    </Birthday>
+  </Member>
 </ArrayOfMember>
