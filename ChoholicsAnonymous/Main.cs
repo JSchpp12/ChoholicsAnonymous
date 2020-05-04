@@ -385,18 +385,22 @@ namespace ChoholicsAnonymous
 
         }
 
+        //display "verified" on page if the member id is valid 
         private void verifyMember_verify_Click(object sender, EventArgs e)
         {
             int memID = Int32.Parse(verifyMember_memberID.Text);
 
             if (DataCenter.memberExists(memID))
             {
+                verifyMember_verified.Visible = true; 
                 MessageBox.Show("Member with id: " + memID + "exists");
             }
+            /*
             else
             {
                 MessageBox.Show("Member with id: " + memID + " does not exist");
             }
+            */ 
         }
     }  
     
