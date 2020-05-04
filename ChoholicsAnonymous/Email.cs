@@ -102,7 +102,7 @@ namespace ChoholicsAnonymous
                     sw.Write(session.providerID + "\n");
                     sw.Write(session.memberID + "\n");
                     sw.Write(session.serviceType + "\n"); //service code
-                    sw.Write(session.comments + "\n");
+                    //sw.Write(session.comments + "\n");
                 }
             }
             catch { }
