@@ -18,6 +18,7 @@ namespace ChoholicsAnonymous
         public static List<Member> MemberList = new List<Member>();
         public static List<Provider> ProviderList = new List<Provider>();
         public static List<AbvSession> AbvSessionList = new List<AbvSession>();
+        public static List<Service> ServiceList = new List<Service>(); 
 
         //add a member to the data set
         public static void addMember(Member newMember)
@@ -292,6 +293,14 @@ namespace ChoholicsAnonymous
             return sessionList;
         }
 
-
+        public static void initilizeServices()
+        {
+            //string fullPath = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
+            //string editedPath = fullPath.Replace("\\bin\\Debug", "\\" + "ProviderDirectory.txt");
+            XmlSerializer serial = new XmlSerializer(typeof(List<Service>));
+            StreamWriter file = new StreamWriter("ProviderDirectory.xml");
+            serial.Serialize(file, MemberList);
+            file.Close();
+        }
     }
 }
