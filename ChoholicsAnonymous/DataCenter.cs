@@ -18,6 +18,7 @@ namespace ChoholicsAnonymous
         public static List<Member> MemberList = new List<Member>();
         public static List<Provider> ProviderList = new List<Provider>();
         public static List<AbvSession> AbvSessionList = new List<AbvSession>();
+        public static List<Service> ServiceList = new List<Service>(); 
 
         //add a member to the data set
         public static void addMember(Member newMember)
@@ -62,6 +63,7 @@ namespace ChoholicsAnonymous
             readInformation("Members.xml");
             readInformation("Providers.xml");
             readInformation("abvSessions.xml");
+            initilizeServices(); 
 
             //working of session below with hard coded parameters,
             Session sessionFromsessionID = getSessionInfo_sessionID(1);
@@ -292,6 +294,15 @@ namespace ChoholicsAnonymous
             return sessionList;
         }
 
+        public static void initilizeServices()
+        {
+            string fullPath = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
+            string editedPath = fullPath.Replace("\\bin\\Debug", "\\" + "ProviderDirectory.xml");
 
+            XmlSerializer reader = new XmlSerializer(typeof(List<Service>));
+            StreamReader file = new StreamReader(editedPath);
+            ServiceList = (List<Service>)reader.Deserialize(file); 
+            file.Close();
+        }
     }
 }
