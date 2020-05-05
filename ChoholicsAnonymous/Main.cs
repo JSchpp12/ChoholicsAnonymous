@@ -12,6 +12,8 @@ namespace ChoholicsAnonymous
 {
     public partial class Main : Form
     {
+        private string weekFilePath = "05-08-2020.txt"; 
+
         public Main()
         {
             InitializeComponent();
@@ -264,6 +266,8 @@ namespace ChoholicsAnonymous
 
         private void searchMem_bttn_update_Click(object sender, EventArgs e)
         {
+            //verify member ID before attempting update 
+
             int memberID = Int32.Parse(searchMem_inMemID.Text);
             //DataCenter.MemberList[Int32.Parse(searchMem_res_inMemID.Text)].MemberID = Int32.Parse(searchMem_res_memID.Text);
             DataCenter.MemberList[memberID].FirstName = searchMem_res_firstName.Text;
