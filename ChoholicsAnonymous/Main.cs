@@ -114,29 +114,8 @@ namespace ChoholicsAnonymous
             MessageBox.Show("Member Successfully Added");
         }
 
-        //changes which panel is displayed on the member search page based on which radio button is selected
-        private void searchMem_rad_CheckedChanged(object sender, EventArgs e)
-        {
-            RadioButton button = (RadioButton)sender;
-            if (button.Checked)
-            {
-                if (button.Tag.ToString() == "memID")
-                {
-                    searchMem_panel_ID.Visible = true;
-                    searchMem_panel_Name.Visible = false;
-                }
-                else if (button.Tag.ToString() == "memName")
-                {
-                    searchMem_panel_ID.Visible = false;
-                    searchMem_panel_Name.Visible = true;
-                }
-                else
-                {
-                    MessageBox.Show("An Unknown Error Has Occured when changing panels");
-                }
-            }
-        }
-
+        
+        
         #region navigation menu handlers 
 
         //swtich between panels when navigation toolbar is clicked 
@@ -429,6 +408,8 @@ namespace ChoholicsAnonymous
                 MessageBox.Show("Member with id: " + memID + " exists");
             }
         }
+
+        
     }  
     
 }

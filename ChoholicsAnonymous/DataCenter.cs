@@ -96,7 +96,7 @@ namespace ChoholicsAnonymous
                 if (MemberList[i].MemberID == memberId)
                 {
                     memberResult = MemberList[i];
-                    return MemberList[i];
+                    break;
                
                 }
             }
@@ -150,7 +150,19 @@ namespace ChoholicsAnonymous
                 StreamReader file = new StreamReader(filePath);
                 DataCenter.MemberList = (List<Member>)reader.Deserialize(file);
                 file.Close();
+                MemberCount = MemberList.Count();
             }
+
+            if (fileName == "Providers.xml")
+            {
+                string filePath = path.Replace("\\bin\\Debug", "\\" + fileName);
+                XmlSerializer reader = new XmlSerializer(typeof(List<Provider>));
+                StreamReader file = new StreamReader(filePath);
+                DataCenter.ProviderList = (List<Provider>)reader.Deserialize(file);
+                file.Close();
+                ProviderCount =ProviderList.Count();
+            }
+
             else if (fileName == "abvSessions.xml")
             {
                 string filePath = path.Replace("\\bin\\Debug", "\\SessionsDirectory\\" + fileName);
@@ -158,7 +170,6 @@ namespace ChoholicsAnonymous
                 StreamReader file = new StreamReader(filePath);
                 DataCenter.AbvSessionList = (List<AbvSession>)reader.Deserialize(file);
                 file.Close();
-
             }
         }
 
