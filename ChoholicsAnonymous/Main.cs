@@ -283,6 +283,8 @@ namespace ChoholicsAnonymous
             DataCenter.MemberList[memberIndex].Payment.CardNumber = searchMem_res_ccNum.Text;
             DataCenter.MemberList[memberIndex].Payment.Cvc = searchMem_res_cvc.Text;
             DataCenter.MemberList[memberIndex].ProviderID = Int32.Parse(searchMem_res_providerID.Text);
+            DataCenter.MemberList[memberIndex].SubscriptionExpiration = new Date(searchMem_res_subExp.Text);
+            DataCenter.MemberList[memberIndex].Payment.ExpDate = new Date(searchMem_res_ccExp.Text);
 
             MessageBox.Show("Member Successfully Updated");
             resetPanel(searchMem_panel_Results);
@@ -310,7 +312,7 @@ namespace ChoholicsAnonymous
             DataCenter.ProviderList[providerIndex].Address.street = searchProvider_street.Text;
             DataCenter.ProviderList[providerIndex].Address.state = searchProvider_state.Text;
             DataCenter.ProviderList[providerIndex].Address.city = searchProvider_city.Text;
-            DataCenter.ProviderList[providerIndex].Address.postalCode = newProvider_postal.Text;
+            DataCenter.ProviderList[providerIndex].Address.postalCode = searchProvider_postalCode.Text;
             MessageBox.Show("Provider Updated Successfully");
             resetPanel(panel_searchProvider);
 
@@ -359,7 +361,7 @@ namespace ChoholicsAnonymous
             searchProvider_street.Text = searchResults.Address.street;
             searchProvider_state.Text = searchResults.Address.state;
             searchProvider_city.Text = searchResults.Address.city;
-            newProvider_postal.Text = searchResults.Address.postalCode;
+            searchProvider_postalCode.Text = searchResults.Address.postalCode;
         }
 
         //Event for session/billing
