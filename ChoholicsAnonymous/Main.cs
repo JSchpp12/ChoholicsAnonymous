@@ -235,9 +235,13 @@ namespace ChoholicsAnonymous
                     break;
                 case "logout":
                     //go back to login screen
-                    Form newMainForm = new Login();
-                    newMainForm.Show();
+                    Form newLogin = new Login();
+                    newLogin.Show();
                     this.Hide();
+                    break;
+                case "directory":
+                    Form newDirectory = new ProviderDirectory();
+                    newDirectory.Show(); 
                     break; 
                 default:
                     MessageBox.Show("Panel Not Yet Created...");
