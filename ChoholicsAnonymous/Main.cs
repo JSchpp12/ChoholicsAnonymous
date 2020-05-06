@@ -140,7 +140,7 @@ namespace ChoholicsAnonymous
             }
 
 
-            hideAllPanels();
+            //hideAllPanels();
             switchPanel(tag);
             Console.Write(sender.ToString());
         }
@@ -204,33 +204,39 @@ namespace ChoholicsAnonymous
             switch (buttonTag)
             {
                 case "mem_search":
+                    hideAllPanels();
                     panel_searchMem.Visible = true;
                     break;
                 case "newMember":
+                    hideAllPanels();
                     panel_newMember.Visible = true;
                     break;
                 case "billing":
+                    hideAllPanels();
                     panel_billing.Visible = true;
                     break;
                 case "verify":
+                    hideAllPanels();
                     panel_verifyMember.Visible = true;
                     break;
                 case "newProvider":
+                    hideAllPanels();
                     panel_newProvider.Visible = true;
                     break;
                 case "searchProvider":
+                    hideAllPanels();
                     panel_searchProvider.Visible = true;
                     break;
                 case "runReports":
+                    hideAllPanels();
                     panel_runReports.Visible = true;
                     break;
                 case "viewReports":
+                    hideAllPanels();
                     panel_viewReports.Visible = true;
                     break;
-                case "print":
-                    panel_print.Visible = true;
-                    break;
                 case "home":
+                    hideAllPanels();
                     panel_home.Visible = true; 
                     break;
                 case "logout":
