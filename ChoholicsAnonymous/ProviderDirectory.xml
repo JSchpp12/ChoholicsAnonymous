@@ -1,8 +1,63 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ArrayOfService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Service>
-    <ID>1</ID>
+    <ID>243876</ID>
     <Fee>100</Fee>
     <Name>Telephone Consultation</Name>
+  </Service>
+  <Service>
+    <ID>768925</ID>
+    <Fee>50</Fee>
+    <Name>Relaxation</Name>
+  </Service>
+  <Service>
+    <ID>466581</ID>
+    <Fee>25</Fee>
+    <Name>Food Therapy</Name>
+  </Service>
+  <Service>
+    <ID>472684</ID>
+    <Fee>25</Fee>
+    <Name>In-Person Consultation</Name>
+  </Service>
+    <Service>
+    <ID>218547</ID>
+    <Fee>200</Fee>
+    <Name>One-on-one Therapy</Name>
+   </Service>
+  <Service>
+    <ID>994678</ID>
+    <Fee>25</Fee>
+    <Name>Corrective Surgery Consultation</Name>
+  </Service>
+  <Service>
+    <ID>125463</ID>
+    <Fee>5000</Fee>
+    <Name>Corrective Surgery</Name>
+  </Service>
+  <Service>
+    <ID>776852</ID>
+    <Fee>65</Fee>
+    <Name>Steam Therapy</Name>
+  </Service>
+  <Service>
+    <ID>555437</ID>
+    <Fee>100</Fee>
+    <Name>Physical Therapy</Name>
+  </Service>
+  <Service>
+    <ID>555437</ID>
+    <Fee>250</Fee>
+    <Name>Acupuncture Therapy </Name>
+  </Service>
+    <Service>
+    <ID>666743</ID>
+    <Fee>200</Fee>
+    <Name>Massage</Name>
+  </Service>
+      <Service>
+    <ID>777335</ID>
+    <Fee>50</Fee>
+    <Name>Lunch</Name>
   </Service>
 </ArrayOfService>
