@@ -230,6 +230,15 @@ namespace ChoholicsAnonymous
                 case "print":
                     panel_print.Visible = true;
                     break;
+                case "home":
+                    panel_home.Visible = true; 
+                    break;
+                case "logout":
+                    //go back to login screen
+                    Form newMainForm = new Login();
+                    newMainForm.Show();
+                    this.Hide();
+                    break; 
                 default:
                     MessageBox.Show("Panel Not Yet Created...");
                     break;
