@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStrip_home = new System.Windows.Forms.ToolStripButton();
             this.toolStrip_member = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStrip_verifyMember = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip_searchMember = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,6 +44,7 @@
             this.toolStrip_runReports = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip_billing = new System.Windows.Forms.ToolStripButton();
             this.toolStrip_print = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip_logout = new System.Windows.Forms.ToolStripButton();
             this.panel_newMember = new System.Windows.Forms.Panel();
             this.newMem_expDay = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -76,26 +78,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel_searchMem = new System.Windows.Forms.Panel();
-            this.searchMem_panel_Name = new System.Windows.Forms.Panel();
-            this.searchMem_inLastName = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.searchMem_inFirstName = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.searchMem_bttn_search = new System.Windows.Forms.Button();
             this.searchMem_panel_ID = new System.Windows.Forms.Panel();
+            this.searchMem_bttn_search = new System.Windows.Forms.Button();
             this.searchMem_inMemID = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.searchMem_radName = new System.Windows.Forms.RadioButton();
             this.label20 = new System.Windows.Forms.Label();
-            this.searchMem_radID = new System.Windows.Forms.RadioButton();
             this.label19 = new System.Windows.Forms.Label();
             this.searchMem_panel_Results = new System.Windows.Forms.Panel();
             this.searchMem_bttn_removeMem = new System.Windows.Forms.Button();
             this.searchMem_bttn_update = new System.Windows.Forms.Button();
             this.label42 = new System.Windows.Forms.Label();
             this.searchMem_res_providerID = new System.Windows.Forms.TextBox();
-            this.searchMem_res_subService = new System.Windows.Forms.TextBox();
-            this.label41 = new System.Windows.Forms.Label();
             this.searchMem_res_subExp = new System.Windows.Forms.TextBox();
             this.label40 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -138,7 +131,9 @@
             this.label51 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
             this.newProvider_street = new System.Windows.Forms.TextBox();
-            this.newProvider_phoneNumber = new System.Windows.Forms.TextBox();
+            this.newProvider_phone = new System.Windows.Forms.TextBox();
+            this.newProvider_email = new System.Windows.Forms.TextBox();
+            this.label56 = new System.Windows.Forms.Label();
             this.label49 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
@@ -172,7 +167,7 @@
             this.searchProvider_search = new System.Windows.Forms.Button();
             this.searchProvider_panel_searchResults = new System.Windows.Forms.Panel();
             this.label84 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.searchProvider_phone = new System.Windows.Forms.TextBox();
             this.searchProvider_remove = new System.Windows.Forms.Button();
             this.searchProvider_update = new System.Windows.Forms.Button();
             this.searchProvider_postalCode = new System.Windows.Forms.TextBox();
@@ -180,9 +175,9 @@
             this.searchProvider_state = new System.Windows.Forms.TextBox();
             this.label72 = new System.Windows.Forms.Label();
             this.label71 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.searchProvider_city = new System.Windows.Forms.TextBox();
             this.label70 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.searchProvider_street = new System.Windows.Forms.TextBox();
             this.label69 = new System.Windows.Forms.Label();
             this.searchProvider_email = new System.Windows.Forms.TextBox();
             this.label68 = new System.Windows.Forms.Label();
@@ -190,7 +185,7 @@
             this.label62 = new System.Windows.Forms.Label();
             this.searchProvider_firstName = new System.Windows.Forms.TextBox();
             this.label65 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.searchProvider_providerID = new System.Windows.Forms.TextBox();
             this.label63 = new System.Windows.Forms.Label();
             this.label64 = new System.Windows.Forms.Label();
             this.label61 = new System.Windows.Forms.Label();
@@ -222,7 +217,6 @@
             this.toolStrip1.SuspendLayout();
             this.panel_newMember.SuspendLayout();
             this.panel_searchMem.SuspendLayout();
-            this.searchMem_panel_Name.SuspendLayout();
             this.searchMem_panel_ID.SuspendLayout();
             this.searchMem_panel_Results.SuspendLayout();
             this.panel_home.SuspendLayout();
@@ -243,16 +237,29 @@
             // 
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStrip_home,
             this.toolStrip_member,
             this.toolStrip_provider,
             this.toolStrip_reporting,
             this.toolStrip_billing,
-            this.toolStrip_print});
+            this.toolStrip_print,
+            this.toolStrip_logout});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1497, 31);
+            this.toolStrip1.Size = new System.Drawing.Size(1094, 27);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStrip_home
+            // 
+            this.toolStrip_home.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStrip_home.Image = global::ChoholicsAnonymous.Properties.Resources.home;
+            this.toolStrip_home.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_home.Name = "toolStrip_home";
+            this.toolStrip_home.Size = new System.Drawing.Size(29, 24);
+            this.toolStrip_home.Tag = "home";
+            this.toolStrip_home.Text = "toolStripButton1";
+            this.toolStrip_home.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
             // 
             // toolStrip_member
             // 
@@ -264,7 +271,7 @@
             this.toolStrip_member.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_member.Image")));
             this.toolStrip_member.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStrip_member.Name = "toolStrip_member";
-            this.toolStrip_member.Size = new System.Drawing.Size(79, 28);
+            this.toolStrip_member.Size = new System.Drawing.Size(79, 24);
             this.toolStrip_member.Text = "Member";
             // 
             // toolStrip_verifyMember
@@ -301,7 +308,7 @@
             this.toolStrip_provider.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_provider.Image")));
             this.toolStrip_provider.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStrip_provider.Name = "toolStrip_provider";
-            this.toolStrip_provider.Size = new System.Drawing.Size(78, 28);
+            this.toolStrip_provider.Size = new System.Drawing.Size(78, 24);
             this.toolStrip_provider.Text = "Provider";
             // 
             // toolStrip_searchProvider
@@ -336,7 +343,7 @@
             this.toolStrip_reporting.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_reporting.Image")));
             this.toolStrip_reporting.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStrip_reporting.Name = "toolStrip_reporting";
-            this.toolStrip_reporting.Size = new System.Drawing.Size(89, 28);
+            this.toolStrip_reporting.Size = new System.Drawing.Size(89, 24);
             this.toolStrip_reporting.Text = "Reporting";
             // 
             // toolStrip_viewReports
@@ -361,7 +368,7 @@
             this.toolStrip_billing.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_billing.Image")));
             this.toolStrip_billing.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStrip_billing.Name = "toolStrip_billing";
-            this.toolStrip_billing.Size = new System.Drawing.Size(55, 28);
+            this.toolStrip_billing.Size = new System.Drawing.Size(55, 24);
             this.toolStrip_billing.Tag = "billing";
             this.toolStrip_billing.Text = "Billing";
             this.toolStrip_billing.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
@@ -372,9 +379,20 @@
             this.toolStrip_print.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_print.Image")));
             this.toolStrip_print.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStrip_print.Name = "toolStrip_print";
-            this.toolStrip_print.Size = new System.Drawing.Size(43, 28);
+            this.toolStrip_print.Size = new System.Drawing.Size(43, 24);
             this.toolStrip_print.Text = "Print";
             this.toolStrip_print.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+            // 
+            // toolStrip_logout
+            // 
+            this.toolStrip_logout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStrip_logout.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_logout.Image")));
+            this.toolStrip_logout.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_logout.Name = "toolStrip_logout";
+            this.toolStrip_logout.Size = new System.Drawing.Size(60, 24);
+            this.toolStrip_logout.Tag = "logout";
+            this.toolStrip_logout.Text = "Logout";
+            this.toolStrip_logout.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
             // 
             // panel_newMember
             // 
@@ -413,7 +431,7 @@
             this.panel_newMember.Location = new System.Drawing.Point(0, 0);
             this.panel_newMember.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_newMember.Name = "panel_newMember";
-            this.panel_newMember.Size = new System.Drawing.Size(1497, 962);
+            this.panel_newMember.Size = new System.Drawing.Size(1094, 870);
             this.panel_newMember.TabIndex = 1;
             this.panel_newMember.Visible = false;
             // 
@@ -729,79 +747,34 @@
             // 
             // panel_searchMem
             // 
-            this.panel_searchMem.Controls.Add(this.searchMem_panel_Name);
-            this.panel_searchMem.Controls.Add(this.searchMem_bttn_search);
             this.panel_searchMem.Controls.Add(this.searchMem_panel_ID);
-            this.panel_searchMem.Controls.Add(this.searchMem_radName);
             this.panel_searchMem.Controls.Add(this.label20);
-            this.panel_searchMem.Controls.Add(this.searchMem_radID);
             this.panel_searchMem.Controls.Add(this.label19);
             this.panel_searchMem.Controls.Add(this.searchMem_panel_Results);
             this.panel_searchMem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_searchMem.Location = new System.Drawing.Point(0, 0);
             this.panel_searchMem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_searchMem.Name = "panel_searchMem";
-            this.panel_searchMem.Size = new System.Drawing.Size(1497, 962);
+            this.panel_searchMem.Size = new System.Drawing.Size(1094, 870);
             this.panel_searchMem.TabIndex = 32;
             this.panel_searchMem.Visible = false;
             this.panel_searchMem.VisibleChanged += new System.EventHandler(this.panel__VisibleChanged);
             // 
-            // searchMem_panel_Name
+            // searchMem_panel_ID
             // 
-            this.searchMem_panel_Name.Controls.Add(this.searchMem_inLastName);
-            this.searchMem_panel_Name.Controls.Add(this.label23);
-            this.searchMem_panel_Name.Controls.Add(this.searchMem_inFirstName);
-            this.searchMem_panel_Name.Controls.Add(this.label22);
-            this.searchMem_panel_Name.Location = new System.Drawing.Point(27, 177);
-            this.searchMem_panel_Name.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.searchMem_panel_Name.Name = "searchMem_panel_Name";
-            this.searchMem_panel_Name.Size = new System.Drawing.Size(613, 49);
-            this.searchMem_panel_Name.TabIndex = 7;
-            // 
-            // searchMem_inLastName
-            // 
-            this.searchMem_inLastName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchMem_inLastName.Location = new System.Drawing.Point(355, 11);
-            this.searchMem_inLastName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.searchMem_inLastName.Name = "searchMem_inLastName";
-            this.searchMem_inLastName.Size = new System.Drawing.Size(159, 27);
-            this.searchMem_inLastName.TabIndex = 3;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(269, 17);
-            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(76, 17);
-            this.label23.TabIndex = 2;
-            this.label23.Text = "Last Name";
-            // 
-            // searchMem_inFirstName
-            // 
-            this.searchMem_inFirstName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchMem_inFirstName.Location = new System.Drawing.Point(80, 11);
-            this.searchMem_inFirstName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.searchMem_inFirstName.Name = "searchMem_inFirstName";
-            this.searchMem_inFirstName.Size = new System.Drawing.Size(159, 27);
-            this.searchMem_inFirstName.TabIndex = 1;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(4, 16);
-            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(76, 17);
-            this.label22.TabIndex = 0;
-            this.label22.Text = "First Name";
+            this.searchMem_panel_ID.Controls.Add(this.searchMem_bttn_search);
+            this.searchMem_panel_ID.Controls.Add(this.searchMem_inMemID);
+            this.searchMem_panel_ID.Controls.Add(this.label21);
+            this.searchMem_panel_ID.Location = new System.Drawing.Point(23, 133);
+            this.searchMem_panel_ID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.searchMem_panel_ID.Name = "searchMem_panel_ID";
+            this.searchMem_panel_ID.Size = new System.Drawing.Size(613, 49);
+            this.searchMem_panel_ID.TabIndex = 6;
             // 
             // searchMem_bttn_search
             // 
             this.searchMem_bttn_search.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchMem_bttn_search.Location = new System.Drawing.Point(648, 180);
+            this.searchMem_bttn_search.Location = new System.Drawing.Point(379, 5);
             this.searchMem_bttn_search.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.searchMem_bttn_search.Name = "searchMem_bttn_search";
             this.searchMem_bttn_search.Size = new System.Drawing.Size(112, 37);
@@ -809,16 +782,6 @@
             this.searchMem_bttn_search.Text = "Search";
             this.searchMem_bttn_search.UseVisualStyleBackColor = true;
             this.searchMem_bttn_search.Click += new System.EventHandler(this.searchMem_bttn_search_Click);
-            // 
-            // searchMem_panel_ID
-            // 
-            this.searchMem_panel_ID.Controls.Add(this.searchMem_inMemID);
-            this.searchMem_panel_ID.Controls.Add(this.label21);
-            this.searchMem_panel_ID.Location = new System.Drawing.Point(27, 177);
-            this.searchMem_panel_ID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.searchMem_panel_ID.Name = "searchMem_panel_ID";
-            this.searchMem_panel_ID.Size = new System.Drawing.Size(613, 49);
-            this.searchMem_panel_ID.TabIndex = 6;
             // 
             // searchMem_inMemID
             // 
@@ -840,21 +803,6 @@
             this.label21.TabIndex = 0;
             this.label21.Text = "Member ID";
             // 
-            // searchMem_radName
-            // 
-            this.searchMem_radName.AutoSize = true;
-            this.searchMem_radName.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchMem_radName.Location = new System.Drawing.Point(184, 145);
-            this.searchMem_radName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.searchMem_radName.Name = "searchMem_radName";
-            this.searchMem_radName.Size = new System.Drawing.Size(122, 23);
-            this.searchMem_radName.TabIndex = 5;
-            this.searchMem_radName.TabStop = true;
-            this.searchMem_radName.Tag = "memName";
-            this.searchMem_radName.Text = "Member Name";
-            this.searchMem_radName.UseVisualStyleBackColor = true;
-            this.searchMem_radName.CheckedChanged += new System.EventHandler(this.searchMem_rad_CheckedChanged);
-            // 
             // label20
             // 
             this.label20.AutoSize = true;
@@ -864,21 +812,6 @@
             this.label20.Size = new System.Drawing.Size(162, 32);
             this.label20.TabIndex = 4;
             this.label20.Text = "Search Criteria";
-            // 
-            // searchMem_radID
-            // 
-            this.searchMem_radID.AutoSize = true;
-            this.searchMem_radID.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchMem_radID.Location = new System.Drawing.Point(27, 145);
-            this.searchMem_radID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.searchMem_radID.Name = "searchMem_radID";
-            this.searchMem_radID.Size = new System.Drawing.Size(100, 23);
-            this.searchMem_radID.TabIndex = 3;
-            this.searchMem_radID.TabStop = true;
-            this.searchMem_radID.Tag = "memID";
-            this.searchMem_radID.Text = "Member ID";
-            this.searchMem_radID.UseVisualStyleBackColor = true;
-            this.searchMem_radID.CheckedChanged += new System.EventHandler(this.searchMem_rad_CheckedChanged);
             // 
             // label19
             // 
@@ -896,8 +829,6 @@
             this.searchMem_panel_Results.Controls.Add(this.searchMem_bttn_update);
             this.searchMem_panel_Results.Controls.Add(this.label42);
             this.searchMem_panel_Results.Controls.Add(this.searchMem_res_providerID);
-            this.searchMem_panel_Results.Controls.Add(this.searchMem_res_subService);
-            this.searchMem_panel_Results.Controls.Add(this.label41);
             this.searchMem_panel_Results.Controls.Add(this.searchMem_res_subExp);
             this.searchMem_panel_Results.Controls.Add(this.label40);
             this.searchMem_panel_Results.Controls.Add(this.button1);
@@ -928,7 +859,7 @@
             this.searchMem_panel_Results.Controls.Add(this.label26);
             this.searchMem_panel_Results.Controls.Add(this.label25);
             this.searchMem_panel_Results.Controls.Add(this.label24);
-            this.searchMem_panel_Results.Location = new System.Drawing.Point(16, 246);
+            this.searchMem_panel_Results.Location = new System.Drawing.Point(19, 207);
             this.searchMem_panel_Results.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.searchMem_panel_Results.Name = "searchMem_panel_Results";
             this.searchMem_panel_Results.Size = new System.Drawing.Size(1001, 702);
@@ -937,7 +868,7 @@
             // searchMem_bttn_removeMem
             // 
             this.searchMem_bttn_removeMem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchMem_bttn_removeMem.Location = new System.Drawing.Point(784, 650);
+            this.searchMem_bttn_removeMem.Location = new System.Drawing.Point(779, 606);
             this.searchMem_bttn_removeMem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.searchMem_bttn_removeMem.Name = "searchMem_bttn_removeMem";
             this.searchMem_bttn_removeMem.Size = new System.Drawing.Size(196, 37);
@@ -949,7 +880,7 @@
             // searchMem_bttn_update
             // 
             this.searchMem_bttn_update.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchMem_bttn_update.Location = new System.Drawing.Point(25, 650);
+            this.searchMem_bttn_update.Location = new System.Drawing.Point(15, 606);
             this.searchMem_bttn_update.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.searchMem_bttn_update.Name = "searchMem_bttn_update";
             this.searchMem_bttn_update.Size = new System.Drawing.Size(112, 37);
@@ -962,7 +893,7 @@
             // 
             this.label42.AutoSize = true;
             this.label42.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.Location = new System.Drawing.Point(7, 591);
+            this.label42.Location = new System.Drawing.Point(7, 562);
             this.label42.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(78, 19);
@@ -972,31 +903,11 @@
             // searchMem_res_providerID
             // 
             this.searchMem_res_providerID.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchMem_res_providerID.Location = new System.Drawing.Point(99, 587);
+            this.searchMem_res_providerID.Location = new System.Drawing.Point(99, 558);
             this.searchMem_res_providerID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.searchMem_res_providerID.Name = "searchMem_res_providerID";
             this.searchMem_res_providerID.Size = new System.Drawing.Size(408, 26);
             this.searchMem_res_providerID.TabIndex = 39;
-            // 
-            // searchMem_res_subService
-            // 
-            this.searchMem_res_subService.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchMem_res_subService.Location = new System.Drawing.Point(99, 553);
-            this.searchMem_res_subService.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.searchMem_res_subService.Name = "searchMem_res_subService";
-            this.searchMem_res_subService.Size = new System.Drawing.Size(408, 26);
-            this.searchMem_res_subService.TabIndex = 38;
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.Location = new System.Drawing.Point(0, 556);
-            this.label41.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(83, 19);
-            this.label41.TabIndex = 37;
-            this.label41.Text = "Service Type";
             // 
             // searchMem_res_subExp
             // 
@@ -1317,7 +1228,7 @@
             this.panel_home.Location = new System.Drawing.Point(0, 0);
             this.panel_home.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel_home.Name = "panel_home";
-            this.panel_home.Size = new System.Drawing.Size(1497, 962);
+            this.panel_home.Size = new System.Drawing.Size(1094, 870);
             this.panel_home.TabIndex = 31;
             // 
             // panel_newProvider
@@ -1331,7 +1242,9 @@
             this.panel_newProvider.Controls.Add(this.label51);
             this.panel_newProvider.Controls.Add(this.label50);
             this.panel_newProvider.Controls.Add(this.newProvider_street);
-            this.panel_newProvider.Controls.Add(this.newProvider_phoneNumber);
+            this.panel_newProvider.Controls.Add(this.newProvider_phone);
+            this.panel_newProvider.Controls.Add(this.newProvider_email);
+            this.panel_newProvider.Controls.Add(this.label56);
             this.panel_newProvider.Controls.Add(this.label49);
             this.panel_newProvider.Controls.Add(this.label48);
             this.panel_newProvider.Controls.Add(this.label46);
@@ -1342,14 +1255,14 @@
             this.panel_newProvider.Location = new System.Drawing.Point(0, 0);
             this.panel_newProvider.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel_newProvider.Name = "panel_newProvider";
-            this.panel_newProvider.Size = new System.Drawing.Size(1497, 962);
+            this.panel_newProvider.Size = new System.Drawing.Size(1094, 870);
             this.panel_newProvider.TabIndex = 34;
             this.panel_newProvider.Visible = false;
             // 
             // newPro_bttn_submit
             // 
             this.newPro_bttn_submit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newPro_bttn_submit.Location = new System.Drawing.Point(29, 364);
+            this.newPro_bttn_submit.Location = new System.Drawing.Point(29, 438);
             this.newPro_bttn_submit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.newPro_bttn_submit.Name = "newPro_bttn_submit";
             this.newPro_bttn_submit.Size = new System.Drawing.Size(117, 43);
@@ -1360,7 +1273,7 @@
             // 
             // newProvider_postal
             // 
-            this.newProvider_postal.Location = new System.Drawing.Point(636, 308);
+            this.newProvider_postal.Location = new System.Drawing.Point(637, 382);
             this.newProvider_postal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.newProvider_postal.Name = "newProvider_postal";
             this.newProvider_postal.Size = new System.Drawing.Size(179, 22);
@@ -1368,7 +1281,7 @@
             // 
             // newProvider_state
             // 
-            this.newProvider_state.Location = new System.Drawing.Point(381, 308);
+            this.newProvider_state.Location = new System.Drawing.Point(381, 382);
             this.newProvider_state.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.newProvider_state.Name = "newProvider_state";
             this.newProvider_state.Size = new System.Drawing.Size(179, 22);
@@ -1376,7 +1289,7 @@
             // 
             // newProvider_city
             // 
-            this.newProvider_city.Location = new System.Drawing.Point(141, 306);
+            this.newProvider_city.Location = new System.Drawing.Point(141, 380);
             this.newProvider_city.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.newProvider_city.Name = "newProvider_city";
             this.newProvider_city.Size = new System.Drawing.Size(179, 22);
@@ -1386,7 +1299,7 @@
             // 
             this.label53.AutoSize = true;
             this.label53.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label53.Location = new System.Drawing.Point(580, 313);
+            this.label53.Location = new System.Drawing.Point(587, 385);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(45, 19);
             this.label53.TabIndex = 14;
@@ -1396,7 +1309,7 @@
             // 
             this.label52.AutoSize = true;
             this.label52.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label52.Location = new System.Drawing.Point(332, 313);
+            this.label52.Location = new System.Drawing.Point(336, 383);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(40, 19);
             this.label52.TabIndex = 13;
@@ -1406,7 +1319,7 @@
             // 
             this.label51.AutoSize = true;
             this.label51.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label51.Location = new System.Drawing.Point(101, 313);
+            this.label51.Location = new System.Drawing.Point(103, 383);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(33, 19);
             this.label51.TabIndex = 12;
@@ -1416,7 +1329,7 @@
             // 
             this.label50.AutoSize = true;
             this.label50.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label50.Location = new System.Drawing.Point(85, 272);
+            this.label50.Location = new System.Drawing.Point(93, 343);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(45, 19);
             this.label50.TabIndex = 11;
@@ -1424,35 +1337,53 @@
             // 
             // newProvider_street
             // 
-            this.newProvider_street.Location = new System.Drawing.Point(141, 267);
+            this.newProvider_street.Location = new System.Drawing.Point(141, 341);
             this.newProvider_street.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.newProvider_street.Name = "newProvider_street";
             this.newProvider_street.Size = new System.Drawing.Size(408, 22);
             this.newProvider_street.TabIndex = 10;
             // 
-            // newProvider_phoneNumber
+            // newProvider_phone
             // 
-            this.newProvider_phoneNumber.Location = new System.Drawing.Point(141, 191);
-            this.newProvider_phoneNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.newProvider_phoneNumber.Name = "newProvider_phoneNumber";
-            this.newProvider_phoneNumber.Size = new System.Drawing.Size(245, 22);
-            this.newProvider_phoneNumber.TabIndex = 9;
+            this.newProvider_phone.Location = new System.Drawing.Point(141, 217);
+            this.newProvider_phone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.newProvider_phone.Name = "newProvider_phone";
+            this.newProvider_phone.Size = new System.Drawing.Size(245, 22);
+            this.newProvider_phone.TabIndex = 9;
+            // 
+            // newProvider_email
+            // 
+            this.newProvider_email.Location = new System.Drawing.Point(141, 185);
+            this.newProvider_email.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.newProvider_email.Name = "newProvider_email";
+            this.newProvider_email.Size = new System.Drawing.Size(245, 22);
+            this.newProvider_email.TabIndex = 9;
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.Location = new System.Drawing.Point(33, 217);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(102, 19);
+            this.label56.TabIndex = 8;
+            this.label56.Text = "Phone Number";
             // 
             // label49
             // 
             this.label49.AutoSize = true;
             this.label49.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label49.Location = new System.Drawing.Point(27, 191);
+            this.label49.Location = new System.Drawing.Point(96, 186);
             this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(102, 19);
+            this.label49.Size = new System.Drawing.Size(41, 19);
             this.label49.TabIndex = 8;
-            this.label49.Text = "Phone Number";
+            this.label49.Text = "Email";
             // 
             // label48
             // 
             this.label48.AutoSize = true;
             this.label48.Font = new System.Drawing.Font("Segoe UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label48.Location = new System.Drawing.Point(24, 224);
+            this.label48.Location = new System.Drawing.Point(25, 298);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(94, 32);
             this.label48.TabIndex = 7;
@@ -1480,7 +1411,7 @@
             // 
             // newProvider_name
             // 
-            this.newProvider_name.Location = new System.Drawing.Point(141, 150);
+            this.newProvider_name.Location = new System.Drawing.Point(141, 153);
             this.newProvider_name.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.newProvider_name.Name = "newProvider_name";
             this.newProvider_name.Size = new System.Drawing.Size(245, 22);
@@ -1490,7 +1421,7 @@
             // 
             this.label47.AutoSize = true;
             this.label47.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label47.Location = new System.Drawing.Point(27, 153);
+            this.label47.Location = new System.Drawing.Point(91, 155);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(45, 19);
             this.label47.TabIndex = 5;
@@ -1507,7 +1438,7 @@
             this.panel_verifyMember.Location = new System.Drawing.Point(0, 0);
             this.panel_verifyMember.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel_verifyMember.Name = "panel_verifyMember";
-            this.panel_verifyMember.Size = new System.Drawing.Size(1497, 962);
+            this.panel_verifyMember.Size = new System.Drawing.Size(1094, 870);
             this.panel_verifyMember.TabIndex = 35;
             // 
             // verifyMember_verified
@@ -1575,7 +1506,7 @@
             this.panel_billing.Location = new System.Drawing.Point(0, 0);
             this.panel_billing.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel_billing.Name = "panel_billing";
-            this.panel_billing.Size = new System.Drawing.Size(1497, 962);
+            this.panel_billing.Size = new System.Drawing.Size(1094, 870);
             this.panel_billing.TabIndex = 36;
             // 
             // verify_SessionMember
@@ -1747,7 +1678,7 @@
             // 
             this.panel_searchProvider.Controls.Add(this.searchProvider_search);
             this.panel_searchProvider.Controls.Add(this.searchProvider_panel_searchResults);
-            this.panel_searchProvider.Controls.Add(this.textBox7);
+            this.panel_searchProvider.Controls.Add(this.searchProvider_providerID);
             this.panel_searchProvider.Controls.Add(this.label63);
             this.panel_searchProvider.Controls.Add(this.label64);
             this.panel_searchProvider.Controls.Add(this.label61);
@@ -1755,7 +1686,7 @@
             this.panel_searchProvider.Location = new System.Drawing.Point(0, 0);
             this.panel_searchProvider.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel_searchProvider.Name = "panel_searchProvider";
-            this.panel_searchProvider.Size = new System.Drawing.Size(1497, 962);
+            this.panel_searchProvider.Size = new System.Drawing.Size(1094, 870);
             this.panel_searchProvider.TabIndex = 37;
             // 
             // searchProvider_search
@@ -1768,11 +1699,12 @@
             this.searchProvider_search.TabIndex = 26;
             this.searchProvider_search.Text = "Search";
             this.searchProvider_search.UseVisualStyleBackColor = true;
+            this.searchProvider_search.Click += new System.EventHandler(this.searchProvider_search_Click);
             // 
             // searchProvider_panel_searchResults
             // 
             this.searchProvider_panel_searchResults.Controls.Add(this.label84);
-            this.searchProvider_panel_searchResults.Controls.Add(this.textBox1);
+            this.searchProvider_panel_searchResults.Controls.Add(this.searchProvider_phone);
             this.searchProvider_panel_searchResults.Controls.Add(this.searchProvider_remove);
             this.searchProvider_panel_searchResults.Controls.Add(this.searchProvider_update);
             this.searchProvider_panel_searchResults.Controls.Add(this.searchProvider_postalCode);
@@ -1780,9 +1712,9 @@
             this.searchProvider_panel_searchResults.Controls.Add(this.searchProvider_state);
             this.searchProvider_panel_searchResults.Controls.Add(this.label72);
             this.searchProvider_panel_searchResults.Controls.Add(this.label71);
-            this.searchProvider_panel_searchResults.Controls.Add(this.textBox8);
+            this.searchProvider_panel_searchResults.Controls.Add(this.searchProvider_city);
             this.searchProvider_panel_searchResults.Controls.Add(this.label70);
-            this.searchProvider_panel_searchResults.Controls.Add(this.textBox6);
+            this.searchProvider_panel_searchResults.Controls.Add(this.searchProvider_street);
             this.searchProvider_panel_searchResults.Controls.Add(this.label69);
             this.searchProvider_panel_searchResults.Controls.Add(this.searchProvider_email);
             this.searchProvider_panel_searchResults.Controls.Add(this.label68);
@@ -1807,14 +1739,14 @@
             this.label84.TabIndex = 28;
             this.label84.Text = "Phone Number:";
             // 
-            // textBox1
+            // searchProvider_phone
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(133, 175);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(244, 26);
-            this.textBox1.TabIndex = 27;
+            this.searchProvider_phone.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchProvider_phone.Location = new System.Drawing.Point(133, 175);
+            this.searchProvider_phone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchProvider_phone.Name = "searchProvider_phone";
+            this.searchProvider_phone.Size = new System.Drawing.Size(244, 26);
+            this.searchProvider_phone.TabIndex = 27;
             // 
             // searchProvider_remove
             // 
@@ -1891,14 +1823,14 @@
             this.label71.TabIndex = 20;
             this.label71.Text = "City:";
             // 
-            // textBox8
+            // searchProvider_city
             // 
-            this.textBox8.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(133, 300);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(196, 26);
-            this.textBox8.TabIndex = 19;
+            this.searchProvider_city.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchProvider_city.Location = new System.Drawing.Point(133, 300);
+            this.searchProvider_city.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchProvider_city.Name = "searchProvider_city";
+            this.searchProvider_city.Size = new System.Drawing.Size(196, 26);
+            this.searchProvider_city.TabIndex = 19;
             // 
             // label70
             // 
@@ -1911,14 +1843,14 @@
             this.label70.TabIndex = 18;
             this.label70.Text = "Street:";
             // 
-            // textBox6
+            // searchProvider_street
             // 
-            this.textBox6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(133, 263);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(512, 26);
-            this.textBox6.TabIndex = 17;
+            this.searchProvider_street.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchProvider_street.Location = new System.Drawing.Point(133, 263);
+            this.searchProvider_street.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchProvider_street.Name = "searchProvider_street";
+            this.searchProvider_street.Size = new System.Drawing.Size(512, 26);
+            this.searchProvider_street.TabIndex = 17;
             // 
             // label69
             // 
@@ -1990,14 +1922,14 @@
             this.label65.TabIndex = 9;
             this.label65.Text = "General Provider Informaiton";
             // 
-            // textBox7
+            // searchProvider_providerID
             // 
-            this.textBox7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(121, 138);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(244, 26);
-            this.textBox7.TabIndex = 6;
+            this.searchProvider_providerID.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchProvider_providerID.Location = new System.Drawing.Point(121, 138);
+            this.searchProvider_providerID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchProvider_providerID.Name = "searchProvider_providerID";
+            this.searchProvider_providerID.Size = new System.Drawing.Size(244, 26);
+            this.searchProvider_providerID.TabIndex = 6;
             // 
             // label63
             // 
@@ -2042,7 +1974,7 @@
             this.panel_viewReports.Location = new System.Drawing.Point(0, 0);
             this.panel_viewReports.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel_viewReports.Name = "panel_viewReports";
-            this.panel_viewReports.Size = new System.Drawing.Size(1497, 962);
+            this.panel_viewReports.Size = new System.Drawing.Size(1094, 870);
             this.panel_viewReports.TabIndex = 38;
             // 
             // viewReports_panel_monthContainer
@@ -2149,7 +2081,7 @@
             this.panel_runReports.Location = new System.Drawing.Point(0, 0);
             this.panel_runReports.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel_runReports.Name = "panel_runReports";
-            this.panel_runReports.Size = new System.Drawing.Size(1497, 962);
+            this.panel_runReports.Size = new System.Drawing.Size(1094, 870);
             this.panel_runReports.TabIndex = 39;
             // 
             // runReports_panel_monthContainer
@@ -2253,7 +2185,7 @@
             this.panel_print.Location = new System.Drawing.Point(0, 0);
             this.panel_print.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel_print.Name = "panel_print";
-            this.panel_print.Size = new System.Drawing.Size(1497, 962);
+            this.panel_print.Size = new System.Drawing.Size(1094, 870);
             this.panel_print.TabIndex = 40;
             // 
             // print_print
@@ -2304,8 +2236,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1497, 962);
+            this.ClientSize = new System.Drawing.Size(1094, 870);
             this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.panel_searchMem);
+            this.Controls.Add(this.panel_newMember);
+            this.Controls.Add(this.panel_print);
             this.Controls.Add(this.panel_billing);
             this.Controls.Add(this.panel_home);
             this.Controls.Add(this.panel_runReports);
@@ -2313,9 +2248,6 @@
             this.Controls.Add(this.panel_searchProvider);
             this.Controls.Add(this.panel_verifyMember);
             this.Controls.Add(this.panel_newProvider);
-            this.Controls.Add(this.panel_searchMem);
-            this.Controls.Add(this.panel_newMember);
-            this.Controls.Add(this.panel_print);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Main";
             this.Text = "Choholics Data Center";
@@ -2327,8 +2259,6 @@
             this.panel_newMember.PerformLayout();
             this.panel_searchMem.ResumeLayout(false);
             this.panel_searchMem.PerformLayout();
-            this.searchMem_panel_Name.ResumeLayout(false);
-            this.searchMem_panel_Name.PerformLayout();
             this.searchMem_panel_ID.ResumeLayout(false);
             this.searchMem_panel_ID.PerformLayout();
             this.searchMem_panel_Results.ResumeLayout(false);
@@ -2403,25 +2333,16 @@
         private System.Windows.Forms.Panel panel_searchMem;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Panel searchMem_panel_ID;
-        private System.Windows.Forms.RadioButton searchMem_radName;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.RadioButton searchMem_radID;
         private System.Windows.Forms.Button searchMem_bttn_search;
         private System.Windows.Forms.TextBox searchMem_inMemID;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Panel searchMem_panel_Name;
-        private System.Windows.Forms.TextBox searchMem_inLastName;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox searchMem_inFirstName;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Panel searchMem_panel_Results;
         private System.Windows.Forms.Button searchMem_bttn_removeMem;
         private System.Windows.Forms.Button searchMem_bttn_update;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.TextBox searchMem_res_providerID;
-        private System.Windows.Forms.TextBox searchMem_res_subService;
-        private System.Windows.Forms.Label label41;
         private System.Windows.Forms.TextBox searchMem_res_subExp;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Button button1;
@@ -2468,7 +2389,7 @@
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.TextBox newProvider_street;
-        private System.Windows.Forms.TextBox newProvider_phoneNumber;
+        private System.Windows.Forms.TextBox newProvider_email;
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.TextBox newProvider_name;
@@ -2508,9 +2429,9 @@
         private System.Windows.Forms.TextBox searchProvider_state;
         private System.Windows.Forms.Label label72;
         private System.Windows.Forms.Label label71;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox searchProvider_city;
         private System.Windows.Forms.Label label70;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox searchProvider_street;
         private System.Windows.Forms.Label label69;
         private System.Windows.Forms.TextBox searchProvider_email;
         private System.Windows.Forms.Label label68;
@@ -2518,7 +2439,7 @@
         private System.Windows.Forms.Label label62;
         private System.Windows.Forms.TextBox searchProvider_firstName;
         private System.Windows.Forms.Label label65;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox searchProvider_providerID;
         private System.Windows.Forms.Label label63;
         private System.Windows.Forms.Label label64;
         private System.Windows.Forms.Label label61;
@@ -2552,8 +2473,12 @@
         private System.Windows.Forms.ComboBox print_selectDocument;
         private System.Windows.Forms.Label label83;
         private System.Windows.Forms.Label label84;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox searchProvider_phone;
         private System.Windows.Forms.Button searchProvider_search;
+        private System.Windows.Forms.TextBox newProvider_phone;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.ToolStripButton toolStrip_home;
+        private System.Windows.Forms.ToolStripButton toolStrip_logout;
     }
 }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
@@ -65,7 +66,7 @@ namespace ChoholicsAnonymous
             readInformation("abvSessions.xml");
             initilizeServices(); 
 
-            //working of session below with hard coded parameters,
+            //testing working of session below with hard coded parameters,
             Session sessionFromsessionID = getSessionInfo_sessionID(1);
             List<Session> sessions_memID = getSessionInfo_memberID(44);
             List<Session> sessions_provID = getSessionInfo_providerID(55);
@@ -96,7 +97,7 @@ namespace ChoholicsAnonymous
                 if (MemberList[i].MemberID == memberId)
                 {
                     memberResult = MemberList[i];
-                    return MemberList[i];
+                    break;
                
                 }
             }
@@ -118,7 +119,7 @@ namespace ChoholicsAnonymous
         }
 
         //returns the index of the member object in the list based on the given member id
-        private static int getIndexOfMember(int memberID)
+        public static int getIndexOfMember(int memberID)
         {
             int none = -1;
             for (int i = 0; i < MemberList.Count(); i++)
@@ -150,7 +151,19 @@ namespace ChoholicsAnonymous
                 StreamReader file = new StreamReader(filePath);
                 DataCenter.MemberList = (List<Member>)reader.Deserialize(file);
                 file.Close();
+                MemberCount = MemberList.Count();
             }
+
+            if (fileName == "Providers.xml")
+            {
+                string filePath = path.Replace("\\bin\\Debug", "\\" + fileName);
+                XmlSerializer reader = new XmlSerializer(typeof(List<Provider>));
+                StreamReader file = new StreamReader(filePath);
+                DataCenter.ProviderList = (List<Provider>)reader.Deserialize(file);
+                file.Close();
+                ProviderCount =ProviderList.Count();
+            }
+
             else if (fileName == "abvSessions.xml")
             {
                 string filePath = path.Replace("\\bin\\Debug", "\\SessionsDirectory\\" + fileName);
@@ -158,7 +171,6 @@ namespace ChoholicsAnonymous
                 StreamReader file = new StreamReader(filePath);
                 DataCenter.AbvSessionList = (List<AbvSession>)reader.Deserialize(file);
                 file.Close();
-
             }
         }
 
@@ -184,6 +196,18 @@ namespace ChoholicsAnonymous
 
         }
 
+        public static int getIndexOfProvider(int providerID)
+        {
+            int none = -1;
+            for (int i = 0; i < ProviderList.Count(); i++)
+            {
+                if (ProviderList[i].ProviderID == providerID)
+                {
+                    return i;
+                }
+            }
+            return none; //will return -1 if member is not in list 
+        }
         public static Provider searchProvider(int providerId)
         {
             Provider providerResult = new Provider();
@@ -294,6 +318,47 @@ namespace ChoholicsAnonymous
             return sessionList;
         }
 
+        /*weekly session
+         * Adds weekly sessions to a file named after date of current week's friday
+         */
+
+            public static void generateWeeklySessionIDs(int sessionID)
+            {
+            
+            DayOfWeek today = DateTime.Now.DayOfWeek;
+            string currentTime = DateTime.Now.ToString("t");
+             
+           // if(today != DayOfWeek.Friday && currentTime != ("12:00 PM") ) 
+              //  {
+                // add to the weekly file with friday's date of current week
+
+                string _date = DateTime.UtcNow.ToString("MM-dd-yyyy");
+                DateTime the_Date = DateTime.Parse(_date);
+                int num_days = DayOfWeek.Friday - the_Date.DayOfWeek;
+                if (num_days < 0) num_days += 7;
+                DateTime fridayDate = the_Date.AddDays(num_days);
+                string fridayFile = fridayDate.ToString("MM-dd-yyyy");
+
+                //write to file
+                string fullPath = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
+                string editedPath = fullPath.Replace("\\bin\\Debug", "\\SessionsDirectory\\weeklysessions\\" + fridayFile + ".txt");
+
+                File.AppendAllText(editedPath , sessionID.ToString() + Environment.NewLine);
+                
+
+          //  }         
+                
+             //else if it's friday past midnigt, write into next week session file
+             //else if ()
+             //   {
+
+             //   }
+
+             }
+                
+      
+
+
         public static void initilizeServices()
         {
             string fullPath = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
@@ -303,6 +368,39 @@ namespace ChoholicsAnonymous
             StreamReader file = new StreamReader(editedPath);
             ServiceList = (List<Service>)reader.Deserialize(file); 
             file.Close();
+        }
+
+        //returns a new member ID, will be an unused ID 
+        public static int getNewMemberID()
+        {
+            int lastID = -1;
+            //search through the list and keep track of which IDs are in use until one that is not is found 
+            for (int i = 0; i < MemberList.Count; i++)
+            {
+                if (lastID != MemberList[i].MemberID - 1)
+                {
+                    //member object is null 
+                    MemberCount++;
+                    lastID++;
+                    return lastID; 
+                }
+                lastID = MemberList[i].MemberID; 
+            }
+            return MemberCount++;
+        }
+
+        //returns a new provider ID, will be an unused ID 
+        public static int getNewProviderID()
+        {
+            for (int i = 0; i<ProviderList.Count; i++)
+            {
+                if (ProviderList[i] == null)
+                {
+                    ProviderCount++; 
+                    return i; 
+                }
+            }
+            return ProviderCount++; 
         }
     }
 }
