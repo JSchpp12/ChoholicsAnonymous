@@ -72,7 +72,7 @@ namespace ChoholicsAnonymous
                         //sw.Write("\t" + provider.dateRecieved + "\n");
                         //sw.Write("\t" + provider.memberFirstName + " " + provider.memberLastName + "\n");
                         //sw.Write("\t" + provider.memberID + "\n");
-                        //sw.Write("\t" + provider.serviceType + "\n");
+                        //sw.Write("\t" + provider.serviceID + "\n");
                         //sw.Write("\tFee to be paid: $" + provider.feeToBePaid + "\n");
                     }
 
@@ -101,7 +101,7 @@ namespace ChoholicsAnonymous
                     sw.Write(session.DateOfSession + "\n");
                     sw.Write(session.providerID + "\n");
                     sw.Write(session.memberID + "\n");
-                    sw.Write(session.serviceName + "\n"); //service code
+                    sw.Write(session.serviceID + "\n"); //service code
                     //sw.Write(session.comments + "\n");
                 }
             }

@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="AbvSession.cs" />
     <Compile Include="Address.cs" />
+    <Compile Include="Reporting.cs" />
     <Compile Include="CreditCard.cs" />
     <Compile Include="DataCenter.cs" />
     <Compile Include="Date.cs" />
