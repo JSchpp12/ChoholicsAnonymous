@@ -2017,7 +2017,7 @@
             // viewReports_reportWeek
             // 
             this.viewReports_reportWeek.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewReports_reportWeek.Location = new System.Drawing.Point(169, 200);
+            this.viewReports_reportWeek.Location = new System.Drawing.Point(175, 200);
             this.viewReports_reportWeek.Margin = new System.Windows.Forms.Padding(4);
             this.viewReports_reportWeek.Name = "viewReports_reportWeek";
             this.viewReports_reportWeek.Size = new System.Drawing.Size(160, 26);
@@ -2031,7 +2031,7 @@
             "Accounts Payable",
             "Member Reports",
             "Provider Reports"});
-            this.comboBox1.Location = new System.Drawing.Point(169, 100);
+            this.comboBox1.Location = new System.Drawing.Point(175, 100);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(160, 29);
@@ -2123,7 +2123,7 @@
             // runReports_reportWeek
             // 
             this.runReports_reportWeek.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.runReports_reportWeek.Location = new System.Drawing.Point(169, 200);
+            this.runReports_reportWeek.Location = new System.Drawing.Point(175, 200);
             this.runReports_reportWeek.Margin = new System.Windows.Forms.Padding(4);
             this.runReports_reportWeek.Name = "runReports_reportWeek";
             this.runReports_reportWeek.Size = new System.Drawing.Size(160, 26);
@@ -2137,7 +2137,7 @@
             "Accounts Payable",
             "Member Reports",
             "Provider Reports"});
-            this.runReports_reportType.Location = new System.Drawing.Point(169, 100);
+            this.runReports_reportType.Location = new System.Drawing.Point(175, 100);
             this.runReports_reportType.Margin = new System.Windows.Forms.Padding(4);
             this.runReports_reportType.Name = "runReports_reportType";
             this.runReports_reportType.Size = new System.Drawing.Size(160, 29);
@@ -2236,7 +2236,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1094, 870);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.panel_runReports);
             this.Controls.Add(this.panel_viewReports);
             this.Controls.Add(this.panel_searchProvider);
             this.Controls.Add(this.panel_verifyMember);
@@ -2246,6 +2245,7 @@
             this.Controls.Add(this.panel_print);
             this.Controls.Add(this.panel_billing);
             this.Controls.Add(this.panel_home);
+            this.Controls.Add(this.panel_runReports);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Main";
             this.Text = "Choholics Data Center";
