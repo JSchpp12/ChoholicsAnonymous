@@ -1,18 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ChoholicsAnonymous
 {
     public partial class Main : Form
     {
-        private string weekFilePath = "05-08-2020.txt"; 
+         
 
         public Main()
         {
@@ -114,6 +107,7 @@ namespace ChoholicsAnonymous
             }
             DataCenter.addMember(newMember);
             MessageBox.Show("Member Successfully Added");
+            resetPanel(panel_newMember);
         }
 
         
@@ -268,25 +262,22 @@ namespace ChoholicsAnonymous
         {
             //verify member ID before attempting update 
 
-            int memberID = Int32.Parse(searchMem_inMemID.Text);
-            //DataCenter.MemberList[Int32.Parse(searchMem_res_inMemID.Text)].MemberID = Int32.Parse(searchMem_res_memID.Text);
-            DataCenter.MemberList[memberID].FirstName = searchMem_res_firstName.Text;
+            int memberIndex = DataCenter.getIndexOfMember(Int32.Parse(searchMem_inMemID.Text));
+            
+            DataCenter.MemberList[memberIndex].FirstName = searchMem_res_firstName.Text;
+            DataCenter.MemberList[memberIndex].LastName = searchMem_res_lastName.Text;
+            DataCenter.MemberList[memberIndex].Email = searchMem_res_email.Text;
+            DataCenter.MemberList[memberIndex].Address.street = searchMem_res_street.Text;
+            DataCenter.MemberList[memberIndex].Address.city = searchMem_res_city.Text;
+            DataCenter.MemberList[memberIndex].Address.state = searchMem_res_state.Text;
+            DataCenter.MemberList[memberIndex].Address.postalCode = searchMem_res_post.Text;
+            DataCenter.MemberList[memberIndex].Payment.CardNumber = searchMem_res_ccNum.Text;
+            DataCenter.MemberList[memberIndex].Payment.Cvc = searchMem_res_cvc.Text;
+            DataCenter.MemberList[memberIndex].ProviderID = Int32.Parse(searchMem_res_providerID.Text);
 
-            DataCenter.MemberList[memberID].LastName = searchMem_res_lastName.Text;
-            DataCenter.MemberList[memberID].Email = searchMem_res_email.Text;
-            DataCenter.MemberList[memberID].Address.street = searchMem_res_street.Text;
-            DataCenter.MemberList[memberID].Address.city = searchMem_res_city.Text;
-            DataCenter.MemberList[memberID].Address.state = searchMem_res_state.Text;
-            DataCenter.MemberList[memberID].Address.postalCode = searchMem_res_post.Text;
-            DataCenter.MemberList[memberID].Payment.CardNumber = searchMem_res_ccNum.Text;
-            DataCenter.MemberList[memberID].Payment.Cvc = searchMem_res_cvc.Text;
-            DataCenter.MemberList[memberID].ProviderID = Int32.Parse(searchMem_res_providerID.Text);
-            //DataCenter.MemberList[memberID].Birthday = new Date(searchMem_res_birthday.Text.ToString());
-            //string month = searchMem_res_ccExp.Text.Substring(0, 2);
-            //string year = searchMem_res_ccExp.Text.Substring(2, 2);
-            //DataCenter.MemberList[Int32.Parse(searchMem_inMemID.Text)].Payment.ExpDate.Month = Int32.Parse(month);
-            //DataCenter.MemberList[Int32.Parse(searchMem_inMemID.Text)].Payment.ExpDate.Year = Int32.Parse(year);
-
+            MessageBox.Show("Member Successfully Updated");
+            resetPanel(searchMem_panel_Results);
+           
 
             //still gotta update subscription expiry data, service type, provider id.
         }
@@ -294,38 +285,49 @@ namespace ChoholicsAnonymous
         {
             int memberID = Int32.Parse(searchMem_inMemID.Text);
             DataCenter.deleteMember(memberID);
+            MessageBox.Show("Member Successfully Deleted");
+            resetPanel(searchMem_panel_Results);
         }
 
         //Provider events
 
         private void searchProvider_update_Click(object sender, EventArgs e)
         {
-            int providerID = Int32.Parse(textBox7.Text);
+            int providerIndex = DataCenter.getIndexOfProvider(Int32.Parse(searchProvider_providerID.Text));
+           
+            DataCenter.ProviderList[providerIndex].ProviderName = searchProvider_firstName.Text;
+            DataCenter.ProviderList[providerIndex].PhoneNumber = searchProvider_phone.Text;
+            DataCenter.ProviderList[providerIndex].Email = searchProvider_email.Text;
+            DataCenter.ProviderList[providerIndex].Address.street = searchProvider_street.Text;
+            DataCenter.ProviderList[providerIndex].Address.state = searchProvider_state.Text;
+            DataCenter.ProviderList[providerIndex].Address.city = searchProvider_city.Text;
+            DataCenter.ProviderList[providerIndex].Address.postalCode = newProvider_postal.Text;
+            MessageBox.Show("Provider Updated Successfully");
+            resetPanel(panel_searchProvider);
 
-            DataCenter.ProviderList[providerID].ProviderName = searchProvider_firstName.Text;
-            DataCenter.ProviderList[providerID].Address.street = textBox6.Text;
-            DataCenter.ProviderList[providerID].Address.state = searchProvider_state.Text;
-            DataCenter.ProviderList[providerID].Address.city = textBox8.Text;
-            DataCenter.ProviderList[providerID].Address.postalCode = newProvider_postal.Text;
 
         }
         private void searchProvider_remove_Click(object sender, EventArgs e)
         {
 
-            DataCenter.deleteMember(Int32.Parse(textBox7.Text));
+            DataCenter.deleteMember(Int32.Parse(searchProvider_providerID.Text));
+            MessageBox.Show("Provider Successfully Deleted");
+            resetPanel(panel_searchProvider);
         }
         
         private void newPro_bttn_submit_Click(object sender, EventArgs e)
         {
             Provider newProvider = new Provider();
             newProvider.ProviderName = newProvider_name.Text;
-            newProvider.PhoneNumber = newProvider_phoneNumber.Text;
+            newProvider.PhoneNumber = newProvider_phone.Text;
+            newProvider.Email = newProvider_email.Text;
             newProvider.Address.street = newProvider_street.Text;
             newProvider.Address.state = newProvider_state.Text;
             newProvider.Address.city = newProvider_city.Text;
             newProvider.Address.postalCode = newProvider_postal.Text;
             DataCenter.addProvider(newProvider);
             MessageBox.Show("Provider Successfully Added");
+            resetPanel(panel_newProvider);
         }
 
 
@@ -341,12 +343,13 @@ namespace ChoholicsAnonymous
         {
             //No last name or email when provider is added, no phone number in search
             //name could be  better e.g textbox7 is vague
-            Provider searchResults = DataCenter.searchProvider(Int32.Parse(textBox7.Text));
+            Provider searchResults = DataCenter.searchProvider(Int32.Parse(searchProvider_providerID.Text));
             searchProvider_firstName.Text = searchResults.ProviderName;
-            //searchProvider_phoneNumber.Text = searchResults.PhoneNumber;
-            textBox6.Text = searchResults.Address.street;
+            searchProvider_phone.Text = searchResults.PhoneNumber;
+            searchProvider_email.Text = searchResults.Email;
+            searchProvider_street.Text = searchResults.Address.street;
             searchProvider_state.Text = searchResults.Address.state;
-            textBox8.Text = searchResults.Address.city;
+            searchProvider_city.Text = searchResults.Address.city;
             newProvider_postal.Text = searchResults.Address.postalCode;
         }
 
@@ -382,6 +385,14 @@ namespace ChoholicsAnonymous
             //write to a text file
             DataCenter.createSessionFile(newSession, newSession.sessionID);
 
+            
+            //weekly session records
+            DataCenter.generateWeeklySessionIDs(newSession.sessionID);
+
+            MessageBox.Show("Session successfully created");
+            resetPanel(billing_panel_session);
+
+
         }
 
         //display "verified" on page if the member id is valid 
@@ -392,7 +403,7 @@ namespace ChoholicsAnonymous
             if (DataCenter.memberExists(memID))
             {
                 verifyMember_verified.Visible = true; 
-                MessageBox.Show("Member with id: " + memID + "exists");
+                //MessageBox.Show("Member with id: " + memID + "exists");
             }
             /*
             else
@@ -409,11 +420,23 @@ namespace ChoholicsAnonymous
             if (DataCenter.memberExists(memID))
             {
                 verify_SessionMember.Visible = true;
-                MessageBox.Show("Member with id: " + memID + " exists");
+               // MessageBox.Show("Member with id: " + memID + " exists");
+                //resetPanel(panel_billing);
+            }
+
+
+        }
+
+        private void resetPanel(Panel p)
+        {
+            foreach (Control field in p.Controls)
+            {
+                if (field is TextBox)
+                    field.Text = "";
             }
         }
 
-        
+       
     }  
     
 }

@@ -12,7 +12,12 @@
   </AbvSession>
   <AbvSession>
     <SessionID>2</SessionID>
-    <MemberID>1</MemberID>
+    <MemberID>5</MemberID>
+    <ProviderID>1</ProviderID>
+  </AbvSession>
+  <AbvSession>
+    <SessionID>3</SessionID>
+    <MemberID>88</MemberID>
     <ProviderID>1</ProviderID>
   </AbvSession>
 </ArrayOfAbvSession>
