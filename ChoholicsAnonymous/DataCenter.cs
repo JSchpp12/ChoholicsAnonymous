@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
@@ -303,6 +304,39 @@ namespace ChoholicsAnonymous
             StreamReader file = new StreamReader(editedPath);
             ServiceList = (List<Service>)reader.Deserialize(file); 
             file.Close();
+        }
+
+        //returns a new member ID, will be an unused ID 
+        public static int getNewMemberID()
+        {
+            int lastID = -1;
+            //search through the list and keep track of which IDs are in use until one that is not is found 
+            for (int i = 0; i < MemberList.Count; i++)
+            {
+                if (lastID != MemberList[i].MemberID - 1)
+                {
+                    //member object is null 
+                    MemberCount++;
+                    lastID++;
+                    return lastID; 
+                }
+                lastID = MemberList[i].MemberID; 
+            }
+            return MemberCount++;
+        }
+
+        //returns a new provider ID, will be an unused ID 
+        public static int getNewProviderID()
+        {
+            for (int i = 0; i<ProviderList.Count; i++)
+            {
+                if (ProviderList[i] == null)
+                {
+                    ProviderCount++; 
+                    return i; 
+                }
+            }
+            return ProviderCount++; 
         }
     }
 }

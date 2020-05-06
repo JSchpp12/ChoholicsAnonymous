@@ -45,7 +45,7 @@ namespace ChoholicsAnonymous
 
         private int getNewMemberID()
         {
-            return DataCenter.SessionCount++;
+            return DataCenter.getNewMemberID(); 
         }
     } 
 }
