@@ -22,7 +22,7 @@ namespace ChoholicsAnonymous
         public static List<Member>     MemberList     = new List<Member>();
         public static List<Provider>   ProviderList   = new List<Provider>();
         public static List<AbvSession> AbvSessionList = new List<AbvSession>();
-        public static List<Service> ServiceList = new List<Service>();
+        public static List<Service>    ServiceList    = new List<Service>();
 
         private static Timer weeklyTimer = new Timer(runWeeklyReport);  
 
@@ -107,6 +107,7 @@ namespace ChoholicsAnonymous
         }
 
         #region Member Functions
+
         //add a member to the data set
         public static void addMember(Member newMember)
         {
@@ -194,9 +195,29 @@ namespace ChoholicsAnonymous
             }
             return verified;     
         }
+
+        //returns a new member ID, will be an unused ID 
+        public static int getNewMemberID()
+        {
+            int lastID = -1;
+            //search through the list and keep track of which IDs are in use until one that is not is found 
+            for (int i = 0; i < MemberList.Count; i++)
+            {
+                if (lastID != MemberList[i].MemberID - 1)
+                {
+                    //member object is null 
+                    MemberCount++;
+                    lastID++;
+                    return lastID;
+                }
+                lastID = MemberList[i].MemberID;
+            }
+            return MemberCount++;
+        }
         #endregion
 
         #region Provider Functions 
+
         //adds a provider to the list
         public static void addProvider(Provider newProvider)
         {
@@ -262,7 +283,21 @@ namespace ChoholicsAnonymous
             return verified;
         }
 
-#endregion
+        //returns a new provider ID, will be an unused ID 
+        public static int getNewProviderID()
+        {
+            for (int i = 0; i < ProviderList.Count; i++)
+            {
+                if (ProviderList[i] == null)
+                {
+                    ProviderCount++;
+                    return i;
+                }
+            }
+            return ProviderCount++;
+        }
+
+        #endregion
 
         //creates an abbreviated session and adds it to the list 
         public static void addAbvSession(int memberID, int sessionID, int providerID)
@@ -397,39 +432,6 @@ namespace ChoholicsAnonymous
             StreamReader file = new StreamReader(editedPath);
             ServiceList = (List<Service>)reader.Deserialize(file); 
             file.Close();
-        }
-
-        //returns a new member ID, will be an unused ID 
-        public static int getNewMemberID()
-        {
-            int lastID = -1;
-            //search through the list and keep track of which IDs are in use until one that is not is found 
-            for (int i = 0; i < MemberList.Count; i++)
-            {
-                if (lastID != MemberList[i].MemberID - 1)
-                {
-                    //member object is null 
-                    MemberCount++;
-                    lastID++;
-                    return lastID; 
-                }
-                lastID = MemberList[i].MemberID; 
-            }
-            return MemberCount++;
-        }
-
-        //returns a new provider ID, will be an unused ID 
-        public static int getNewProviderID()
-        {
-            for (int i = 0; i<ProviderList.Count; i++)
-            {
-                if (ProviderList[i] == null)
-                {
-                    ProviderCount++; 
-                    return i; 
-                }
-            }
-            return ProviderCount++; 
         }
 
         //will run the weekly report 
