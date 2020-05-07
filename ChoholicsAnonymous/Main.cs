@@ -191,6 +191,7 @@ namespace ChoholicsAnonymous
                 searchMem_res_ccExp.Text      = searchResults.Payment.ExpDate.convToString();
                 searchMem_res_subExp.Text     = searchResults.SubscriptionExpiration.convToString();
                 searchMem_res_providerID.Text = searchResults.ProviderID.ToString();
+                searchMem_res_memID.Text      = searchMem_inMemID.Text;  
                 //searchMem_res_birthday.Text = searchResults.Birthday.convToString();
              }
         }
@@ -531,6 +532,46 @@ namespace ChoholicsAnonymous
                 CurrentTimer.Enabled = false;
         }
         #endregion
+
+        private void searchMember_extendSubscription_Click(object sender, EventArgs e)
+        {
+
+            int memberIndex = DataCenter.getIndexOfMember(Int32.Parse(searchMem_res_memID.Text));
+            string subLength = searchMem_res_lengthSelect.Text; 
+            Date expDate = DataCenter.MemberList[memberIndex].SubscriptionExpiration; 
+            
+            //DataCenter.MemberList[memberIndex].SubscriptionExpiration = new Date(searchMem_res_subExp.Text);
+
+            resetPanel(searchMem_panel_Results);
+
+            switch (subLength)
+            {
+                case "1 Month":
+                    DataCenter.MemberList[memberIndex].SubscriptionExpiration.Month = expDate.Month + 1;
+                    break;
+                case "2 Months":
+                    DataCenter.MemberList[memberIndex].SubscriptionExpiration.Month = expDate.Month + 2;
+                    break;
+                case "3 Months":
+                    DataCenter.MemberList[memberIndex].SubscriptionExpiration.Month = expDate.Month + 3;
+                    break;
+                case "8 Months":
+                    DataCenter.MemberList[memberIndex].SubscriptionExpiration.Month = expDate.Month + 8;
+                    break;
+                case "12 Months":
+                    DataCenter.MemberList[memberIndex].SubscriptionExpiration.Year = expDate.Year + 1;
+                    break;
+                default:
+                    MessageBox.Show("A Subscription Length Must Be Selected");
+                    return;
+                    break;
+                    //need to add cases for more months
+                    //need to take care of cases like when you add 1 to 12th month so it's not 13 e.t.c
+            }
+
+            MessageBox.Show("Member Subscription Extended");
+            //still gotta update subscription expiry data, service type, provider id.
+        }
     }
 }
 #endregion

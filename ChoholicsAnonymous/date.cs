@@ -97,7 +97,7 @@ namespace ChoholicsAnonymous
         public string convToString()
         {
             string dateString;
-            dateString = this.Month.ToString() + "-" + this.Day.ToString() + "-" + this.Year.ToString();
+            dateString = this.Month.ToString("D2") + "-" + this.Day.ToString("D2") + "-" + this.Year.ToString("D4");
             return dateString;
         }
         //test
