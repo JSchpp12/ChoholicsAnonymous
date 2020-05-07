@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -24,7 +25,7 @@ namespace ChoholicsAnonymous
         public static List<AbvSession> AbvSessionList = new List<AbvSession>();
         public static List<Service>    ServiceList    = new List<Service>();
 
-        private static Timer weeklyTimer = new Timer(runWeeklyReport);  
+        private static System.Threading.Timer weeklyTimer = new System.Threading.Timer(runWeeklyReport);  
 
         public static void writeToFile(string fileName, string dataType)
         {
@@ -466,14 +467,14 @@ namespace ChoholicsAnonymous
             file.Close();
         }
 
-        //will run the weekly report 
+        //is called at midnight on friday
         private static void runWeeklyReport(object state)
         {
             //disable clock object 
             weeklyTimer.Dispose();
-
+            MessageBox.Show("RUNNING REPORTS");
             //run report 
-
+             
             //set up clock for next week
             initilizeWeeklyTimer(); 
         }
@@ -481,15 +482,17 @@ namespace ChoholicsAnonymous
         //sets up the timer object to trigger the weekly reporting on monday 
         private static void initilizeWeeklyTimer()
         {
-            DateTime today = DateTime.Today;
-            DateTime triggerTime = new DateTime(); 
-            int daysUntilFriday = ((int)DayOfWeek.Friday - (int)today.DayOfWeek + 7) % 7;
-            triggerTime = today.AddDays(daysUntilFriday);
 
-            int msUntilTrigger = (int)((triggerTime - today).TotalMilliseconds);
+            //DateTime today = DateTime.Today;
+            DateTime now = DateTime.Now;
+            //DateTime triggerTime = new DateTime(); 
+            DateTime triggerTime = DateTime.Today; 
+            int daysUntilFriday = (((int)DayOfWeek.Friday - (int)now.DayOfWeek + 7) % 7) + 1;
+            triggerTime = triggerTime.AddDays(daysUntilFriday);
 
-            weeklyTimer = new Timer(runWeeklyReport);
-            weeklyTimer.Change(msUntilTrigger, Timeout.Infinite); 
+           int msUntilTrigger = (int)((triggerTime - now).TotalMilliseconds);
+
+            weeklyTimer = new System.Threading.Timer(new TimerCallback(runWeeklyReport), null, msUntilTrigger, 0); 
         }
     }
 }

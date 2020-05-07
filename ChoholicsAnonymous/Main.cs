@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Threading; 
 
 namespace ChoholicsAnonymous
 {
     public partial class Main : Form
-    {      
+    {
         public Main()
         {
             InitializeComponent();
@@ -474,6 +475,12 @@ namespace ChoholicsAnonymous
             {
                 if (field is TextBox) { field.Text = ""; }                    
             }
+        }
+
+        //will update 
+        private void home_currentTimer_Tick(object sender, EventArgs e)
+        {
+
         }
     }      
 }
