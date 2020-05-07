@@ -23,9 +23,9 @@
       </ExpDate>
     </Payment>
     <SubscriptionExpiration>
-      <Month>0</Month>
-      <Day>0</Day>
-      <Year>0</Year>
+      <Month>6</Month>
+      <Day>2</Day>
+      <Year>2020</Year>
     </SubscriptionExpiration>
     <SubscriptionStart>
       <Month>5</Month>
@@ -56,237 +56,47 @@
       </ExpDate>
     </Payment>
     <SubscriptionExpiration>
-      <Month>0</Month>
-      <Day>0</Day>
+      <Month>7</Month>
+      <Day>1</Day>
       <Year>0</Year>
     </SubscriptionExpiration>
     <SubscriptionStart>
-      <Month>5</Month>
-      <Day>2</Day>
+      <Month>6</Month>
+      <Day>1</Day>
       <Year>2020</Year>
     </SubscriptionStart>
   </Member>
   <Member>
     <FirstName>Apple</FirstName>
-    <LastName>Tobergte</LastName>
-    <Email>email.email@email.com</Email>
-    <PhoneNumber>98765</PhoneNumber>
+    <LastName>T</LastName>
+    <Email>apple@email.com</Email>
+    <PhoneNumber>8755522</PhoneNumber>
     <MemberID>2</MemberID>
-    <ProviderID>0</ProviderID>
+    <ProviderID>1</ProviderID>
     <Address>
-      <street>street street</street>
-      <state>st</state>
-      <city>city</city>
-      <postalCode>12345</postalCode>
+      <street>some street</street>
+      <state>MI</state>
+      <city>Detroit</city>
+      <postalCode>0100</postalCode>
     </Address>
     <Payment>
-      <CardNumber>12341234</CardNumber>
-      <Cvc>123</Cvc>
-      <ExpDate>
-        <Month>6</Month>
-        <Day>20</Day>
-        <Year>0</Year>
-      </ExpDate>
-    </Payment>
-    <SubscriptionExpiration>
-      <Month>6</Month>
-      <Day>2</Day>
-      <Year>2020</Year>
-    </SubscriptionExpiration>
-    <SubscriptionStart>
-      <Month>5</Month>
-      <Day>2</Day>
-      <Year>2020</Year>
-    </SubscriptionStart>
-  </Member>
-  <Member>
-    <FirstName>Count</FirstName>
-    <LastName>Test</LastName>
-    <Email />
-    <PhoneNumber />
-    <MemberID>3</MemberID>
-    <ProviderID>0</ProviderID>
-    <Address>
-      <street />
-      <state />
-      <city />
-      <postalCode />
-    </Address>
-    <Payment>
-      <CardNumber />
-      <Cvc />
-      <ExpDate>
-        <Month>1</Month>
-        <Day>20</Day>
-        <Year>0</Year>
-      </ExpDate>
-    </Payment>
-    <SubscriptionExpiration>
-      <Month>6</Month>
-      <Day>5</Day>
-      <Year>2020</Year>
-    </SubscriptionExpiration>
-    <SubscriptionStart>
-      <Month>5</Month>
-      <Day>5</Day>
-      <Year>2020</Year>
-    </SubscriptionStart>
-    <Birthday>
-      <Month>0</Month>
-      <Day>0</Day>
-      <Year>0</Year>
-    </Birthday>
-  </Member>
-  <Member>
-    <FirstName>Another</FirstName>
-    <LastName>Count</LastName>
-    <Email />
-    <PhoneNumber />
-    <MemberID>4</MemberID>
-    <ProviderID>0</ProviderID>
-    <Address>
-      <street />
-      <state />
-      <city />
-      <postalCode />
-    </Address>
-    <Payment>
-      <CardNumber />
-      <Cvc />
-      <ExpDate>
-        <Month>7</Month>
-        <Day>20</Day>
-        <Year>0</Year>
-      </ExpDate>
-    </Payment>
-    <SubscriptionExpiration>
-      <Month>6</Month>
-      <Day>5</Day>
-      <Year>2020</Year>
-    </SubscriptionExpiration>
-    <SubscriptionStart>
-      <Month>5</Month>
-      <Day>5</Day>
-      <Year>2020</Year>
-    </SubscriptionStart>
-    <Birthday>
-      <Month>0</Month>
-      <Day>0</Day>
-      <Year>0</Year>
-    </Birthday>
-  </Member>
-  <Member>
-    <FirstName>try</FirstName>
-    <LastName />
-    <Email />
-    <PhoneNumber />
-    <MemberID>5</MemberID>
-    <ProviderID>0</ProviderID>
-    <Address>
-      <street />
-      <state />
-      <city />
-      <postalCode />
-    </Address>
-    <Payment>
-      <CardNumber />
-      <Cvc />
-      <ExpDate>
-        <Month>7</Month>
-        <Day>21</Day>
-        <Year>0</Year>
-      </ExpDate>
-    </Payment>
-    <SubscriptionExpiration>
-      <Month>0</Month>
-      <Day>0</Day>
-      <Year>0</Year>
-    </SubscriptionExpiration>
-    <SubscriptionStart>
-      <Month>5</Month>
-      <Day>5</Day>
-      <Year>2020</Year>
-    </SubscriptionStart>
-    <Birthday>
-      <Month>0</Month>
-      <Day>0</Day>
-      <Year>0</Year>
-    </Birthday>
-  </Member>
-  <Member>
-    <FirstName>more</FirstName>
-    <LastName />
-    <Email />
-    <PhoneNumber />
-    <MemberID>6</MemberID>
-    <ProviderID>0</ProviderID>
-    <Address>
-      <street />
-      <state />
-      <city />
-      <postalCode />
-    </Address>
-    <Payment>
-      <CardNumber />
-      <Cvc />
+      <CardNumber>6565685</CardNumber>
+      <Cvc>321</Cvc>
       <ExpDate>
         <Month>8</Month>
-        <Day>20</Day>
-        <Year>0</Year>
+        <Day>1</Day>
+        <Year>2020</Year>
       </ExpDate>
     </Payment>
     <SubscriptionExpiration>
-      <Month>0</Month>
-      <Day>0</Day>
+      <Month>7</Month>
+      <Day>1</Day>
       <Year>0</Year>
     </SubscriptionExpiration>
     <SubscriptionStart>
-      <Month>5</Month>
-      <Day>5</Day>
+      <Month>6</Month>
+      <Day>1</Day>
       <Year>2020</Year>
     </SubscriptionStart>
-    <Birthday>
-      <Month>0</Month>
-      <Day>0</Day>
-      <Year>0</Year>
-    </Birthday>
-  </Member>
-  <Member>
-    <FirstName>Member8</FirstName>
-    <LastName />
-    <Email />
-    <PhoneNumber />
-    <MemberID>7</MemberID>
-    <ProviderID>0</ProviderID>
-    <Address>
-      <street />
-      <state />
-      <city />
-      <postalCode />
-    </Address>
-    <Payment>
-      <CardNumber />
-      <Cvc />
-      <ExpDate>
-        <Month>8</Month>
-        <Day>21</Day>
-        <Year>0</Year>
-      </ExpDate>
-    </Payment>
-    <SubscriptionExpiration>
-      <Month>0</Month>
-      <Day>0</Day>
-      <Year>0</Year>
-    </SubscriptionExpiration>
-    <SubscriptionStart>
-      <Month>5</Month>
-      <Day>5</Day>
-      <Year>2020</Year>
-    </SubscriptionStart>
-    <Birthday>
-      <Month>0</Month>
-      <Day>0</Day>
-      <Year>0</Year>
-    </Birthday>
   </Member>
 </ArrayOfMember>
