@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
 using System.Threading; 
 
@@ -26,10 +28,10 @@ namespace ChoholicsAnonymous
             try
             {
                 Date newDate = new Date("07-12-1998"); 
-            }catch (InvalidCastException ex)
+            }catch (InvalidCastException )
             {
                 //if there are letters where there should be numbers 
-            }catch (ArgumentException ex)
+            }catch (ArgumentException )
             {
                 //date is not in valid format of MM-DD-YYYY
             }
@@ -131,7 +133,7 @@ namespace ChoholicsAnonymous
                 ToolStripMenuItem item = (ToolStripMenuItem)sender;
                 tag = item.Tag.ToString();
             }
-            catch (InvalidCastException ex)
+            catch (InvalidCastException )
             {
                 try
                 {
@@ -338,7 +340,7 @@ namespace ChoholicsAnonymous
         private void searchProvider_remove_Click(object sender, EventArgs e)
         {
 
-            DataCenter.deleteMember(Int32.Parse(searchProvider_providerID.Text));
+            DataCenter.deleteProvider(Int32.Parse(searchProvider_providerID.Text));
             MessageBox.Show("Provider Successfully Deleted");
             resetPanel(panel_searchProvider);
         }
@@ -408,11 +410,11 @@ namespace ChoholicsAnonymous
                 Date newDate = new Date(session_serviceDate.Text);
                 newSession.DateOfSession = newDate;
             }
-            catch (InvalidCastException ex)
+            catch (InvalidCastException)
             {
                 //if there are letters where there should be numbers 
             }
-            catch (ArgumentException ex)
+            catch (ArgumentException )
             {
                 //date is not in valid format of MM-DD-YYYY
             }
@@ -431,6 +433,10 @@ namespace ChoholicsAnonymous
             
             //weekly session records
             DataCenter.generateWeeklySessionIDs(newSession.sessionID);
+
+            //email
+            Member memberDetails = DataCenter.searchMember(DataCenter.getSessionInfo_sessionID(newSession.sessionID).memberID);
+            Email email = new Email(memberDetails);
 
             MessageBox.Show("Session successfully created");
             resetPanel(billing_panel_session);
@@ -473,6 +479,128 @@ namespace ChoholicsAnonymous
             {
                 if (field is TextBox) { field.Text = ""; }                    
             }
+        }
+
+        //reporting
+
+        public  void createReport(string type)
+        {  //would need to dynamically pass filename based on week
+
+
+
+
+            // read sessionids from week file
+            string weekFile = DataCenter.getWeeklyFileName();
+            string[] ids = File.ReadAllLines(weekFile);
+           
+            // print member report info
+            if (type == "member")
+            {
+                
+                Dictionary<int,List<Session>> memberReport = new Dictionary<int, List<Session>>();
+                
+                foreach (string id in ids)
+                {
+                    int sessionID = Int32.Parse(id);
+                     Session thisSession = DataCenter.getSessionInfo_sessionID(sessionID);
+
+                    if (!memberReport.ContainsKey(thisSession.memberID))
+                    {
+                        memberReport.Add(thisSession.memberID, DataCenter.getSessionInfo_memberID(thisSession.memberID));
+                    }
+
+                   
+                }
+                string display = "";
+                foreach (KeyValuePair<int, List<Session>> pair in memberReport)
+                {
+
+                    Member lookUP = DataCenter.searchMember(pair.Key);
+                   display+= "Member name: " + lookUP.FirstName + " " + lookUP.LastName + " \n"
+                    + "Member number: " + lookUP.MemberID + "\n"
+                    + "Member street address: " + lookUP.Address.street + "\n"
+                    + "Member city: " + lookUP.Address.city + "\n"
+                    + "Member state: " + lookUP.Address.state + "\n"
+                    + "Member ZIP code: " + lookUP.Address.postalCode + "\n\n";
+                    for (int i = 0;i< pair.Value.Count; i++)
+                        {
+                          display += "\t" + "Date of Service:" +  pair.Value[i].DateOfSession.convToString() + "\n\t"
+                           +"Provider name: " + DataCenter.searchProvider(pair.Value[i].providerID).ProviderName + "\n\t"
+                            + "Service name: " + pair.Value[i].serviceName + "\n\n";
+                       
+                        }
+
+                }
+                report_box.Text = display;
+            }
+            // print provider report info
+            if (type == "provider")
+            {
+                Dictionary<int, List<Session>> providerReport = new Dictionary<int, List<Session>>();
+
+                foreach (string id in ids)
+                {
+                    int sessionID = Int32.Parse(id);
+                    Session thisSession = DataCenter.getSessionInfo_sessionID(sessionID);
+
+                    if (!providerReport.ContainsKey(thisSession.providerID))
+                    {
+                        providerReport.Add(thisSession.providerID, DataCenter.getSessionInfo_memberID(thisSession.providerID));
+                    }
+
+
+                }
+                string display = "";
+                int consultations = 0;
+                int totalFee = 0;
+                foreach (KeyValuePair<int, List<Session>> pair in providerReport)
+                {
+                    Provider lookUP = DataCenter.searchProvider(pair.Key);
+
+                    display += "Provider name: " + lookUP.ProviderName + " \n"
+                     + "Provider number: " + lookUP.ProviderID + "\n"
+                     + "Provider street address: " + lookUP.Address.street + "\n"
+                     + "Provider city: " + lookUP.Address.city + "\n"
+                     + "Provider state: " + lookUP.Address.state + "\n"
+                     + "Provider ZIP code: " + lookUP.Address.postalCode + "\n";
+
+                    for (int i = 0; i < pair.Value.Count; i++)
+                    {
+                        consultations = pair.Value.Count;
+                       display += "\n\t" + "Date of Service:" + pair.Value[i].DateOfSession.convToString() + "\n\t"
+                         + "Member name: " + DataCenter.searchMember(pair.Value[i].memberID).FirstName + " "
+                         + DataCenter.searchMember(pair.Value[i].memberID).FirstName + "\n\t"
+                          + "Member number: " + pair.Value[i].memberID.ToString() + "\n\t"
+                          + "Service Code: " + pair.Value[i].serviceID + "\n\t";
+                        int fee = DataCenter.lookupService(pair.Value[i].serviceID).Fee;
+                        display += "Fee to be Paid: " + fee.ToString() + "\n";
+                        totalFee += fee;
+                    }
+                      
+                         display += "Total number of Consultations with members: " + consultations.ToString() + "\n"
+                          +"Total fee for week :" + totalFee.ToString() + "\n\n";
+                         
+                    
+
+
+                }
+                report_box.Text = display + "\n\n\n";
+            }
+
+
+
+
+            }
+
+        
+        private void Run_Click(object sender, EventArgs e)
+        {
+            if (runReports_reportType.Text == "Provider Reports")
+                createReport("provider");
+            else if (runReports_reportType.Text == "Member Reports")
+                createReport("member");
+            //else if(runReports_reportType.Text == 1)
+            //  createReport("member");
         }
 
         //called every second -- will update time labels and switch to locked form if needed 
