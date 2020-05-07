@@ -147,7 +147,7 @@ namespace ChoholicsAnonymous
         }
 
         //searches for member via member phone number
-        public static bool checkMemNum(int memberNum)
+        public static bool checkMemNum(long memberNum)
         {
             bool numResult = false;
 

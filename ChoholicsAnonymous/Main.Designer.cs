@@ -41,10 +41,8 @@
             this.toolStrip_newProvider = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip_providerDirectory = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip_reporting = new System.Windows.Forms.ToolStripDropDownButton();
-            this.toolStrip_viewReports = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip_runReports = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip_billing = new System.Windows.Forms.ToolStripButton();
-            this.toolStrip_print = new System.Windows.Forms.ToolStripButton();
             this.toolStrip_logout = new System.Windows.Forms.ToolStripButton();
             this.panel_newMember = new System.Windows.Forms.Panel();
             this.newMem_expDay = new System.Windows.Forms.TextBox();
@@ -235,7 +233,6 @@
             this.toolStrip_provider,
             this.toolStrip_reporting,
             this.toolStrip_billing,
-            this.toolStrip_print,
             this.toolStrip_logout});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -332,21 +329,12 @@
             // 
             this.toolStrip_reporting.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStrip_reporting.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStrip_viewReports,
             this.toolStrip_runReports});
             this.toolStrip_reporting.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_reporting.Image")));
             this.toolStrip_reporting.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStrip_reporting.Name = "toolStrip_reporting";
             this.toolStrip_reporting.Size = new System.Drawing.Size(72, 24);
             this.toolStrip_reporting.Text = "Reporting";
-            // 
-            // toolStrip_viewReports
-            // 
-            this.toolStrip_viewReports.Name = "toolStrip_viewReports";
-            this.toolStrip_viewReports.Size = new System.Drawing.Size(142, 22);
-            this.toolStrip_viewReports.Tag = "viewReports";
-            this.toolStrip_viewReports.Text = "View Reports";
-            this.toolStrip_viewReports.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
             // 
             // toolStrip_runReports
             // 
@@ -366,16 +354,6 @@
             this.toolStrip_billing.Tag = "billing";
             this.toolStrip_billing.Text = "Billing";
             this.toolStrip_billing.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
-            // 
-            // toolStrip_print
-            // 
-            this.toolStrip_print.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStrip_print.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_print.Image")));
-            this.toolStrip_print.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStrip_print.Name = "toolStrip_print";
-            this.toolStrip_print.Size = new System.Drawing.Size(36, 24);
-            this.toolStrip_print.Text = "Print";
-            this.toolStrip_print.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
             // 
             // toolStrip_logout
             // 
@@ -495,10 +473,10 @@
             this.newMem_subLength.FormattingEnabled = true;
             this.newMem_subLength.Items.AddRange(new object[] {
             "1 Month",
-            "2 Months ",
+            "2 Months",
             "3 Months",
-            "8 Months ",
-            "12 Months "});
+            "8 Months",
+            "12 Months"});
             this.newMem_subLength.Location = new System.Drawing.Point(80, 454);
             this.newMem_subLength.Name = "newMem_subLength";
             this.newMem_subLength.Size = new System.Drawing.Size(121, 20);
@@ -2170,7 +2148,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(820, 707);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.panel_searchMem);
             this.Controls.Add(this.panel_newMember);
             this.Controls.Add(this.panel_print);
             this.Controls.Add(this.panel_billing);
@@ -2180,6 +2157,7 @@
             this.Controls.Add(this.panel_searchProvider);
             this.Controls.Add(this.panel_verifyMember);
             this.Controls.Add(this.panel_newProvider);
+            this.Controls.Add(this.panel_searchMem);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Main";
             this.Text = "Choholics Data Center";
@@ -2326,12 +2304,10 @@
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Button newPro_bttn_submit;
         private System.Windows.Forms.ToolStripDropDownButton toolStrip_reporting;
-        private System.Windows.Forms.ToolStripMenuItem toolStrip_viewReports;
         private System.Windows.Forms.ToolStripMenuItem toolStrip_runReports;
         private System.Windows.Forms.ToolStripButton toolStrip_billing;
         private System.Windows.Forms.ToolStripMenuItem toolStrip_verifyMember;
         private System.Windows.Forms.ToolStripMenuItem toolStrip_providerDirectory;
-        private System.Windows.Forms.ToolStripButton toolStrip_print;
         private System.Windows.Forms.Panel panel_billing;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Button billing_verify;

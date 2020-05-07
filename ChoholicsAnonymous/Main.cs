@@ -43,9 +43,19 @@ namespace ChoholicsAnonymous
         private void newMem_submit_Click_1(object sender, EventArgs e)
         {
             int day, month;
-
+            long memNum = 0;
+            
             Member newMember = new Member(true);
-            int    memNum    = Int32.Parse(newMem_phoneNumber.Text);
+            
+            try
+            {
+                memNum = long.Parse(newMem_phoneNumber.Text);
+            }catch (Exception ex)
+            {
+                MessageBox.Show("Phone Number does not permit characters");
+                return; 
+            }
+
 
             //checks if provider already exists
             if (DataCenter.checkMemNum(memNum)) { MessageBox.Show("Member Already Exists"); }
@@ -68,29 +78,33 @@ namespace ChoholicsAnonymous
                 switch (subLength)
                 {
                     case "1 Month":
+                        newMember.SubscriptionExpiration.Day = date.Day;
+                        newMember.SubscriptionExpiration.Year = date.Year;
                         newMember.SubscriptionExpiration.Month = date.Month + 1;
-                        newMember.SubscriptionExpiration.Day   = date.Day;
-                        newMember.SubscriptionExpiration.Year  = date.Year;
                         break;
                     case "2 Months":
+                        newMember.SubscriptionExpiration.Day = date.Day;
+                        newMember.SubscriptionExpiration.Year = date.Year;
                         newMember.SubscriptionExpiration.Month = date.Month + 2;
-                        newMember.SubscriptionExpiration.Day   = date.Day;
-                        newMember.SubscriptionExpiration.Year  = date.Year;
                         break;
                     case "3 Months":
+                        newMember.SubscriptionExpiration.Day = date.Day;
+                        newMember.SubscriptionExpiration.Year = date.Year;
                         newMember.SubscriptionExpiration.Month = date.Month + 3;
-                        newMember.SubscriptionExpiration.Day   = date.Day;
-                        newMember.SubscriptionExpiration.Year  = date.Year;
                         break;
                     case "8 Months":
+                        newMember.SubscriptionExpiration.Day = date.Day;
+                        newMember.SubscriptionExpiration.Year = date.Year;
                         newMember.SubscriptionExpiration.Month = date.Month + 8;
-                        newMember.SubscriptionExpiration.Day   = date.Day;
-                        newMember.SubscriptionExpiration.Year  = date.Year;
                         break;
                     case "12 Months":
+                        newMember.SubscriptionExpiration.Day = date.Day;
+                        newMember.SubscriptionExpiration.Year = date.Year + 1;
                         newMember.SubscriptionExpiration.Month = date.Month;
-                        newMember.SubscriptionExpiration.Day   = date.Day;
-                        newMember.SubscriptionExpiration.Year  = date.Year + 1;
+                        break;
+                    default:
+                        MessageBox.Show("A Subscription Length Must Be Selected");
+                        return; 
                         break;
                         //need to add cases for more months
                         //need to take care of cases like when you add 1 to 12th month so it's not 13 e.t.c
@@ -410,7 +424,6 @@ namespace ChoholicsAnonymous
                 toolStrip_providerDirectory.Visible = false;
                 toolStrip_newProvider.Visible = false;
                 toolStrip_billing.Visible = false;
-                toolStrip_print.Visible = false;
 
             }
             else if (User.Provider == true)
@@ -418,7 +431,6 @@ namespace ChoholicsAnonymous
                 toolStrip_newMember.Visible = false;
                 toolStrip_newProvider.Visible = false;
                 toolStrip_runReports.Visible = false;
-                toolStrip_print.Visible = false;
             }
             else if (User.Operator == true)
             {

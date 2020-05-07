@@ -8,9 +8,26 @@ namespace ChoholicsAnonymous
 {
     public class Date
     {
-        public int Month { get; set; }
         public int Day { get; set; }
         public int Year { get; set; }
+
+        private int month; 
+        public int Month
+        {
+            get { return month; }
+            set
+            {
+                int numYears = 0;
+                if (value > 12)
+                {
+                    numYears = value / 12;
+                    month = value % 12;
+                    Year += numYears;
+                }
+                else
+                    month = value;
+            }
+        }
 
         //default constructor 
         public Date()

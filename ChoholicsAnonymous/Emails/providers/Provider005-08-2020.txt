@@ -6,14 +6,14 @@ Provider state: oh
 Provider ZIP code: 555
 
 	 Date of Service: 11-12-2020
-	 Date and Time Data Received: 5/8/2020 12:04:19 AM
+	 Date and Time Data Received: 5/8/2020 12:58:02 AM
 	 Member Name:chand haryani
 	 Member Number: 0
 	 Service Code: 243876
 	 Fee to be paid: 100
 
 	 Date of Service: 5-5-2020
-	 Date and Time Data Received: 5/8/2020 12:04:19 AM
+	 Date and Time Data Received: 5/8/2020 12:58:02 AM
 	 Member Name:jacob Schaup
 	 Member Number: 1
 	 Service Code: 768925
