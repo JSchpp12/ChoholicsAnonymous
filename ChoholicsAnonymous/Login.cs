@@ -102,7 +102,7 @@ namespace ChoholicsAnonymous
         {
             char temp = id[1];
             //check if the first char is a blank
-            if (id.Length == 6)
+            if (id.Length == 9)
             {
                 return true;
             }

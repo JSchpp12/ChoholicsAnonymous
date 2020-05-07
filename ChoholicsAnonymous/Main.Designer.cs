@@ -31,6 +31,21 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStrip_home = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip_member = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolStrip_verifyMember = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip_searchMember = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip_newMember = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip_provider = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolStrip_searchProvider = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip_newProvider = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip_providerDirectory = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip_reporting = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolStrip_viewReports = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip_runReports = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip_billing = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip_print = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip_logout = new System.Windows.Forms.ToolStripButton();
             this.panel_newMember = new System.Windows.Forms.Panel();
             this.newMem_expDay = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -109,6 +124,7 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.panel_home = new System.Windows.Forms.Panel();
+            this.home_currentTime = new System.Windows.Forms.Label();
             this.panel_newProvider = new System.Windows.Forms.Panel();
             this.newPro_bttn_submit = new System.Windows.Forms.Button();
             this.newProvider_postal = new System.Windows.Forms.TextBox();
@@ -138,7 +154,6 @@
             this.verify_SessionMember = new System.Windows.Forms.Label();
             this.billing_panel_session = new System.Windows.Forms.Panel();
             this.billing_session_submit = new System.Windows.Forms.Button();
-            this.session_Comments = new System.Windows.Forms.TextBox();
             this.session_service_Name = new System.Windows.Forms.TextBox();
             this.label60 = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
@@ -202,23 +217,8 @@
             this.print_selectDocument = new System.Windows.Forms.ComboBox();
             this.label83 = new System.Windows.Forms.Label();
             this.label82 = new System.Windows.Forms.Label();
-            this.home_currentTime = new System.Windows.Forms.Label();
-            this.toolStrip_home = new System.Windows.Forms.ToolStripButton();
-            this.toolStrip_member = new System.Windows.Forms.ToolStripDropDownButton();
-            this.toolStrip_verifyMember = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip_searchMember = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip_newMember = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip_provider = new System.Windows.Forms.ToolStripDropDownButton();
-            this.toolStrip_searchProvider = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip_newProvider = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip_providerDirectory = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip_reporting = new System.Windows.Forms.ToolStripDropDownButton();
-            this.toolStrip_viewReports = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip_runReports = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip_billing = new System.Windows.Forms.ToolStripButton();
-            this.toolStrip_print = new System.Windows.Forms.ToolStripButton();
-            this.toolStrip_logout = new System.Windows.Forms.ToolStripButton();
             this.CurrentTimer = new System.Windows.Forms.Timer(this.components);
+            this.session_Comments = new System.Windows.Forms.RichTextBox();
             this.toolStrip1.SuspendLayout();
             this.panel_newMember.SuspendLayout();
             this.panel_searchMem.SuspendLayout();
@@ -255,6 +255,151 @@
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // toolStrip_home
+            // 
+            this.toolStrip_home.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStrip_home.Image = global::ChoholicsAnonymous.Properties.Resources.home;
+            this.toolStrip_home.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_home.Name = "toolStrip_home";
+            this.toolStrip_home.Size = new System.Drawing.Size(24, 24);
+            this.toolStrip_home.Tag = "home";
+            this.toolStrip_home.Text = "toolStripButton1";
+            this.toolStrip_home.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+            // 
+            // toolStrip_member
+            // 
+            this.toolStrip_member.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStrip_member.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStrip_verifyMember,
+            this.toolStrip_searchMember,
+            this.toolStrip_newMember});
+            this.toolStrip_member.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_member.Image")));
+            this.toolStrip_member.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_member.Name = "toolStrip_member";
+            this.toolStrip_member.Size = new System.Drawing.Size(65, 24);
+            this.toolStrip_member.Text = "Member";
+            // 
+            // toolStrip_verifyMember
+            // 
+            this.toolStrip_verifyMember.Name = "toolStrip_verifyMember";
+            this.toolStrip_verifyMember.Size = new System.Drawing.Size(146, 22);
+            this.toolStrip_verifyMember.Tag = "verify";
+            this.toolStrip_verifyMember.Text = "Verify";
+            this.toolStrip_verifyMember.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+            // 
+            // toolStrip_searchMember
+            // 
+            this.toolStrip_searchMember.Name = "toolStrip_searchMember";
+            this.toolStrip_searchMember.Size = new System.Drawing.Size(146, 22);
+            this.toolStrip_searchMember.Tag = "mem_search";
+            this.toolStrip_searchMember.Text = "Search";
+            this.toolStrip_searchMember.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+            // 
+            // toolStrip_newMember
+            // 
+            this.toolStrip_newMember.Name = "toolStrip_newMember";
+            this.toolStrip_newMember.Size = new System.Drawing.Size(146, 22);
+            this.toolStrip_newMember.Tag = "newMember";
+            this.toolStrip_newMember.Text = "New Member";
+            this.toolStrip_newMember.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+            // 
+            // toolStrip_provider
+            // 
+            this.toolStrip_provider.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStrip_provider.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStrip_searchProvider,
+            this.toolStrip_newProvider,
+            this.toolStrip_providerDirectory});
+            this.toolStrip_provider.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_provider.Image")));
+            this.toolStrip_provider.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_provider.Name = "toolStrip_provider";
+            this.toolStrip_provider.Size = new System.Drawing.Size(64, 24);
+            this.toolStrip_provider.Text = "Provider";
+            // 
+            // toolStrip_searchProvider
+            // 
+            this.toolStrip_searchProvider.Name = "toolStrip_searchProvider";
+            this.toolStrip_searchProvider.Size = new System.Drawing.Size(169, 22);
+            this.toolStrip_searchProvider.Tag = "searchProvider";
+            this.toolStrip_searchProvider.Text = "Search";
+            this.toolStrip_searchProvider.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+            // 
+            // toolStrip_newProvider
+            // 
+            this.toolStrip_newProvider.Name = "toolStrip_newProvider";
+            this.toolStrip_newProvider.Size = new System.Drawing.Size(169, 22);
+            this.toolStrip_newProvider.Tag = "newProvider";
+            this.toolStrip_newProvider.Text = "New Provider";
+            this.toolStrip_newProvider.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+            // 
+            // toolStrip_providerDirectory
+            // 
+            this.toolStrip_providerDirectory.Name = "toolStrip_providerDirectory";
+            this.toolStrip_providerDirectory.Size = new System.Drawing.Size(169, 22);
+            this.toolStrip_providerDirectory.Tag = "directory";
+            this.toolStrip_providerDirectory.Text = "Provider Directory";
+            this.toolStrip_providerDirectory.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+            // 
+            // toolStrip_reporting
+            // 
+            this.toolStrip_reporting.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStrip_reporting.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStrip_viewReports,
+            this.toolStrip_runReports});
+            this.toolStrip_reporting.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_reporting.Image")));
+            this.toolStrip_reporting.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_reporting.Name = "toolStrip_reporting";
+            this.toolStrip_reporting.Size = new System.Drawing.Size(72, 24);
+            this.toolStrip_reporting.Text = "Reporting";
+            // 
+            // toolStrip_viewReports
+            // 
+            this.toolStrip_viewReports.Name = "toolStrip_viewReports";
+            this.toolStrip_viewReports.Size = new System.Drawing.Size(142, 22);
+            this.toolStrip_viewReports.Tag = "viewReports";
+            this.toolStrip_viewReports.Text = "View Reports";
+            this.toolStrip_viewReports.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+            // 
+            // toolStrip_runReports
+            // 
+            this.toolStrip_runReports.Name = "toolStrip_runReports";
+            this.toolStrip_runReports.Size = new System.Drawing.Size(142, 22);
+            this.toolStrip_runReports.Tag = "runReports";
+            this.toolStrip_runReports.Text = "Run Reports";
+            this.toolStrip_runReports.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+            // 
+            // toolStrip_billing
+            // 
+            this.toolStrip_billing.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStrip_billing.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_billing.Image")));
+            this.toolStrip_billing.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_billing.Name = "toolStrip_billing";
+            this.toolStrip_billing.Size = new System.Drawing.Size(44, 24);
+            this.toolStrip_billing.Tag = "billing";
+            this.toolStrip_billing.Text = "Billing";
+            this.toolStrip_billing.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+            // 
+            // toolStrip_print
+            // 
+            this.toolStrip_print.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStrip_print.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_print.Image")));
+            this.toolStrip_print.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_print.Name = "toolStrip_print";
+            this.toolStrip_print.Size = new System.Drawing.Size(36, 24);
+            this.toolStrip_print.Text = "Print";
+            this.toolStrip_print.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+            // 
+            // toolStrip_logout
+            // 
+            this.toolStrip_logout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStrip_logout.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_logout.Image")));
+            this.toolStrip_logout.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_logout.Name = "toolStrip_logout";
+            this.toolStrip_logout.Size = new System.Drawing.Size(49, 24);
+            this.toolStrip_logout.Tag = "logout";
+            this.toolStrip_logout.Text = "Logout";
+            this.toolStrip_logout.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+            // 
             // panel_newMember
             // 
             this.panel_newMember.Controls.Add(this.newMem_expDay);
@@ -290,7 +435,7 @@
             this.panel_newMember.Controls.Add(this.label1);
             this.panel_newMember.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_newMember.Location = new System.Drawing.Point(0, 0);
-            this.panel_newMember.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel_newMember.Margin = new System.Windows.Forms.Padding(2);
             this.panel_newMember.Name = "panel_newMember";
             this.panel_newMember.Size = new System.Drawing.Size(820, 707);
             this.panel_newMember.TabIndex = 1;
@@ -329,6 +474,7 @@
             // 
             this.newMem_phoneNumber.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newMem_phoneNumber.Location = new System.Drawing.Point(79, 162);
+            this.newMem_phoneNumber.MaxLength = 10;
             this.newMem_phoneNumber.Name = "newMem_phoneNumber";
             this.newMem_phoneNumber.Size = new System.Drawing.Size(378, 22);
             this.newMem_phoneNumber.TabIndex = 4;
@@ -416,6 +562,7 @@
             // 
             this.newMem_ccNum.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newMem_ccNum.Location = new System.Drawing.Point(80, 333);
+            this.newMem_ccNum.MaxLength = 16;
             this.newMem_ccNum.Name = "newMem_ccNum";
             this.newMem_ccNum.Size = new System.Drawing.Size(341, 22);
             this.newMem_ccNum.TabIndex = 9;
@@ -446,6 +593,7 @@
             // 
             this.newMem_Post.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newMem_Post.Location = new System.Drawing.Point(485, 259);
+            this.newMem_Post.MaxLength = 5;
             this.newMem_Post.Name = "newMem_Post";
             this.newMem_Post.Size = new System.Drawing.Size(107, 22);
             this.newMem_Post.TabIndex = 8;
@@ -465,6 +613,7 @@
             // 
             this.newMem_State.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newMem_State.Location = new System.Drawing.Point(288, 259);
+            this.newMem_State.MaxLength = 2;
             this.newMem_State.Name = "newMem_State";
             this.newMem_State.Size = new System.Drawing.Size(107, 22);
             this.newMem_State.TabIndex = 7;
@@ -484,6 +633,7 @@
             // 
             this.newMem_City.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newMem_City.Location = new System.Drawing.Point(80, 259);
+            this.newMem_City.MaxLength = 14;
             this.newMem_City.Name = "newMem_City";
             this.newMem_City.Size = new System.Drawing.Size(156, 22);
             this.newMem_City.TabIndex = 6;
@@ -503,6 +653,7 @@
             // 
             this.newMem_Street.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newMem_Street.Location = new System.Drawing.Point(80, 229);
+            this.newMem_Street.MaxLength = 25;
             this.newMem_Street.Name = "newMem_Street";
             this.newMem_Street.Size = new System.Drawing.Size(502, 22);
             this.newMem_Street.TabIndex = 5;
@@ -541,6 +692,7 @@
             // 
             this.newMem_lastName.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newMem_lastName.Location = new System.Drawing.Point(386, 102);
+            this.newMem_lastName.MaxLength = 25;
             this.newMem_lastName.Name = "newMem_lastName";
             this.newMem_lastName.Size = new System.Drawing.Size(184, 22);
             this.newMem_lastName.TabIndex = 2;
@@ -559,6 +711,7 @@
             // 
             this.newMem_firstName.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newMem_firstName.Location = new System.Drawing.Point(80, 102);
+            this.newMem_firstName.MaxLength = 25;
             this.newMem_firstName.Name = "newMem_firstName";
             this.newMem_firstName.Size = new System.Drawing.Size(184, 22);
             this.newMem_firstName.TabIndex = 1;
@@ -615,7 +768,7 @@
             this.panel_searchMem.Controls.Add(this.searchMem_panel_Results);
             this.panel_searchMem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_searchMem.Location = new System.Drawing.Point(0, 0);
-            this.panel_searchMem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel_searchMem.Margin = new System.Windows.Forms.Padding(2);
             this.panel_searchMem.Name = "panel_searchMem";
             this.panel_searchMem.Size = new System.Drawing.Size(820, 707);
             this.panel_searchMem.TabIndex = 32;
@@ -628,7 +781,7 @@
             this.searchMem_panel_ID.Controls.Add(this.searchMem_inMemID);
             this.searchMem_panel_ID.Controls.Add(this.label21);
             this.searchMem_panel_ID.Location = new System.Drawing.Point(17, 108);
-            this.searchMem_panel_ID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchMem_panel_ID.Margin = new System.Windows.Forms.Padding(2);
             this.searchMem_panel_ID.Name = "searchMem_panel_ID";
             this.searchMem_panel_ID.Size = new System.Drawing.Size(460, 40);
             this.searchMem_panel_ID.TabIndex = 6;
@@ -730,7 +883,7 @@
             // searchMem_phone
             // 
             this.searchMem_phone.Location = new System.Drawing.Point(90, 161);
-            this.searchMem_phone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchMem_phone.Margin = new System.Windows.Forms.Padding(2);
             this.searchMem_phone.Name = "searchMem_phone";
             this.searchMem_phone.Size = new System.Drawing.Size(187, 20);
             this.searchMem_phone.TabIndex = 43;
@@ -1089,6 +1242,17 @@
             this.panel_home.Size = new System.Drawing.Size(820, 707);
             this.panel_home.TabIndex = 31;
             // 
+            // home_currentTime
+            // 
+            this.home_currentTime.AutoSize = true;
+            this.home_currentTime.Font = new System.Drawing.Font("Segoe UI Light", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.home_currentTime.Location = new System.Drawing.Point(7, 71);
+            this.home_currentTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.home_currentTime.Name = "home_currentTime";
+            this.home_currentTime.Size = new System.Drawing.Size(115, 25);
+            this.home_currentTime.TabIndex = 15;
+            this.home_currentTime.Text = "Current Time:";
+            // 
             // panel_newProvider
             // 
             this.panel_newProvider.Controls.Add(this.newPro_bttn_submit);
@@ -1120,7 +1284,7 @@
             // 
             this.newPro_bttn_submit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newPro_bttn_submit.Location = new System.Drawing.Point(22, 356);
-            this.newPro_bttn_submit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.newPro_bttn_submit.Margin = new System.Windows.Forms.Padding(2);
             this.newPro_bttn_submit.Name = "newPro_bttn_submit";
             this.newPro_bttn_submit.Size = new System.Drawing.Size(88, 35);
             this.newPro_bttn_submit.TabIndex = 20;
@@ -1131,7 +1295,7 @@
             // newProvider_postal
             // 
             this.newProvider_postal.Location = new System.Drawing.Point(478, 310);
-            this.newProvider_postal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.newProvider_postal.Margin = new System.Windows.Forms.Padding(2);
             this.newProvider_postal.Name = "newProvider_postal";
             this.newProvider_postal.Size = new System.Drawing.Size(135, 20);
             this.newProvider_postal.TabIndex = 17;
@@ -1139,7 +1303,7 @@
             // newProvider_state
             // 
             this.newProvider_state.Location = new System.Drawing.Point(286, 310);
-            this.newProvider_state.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.newProvider_state.Margin = new System.Windows.Forms.Padding(2);
             this.newProvider_state.Name = "newProvider_state";
             this.newProvider_state.Size = new System.Drawing.Size(135, 20);
             this.newProvider_state.TabIndex = 16;
@@ -1147,7 +1311,7 @@
             // newProvider_city
             // 
             this.newProvider_city.Location = new System.Drawing.Point(106, 309);
-            this.newProvider_city.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.newProvider_city.Margin = new System.Windows.Forms.Padding(2);
             this.newProvider_city.Name = "newProvider_city";
             this.newProvider_city.Size = new System.Drawing.Size(135, 20);
             this.newProvider_city.TabIndex = 15;
@@ -1189,7 +1353,7 @@
             // 
             this.label50.AutoSize = true;
             this.label50.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label50.Location = new System.Drawing.Point(70, 279);
+            this.label50.Location = new System.Drawing.Point(64, 280);
             this.label50.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(37, 13);
@@ -1206,7 +1370,7 @@
             // newProvider_phone
             // 
             this.newProvider_phone.Location = new System.Drawing.Point(106, 176);
-            this.newProvider_phone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.newProvider_phone.Margin = new System.Windows.Forms.Padding(2);
             this.newProvider_phone.Name = "newProvider_phone";
             this.newProvider_phone.Size = new System.Drawing.Size(185, 20);
             this.newProvider_phone.TabIndex = 9;
@@ -1214,7 +1378,7 @@
             // newProvider_email
             // 
             this.newProvider_email.Location = new System.Drawing.Point(106, 150);
-            this.newProvider_email.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.newProvider_email.Margin = new System.Windows.Forms.Padding(2);
             this.newProvider_email.Name = "newProvider_email";
             this.newProvider_email.Size = new System.Drawing.Size(185, 20);
             this.newProvider_email.TabIndex = 9;
@@ -1277,7 +1441,7 @@
             // newProvider_name
             // 
             this.newProvider_name.Location = new System.Drawing.Point(106, 124);
-            this.newProvider_name.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.newProvider_name.Margin = new System.Windows.Forms.Padding(2);
             this.newProvider_name.Name = "newProvider_name";
             this.newProvider_name.Size = new System.Drawing.Size(185, 20);
             this.newProvider_name.TabIndex = 6;
@@ -1324,7 +1488,7 @@
             // 
             this.verifyMember_verify.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.verifyMember_verify.Location = new System.Drawing.Point(415, 78);
-            this.verifyMember_verify.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.verifyMember_verify.Margin = new System.Windows.Forms.Padding(2);
             this.verifyMember_verify.Name = "verifyMember_verify";
             this.verifyMember_verify.Size = new System.Drawing.Size(88, 35);
             this.verifyMember_verify.TabIndex = 26;
@@ -1335,7 +1499,8 @@
             // verifyMember_memberID
             // 
             this.verifyMember_memberID.Location = new System.Drawing.Point(110, 89);
-            this.verifyMember_memberID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.verifyMember_memberID.Margin = new System.Windows.Forms.Padding(2);
+            this.verifyMember_memberID.MaxLength = 9;
             this.verifyMember_memberID.Name = "verifyMember_memberID";
             this.verifyMember_memberID.Size = new System.Drawing.Size(283, 20);
             this.verifyMember_memberID.TabIndex = 8;
@@ -1392,8 +1557,8 @@
             // 
             // billing_panel_session
             // 
-            this.billing_panel_session.Controls.Add(this.billing_session_submit);
             this.billing_panel_session.Controls.Add(this.session_Comments);
+            this.billing_panel_session.Controls.Add(this.billing_session_submit);
             this.billing_panel_session.Controls.Add(this.session_service_Name);
             this.billing_panel_session.Controls.Add(this.label60);
             this.billing_panel_session.Controls.Add(this.label59);
@@ -1410,8 +1575,8 @@
             // billing_session_submit
             // 
             this.billing_session_submit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.billing_session_submit.Location = new System.Drawing.Point(9, 181);
-            this.billing_session_submit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.billing_session_submit.Location = new System.Drawing.Point(10, 255);
+            this.billing_session_submit.Margin = new System.Windows.Forms.Padding(2);
             this.billing_session_submit.Name = "billing_session_submit";
             this.billing_session_submit.Size = new System.Drawing.Size(88, 35);
             this.billing_session_submit.TabIndex = 26;
@@ -1419,21 +1584,14 @@
             this.billing_session_submit.UseVisualStyleBackColor = true;
             this.billing_session_submit.Click += new System.EventHandler(this.billing_session_submit_Click);
             // 
-            // session_Comments
-            // 
-            this.session_Comments.Location = new System.Drawing.Point(96, 141);
-            this.session_Comments.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.session_Comments.Name = "session_Comments";
-            this.session_Comments.Size = new System.Drawing.Size(162, 20);
-            this.session_Comments.TabIndex = 27;
-            // 
             // session_service_Name
             // 
             this.session_service_Name.Location = new System.Drawing.Point(96, 109);
-            this.session_service_Name.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.session_service_Name.Margin = new System.Windows.Forms.Padding(2);
             this.session_service_Name.Name = "session_service_Name";
+            this.session_service_Name.ReadOnly = true;
             this.session_service_Name.Size = new System.Drawing.Size(162, 20);
-            this.session_service_Name.TabIndex = 26;
+            this.session_service_Name.TabIndex = 4;
             // 
             // label60
             // 
@@ -1471,10 +1629,11 @@
             // session_serviceCode
             // 
             this.session_serviceCode.Location = new System.Drawing.Point(96, 79);
-            this.session_serviceCode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.session_serviceCode.Margin = new System.Windows.Forms.Padding(2);
+            this.session_serviceCode.MaxLength = 6;
             this.session_serviceCode.Name = "session_serviceCode";
             this.session_serviceCode.Size = new System.Drawing.Size(162, 20);
-            this.session_serviceCode.TabIndex = 24;
+            this.session_serviceCode.TabIndex = 3;
             // 
             // label57
             // 
@@ -1490,10 +1649,11 @@
             // session_serviceDate
             // 
             this.session_serviceDate.Location = new System.Drawing.Point(96, 50);
-            this.session_serviceDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.session_serviceDate.Margin = new System.Windows.Forms.Padding(2);
+            this.session_serviceDate.MaxLength = 10;
             this.session_serviceDate.Name = "session_serviceDate";
             this.session_serviceDate.Size = new System.Drawing.Size(162, 20);
-            this.session_serviceDate.TabIndex = 23;
+            this.session_serviceDate.TabIndex = 2;
             // 
             // label55
             // 
@@ -1510,7 +1670,7 @@
             // 
             this.billing_verify.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.billing_verify.Location = new System.Drawing.Point(392, 84);
-            this.billing_verify.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.billing_verify.Margin = new System.Windows.Forms.Padding(2);
             this.billing_verify.Name = "billing_verify";
             this.billing_verify.Size = new System.Drawing.Size(88, 35);
             this.billing_verify.TabIndex = 21;
@@ -1521,10 +1681,11 @@
             // session_MemberID
             // 
             this.session_MemberID.Location = new System.Drawing.Point(84, 93);
-            this.session_MemberID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.session_MemberID.Margin = new System.Windows.Forms.Padding(2);
+            this.session_MemberID.MaxLength = 9;
             this.session_MemberID.Name = "session_MemberID";
             this.session_MemberID.Size = new System.Drawing.Size(291, 20);
-            this.session_MemberID.TabIndex = 7;
+            this.session_MemberID.TabIndex = 1;
             // 
             // label54
             // 
@@ -1566,7 +1727,7 @@
             // 
             this.searchProvider_search.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchProvider_search.Location = new System.Drawing.Point(280, 102);
-            this.searchProvider_search.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchProvider_search.Margin = new System.Windows.Forms.Padding(2);
             this.searchProvider_search.Name = "searchProvider_search";
             this.searchProvider_search.Size = new System.Drawing.Size(88, 35);
             this.searchProvider_search.TabIndex = 26;
@@ -1614,6 +1775,7 @@
             // 
             this.searchProvider_phone.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchProvider_phone.Location = new System.Drawing.Point(100, 142);
+            this.searchProvider_phone.MaxLength = 10;
             this.searchProvider_phone.Name = "searchProvider_phone";
             this.searchProvider_phone.Size = new System.Drawing.Size(184, 22);
             this.searchProvider_phone.TabIndex = 27;
@@ -1622,7 +1784,7 @@
             // 
             this.searchProvider_remove.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchProvider_remove.Location = new System.Drawing.Point(533, 283);
-            this.searchProvider_remove.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchProvider_remove.Margin = new System.Windows.Forms.Padding(2);
             this.searchProvider_remove.Name = "searchProvider_remove";
             this.searchProvider_remove.Size = new System.Drawing.Size(139, 35);
             this.searchProvider_remove.TabIndex = 26;
@@ -1634,7 +1796,7 @@
             // 
             this.searchProvider_update.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchProvider_update.Location = new System.Drawing.Point(10, 283);
-            this.searchProvider_update.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchProvider_update.Margin = new System.Windows.Forms.Padding(2);
             this.searchProvider_update.Name = "searchProvider_update";
             this.searchProvider_update.Size = new System.Drawing.Size(88, 35);
             this.searchProvider_update.TabIndex = 25;
@@ -1646,6 +1808,7 @@
             // 
             this.searchProvider_postalCode.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchProvider_postalCode.Location = new System.Drawing.Point(582, 244);
+            this.searchProvider_postalCode.MaxLength = 5;
             this.searchProvider_postalCode.Name = "searchProvider_postalCode";
             this.searchProvider_postalCode.Size = new System.Drawing.Size(148, 22);
             this.searchProvider_postalCode.TabIndex = 24;
@@ -1787,6 +1950,7 @@
             // 
             this.searchProvider_providerID.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchProvider_providerID.Location = new System.Drawing.Point(91, 112);
+            this.searchProvider_providerID.MaxLength = 9;
             this.searchProvider_providerID.Name = "searchProvider_providerID";
             this.searchProvider_providerID.Size = new System.Drawing.Size(184, 22);
             this.searchProvider_providerID.TabIndex = 6;
@@ -2048,7 +2212,7 @@
             // 
             this.print_print.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.print_print.Location = new System.Drawing.Point(307, 75);
-            this.print_print.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.print_print.Margin = new System.Windows.Forms.Padding(2);
             this.print_print.Name = "print_print";
             this.print_print.Size = new System.Drawing.Size(88, 35);
             this.print_print.TabIndex = 22;
@@ -2089,167 +2253,20 @@
             this.label82.TabIndex = 1;
             this.label82.Text = "Print";
             // 
-            // home_currentTime
-            // 
-            this.home_currentTime.AutoSize = true;
-            this.home_currentTime.Font = new System.Drawing.Font("Segoe UI Light", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.home_currentTime.Location = new System.Drawing.Point(7, 71);
-            this.home_currentTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.home_currentTime.Name = "home_currentTime";
-            this.home_currentTime.Size = new System.Drawing.Size(115, 25);
-            this.home_currentTime.TabIndex = 15;
-            this.home_currentTime.Text = "Current Time:";
-            // 
-            // toolStrip_home
-            // 
-            this.toolStrip_home.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStrip_home.Image = global::ChoholicsAnonymous.Properties.Resources.home;
-            this.toolStrip_home.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStrip_home.Name = "toolStrip_home";
-            this.toolStrip_home.Size = new System.Drawing.Size(24, 24);
-            this.toolStrip_home.Tag = "home";
-            this.toolStrip_home.Text = "toolStripButton1";
-            this.toolStrip_home.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
-            // 
-            // toolStrip_member
-            // 
-            this.toolStrip_member.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStrip_member.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStrip_verifyMember,
-            this.toolStrip_searchMember,
-            this.toolStrip_newMember});
-            this.toolStrip_member.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_member.Image")));
-            this.toolStrip_member.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStrip_member.Name = "toolStrip_member";
-            this.toolStrip_member.Size = new System.Drawing.Size(65, 24);
-            this.toolStrip_member.Text = "Member";
-            // 
-            // toolStrip_verifyMember
-            // 
-            this.toolStrip_verifyMember.Name = "toolStrip_verifyMember";
-            this.toolStrip_verifyMember.Size = new System.Drawing.Size(146, 22);
-            this.toolStrip_verifyMember.Tag = "verify";
-            this.toolStrip_verifyMember.Text = "Verify";
-            this.toolStrip_verifyMember.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
-            // 
-            // toolStrip_searchMember
-            // 
-            this.toolStrip_searchMember.Name = "toolStrip_searchMember";
-            this.toolStrip_searchMember.Size = new System.Drawing.Size(146, 22);
-            this.toolStrip_searchMember.Tag = "mem_search";
-            this.toolStrip_searchMember.Text = "Search";
-            this.toolStrip_searchMember.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
-            // 
-            // toolStrip_newMember
-            // 
-            this.toolStrip_newMember.Name = "toolStrip_newMember";
-            this.toolStrip_newMember.Size = new System.Drawing.Size(146, 22);
-            this.toolStrip_newMember.Tag = "newMember";
-            this.toolStrip_newMember.Text = "New Member";
-            this.toolStrip_newMember.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
-            // 
-            // toolStrip_provider
-            // 
-            this.toolStrip_provider.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStrip_provider.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStrip_searchProvider,
-            this.toolStrip_newProvider,
-            this.toolStrip_providerDirectory});
-            this.toolStrip_provider.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_provider.Image")));
-            this.toolStrip_provider.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStrip_provider.Name = "toolStrip_provider";
-            this.toolStrip_provider.Size = new System.Drawing.Size(64, 24);
-            this.toolStrip_provider.Text = "Provider";
-            // 
-            // toolStrip_searchProvider
-            // 
-            this.toolStrip_searchProvider.Name = "toolStrip_searchProvider";
-            this.toolStrip_searchProvider.Size = new System.Drawing.Size(169, 22);
-            this.toolStrip_searchProvider.Tag = "searchProvider";
-            this.toolStrip_searchProvider.Text = "Search";
-            this.toolStrip_searchProvider.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
-            // 
-            // toolStrip_newProvider
-            // 
-            this.toolStrip_newProvider.Name = "toolStrip_newProvider";
-            this.toolStrip_newProvider.Size = new System.Drawing.Size(169, 22);
-            this.toolStrip_newProvider.Tag = "newProvider";
-            this.toolStrip_newProvider.Text = "New Provider";
-            this.toolStrip_newProvider.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
-            // 
-            // toolStrip_providerDirectory
-            // 
-            this.toolStrip_providerDirectory.Name = "toolStrip_providerDirectory";
-            this.toolStrip_providerDirectory.Size = new System.Drawing.Size(169, 22);
-            this.toolStrip_providerDirectory.Tag = "directory";
-            this.toolStrip_providerDirectory.Text = "Provider Directory";
-            this.toolStrip_providerDirectory.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
-            // 
-            // toolStrip_reporting
-            // 
-            this.toolStrip_reporting.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStrip_reporting.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStrip_viewReports,
-            this.toolStrip_runReports});
-            this.toolStrip_reporting.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_reporting.Image")));
-            this.toolStrip_reporting.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStrip_reporting.Name = "toolStrip_reporting";
-            this.toolStrip_reporting.Size = new System.Drawing.Size(72, 24);
-            this.toolStrip_reporting.Text = "Reporting";
-            // 
-            // toolStrip_viewReports
-            // 
-            this.toolStrip_viewReports.Name = "toolStrip_viewReports";
-            this.toolStrip_viewReports.Size = new System.Drawing.Size(142, 22);
-            this.toolStrip_viewReports.Tag = "viewReports";
-            this.toolStrip_viewReports.Text = "View Reports";
-            this.toolStrip_viewReports.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
-            // 
-            // toolStrip_runReports
-            // 
-            this.toolStrip_runReports.Name = "toolStrip_runReports";
-            this.toolStrip_runReports.Size = new System.Drawing.Size(142, 22);
-            this.toolStrip_runReports.Tag = "runReports";
-            this.toolStrip_runReports.Text = "Run Reports";
-            this.toolStrip_runReports.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
-            // 
-            // toolStrip_billing
-            // 
-            this.toolStrip_billing.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStrip_billing.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_billing.Image")));
-            this.toolStrip_billing.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStrip_billing.Name = "toolStrip_billing";
-            this.toolStrip_billing.Size = new System.Drawing.Size(44, 24);
-            this.toolStrip_billing.Tag = "billing";
-            this.toolStrip_billing.Text = "Billing";
-            this.toolStrip_billing.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
-            // 
-            // toolStrip_print
-            // 
-            this.toolStrip_print.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStrip_print.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_print.Image")));
-            this.toolStrip_print.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStrip_print.Name = "toolStrip_print";
-            this.toolStrip_print.Size = new System.Drawing.Size(36, 24);
-            this.toolStrip_print.Text = "Print";
-            this.toolStrip_print.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
-            // 
-            // toolStrip_logout
-            // 
-            this.toolStrip_logout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStrip_logout.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_logout.Image")));
-            this.toolStrip_logout.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStrip_logout.Name = "toolStrip_logout";
-            this.toolStrip_logout.Size = new System.Drawing.Size(49, 24);
-            this.toolStrip_logout.Tag = "logout";
-            this.toolStrip_logout.Text = "Logout";
-            this.toolStrip_logout.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
-            // 
             // CurrentTimer
             // 
             this.CurrentTimer.Enabled = true;
             this.CurrentTimer.Interval = 1000;
             this.CurrentTimer.Tick += new System.EventHandler(this.CurrentTimer_Tick);
+            // 
+            // session_Comments
+            // 
+            this.session_Comments.Location = new System.Drawing.Point(97, 147);
+            this.session_Comments.MaxLength = 100;
+            this.session_Comments.Name = "session_Comments";
+            this.session_Comments.Size = new System.Drawing.Size(387, 96);
+            this.session_Comments.TabIndex = 5;
+            this.session_Comments.Text = "";
             // 
             // Main
             // 
@@ -2257,6 +2274,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(820, 707);
             this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.panel_billing);
             this.Controls.Add(this.panel_home);
             this.Controls.Add(this.panel_runReports);
             this.Controls.Add(this.panel_viewReports);
@@ -2266,8 +2284,7 @@
             this.Controls.Add(this.panel_searchMem);
             this.Controls.Add(this.panel_newMember);
             this.Controls.Add(this.panel_print);
-            this.Controls.Add(this.panel_billing);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Main";
             this.Text = "Choholics Data Center";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_FormClosed);
@@ -2430,7 +2447,6 @@
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.Label verify_SessionMember;
         private System.Windows.Forms.Panel billing_panel_session;
-        private System.Windows.Forms.TextBox session_Comments;
         private System.Windows.Forms.TextBox session_service_Name;
         private System.Windows.Forms.Label label60;
         private System.Windows.Forms.Label label59;
@@ -2503,6 +2519,7 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label home_currentTime;
         private System.Windows.Forms.Timer CurrentTimer;
+        private System.Windows.Forms.RichTextBox session_Comments;
     }
 }
 

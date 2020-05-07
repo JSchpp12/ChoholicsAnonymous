@@ -160,7 +160,7 @@
             // 
             this.login_providerID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.login_providerID.Location = new System.Drawing.Point(76, 39);
-            this.login_providerID.MaxLength = 6;
+            this.login_providerID.MaxLength = 9;
             this.login_providerID.Name = "login_providerID";
             this.login_providerID.Size = new System.Drawing.Size(179, 25);
             this.login_providerID.TabIndex = 1;
