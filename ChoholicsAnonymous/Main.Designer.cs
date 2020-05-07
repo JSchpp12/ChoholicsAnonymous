@@ -198,7 +198,6 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label75 = new System.Windows.Forms.Label();
             this.panel_runReports = new System.Windows.Forms.Panel();
-            this.Run = new System.Windows.Forms.Button();
             this.runReports_reportType = new System.Windows.Forms.ComboBox();
             this.label79 = new System.Windows.Forms.Label();
             this.report_box = new System.Windows.Forms.RichTextBox();
@@ -2036,7 +2035,6 @@
             // 
             // panel_runReports
             // 
-            this.panel_runReports.Controls.Add(this.Run);
             this.panel_runReports.Controls.Add(this.runReports_reportType);
             this.panel_runReports.Controls.Add(this.label79);
             this.panel_runReports.Controls.Add(this.report_box);
@@ -2047,18 +2045,6 @@
             this.panel_runReports.Size = new System.Drawing.Size(820, 707);
             this.panel_runReports.TabIndex = 39;
             this.panel_runReports.Click += new System.EventHandler(this.Run_Click);
-            // 
-            // Run
-            // 
-            this.Run.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Run.Location = new System.Drawing.Point(350, 100);
-            this.Run.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Run.Name = "Run";
-            this.Run.Size = new System.Drawing.Size(97, 35);
-            this.Run.TabIndex = 27;
-            this.Run.Text = "Run";
-            this.Run.UseVisualStyleBackColor = true;
-            this.Run.Click += new System.EventHandler(this.Run_Click);
             // 
             // runReports_reportType
             // 

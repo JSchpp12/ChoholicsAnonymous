@@ -85,7 +85,8 @@ namespace ChoholicsAnonymous
                             "\n"); ;
                         sw.Write("\t Member Number: " + DataCenter.searchMember(DataCenter.getSessionInfo_providerID(provider.ProviderID)[i].memberID).MemberID + "\n");
                         sw.Write("\t Service Code: " + DataCenter.getSessionInfo_providerID(provider.ProviderID)[i].serviceID + "\n");
-                        int fee = DataCenter.lookupService(DataCenter.getSessionInfo_providerID(provider.ProviderID)[i].serviceID).Fee;
+                        //int fee = DataCenter.lookupService(DataCenter.getSessionInfo_providerID(provider.ProviderID)[i].serviceID).Fee;
+                        int fee = 0; 
                         sw.Write("\t Fee to be paid: " + fee.ToString()+ "\n");
                         totalFee += fee;
              

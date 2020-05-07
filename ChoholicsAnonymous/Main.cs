@@ -488,7 +488,7 @@ namespace ChoholicsAnonymous
 
 
 
-
+            /*
             // read sessionids from week file
             string weekFile = DataCenter.getWeeklyFileName();
             string[] ids = File.ReadAllLines(weekFile);
@@ -586,11 +586,10 @@ namespace ChoholicsAnonymous
                 }
                 report_box.Text = display + "\n\n\n";
             }
-
-
-
+            */ 
 
             }
+
 
         
         private void Run_Click(object sender, EventArgs e)

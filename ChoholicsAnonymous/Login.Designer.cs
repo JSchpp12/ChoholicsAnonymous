@@ -102,7 +102,7 @@
             // 
             this.login_managerID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.login_managerID.Location = new System.Drawing.Point(76, 39);
-            this.login_managerID.MaxLength = 6;
+            this.login_managerID.MaxLength = 9;
             this.login_managerID.Name = "login_managerID";
             this.login_managerID.Size = new System.Drawing.Size(179, 25);
             this.login_managerID.TabIndex = 1;
@@ -131,7 +131,7 @@
             // 
             this.login_operatorID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.login_operatorID.Location = new System.Drawing.Point(76, 39);
-            this.login_operatorID.MaxLength = 6;
+            this.login_operatorID.MaxLength = 9;
             this.login_operatorID.Name = "login_operatorID";
             this.login_operatorID.Size = new System.Drawing.Size(179, 25);
             this.login_operatorID.TabIndex = 1;
@@ -214,9 +214,9 @@
             this.Controls.Add(this.login_radProvider);
             this.Controls.Add(this.login_radOperator);
             this.Controls.Add(this.login_radManager);
+            this.Controls.Add(this.panel_managerID);
             this.Controls.Add(this.panel_providerID);
             this.Controls.Add(this.panel_operatorID);
-            this.Controls.Add(this.panel_managerID);
             this.Name = "Login";
             this.Text = "Login";
             this.VisibleChanged += new System.EventHandler(this.Login_VisibleChanged);
