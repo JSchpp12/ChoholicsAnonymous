@@ -26,14 +26,6 @@ namespace ChoholicsAnonymous
 
         private static Timer weeklyTimer = new Timer(runWeeklyReport);  
 
-        //add a member to the data set
-        public static void addMember(Member newMember)
-        {
-            MemberList.Add(newMember);
-            //writeMembersToFile("Member.xml");
-
-        }
-
         public static void writeToFile(string fileName, string dataType)
         {
             string fullPath       = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
@@ -204,8 +196,7 @@ namespace ChoholicsAnonymous
             return verified;     
         }
 
-//Provider functions start here
-
+        #region Provider Functions 
         //adds a provider to the list
         public static void addProvider(Provider newProvider)
         {
@@ -271,6 +262,7 @@ namespace ChoholicsAnonymous
             return verified;
         }
 
+#endregion
         //creates an abbreviated session and adds it to the list 
         public static void addAbvSession(int memberID, int sessionID, int providerID)
         {
