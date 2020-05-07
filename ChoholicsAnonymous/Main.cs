@@ -566,8 +566,16 @@ namespace ChoholicsAnonymous
 
         private void searchMember_extendSubscription_Click(object sender, EventArgs e)
         {
+            int memberIndex = 0; 
+            try
+            {
+                int memberIndex = DataCenter.getIndexOfMember(Int32.Parse(searchMem_res_memID.Text));
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Select a date to extend subscription");
+                return; 
+            }
 
-            int memberIndex = DataCenter.getIndexOfMember(Int32.Parse(searchMem_res_memID.Text));
             string subLength = searchMem_res_lengthSelect.Text; 
             Date expDate = DataCenter.MemberList[memberIndex].SubscriptionExpiration; 
             
