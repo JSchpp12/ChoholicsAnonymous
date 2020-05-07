@@ -67,21 +67,21 @@
     </SubscriptionStart>
   </Member>
   <Member>
-    <FirstName>AppleUpdate</FirstName>
-    <LastName />
-    <Email />
-    <PhoneNumber />
+    <FirstName>Apple</FirstName>
+    <LastName>Tobergte</LastName>
+    <Email>email.email@email.com</Email>
+    <PhoneNumber>98765</PhoneNumber>
     <MemberID>2</MemberID>
     <ProviderID>0</ProviderID>
     <Address>
-      <street />
-      <state />
-      <city />
-      <postalCode />
+      <street>street street</street>
+      <state>st</state>
+      <city>city</city>
+      <postalCode>12345</postalCode>
     </Address>
     <Payment>
-      <CardNumber />
-      <Cvc />
+      <CardNumber>12341234</CardNumber>
+      <Cvc>123</Cvc>
       <ExpDate>
         <Month>6</Month>
         <Day>20</Day>

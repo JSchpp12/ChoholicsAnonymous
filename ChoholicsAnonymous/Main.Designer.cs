@@ -85,6 +85,8 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.searchMem_panel_Results = new System.Windows.Forms.Panel();
+            this.searchMem_phone = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
             this.searchMem_bttn_removeMem = new System.Windows.Forms.Button();
             this.searchMem_bttn_update = new System.Windows.Forms.Button();
             this.label42 = new System.Windows.Forms.Label();
@@ -214,8 +216,6 @@
             this.print_selectDocument = new System.Windows.Forms.ComboBox();
             this.label83 = new System.Windows.Forms.Label();
             this.label82 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.searchMem_phone = new System.Windows.Forms.TextBox();
             this.toolStrip1.SuspendLayout();
             this.panel_newMember.SuspendLayout();
             this.panel_searchMem.SuspendLayout();
@@ -248,7 +248,7 @@
             this.toolStrip_logout});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1093, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(1093, 31);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -258,7 +258,7 @@
             this.toolStrip_home.Image = global::ChoholicsAnonymous.Properties.Resources.home;
             this.toolStrip_home.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStrip_home.Name = "toolStrip_home";
-            this.toolStrip_home.Size = new System.Drawing.Size(29, 24);
+            this.toolStrip_home.Size = new System.Drawing.Size(29, 28);
             this.toolStrip_home.Tag = "home";
             this.toolStrip_home.Text = "toolStripButton1";
             this.toolStrip_home.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
@@ -273,7 +273,7 @@
             this.toolStrip_member.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_member.Image")));
             this.toolStrip_member.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStrip_member.Name = "toolStrip_member";
-            this.toolStrip_member.Size = new System.Drawing.Size(79, 24);
+            this.toolStrip_member.Size = new System.Drawing.Size(79, 28);
             this.toolStrip_member.Text = "Member";
             // 
             // toolStrip_verifyMember
@@ -310,7 +310,7 @@
             this.toolStrip_provider.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_provider.Image")));
             this.toolStrip_provider.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStrip_provider.Name = "toolStrip_provider";
-            this.toolStrip_provider.Size = new System.Drawing.Size(78, 24);
+            this.toolStrip_provider.Size = new System.Drawing.Size(78, 28);
             this.toolStrip_provider.Text = "Provider";
             // 
             // toolStrip_searchProvider
@@ -346,7 +346,7 @@
             this.toolStrip_reporting.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_reporting.Image")));
             this.toolStrip_reporting.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStrip_reporting.Name = "toolStrip_reporting";
-            this.toolStrip_reporting.Size = new System.Drawing.Size(89, 24);
+            this.toolStrip_reporting.Size = new System.Drawing.Size(89, 28);
             this.toolStrip_reporting.Text = "Reporting";
             // 
             // toolStrip_viewReports
@@ -371,7 +371,7 @@
             this.toolStrip_billing.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_billing.Image")));
             this.toolStrip_billing.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStrip_billing.Name = "toolStrip_billing";
-            this.toolStrip_billing.Size = new System.Drawing.Size(55, 24);
+            this.toolStrip_billing.Size = new System.Drawing.Size(55, 28);
             this.toolStrip_billing.Tag = "billing";
             this.toolStrip_billing.Text = "Billing";
             this.toolStrip_billing.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
@@ -382,7 +382,7 @@
             this.toolStrip_print.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_print.Image")));
             this.toolStrip_print.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStrip_print.Name = "toolStrip_print";
-            this.toolStrip_print.Size = new System.Drawing.Size(43, 24);
+            this.toolStrip_print.Size = new System.Drawing.Size(43, 28);
             this.toolStrip_print.Text = "Print";
             this.toolStrip_print.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
             // 
@@ -392,7 +392,7 @@
             this.toolStrip_logout.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_logout.Image")));
             this.toolStrip_logout.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStrip_logout.Name = "toolStrip_logout";
-            this.toolStrip_logout.Size = new System.Drawing.Size(60, 24);
+            this.toolStrip_logout.Size = new System.Drawing.Size(60, 28);
             this.toolStrip_logout.Tag = "logout";
             this.toolStrip_logout.Text = "Logout";
             this.toolStrip_logout.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
@@ -869,6 +869,25 @@
             this.searchMem_panel_Results.Name = "searchMem_panel_Results";
             this.searchMem_panel_Results.Size = new System.Drawing.Size(1001, 702);
             this.searchMem_panel_Results.TabIndex = 9;
+            // 
+            // searchMem_phone
+            // 
+            this.searchMem_phone.Location = new System.Drawing.Point(120, 198);
+            this.searchMem_phone.Name = "searchMem_phone";
+            this.searchMem_phone.Size = new System.Drawing.Size(248, 22);
+            this.searchMem_phone.TabIndex = 43;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label22.Location = new System.Drawing.Point(5, 199);
+            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(102, 19);
+            this.label22.TabIndex = 42;
+            this.label22.Text = "Phone Number";
             // 
             // searchMem_bttn_removeMem
             // 
@@ -2234,25 +2253,6 @@
             this.label82.Size = new System.Drawing.Size(95, 45);
             this.label82.TabIndex = 1;
             this.label82.Text = "Print";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label22.Location = new System.Drawing.Point(5, 199);
-            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(102, 19);
-            this.label22.TabIndex = 42;
-            this.label22.Text = "Phone Number";
-            // 
-            // searchMem_phone
-            // 
-            this.searchMem_phone.Location = new System.Drawing.Point(120, 198);
-            this.searchMem_phone.Name = "searchMem_phone";
-            this.searchMem_phone.Size = new System.Drawing.Size(248, 22);
-            this.searchMem_phone.TabIndex = 43;
             // 
             // Main
             // 
