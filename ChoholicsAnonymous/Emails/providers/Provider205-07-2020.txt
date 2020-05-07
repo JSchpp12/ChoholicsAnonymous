@@ -6,7 +6,7 @@ Provider state: mn
 Provider ZIP code: 8895
 
 	 Date of Service: 8-7-2020
-	 Date and Time Data Received: 2020-05-07 10:36:49 PM
+	 Date and Time Data Received: 5/7/2020 10:49:10 PM
 	 Member Name:jacob Schaup
 	 Member Number: 1
 	 Service Code: 768925
