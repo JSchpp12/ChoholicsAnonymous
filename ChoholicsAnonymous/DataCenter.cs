@@ -14,7 +14,7 @@ using System.Xml.Serialization;
 namespace ChoholicsAnonymous
 {
 
-    static class DataCenter
+   static class DataCenter
     {
         public static int MemberCount   { get; set; }
         public static int SessionCount  { get; set; }
@@ -64,7 +64,7 @@ namespace ChoholicsAnonymous
             readInformation("abvSessions.xml");
             initilizeServices();
             initilizeWeeklyTimer();
-            emailReport();
+           // emailReport();
 
             //testing working of session below with hard coded parameters,
             //Session       sessionFromsessionID = getSessionInfo_sessionID(1);
@@ -545,7 +545,7 @@ namespace ChoholicsAnonymous
 
 
                 }
-                
+
                 foreach (KeyValuePair<int, List<Session>> pair in memberReport)
                 {
 
@@ -569,7 +569,7 @@ namespace ChoholicsAnonymous
                 display = memberDisplay;
             }
             // print provider report info
-            if (type == "provider")
+            else if (type == "provider")
             {
                 string providerDisplay = "";
                 Dictionary<int, List<Session>> providerReport = new Dictionary<int, List<Session>>();
@@ -620,6 +620,51 @@ namespace ChoholicsAnonymous
                 //report_box.Text = display + "\n\n\n";
                 display = providerDisplay;
             }
+
+            else if (type == "payable")
+            {
+                string payableDisplay = "";
+                Dictionary<int, List<Session>> providerReport = new Dictionary<int, List<Session>>();
+
+                foreach (string id in ids)
+                {
+                    int sessionID = Int32.Parse(id);
+                    Session thisSession = DataCenter.getSessionInfo_sessionID(sessionID);
+
+                    if (!providerReport.ContainsKey(thisSession.providerID))
+                    {
+                        providerReport.Add(thisSession.providerID, DataCenter.getSessionInfo_memberID(thisSession.providerID));
+                    }
+
+
+                }
+
+                int consultations = 0;
+                int totalFee = 0;
+                foreach (KeyValuePair<int, List<Session>> pair in providerReport)
+                {
+                    Provider lookUP = DataCenter.searchProvider(pair.Key);
+
+                    payableDisplay += "Provider name: " + lookUP.ProviderName + " \n";
+                   
+
+                    for (int i = 0; i < pair.Value.Count; i++)
+                    {
+                        consultations = pair.Value.Count;
+                       
+                        int fee = DataCenter.lookupService(pair.Value[i].serviceID).Fee;
+                        totalFee += fee;
+                    }
+
+                    payableDisplay += "Total number of Consultations with members: " + consultations.ToString() + "\n"
+                     + "Total fee for week :" + totalFee.ToString() + "\n\n";
+                }
+
+
+                display = payableDisplay;
+            }
+            
+
             return display;
         }
 

@@ -184,7 +184,7 @@ namespace ChoholicsAnonymous
                 toolStrip_providerDirectory.Visible = false;
                 toolStrip_newProvider.Visible       = false;
                 toolStrip_billing.Visible           = false;
-                toolStrip_print.Visible             = false;
+               
 
             }
             else if (User.Provider == true)
@@ -192,7 +192,7 @@ namespace ChoholicsAnonymous
                 toolStrip_newMember.Visible   = false;
                 toolStrip_newProvider.Visible = false;
                 toolStrip_runReports.Visible  = false;
-                toolStrip_print.Visible       = false;
+               
             }
             else if (User.Operator == true)
             {
@@ -268,6 +268,10 @@ namespace ChoholicsAnonymous
         {
             Member searchResults = DataCenter.searchMember(Int32.Parse(searchMem_inMemID.Text));
             int    memID         = Int32.Parse(searchMem_inMemID.Text);
+            if(searchMem_inMemID.Text.Length != 9)
+            {
+                MessageBox.Show("Member ID needs to be 9 digits");
+            }
 
             if (!DataCenter.memberExists(memID)) { MessageBox.Show("Member Does Not Exist"); }
             else
@@ -275,6 +279,7 @@ namespace ChoholicsAnonymous
                 searchMem_res_firstName.Text  = searchResults.FirstName;
                 searchMem_res_lastName.Text   = searchResults.LastName;
                 searchMem_res_email.Text      = searchResults.Email;
+                searchMem_res_phone.Text          = searchResults.PhoneNumber;
                 searchMem_res_street.Text     = searchResults.Address.street;
                 searchMem_res_city.Text       = searchResults.Address.city;
                 searchMem_res_state.Text      = searchResults.Address.state;
@@ -293,11 +298,16 @@ namespace ChoholicsAnonymous
             //verify member ID before attempting update 
 
             int memberIndex = DataCenter.getIndexOfMember(Int32.Parse(searchMem_inMemID.Text));
-            
+            if (searchMem_inMemID.Text.Length != 9)
+            {
+                MessgaeBox.Show("Member ID needs to be 9 digits");
+            }
+
+
             DataCenter.MemberList[memberIndex].FirstName              = searchMem_res_firstName.Text;
             DataCenter.MemberList[memberIndex].LastName               = searchMem_res_lastName.Text;
             DataCenter.MemberList[memberIndex].Email                  = searchMem_res_email.Text;
-           // DataCenter.MemberList[memberIndex].PhoneNumber            = searchMem_phone.Text;
+            DataCenter.MemberList[memberIndex].PhoneNumber            = searchMem_res_phone.Text;
             DataCenter.MemberList[memberIndex].Address.street         = searchMem_res_street.Text;
             DataCenter.MemberList[memberIndex].Address.city           = searchMem_res_city.Text;
             DataCenter.MemberList[memberIndex].Address.state          = searchMem_res_state.Text;
@@ -327,7 +337,12 @@ namespace ChoholicsAnonymous
         private void searchProvider_update_Click(object sender, EventArgs e)
         {
             int providerIndex = DataCenter.getIndexOfProvider(Int32.Parse(searchProvider_providerID.Text));
-           
+            if(searchProvider_providerID.Text.Length != 9)
+            {
+                MessageBox.Show("Provider ID nees to be 9 digits ");
+            }
+
+
             DataCenter.ProviderList[providerIndex].ProviderName       = searchProvider_firstName.Text;
             DataCenter.ProviderList[providerIndex].PhoneNumber        = searchProvider_phone.Text;
             DataCenter.ProviderList[providerIndex].Email              = searchProvider_email.Text;
@@ -359,6 +374,7 @@ namespace ChoholicsAnonymous
             {
                 newProvider.ProviderName       = newProvider_name.Text;
                 newProvider.PhoneNumber        = newProvider_phone.Text;
+                newProvider.Email              = newProvider_email.Text;
                 newProvider.Address.street     = newProvider_street.Text;
                 newProvider.Address.state      = newProvider_state.Text;
                 newProvider.Address.city       = newProvider_city.Text;
@@ -374,6 +390,10 @@ namespace ChoholicsAnonymous
         {
             Provider searchResults = DataCenter.searchProvider(Int32.Parse(searchProvider_providerID.Text));
             int      proID         = Int32.Parse(searchProvider_providerID.Text);
+            if(searchProvider_providerID.Text.Length != 9)
+            {
+                MessageBox.Show("Provider ID needs to be 9 digits");
+            }
 
             //if provider DNE, pop up explaining, else provider info appears
             if (!DataCenter.providerExists(proID)) { MessageBox.Show("Provider Does Not Exist"); }
@@ -381,6 +401,7 @@ namespace ChoholicsAnonymous
             {
                 searchProvider_firstName.Text  = searchResults.ProviderName;
                 searchProvider_phone.Text      = searchResults.PhoneNumber;
+                searchProvider_email.Text = searchResults.Email;
                 searchProvider_street.Text     = searchResults.Address.street;
                 searchProvider_state.Text      = searchResults.Address.state;
                 searchProvider_city.Text       = searchResults.Address.city;
@@ -448,12 +469,18 @@ namespace ChoholicsAnonymous
         private void verifyMember_verify_Click(object sender, EventArgs e)
         {
             int memID = Int32.Parse(verifyMember_memberID.Text);
-
-            if (DataCenter.memberExists(memID))
+            if (verifyMember_memberID.Text.Length != 9)
             {
-                verifyMember_verified.Visible = true; 
-                //MessageBox.Show("Member with id: " + memID + "exists");
+                MessageBox.Show("Member ID needs to be 9 digits ");
+
             }
+
+               else if (verifyMember_memberID.Text.Length == 9 && DataCenter.memberExists(memID))
+                {
+                    verifyMember_verified.Visible = true;
+                    //MessageBox.Show("Member with id: " + memID + "exists");
+                }
+        
             /*
             else
             {
@@ -465,8 +492,14 @@ namespace ChoholicsAnonymous
         private void billing_verify_Click(object sender, EventArgs e)
         {
             int memID = Int32.Parse(session_MemberID.Text);
+            if (session_MemberID.Text.Length != 9)
+            {
+                MessageBox.Show("Member ID needs to be 9 digits ");
 
-            if (DataCenter.memberExists(memID))
+            }
+
+
+            if (session_MemberID.Text.Length == 9 && DataCenter.memberExists(memID))
             {
                 verify_SessionMember.Visible = true;
                // MessageBox.Show("Member with id: " + memID + " exists");
@@ -491,8 +524,8 @@ namespace ChoholicsAnonymous
                 report_box.Text = DataCenter.getReport("provider");
             else if (runReports_reportType.Text == "Member Reports")
                 report_box.Text = DataCenter.getReport("member");
-            //else if(runReports_reportType.Text == 1)
-            //  createReport("member");
+            else if(runReports_reportType.Text == "Accounts Payable")
+                report_box.Text = DataCenter.getReport("payable");
         }
 
         //called every second -- will update time labels and switch to locked form if needed 
