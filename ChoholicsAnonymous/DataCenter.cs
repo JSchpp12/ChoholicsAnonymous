@@ -106,8 +106,7 @@ namespace ChoholicsAnonymous
             }
         }
 
-//Member functions starts here
-
+        #region Member Functions
         //add a member to the data set
         public static void addMember(Member newMember)
         {
@@ -195,6 +194,7 @@ namespace ChoholicsAnonymous
             }
             return verified;     
         }
+        #endregion
 
         #region Provider Functions 
         //adds a provider to the list
@@ -263,6 +263,7 @@ namespace ChoholicsAnonymous
         }
 
 #endregion
+
         //creates an abbreviated session and adds it to the list 
         public static void addAbvSession(int memberID, int sessionID, int providerID)
         {

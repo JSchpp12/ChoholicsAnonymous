@@ -279,7 +279,6 @@ namespace ChoholicsAnonymous
                 searchMem_res_providerID.Text = searchResults.ProviderID.ToString();
                 //searchMem_res_birthday.Text = searchResults.Birthday.convToString();
              }
-
         }
 
         private void searchMem_bttn_update_Click(object sender, EventArgs e)
@@ -302,11 +301,11 @@ namespace ChoholicsAnonymous
             DataCenter.MemberList[memberIndex].Payment.ExpDate = new Date(searchMem_res_ccExp.Text);
 
             MessageBox.Show("Member Successfully Updated");
-            resetPanel(searchMem_panel_Results);
-           
+            resetPanel(searchMem_panel_Results);           
 
             //still gotta update subscription expiry data, service type, provider id.
         }
+
         private void searchMem_bttn_removeMem_Click(object sender, EventArgs e)
         {
             int memberID = Int32.Parse(searchMem_inMemID.Text);
@@ -315,7 +314,7 @@ namespace ChoholicsAnonymous
             resetPanel(searchMem_panel_Results);
         }
 
-        //Provider events
+ //Provider events
 
         private void searchProvider_update_Click(object sender, EventArgs e)
         {
