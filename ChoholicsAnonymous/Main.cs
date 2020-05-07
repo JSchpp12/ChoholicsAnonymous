@@ -294,6 +294,7 @@ namespace ChoholicsAnonymous
             DataCenter.MemberList[memberIndex].FirstName              = searchMem_res_firstName.Text;
             DataCenter.MemberList[memberIndex].LastName               = searchMem_res_lastName.Text;
             DataCenter.MemberList[memberIndex].Email                  = searchMem_res_email.Text;
+            DataCenter.MemberList[memberIndex].PhoneNumber            = searchMem_phone.Text;
             DataCenter.MemberList[memberIndex].Address.street         = searchMem_res_street.Text;
             DataCenter.MemberList[memberIndex].Address.city           = searchMem_res_city.Text;
             DataCenter.MemberList[memberIndex].Address.state          = searchMem_res_state.Text;
@@ -473,6 +474,6 @@ namespace ChoholicsAnonymous
             {
                 if (field is TextBox) { field.Text = ""; }                    
             }
-        }       
+        }
     }      
 }
