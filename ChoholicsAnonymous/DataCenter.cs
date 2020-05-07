@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
@@ -19,7 +21,9 @@ namespace ChoholicsAnonymous
         public static List<Member> MemberList = new List<Member>();
         public static List<Provider> ProviderList = new List<Provider>();
         public static List<AbvSession> AbvSessionList = new List<AbvSession>();
-        public static List<Service> ServiceList = new List<Service>(); 
+        public static List<Service> ServiceList = new List<Service>();
+
+        private static Timer weeklyTimer = new Timer(runWeeklyReport);  
 
         //add a member to the data set
         public static void addMember(Member newMember)
@@ -64,7 +68,8 @@ namespace ChoholicsAnonymous
             readInformation("Members.xml");
             readInformation("Providers.xml");
             readInformation("abvSessions.xml");
-            initilizeServices(); 
+            initilizeServices();
+            initilizeWeeklyTimer(); 
 
             //testing working of session below with hard coded parameters,
             Session sessionFromsessionID = getSessionInfo_sessionID(1);
@@ -401,6 +406,32 @@ namespace ChoholicsAnonymous
                 }
             }
             return ProviderCount++; 
+        }
+
+        //will run the weekly report 
+        private static void runWeeklyReport(object state)
+        {
+            //disable clock object 
+            weeklyTimer.Dispose();
+
+            //run report 
+
+            //set up clock for next week
+            initilizeWeeklyTimer(); 
+        }
+
+        //sets up the timer object to trigger the weekly reporting on monday 
+        private static void initilizeWeeklyTimer()
+        {
+            DateTime today = DateTime.Today;
+            DateTime triggerTime = new DateTime(); 
+            int daysUntilFriday = ((int)DayOfWeek.Friday - (int)today.DayOfWeek + 7) % 7;
+            triggerTime = today.AddDays(daysUntilFriday);
+
+            int msUntilTrigger = (int)((triggerTime - today).TotalMilliseconds);
+
+            weeklyTimer = new Timer(runWeeklyReport);
+            weeklyTimer.Change(msUntilTrigger, Timeout.Infinite); 
         }
     }
 }
