@@ -4,6 +4,8 @@ using System.IO;
 using System.Windows.Forms;
 using System.Threading; 
 
+//Chand Branch 
+
 namespace ChoholicsAnonymous
 {
     public partial class Main : Form
@@ -41,9 +43,19 @@ namespace ChoholicsAnonymous
         private void newMem_submit_Click_1(object sender, EventArgs e)
         {
             int day, month;
-
+            long memNum = 0;
+            
             Member newMember = new Member(true);
-            int    memNum    = Int32.Parse(newMem_phoneNumber.Text);
+            
+            try
+            {
+                memNum = long.Parse(newMem_phoneNumber.Text);
+            }catch (Exception ex)
+            {
+                MessageBox.Show("Phone Number does not permit characters");
+                return; 
+            }
+
 
             //checks if provider already exists
             if (DataCenter.checkMemNum(memNum)) { MessageBox.Show("Member Already Exists"); }
@@ -66,29 +78,33 @@ namespace ChoholicsAnonymous
                 switch (subLength)
                 {
                     case "1 Month":
+                        newMember.SubscriptionExpiration.Day = date.Day;
+                        newMember.SubscriptionExpiration.Year = date.Year;
                         newMember.SubscriptionExpiration.Month = date.Month + 1;
-                        newMember.SubscriptionExpiration.Day   = date.Day;
-                        newMember.SubscriptionExpiration.Year  = date.Year;
                         break;
                     case "2 Months":
+                        newMember.SubscriptionExpiration.Day = date.Day;
+                        newMember.SubscriptionExpiration.Year = date.Year;
                         newMember.SubscriptionExpiration.Month = date.Month + 2;
-                        newMember.SubscriptionExpiration.Day   = date.Day;
-                        newMember.SubscriptionExpiration.Year  = date.Year;
                         break;
                     case "3 Months":
+                        newMember.SubscriptionExpiration.Day = date.Day;
+                        newMember.SubscriptionExpiration.Year = date.Year;
                         newMember.SubscriptionExpiration.Month = date.Month + 3;
-                        newMember.SubscriptionExpiration.Day   = date.Day;
-                        newMember.SubscriptionExpiration.Year  = date.Year;
                         break;
                     case "8 Months":
+                        newMember.SubscriptionExpiration.Day = date.Day;
+                        newMember.SubscriptionExpiration.Year = date.Year;
                         newMember.SubscriptionExpiration.Month = date.Month + 8;
-                        newMember.SubscriptionExpiration.Day   = date.Day;
-                        newMember.SubscriptionExpiration.Year  = date.Year;
                         break;
                     case "12 Months":
+                        newMember.SubscriptionExpiration.Day = date.Day;
+                        newMember.SubscriptionExpiration.Year = date.Year + 1;
                         newMember.SubscriptionExpiration.Month = date.Month;
-                        newMember.SubscriptionExpiration.Day   = date.Day;
-                        newMember.SubscriptionExpiration.Year  = date.Year + 1;
+                        break;
+                    default:
+                        MessageBox.Show("A Subscription Length Must Be Selected");
+                        return; 
                         break;
                         //need to add cases for more months
                         //need to take care of cases like when you add 1 to 12th month so it's not 13 e.t.c
@@ -154,113 +170,6 @@ namespace ChoholicsAnonymous
         }
         #endregion 
 
-        #region Supporting Methods 
-
-        //hides all panels currently in the control (FORM)
-        private void hideAllPanels()
-        {
-            foreach (Control c in this.Controls)
-            {
-                if (c is Panel) { c.Visible = false; }
-            }
-        }
-
-        //want to use to control initilization of panels when they are set to visible  --UNUSED--
-        private void panel__VisibleChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        //customize the toolbar based on what type of user is logged into system
-        private void initilizeToolbar()
-        {
-            //set the toolbar for whichever user is logged in 
-            if (User.Manager == true)
-            {
-                toolStrip_verifyMember.Visible      = false;
-                toolStrip_newMember.Visible         = false;
-                toolStrip_providerDirectory.Visible = false;
-                toolStrip_newProvider.Visible       = false;
-                toolStrip_billing.Visible           = false;
-                toolStrip_print.Visible             = false;
-
-            }
-            else if (User.Provider == true)
-            {
-                toolStrip_newMember.Visible   = false;
-                toolStrip_newProvider.Visible = false;
-                toolStrip_runReports.Visible  = false;
-                toolStrip_print.Visible       = false;
-            }
-            else if (User.Operator == true)
-            {
-                toolStrip_billing.Visible   = false;
-                toolStrip_reporting.Visible = false;
-            }
-            else
-            {
-                MessageBox.Show("User information not set correctly upon login");
-            }
-        }
-
-        //swtich which panel is visible to the user
-        private void switchPanel(string buttonTag)
-        {
-            switch (buttonTag)
-            {
-                case "mem_search":
-                    hideAllPanels();
-                    panel_searchMem.Visible = true;
-                    break;
-                case "newMember":
-                    hideAllPanels();
-                    panel_newMember.Visible = true;
-                    break;
-                case "billing":
-                    hideAllPanels();
-                    panel_billing.Visible = true;
-                    break;
-                case "verify":
-                    hideAllPanels();
-                    panel_verifyMember.Visible = true;
-                    break;
-                case "newProvider":
-                    hideAllPanels();
-                    panel_newProvider.Visible = true;
-                    break;
-                case "searchProvider":
-                    hideAllPanels();
-                    panel_searchProvider.Visible = true;
-                    break;
-                case "runReports":
-                    hideAllPanels();
-                    panel_runReports.Visible = true;
-                    break;
-                case "viewReports":
-                    hideAllPanels();
-                    panel_viewReports.Visible = true;
-                    break;
-                case "home":
-                    hideAllPanels();
-                    panel_home.Visible = true; 
-                    break;
-                case "logout":
-                    //go back to login screen
-                    Form newLogin = new Login();
-                    newLogin.Show();
-                    this.Hide();
-                    break;
-                case "directory":
-                    Form newDirectory = new ProviderDirectory();
-                    newDirectory.Show(); 
-                    break; 
-                default:
-                    MessageBox.Show("Panel Not Yet Created...");
-                    break;
-            }
-        }
-        #endregion
-
         //searches for member information and populates GUI with retrieved information 
         private void searchMem_bttn_search_Click(object sender, EventArgs e)
         {
@@ -282,6 +191,7 @@ namespace ChoholicsAnonymous
                 searchMem_res_ccExp.Text      = searchResults.Payment.ExpDate.convToString();
                 searchMem_res_subExp.Text     = searchResults.SubscriptionExpiration.convToString();
                 searchMem_res_providerID.Text = searchResults.ProviderID.ToString();
+                searchMem_res_memID.Text      = searchMem_inMemID.Text;  
                 //searchMem_res_birthday.Text = searchResults.Birthday.convToString();
              }
         }
@@ -493,6 +403,105 @@ namespace ChoholicsAnonymous
             //  createReport("member");
         }
 
+        #region Supporting Methods 
+
+        //hides all panels currently in the control (FORM)
+        private void hideAllPanels()
+        {
+            foreach (Control c in this.Controls)
+            {
+                if (c is Panel) { c.Visible = false; }
+            }
+        }
+
+        //customize the toolbar based on what type of user is logged into system
+        private void initilizeToolbar()
+        {
+            //set the toolbar for whichever user is logged in 
+            if (User.Manager == true)
+            {
+                toolStrip_verifyMember.Visible = false;
+                toolStrip_newMember.Visible = false;
+                toolStrip_providerDirectory.Visible = false;
+                toolStrip_newProvider.Visible = false;
+                toolStrip_billing.Visible = false;
+
+            }
+            else if (User.Provider == true)
+            {
+                toolStrip_newMember.Visible = false;
+                toolStrip_newProvider.Visible = false;
+                toolStrip_runReports.Visible = false;
+            }
+            else if (User.Operator == true)
+            {
+                toolStrip_billing.Visible = false;
+                toolStrip_reporting.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("User information not set correctly upon login");
+            }
+        }
+
+        //swtich which panel is visible to the user
+        private void switchPanel(string buttonTag)
+        {
+            switch (buttonTag)
+            {
+                case "mem_search":
+                    hideAllPanels();
+                    panel_searchMem.Visible = true;
+                    break;
+                case "newMember":
+                    hideAllPanels();
+                    panel_newMember.Visible = true;
+                    break;
+                case "billing":
+                    hideAllPanels();
+                    panel_billing.Visible = true;
+                    break;
+                case "verify":
+                    hideAllPanels();
+                    panel_verifyMember.Visible = true;
+                    break;
+                case "newProvider":
+                    hideAllPanels();
+                    panel_newProvider.Visible = true;
+                    break;
+                case "searchProvider":
+                    hideAllPanels();
+                    panel_searchProvider.Visible = true;
+                    break;
+                case "runReports":
+                    hideAllPanels();
+                    panel_runReports.Visible = true;
+                    break;
+                case "viewReports":
+                    hideAllPanels();
+                    panel_viewReports.Visible = true;
+                    break;
+                case "home":
+                    hideAllPanels();
+                    panel_home.Visible = true;
+                    break;
+                case "logout":
+                    //go back to login screen
+                    Form newLogin = new Login();
+                    newLogin.Show();
+                    this.Hide();
+                    break;
+                case "directory":
+                    Form newDirectory = new ProviderDirectory();
+                    newDirectory.Show();
+                    break;
+                default:
+                    MessageBox.Show("Panel Not Yet Created...");
+                    break;
+            }
+        }
+
+
         //called every second -- will update time labels and switch to locked form if needed 
         private void CurrentTimer_Tick(object sender, EventArgs e)
         {
@@ -522,6 +531,47 @@ namespace ChoholicsAnonymous
             else
                 CurrentTimer.Enabled = false;
         }
-    }      
+        #endregion
+
+        private void searchMember_extendSubscription_Click(object sender, EventArgs e)
+        {
+
+            int memberIndex = DataCenter.getIndexOfMember(Int32.Parse(searchMem_res_memID.Text));
+            string subLength = searchMem_res_lengthSelect.Text; 
+            Date expDate = DataCenter.MemberList[memberIndex].SubscriptionExpiration; 
+            
+            //DataCenter.MemberList[memberIndex].SubscriptionExpiration = new Date(searchMem_res_subExp.Text);
+
+            resetPanel(searchMem_panel_Results);
+
+            switch (subLength)
+            {
+                case "1 Month":
+                    DataCenter.MemberList[memberIndex].SubscriptionExpiration.Month = expDate.Month + 1;
+                    break;
+                case "2 Months":
+                    DataCenter.MemberList[memberIndex].SubscriptionExpiration.Month = expDate.Month + 2;
+                    break;
+                case "3 Months":
+                    DataCenter.MemberList[memberIndex].SubscriptionExpiration.Month = expDate.Month + 3;
+                    break;
+                case "8 Months":
+                    DataCenter.MemberList[memberIndex].SubscriptionExpiration.Month = expDate.Month + 8;
+                    break;
+                case "12 Months":
+                    DataCenter.MemberList[memberIndex].SubscriptionExpiration.Year = expDate.Year + 1;
+                    break;
+                default:
+                    MessageBox.Show("A Subscription Length Must Be Selected");
+                    return;
+                    break;
+                    //need to add cases for more months
+                    //need to take care of cases like when you add 1 to 12th month so it's not 13 e.t.c
+            }
+
+            MessageBox.Show("Member Subscription Extended");
+            //still gotta update subscription expiry data, service type, provider id.
+        }
+    }
 }
 #endregion

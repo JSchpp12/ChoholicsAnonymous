@@ -64,7 +64,7 @@ namespace ChoholicsAnonymous
             readInformation("abvSessions.xml");
             initilizeServices();
             initilizeWeeklyTimer();
-            emailReport();
+           
 
             //testing working of session below with hard coded parameters,
             //Session       sessionFromsessionID = getSessionInfo_sessionID(1);
@@ -147,7 +147,7 @@ namespace ChoholicsAnonymous
         }
 
         //searches for member via member phone number
-        public static bool checkMemNum(int memberNum)
+        public static bool checkMemNum(long memberNum)
         {
             bool numResult = false;
 
@@ -455,10 +455,10 @@ namespace ChoholicsAnonymous
         {
             //disable clock object 
             weeklyTimer.Dispose();
-            
+
             //run report
-            
-            
+            emailReport();
+
             //set up clock for next week
             initilizeWeeklyTimer(); 
         }

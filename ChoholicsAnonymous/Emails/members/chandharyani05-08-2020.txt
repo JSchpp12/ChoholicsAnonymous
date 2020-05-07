@@ -9,7 +9,7 @@ Member ZIP code: tol
 	 Provider Name: Provider0
 	 Service Name: Telephone Consultation
 
-	 Date of Service: 08-07-2020
+	 Date of Service: 8-7-2020
 	 Provider Name: Provider2
 	 Service Name: Telephone Consultation
 

@@ -97,18 +97,11 @@ namespace ChoholicsAnonymous
                             sw.Write("Total number of consultations: " + providerServices + "\n");
                             sw.Write("Total fees for the week: $" + totalFee.ToString() + "\n\n");
                         }
-
-             
                     }
-                   
-                        
-                    
                 }
-
             }
             catch { }
         }
-
         public Email(Session session)
         {
 

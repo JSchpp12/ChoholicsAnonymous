@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Session xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <sessionID>4</sessionID>
+  <memberID>2</memberID>
+  <providerID>222222222</providerID>
+  <DateOfSession>
+    <Month>1</Month>
+    <Day>1</Day>
+    <Year>20</Year>
+  </DateOfSession>
+  <ComputerDateTime>2020-05-07 23:42:16</ComputerDateTime>
+  <Comments>jhgkjuhj</Comments>
+  <serviceID>768925</serviceID>
+  <serviceName />
+</Session>
