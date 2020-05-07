@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfProvider xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Provider>
+    <ProviderName>Provider0</ProviderName>
+    <PhoneNumber>019060452</PhoneNumber>
+    <Email>provider0@email.com</Email>
+    <ProviderID>0</ProviderID>
+    <Address>
+      <street>abch 0 street</street>
+      <state>oh</state>
+      <city>tol</city>
+      <postalCode>555</postalCode>
+    </Address>
+  </Provider>
+  <Provider>
+    <ProviderName>Provider1</ProviderName>
+    <PhoneNumber>562352</PhoneNumber>
+    <Email>@provider1email</Email>
+    <ProviderID>1</ProviderID>
+    <Address>
+      <street>xyz</street>
+      <state>kn</state>
+      <city>pery</city>
+      <postalCode>5252</postalCode>
+    </Address>
+  </Provider>
+  <Provider>
+    <ProviderName>Provider2</ProviderName>
+    <PhoneNumber>88888</PhoneNumber>
+    <Email>@provider2email</Email>
+    <ProviderID>2</ProviderID>
+    <Address>
+      <street>jkl</street>
+      <state>mn</state>
+      <city>goodcity</city>
+      <postalCode>8895</postalCode>
+    </Address>
+  </Provider>
+</ArrayOfProvider>

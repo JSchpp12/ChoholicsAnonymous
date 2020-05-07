@@ -32,6 +32,8 @@ namespace ChoholicsAnonymous
             {
                 if (now.Hour > 12)
                     currentTime.Text = "Current Time: " + (now.Hour % 12).ToString("D2") + ":" + now.Minute.ToString("D2") + ":" + now.Second.ToString("D2") + " PM";
+                else if (now.Hour == 12)
+                    currentTime.Text = "Current Time: " + (now.Hour).ToString("D2") + ":" + now.Minute.ToString("D2") + ":" + now.Second.ToString("D2") + " PM";
                 else
                     currentTime.Text = "Current Time: " + now.Hour.ToString("D2") + ":" + now.Minute.ToString("D2") + ":" + now.Second.ToString("D2") + " AM";
             }

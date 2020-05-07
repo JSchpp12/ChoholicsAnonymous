@@ -208,7 +208,7 @@ namespace ChoholicsAnonymous
             int memberIndex = DataCenter.getIndexOfMember(Int32.Parse(searchMem_inMemID.Text));
             if (searchMem_inMemID.Text.Length != 9)
             {
-                MessgaeBox.Show("Member ID needs to be 9 digits");
+                MessageBox.Show("Member ID needs to be 9 digits");
             }
 
 
@@ -428,12 +428,7 @@ namespace ChoholicsAnonymous
 
         private void Run_Click(object sender, EventArgs e)
         {
-            if (runReports_reportType.Text == "Provider Reports")
-                report_box.Text = DataCenter.getReport("provider");
-            else if (runReports_reportType.Text == "Member Reports")
-                report_box.Text = DataCenter.getReport("member");
-            else if(runReports_reportType.Text == "Accounts Payable")
-                report_box.Text = DataCenter.getReport("payable");
+           
         }
 
         #region Supporting Methods 
@@ -464,6 +459,7 @@ namespace ChoholicsAnonymous
             {
                 toolStrip_newMember.Visible = false;
                 toolStrip_newProvider.Visible = false;
+                toolStrip_reporting.Visible = false;
                 toolStrip_runReports.Visible = false;
             }
             else if (User.Operator == true)
@@ -550,6 +546,8 @@ namespace ChoholicsAnonymous
             {
                 if (now.Hour > 12)
                     home_currentTime.Text = "Current Time: " + (now.Hour % 12).ToString("D2") + ":" + now.Minute.ToString("D2") + ":" + now.Second.ToString("D2") + " PM";
+                else if (now.Hour == 12)
+                    home_currentTime.Text = "Current Time: " + (now.Hour).ToString("D2") + ":" + now.Minute.ToString("D2") + ":" + now.Second.ToString("D2") + " PM";
                 else
                     home_currentTime.Text = "Current Time: " + now.Hour.ToString("D2") + ":" + now.Minute.ToString("D2") + ":" + now.Second.ToString("D2") + " AM";
             }
@@ -604,6 +602,16 @@ namespace ChoholicsAnonymous
 
             MessageBox.Show("Member Subscription Extended");
             //still gotta update subscription expiry data, service type, provider id.
+        }
+
+        private void Run_Click_1(object sender, EventArgs e)
+        {
+            if (runReports_reportType.Text == "Provider Reports")
+                report_box.Text = DataCenter.getReport("provider");
+            else if (runReports_reportType.Text == "Member Reports")
+                report_box.Text = DataCenter.getReport("member");
+            else if (runReports_reportType.Text == "Accounts Payable")
+                report_box.Text = DataCenter.getReport("payable");
         }
     }
 }
