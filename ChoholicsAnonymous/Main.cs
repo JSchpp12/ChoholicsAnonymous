@@ -341,16 +341,20 @@ namespace ChoholicsAnonymous
             resetPanel(panel_searchProvider);
         }
         
+        //adding a new provider
         private void newPro_bttn_submit_Click(object sender, EventArgs e)
         {
             Provider newProvider = new Provider();
-            newProvider.ProviderName = newProvider_name.Text;
-            newProvider.PhoneNumber = newProvider_phone.Text;
-            newProvider.Email = newProvider_email.Text;
-            newProvider.Address.street = newProvider_street.Text;
-            newProvider.Address.state = newProvider_state.Text;
-            newProvider.Address.city = newProvider_city.Text;
+
+            //if () { }
+
+            newProvider.ProviderName       = newProvider_name.Text;
+            newProvider.PhoneNumber        = newProvider_phone.Text;
+            newProvider.Address.street     = newProvider_street.Text;
+            newProvider.Address.state      = newProvider_state.Text;
+            newProvider.Address.city       = newProvider_city.Text;
             newProvider.Address.postalCode = newProvider_postal.Text;
+
             DataCenter.addProvider(newProvider);
             MessageBox.Show("Provider Successfully Added");
             resetPanel(panel_newProvider);
@@ -365,12 +369,14 @@ namespace ChoholicsAnonymous
             DataCenter.writeToFile("abvSessions.xml", "abvSession");
         }
 
+        //searching for a provider
         private void searchProvider_search_Click(object sender, EventArgs e)
         {
             Provider searchResults = DataCenter.searchProvider(Int32.Parse(searchProvider_providerID.Text));
             int      proID         = Int32.Parse(searchProvider_providerID.Text);
 
-            if (!DataCenter.memberExists(proID)) { MessageBox.Show("Provider Does Not Exist"); }
+            //if provider DNE, pop up explaining, else provider info appears
+            if (!DataCenter.providerExists(proID)) { MessageBox.Show("Provider Does Not Exist"); }
             else
             {
                 searchProvider_firstName.Text  = searchResults.ProviderName;
