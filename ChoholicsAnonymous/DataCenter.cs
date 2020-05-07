@@ -144,6 +144,22 @@ namespace ChoholicsAnonymous
             return memberResult;
         }
 
+        //searches for member via member phone number
+        public static bool checkMemNum(int memberNum)
+        {
+            bool numResult = false;
+
+            for (int i = 0; i < MemberList.Count(); i++)
+            {
+                if (Int32.Parse(MemberList[i].PhoneNumber) == memberNum)
+                {
+                    numResult = true;
+                    break;
+                }
+            }
+            return numResult;
+        }
+
         //removes member from list
         public static void deleteMember(int memberID)
         {
@@ -253,6 +269,22 @@ namespace ChoholicsAnonymous
                 }
             }
             return providerResult;
+        }
+
+        //searches for provider via provider phone number
+        public static bool checkProNum(int providerNum)
+        {
+            bool numResult = false;
+
+            for (int i = 0; i < ProviderList.Count(); i++)
+            {
+                if (int.Parse(ProviderList[i].PhoneNumber) == providerNum)
+                {
+                    numResult = true;
+                    break;
+                }
+            }
+            return numResult;
         }
 
         //deletes a provider from the list

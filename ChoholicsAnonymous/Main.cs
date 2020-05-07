@@ -4,9 +4,7 @@ using System.Windows.Forms;
 namespace ChoholicsAnonymous
 {
     public partial class Main : Form
-    {
-         
-
+    {      
         public Main()
         {
             InitializeComponent();
@@ -42,78 +40,82 @@ namespace ChoholicsAnonymous
             int day, month;
 
             Member newMember = new Member(true);
+            int    memNum    = Int32.Parse(newMem_phoneNumber.Text);
 
-            newMember.FirstName          = newMem_firstName.Text;
-            newMember.LastName           = newMem_lastName.Text;
-            newMember.Email              = newMem_email.Text;
-            newMember.PhoneNumber        = newMem_phoneNumber.Text;
-            newMember.Address.street     = newMem_Street.Text;
-            newMember.Address.state      = newMem_State.Text;
-            newMember.Address.city       = newMem_City.Text;
-            newMember.Address.postalCode = newMem_City.Text;
-            newMember.Payment.CardNumber = newMem_ccNum.Text;
-            newMember.Payment.Cvc        = newMem_cvc.Text;
-
-            string   subLength = newMem_subLength.Text;
-            DateTime date      = DateTime.Now;
-
-            switch (subLength)
-            {
-                case "1 Month":
-                    newMember.SubscriptionExpiration.Month = date.Month + 1;
-                    newMember.SubscriptionExpiration.Day   = date.Day;
-                    newMember.SubscriptionExpiration.Year  = date.Year;
-                    break;
-                case "2 Months":
-                    newMember.SubscriptionExpiration.Month = date.Month + 2;
-                    newMember.SubscriptionExpiration.Day   = date.Day;
-                    newMember.SubscriptionExpiration.Year  = date.Year;
-                    break;
-                case "3 Months":
-                    newMember.SubscriptionExpiration.Month = date.Month + 3;
-                    newMember.SubscriptionExpiration.Day   = date.Day;
-                    newMember.SubscriptionExpiration.Year  = date.Year;
-                    break;
-                case "8 Months":
-                    newMember.SubscriptionExpiration.Month = date.Month + 8;
-                    newMember.SubscriptionExpiration.Day   = date.Day;
-                    newMember.SubscriptionExpiration.Year  = date.Year;
-                    break;
-                case "12 Months":
-                    newMember.SubscriptionExpiration.Month = date.Month;
-                    newMember.SubscriptionExpiration.Day   = date.Day;
-                    newMember.SubscriptionExpiration.Year  = date.Year + 1;
-                    break;
-                    //need to add cases for more months
-                    //need to take care of cases like when you add 1 to 12th month so it's not 13 e.t.c
-            }
-
-            if (int.TryParse(newMem_expMonth.Text, out month))
-            {
-                newMember.Payment.ExpDate.Month = month;
-            }
+            //checks if provider already exists
+            if (DataCenter.checkMemNum(memNum)) { MessageBox.Show("Member Already Exists"); }
             else
-            {
-                //throw error 
-                MessageBox.Show("Expiration Month is not in a valid form");
-                return;
-            }
-            if (int.TryParse(newMem_expDay.Text, out day))
-            {
-                newMember.Payment.ExpDate.Day = day;
-            }
-            else
-            {
-                //throw error 
-                MessageBox.Show("Expiration Day is not in a valid form");
-                return;
-            }
-            DataCenter.addMember(newMember);
-            MessageBox.Show("Member Successfully Added");
-            resetPanel(panel_newMember);
-        }
+            { 
+                newMember.FirstName          = newMem_firstName.Text;
+                newMember.LastName           = newMem_lastName.Text;
+                newMember.Email              = newMem_email.Text;
+                newMember.PhoneNumber        = newMem_phoneNumber.Text;
+                newMember.Address.street     = newMem_Street.Text;
+                newMember.Address.state      = newMem_State.Text;
+                newMember.Address.city       = newMem_City.Text;
+                newMember.Address.postalCode = newMem_City.Text;
+                newMember.Payment.CardNumber = newMem_ccNum.Text;
+                newMember.Payment.Cvc        = newMem_cvc.Text;
 
-        
+                string   subLength = newMem_subLength.Text;
+                DateTime date      = DateTime.Now;
+
+                switch (subLength)
+                {
+                    case "1 Month":
+                        newMember.SubscriptionExpiration.Month = date.Month + 1;
+                        newMember.SubscriptionExpiration.Day   = date.Day;
+                        newMember.SubscriptionExpiration.Year  = date.Year;
+                        break;
+                    case "2 Months":
+                        newMember.SubscriptionExpiration.Month = date.Month + 2;
+                        newMember.SubscriptionExpiration.Day   = date.Day;
+                        newMember.SubscriptionExpiration.Year  = date.Year;
+                        break;
+                    case "3 Months":
+                        newMember.SubscriptionExpiration.Month = date.Month + 3;
+                        newMember.SubscriptionExpiration.Day   = date.Day;
+                        newMember.SubscriptionExpiration.Year  = date.Year;
+                        break;
+                    case "8 Months":
+                        newMember.SubscriptionExpiration.Month = date.Month + 8;
+                        newMember.SubscriptionExpiration.Day   = date.Day;
+                        newMember.SubscriptionExpiration.Year  = date.Year;
+                        break;
+                    case "12 Months":
+                        newMember.SubscriptionExpiration.Month = date.Month;
+                        newMember.SubscriptionExpiration.Day   = date.Day;
+                        newMember.SubscriptionExpiration.Year  = date.Year + 1;
+                        break;
+                        //need to add cases for more months
+                        //need to take care of cases like when you add 1 to 12th month so it's not 13 e.t.c
+                }
+
+                if (int.TryParse(newMem_expMonth.Text, out month))
+                {
+                    newMember.Payment.ExpDate.Month = month;
+                }
+                else
+                {
+                    //throw error 
+                    MessageBox.Show("Expiration Month is not in a valid form");
+                    return;
+                }
+                if (int.TryParse(newMem_expDay.Text, out day))
+                {
+                    newMember.Payment.ExpDate.Day = day;
+                }
+                else
+                {
+                    //throw error 
+                    MessageBox.Show("Expiration Day is not in a valid form");
+                    return;
+                }
+                DataCenter.addMember(newMember);
+                MessageBox.Show("Member Successfully Added");
+                resetPanel(panel_newMember);
+            }
+        }        
         
         #region navigation menu handlers 
 
@@ -345,19 +347,22 @@ namespace ChoholicsAnonymous
         private void newPro_bttn_submit_Click(object sender, EventArgs e)
         {
             Provider newProvider = new Provider();
+            int      providerNum = int.Parse(newProvider_phone.Text);
 
-            //if () { }
-
-            newProvider.ProviderName       = newProvider_name.Text;
-            newProvider.PhoneNumber        = newProvider_phone.Text;
-            newProvider.Address.street     = newProvider_street.Text;
-            newProvider.Address.state      = newProvider_state.Text;
-            newProvider.Address.city       = newProvider_city.Text;
-            newProvider.Address.postalCode = newProvider_postal.Text;
-
-            DataCenter.addProvider(newProvider);
-            MessageBox.Show("Provider Successfully Added");
-            resetPanel(panel_newProvider);
+            //checks if provider already exists
+            if (DataCenter.checkProNum(providerNum)) { MessageBox.Show("Provider Already Exists"); }
+            else
+            {
+                newProvider.ProviderName       = newProvider_name.Text;
+                newProvider.PhoneNumber        = newProvider_phone.Text;
+                newProvider.Address.street     = newProvider_street.Text;
+                newProvider.Address.state      = newProvider_state.Text;
+                newProvider.Address.city       = newProvider_city.Text;
+                newProvider.Address.postalCode = newProvider_postal.Text;
+                DataCenter.addProvider(newProvider);
+                MessageBox.Show("Provider Successfully Added");
+                resetPanel(panel_newProvider);
+            }
         }
 
         //searching for a provider
@@ -376,6 +381,7 @@ namespace ChoholicsAnonymous
                 searchProvider_state.Text      = searchResults.Address.state;
                 searchProvider_city.Text       = searchResults.Address.city;
                 searchProvider_postalCode.Text = searchResults.Address.postalCode;
+                resetPanel(panel_searchProvider);
             }
         }
 

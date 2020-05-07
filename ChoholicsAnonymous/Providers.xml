@@ -24,4 +24,26 @@
       <postalCode>5252</postalCode>
     </Address>
   </Provider>
+  <Provider>
+    <ProviderName>tommy's theme</ProviderName>
+    <PhoneNumber>85567</PhoneNumber>
+    <ProviderID>2</ProviderID>
+    <Address>
+      <street>tommy's</street>
+      <state>by</state>
+      <city>theme</city>
+      <postalCode>noisia</postalCode>
+    </Address>
+  </Provider>
+  <Provider>
+    <ProviderName>disc wars</ProviderName>
+    <PhoneNumber>56667</PhoneNumber>
+    <ProviderID>3</ProviderID>
+    <Address>
+      <street>disc </street>
+      <state>by</state>
+      <city>wars</city>
+      <postalCode>daftpunk</postalCode>
+    </Address>
+  </Provider>
 </ArrayOfProvider>
