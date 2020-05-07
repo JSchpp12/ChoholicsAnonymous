@@ -190,24 +190,15 @@
             this.label64 = new System.Windows.Forms.Label();
             this.label61 = new System.Windows.Forms.Label();
             this.panel_viewReports = new System.Windows.Forms.Panel();
-            this.viewReports_panel_monthContainer = new System.Windows.Forms.Panel();
-            this.viewReports_prompt = new System.Windows.Forms.Label();
-            this.viewReports_monthSelect = new System.Windows.Forms.MonthCalendar();
-            this.label77 = new System.Windows.Forms.Label();
-            this.viewReports_reportWeek = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label76 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label75 = new System.Windows.Forms.Label();
             this.panel_runReports = new System.Windows.Forms.Panel();
-            this.runReports_panel_monthContainer = new System.Windows.Forms.Panel();
-            this.label81 = new System.Windows.Forms.Label();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.label78 = new System.Windows.Forms.Label();
-            this.runReports_reportWeek = new System.Windows.Forms.TextBox();
+            this.Run = new System.Windows.Forms.Button();
             this.runReports_reportType = new System.Windows.Forms.ComboBox();
             this.label79 = new System.Windows.Forms.Label();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.report_box = new System.Windows.Forms.RichTextBox();
             this.label80 = new System.Windows.Forms.Label();
             this.panel_print = new System.Windows.Forms.Panel();
             this.print_print = new System.Windows.Forms.Button();
@@ -227,9 +218,7 @@
             this.panel_searchProvider.SuspendLayout();
             this.searchProvider_panel_searchResults.SuspendLayout();
             this.panel_viewReports.SuspendLayout();
-            this.viewReports_panel_monthContainer.SuspendLayout();
             this.panel_runReports.SuspendLayout();
-            this.runReports_panel_monthContainer.SuspendLayout();
             this.panel_print.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -246,7 +235,7 @@
             this.toolStrip_logout});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1094, 31);
+            this.toolStrip1.Size = new System.Drawing.Size(1094, 27);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -271,7 +260,7 @@
             this.toolStrip_member.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_member.Image")));
             this.toolStrip_member.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStrip_member.Name = "toolStrip_member";
-            this.toolStrip_member.Size = new System.Drawing.Size(79, 28);
+            this.toolStrip_member.Size = new System.Drawing.Size(79, 24);
             this.toolStrip_member.Text = "Member";
             // 
             // toolStrip_verifyMember
@@ -349,7 +338,7 @@
             // toolStrip_viewReports
             // 
             this.toolStrip_viewReports.Name = "toolStrip_viewReports";
-            this.toolStrip_viewReports.Size = new System.Drawing.Size(224, 26);
+            this.toolStrip_viewReports.Size = new System.Drawing.Size(179, 26);
             this.toolStrip_viewReports.Tag = "viewReports";
             this.toolStrip_viewReports.Text = "View Reports";
             this.toolStrip_viewReports.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
@@ -357,7 +346,7 @@
             // toolStrip_runReports
             // 
             this.toolStrip_runReports.Name = "toolStrip_runReports";
-            this.toolStrip_runReports.Size = new System.Drawing.Size(224, 26);
+            this.toolStrip_runReports.Size = new System.Drawing.Size(179, 26);
             this.toolStrip_runReports.Tag = "runReports";
             this.toolStrip_runReports.Text = "Run Reports";
             this.toolStrip_runReports.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
@@ -1963,9 +1952,6 @@
             // 
             // panel_viewReports
             // 
-            this.panel_viewReports.Controls.Add(this.viewReports_panel_monthContainer);
-            this.panel_viewReports.Controls.Add(this.label77);
-            this.panel_viewReports.Controls.Add(this.viewReports_reportWeek);
             this.panel_viewReports.Controls.Add(this.comboBox1);
             this.panel_viewReports.Controls.Add(this.label76);
             this.panel_viewReports.Controls.Add(this.richTextBox1);
@@ -1976,52 +1962,6 @@
             this.panel_viewReports.Name = "panel_viewReports";
             this.panel_viewReports.Size = new System.Drawing.Size(1094, 870);
             this.panel_viewReports.TabIndex = 38;
-            // 
-            // viewReports_panel_monthContainer
-            // 
-            this.viewReports_panel_monthContainer.Controls.Add(this.viewReports_prompt);
-            this.viewReports_panel_monthContainer.Controls.Add(this.viewReports_monthSelect);
-            this.viewReports_panel_monthContainer.Location = new System.Drawing.Point(425, 31);
-            this.viewReports_panel_monthContainer.Margin = new System.Windows.Forms.Padding(4);
-            this.viewReports_panel_monthContainer.Name = "viewReports_panel_monthContainer";
-            this.viewReports_panel_monthContainer.Size = new System.Drawing.Size(332, 250);
-            this.viewReports_panel_monthContainer.TabIndex = 16;
-            // 
-            // viewReports_prompt
-            // 
-            this.viewReports_prompt.AutoSize = true;
-            this.viewReports_prompt.Font = new System.Drawing.Font("Segoe UI Light", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewReports_prompt.Location = new System.Drawing.Point(3, 10);
-            this.viewReports_prompt.Name = "viewReports_prompt";
-            this.viewReports_prompt.Size = new System.Drawing.Size(197, 30);
-            this.viewReports_prompt.TabIndex = 15;
-            this.viewReports_prompt.Text = "Select Bolded Dates";
-            // 
-            // viewReports_monthSelect
-            // 
-            this.viewReports_monthSelect.Location = new System.Drawing.Point(9, 42);
-            this.viewReports_monthSelect.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
-            this.viewReports_monthSelect.Name = "viewReports_monthSelect";
-            this.viewReports_monthSelect.TabIndex = 14;
-            // 
-            // label77
-            // 
-            this.label77.AutoSize = true;
-            this.label77.Font = new System.Drawing.Font("Segoe UI Light", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label77.Location = new System.Drawing.Point(20, 200);
-            this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(137, 30);
-            this.label77.TabIndex = 13;
-            this.label77.Text = "Report Week:";
-            // 
-            // viewReports_reportWeek
-            // 
-            this.viewReports_reportWeek.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewReports_reportWeek.Location = new System.Drawing.Point(169, 200);
-            this.viewReports_reportWeek.Margin = new System.Windows.Forms.Padding(4);
-            this.viewReports_reportWeek.Name = "viewReports_reportWeek";
-            this.viewReports_reportWeek.Size = new System.Drawing.Size(160, 26);
-            this.viewReports_reportWeek.TabIndex = 12;
             // 
             // comboBox1
             // 
@@ -2049,11 +1989,11 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(16, 311);
+            this.richTextBox1.Location = new System.Drawing.Point(16, 175);
             this.richTextBox1.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.richTextBox1.Size = new System.Drawing.Size(1054, 605);
+            this.richTextBox1.Size = new System.Drawing.Size(1054, 741);
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = "";
             // 
@@ -2069,12 +2009,10 @@
             // 
             // panel_runReports
             // 
-            this.panel_runReports.Controls.Add(this.runReports_panel_monthContainer);
-            this.panel_runReports.Controls.Add(this.label78);
-            this.panel_runReports.Controls.Add(this.runReports_reportWeek);
+            this.panel_runReports.Controls.Add(this.Run);
             this.panel_runReports.Controls.Add(this.runReports_reportType);
             this.panel_runReports.Controls.Add(this.label79);
-            this.panel_runReports.Controls.Add(this.richTextBox2);
+            this.panel_runReports.Controls.Add(this.report_box);
             this.panel_runReports.Controls.Add(this.label80);
             this.panel_runReports.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_runReports.Location = new System.Drawing.Point(0, 0);
@@ -2082,52 +2020,19 @@
             this.panel_runReports.Name = "panel_runReports";
             this.panel_runReports.Size = new System.Drawing.Size(1094, 870);
             this.panel_runReports.TabIndex = 39;
+            this.panel_runReports.Click += new System.EventHandler(this.Run_Click);
             // 
-            // runReports_panel_monthContainer
+            // Run
             // 
-            this.runReports_panel_monthContainer.Controls.Add(this.label81);
-            this.runReports_panel_monthContainer.Controls.Add(this.monthCalendar1);
-            this.runReports_panel_monthContainer.Location = new System.Drawing.Point(444, 31);
-            this.runReports_panel_monthContainer.Margin = new System.Windows.Forms.Padding(4);
-            this.runReports_panel_monthContainer.Name = "runReports_panel_monthContainer";
-            this.runReports_panel_monthContainer.Size = new System.Drawing.Size(332, 250);
-            this.runReports_panel_monthContainer.TabIndex = 17;
-            // 
-            // label81
-            // 
-            this.label81.AutoSize = true;
-            this.label81.Font = new System.Drawing.Font("Segoe UI Light", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label81.Location = new System.Drawing.Point(3, 10);
-            this.label81.Name = "label81";
-            this.label81.Size = new System.Drawing.Size(197, 30);
-            this.label81.TabIndex = 15;
-            this.label81.Text = "Select Bolded Dates";
-            // 
-            // monthCalendar1
-            // 
-            this.monthCalendar1.Location = new System.Drawing.Point(9, 42);
-            this.monthCalendar1.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 14;
-            // 
-            // label78
-            // 
-            this.label78.AutoSize = true;
-            this.label78.Font = new System.Drawing.Font("Segoe UI Light", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label78.Location = new System.Drawing.Point(20, 200);
-            this.label78.Name = "label78";
-            this.label78.Size = new System.Drawing.Size(137, 30);
-            this.label78.TabIndex = 13;
-            this.label78.Text = "Report Week:";
-            // 
-            // runReports_reportWeek
-            // 
-            this.runReports_reportWeek.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.runReports_reportWeek.Location = new System.Drawing.Point(169, 200);
-            this.runReports_reportWeek.Margin = new System.Windows.Forms.Padding(4);
-            this.runReports_reportWeek.Name = "runReports_reportWeek";
-            this.runReports_reportWeek.Size = new System.Drawing.Size(160, 26);
-            this.runReports_reportWeek.TabIndex = 12;
+            this.Run.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Run.Location = new System.Drawing.Point(350, 100);
+            this.Run.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Run.Name = "Run";
+            this.Run.Size = new System.Drawing.Size(97, 35);
+            this.Run.TabIndex = 27;
+            this.Run.Text = "Run";
+            this.Run.UseVisualStyleBackColor = true;
+            this.Run.Click += new System.EventHandler(this.Run_Click);
             // 
             // runReports_reportType
             // 
@@ -2137,7 +2042,7 @@
             "Accounts Payable",
             "Member Reports",
             "Provider Reports"});
-            this.runReports_reportType.Location = new System.Drawing.Point(169, 100);
+            this.runReports_reportType.Location = new System.Drawing.Point(168, 106);
             this.runReports_reportType.Margin = new System.Windows.Forms.Padding(4);
             this.runReports_reportType.Name = "runReports_reportType";
             this.runReports_reportType.Size = new System.Drawing.Size(160, 29);
@@ -2153,15 +2058,16 @@
             this.label79.TabIndex = 10;
             this.label79.Text = "Report Type:";
             // 
-            // richTextBox2
+            // report_box
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(16, 311);
-            this.richTextBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.richTextBox2.Size = new System.Drawing.Size(1054, 605);
-            this.richTextBox2.TabIndex = 2;
-            this.richTextBox2.Text = "";
+            this.report_box.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.report_box.Location = new System.Drawing.Point(16, 183);
+            this.report_box.Margin = new System.Windows.Forms.Padding(4);
+            this.report_box.Name = "report_box";
+            this.report_box.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.report_box.Size = new System.Drawing.Size(1054, 733);
+            this.report_box.TabIndex = 2;
+            this.report_box.Text = "";
             // 
             // label80
             // 
@@ -2277,12 +2183,8 @@
             this.searchProvider_panel_searchResults.PerformLayout();
             this.panel_viewReports.ResumeLayout(false);
             this.panel_viewReports.PerformLayout();
-            this.viewReports_panel_monthContainer.ResumeLayout(false);
-            this.viewReports_panel_monthContainer.PerformLayout();
             this.panel_runReports.ResumeLayout(false);
             this.panel_runReports.PerformLayout();
-            this.runReports_panel_monthContainer.ResumeLayout(false);
-            this.runReports_panel_monthContainer.PerformLayout();
             this.panel_print.ResumeLayout(false);
             this.panel_print.PerformLayout();
             this.ResumeLayout(false);
@@ -2446,25 +2348,15 @@
         private System.Windows.Forms.TextBox verifyMember_memberID;
         private System.Windows.Forms.Label label74;
         private System.Windows.Forms.Panel panel_viewReports;
-        private System.Windows.Forms.MonthCalendar viewReports_monthSelect;
-        private System.Windows.Forms.Label label77;
-        private System.Windows.Forms.TextBox viewReports_reportWeek;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label76;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label75;
         private System.Windows.Forms.Panel panel_runReports;
-        private System.Windows.Forms.Label label78;
-        private System.Windows.Forms.TextBox runReports_reportWeek;
         private System.Windows.Forms.ComboBox runReports_reportType;
         private System.Windows.Forms.Label label79;
-        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.RichTextBox report_box;
         private System.Windows.Forms.Label label80;
-        private System.Windows.Forms.Panel viewReports_panel_monthContainer;
-        private System.Windows.Forms.Label viewReports_prompt;
-        private System.Windows.Forms.Panel runReports_panel_monthContainer;
-        private System.Windows.Forms.Label label81;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.Panel panel_print;
         private System.Windows.Forms.Label label82;
         private System.Windows.Forms.Button print_print;
@@ -2477,6 +2369,7 @@
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.ToolStripButton toolStrip_home;
         private System.Windows.Forms.ToolStripButton toolStrip_logout;
+        private System.Windows.Forms.Button Run;
     }
 }
 

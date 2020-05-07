@@ -7,19 +7,22 @@ using System.Threading.Tasks;
 
 namespace ChoholicsAnonymous
 {
-    class Email
+    public class Email
     {
         private string FilePath    { get; set; }
         public  string addInfo     { get; set; }
-        public  Date   dateEntered { get; set; } //date entered by user
-        public  int    numOfServices;            //number of services provided
+        
+                   
 
         private StreamWriter sw;
         private TextWriter   tw;
 
         public Email(Member member)
-        {
-            FilePath = member.FirstName + member.LastName + dateEntered + ".txt"; //EX. JaneDoe01012020.txt
+        {   string dateOfReport = DateTime.UtcNow.ToString("MM-dd-yyyy");
+            int  memberServices = DataCenter.getSessionInfo_memberID(member.MemberID).Count;
+            string fullPath = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
+            FilePath  = fullPath.Replace("\\bin\\Debug", "\\Emails\\members" + member.FirstName + member.LastName + dateOfReport + ".txt"); //EX. JaneDoe01012020.txt
+             
 
             try
             {
@@ -27,16 +30,21 @@ namespace ChoholicsAnonymous
                 {
 
                     //gets member info from session and puts it in file
-                    sw.Write(member.FirstName + " " + member.LastName + "\n");
-                    sw.Write(member.MemberID + "\n");
-                    sw.Write(member.Address.street + "\n");
-                    sw.Write(member.Address.city + ", " + member.Address.state 
-                        + " " + member.Address.postalCode + "\n");
+                    sw.Write("Member Name: " + member.FirstName + " " + member.LastName + "\n");
+                    sw.Write("Member Number: "+ member.MemberID + "\n");
+                    sw.Write("Member Address street: " + member.Address.street + "\n");
+                    sw.Write("Member city: " + member.Address.city + "\n");
+                    sw.Write("Member state: " + member.Address.state + "\n");
+                    sw.Write("Member ZIP code: " + member.Address.postalCode + "\n");
+
 
                     //gets service info and puts it in the file
-                    for (int i = 1; i <= numOfServices; i++)
+                    for (int i = 1; i <= memberServices; i++)
                     {
                         sw.Write("Service " + i + ":\n");
+                        sw.Write("\t Date of Service: " + DataCenter.getSessionInfo_memberID(member.MemberID)[i].DateOfSession.convToString() + "\n");
+                        sw.Write("\t Provider Name: " + DataCenter.searchProvider(DataCenter.getSessionInfo_memberID(member.MemberID)[i].providerID).ProviderName + "\n");
+                        sw.Write("\t Service Name: " + DataCenter.getSessionInfo_sessionID(member.MemberID).serviceName + "\n");
                         //sw.Write("\t" + member.dateOfService + "\n");
                         //sw.Write("\t" + member.providerName + "\n");
                         //sw.Write("\t" + member.serviceName + "\n");
@@ -49,9 +57,11 @@ namespace ChoholicsAnonymous
         }
 
         public Email(Provider provider)
-        {
-            FilePath = provider.ProviderName.ToString() + dateEntered + ".txt"; //EX. Provider01012020.txt
-
+        {   string dateOfReport = DateTime.UtcNow.ToString("MM-dd-yyyy");
+            int providerServices = DataCenter.getSessionInfo_memberID(provider.ProviderID).Count;
+            string fullPath = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
+            FilePath = fullPath.Replace("\\bin\\Debug", "\\Emails\\providers" + provider.ProviderName + dateOfReport + ".txt");//EX. Provider01012020.txt
+            int totalFee = 0;
             try
             {
                 using (sw = File.CreateText(FilePath))
@@ -65,19 +75,23 @@ namespace ChoholicsAnonymous
                         + " " + provider.Address.postalCode + "\n");
 
                     //gets service info and puts it in the file
-                    for (int i = 1; i <= numOfServices; i++)
+                    for (int i = 0; i <= providerServices; i++)
                     {
                         sw.Write("Service " + i + ":\n");
-                        //sw.Write("\t" + provider.dateOfService + "\n");
-                        //sw.Write("\t" + provider.dateRecieved + "\n");
-                        //sw.Write("\t" + provider.memberFirstName + " " + provider.memberLastName + "\n");
-                        //sw.Write("\t" + provider.memberID + "\n");
-                        //sw.Write("\t" + provider.serviceID + "\n");
-                        //sw.Write("\tFee to be paid: $" + provider.feeToBePaid + "\n");
+                        sw.Write("\t Date of Service: " + DataCenter.getSessionInfo_providerID(provider.ProviderID)[i].DateOfSession.convToString() + "\n");
+                        sw.Write("\t Date and Time Data Received: " + DateTime.UtcNow.ToString() + "\n");
+                        sw.Write("\t Member Name:"   + DataCenter.searchMember(DataCenter.getSessionInfo_providerID(provider.ProviderID)[i].memberID).FirstName +
+                            DataCenter.searchMember(DataCenter.getSessionInfo_providerID(provider.ProviderID)[i].memberID).LastName +
+                            "\n"); ;
+                        sw.Write("\t Member Number: " + DataCenter.searchMember(DataCenter.getSessionInfo_providerID(provider.ProviderID)[i].memberID).MemberID + "\n");
+                        sw.Write("\t Service Code: " + DataCenter.getSessionInfo_providerID(provider.ProviderID)[i].serviceID + "\n");
+                        int fee = DataCenter.lookupService(DataCenter.getSessionInfo_providerID(provider.ProviderID)[i].serviceID).Fee;
+                        sw.Write("\t Fee to be paid: " + fee.ToString()+ "\n");
+                        totalFee += fee;
+             
                     }
-
-                    //sw.Write("Total number of member consultations: "provider.totalNumConsultations + "\n");
-                    //sw.Write("Total fees for the week: $" + provider.totalWeekFee + "\n");
+                    sw.Write("\t Total number of consultations: " + providerServices);
+                    sw.Write("Total fees for the week: $" + totalFee.ToString() + "\n");
 
                 }
 
@@ -113,59 +127,59 @@ namespace ChoholicsAnonymous
             sw.Close();
         }
 
-        public void AddMemberInfo(Member member)
-        {
-            FilePath = member.FirstName + member.LastName + dateEntered + ".txt"; //EX. JaneDoe01012020.txt
+        //public void AddMemberInfo(Member member)
+        //{
+        //    FilePath = member.FirstName + member.LastName + dateEntered + ".txt"; //EX. JaneDoe01012020.txt
 
-            try
-            {
-                //adds info/writes a line of text to a file
-                tw = new StreamWriter(FilePath);
-                tw.WriteLine(addInfo);
-                tw.Close();
-            }
-            catch (FileNotFoundException e)
-            {
-                //error for if file not found
-                Console.WriteLine("Error: file not found.", e);
-            }
+        //    try
+        //    {
+        //        //adds info/writes a line of text to a file
+        //        tw = new StreamWriter(FilePath);
+        //        tw.WriteLine(addInfo);
+        //        tw.Close();
+        //    }
+        //    catch (FileNotFoundException e)
+        //    {
+        //        //error for if file not found
+        //        Console.WriteLine("Error: file not found.", e);
+        //    }
 
-        }
+        //}
 
-        public void AddProviderInfo(Provider provider)
-        {
-            FilePath = provider.ProviderName.ToString() + dateEntered + ".txt"; //EX. Provider01012020.txt
+        //public void AddProviderInfo(Provider provider)
+        //{
+        //    FilePath = provider.ProviderName.ToString() + dateEntered + ".txt"; //EX. Provider01012020.txt
 
-            try
-            {
-                //adds info/writes a line of text to a file
-                tw = new StreamWriter(FilePath);
-                tw.WriteLine(addInfo);
-                tw.Close();
-            }
-            catch (FileNotFoundException e)
-            {
-                //error for if file not found
-                Console.WriteLine("Error: file not found.", e);
-            }
-        }
+        //    try
+        //    {
+        //        //adds info/writes a line of text to a file
+        //        tw = new StreamWriter(FilePath);
+        //        tw.WriteLine(addInfo);
+        //        tw.Close();
+        //    }
+        //    catch (FileNotFoundException e)
+        //    {
+        //        //error for if file not found
+        //        Console.WriteLine("Error: file not found.", e);
+        //    }
+        //}
 
-        public void AddSessionInfo(Session session)
-        {
-            FilePath = session.DateOfSession.ToString() + "_" + session.sessionID.ToString() + ".txt"; //EX. 01012020_123456789
+        //public void AddSessionInfo(Session session)
+        //{
+        //    FilePath = session.DateOfSession.ToString() + "_" + session.sessionID.ToString() + ".txt"; //EX. 01012020_123456789
 
-            try
-            {
-                //adds info/writes a line of text to a file
-                tw = new StreamWriter(FilePath);
-                tw.WriteLine(addInfo);
-                tw.Close();
-            }
-            catch (FileNotFoundException e)
-            {
-                //error for if file not found
-                Console.WriteLine("Error: file not found.", e);
-            }
-        }
+        //    try
+        //    {
+        //        //adds info/writes a line of text to a file
+        //        tw = new StreamWriter(FilePath);
+        //        tw.WriteLine(addInfo);
+        //        tw.Close();
+        //    }
+        //    catch (FileNotFoundException e)
+        //    {
+        //        //error for if file not found
+        //        Console.WriteLine("Error: file not found.", e);
+        //    }
+        //}
     }
 }

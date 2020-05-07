@@ -2,32 +2,22 @@
 <ArrayOfAbvSession xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <AbvSession>
     <SessionID>0</SessionID>
-    <MemberID>44</MemberID>
-    <ProviderID>1</ProviderID>
+    <MemberID>0</MemberID>
+    <ProviderID>0</ProviderID>
   </AbvSession>
   <AbvSession>
     <SessionID>1</SessionID>
-    <MemberID>5</MemberID>
-    <ProviderID>55</ProviderID>
+    <MemberID>1</MemberID>
+    <ProviderID>0</ProviderID>
   </AbvSession>
   <AbvSession>
     <SessionID>2</SessionID>
-    <MemberID>5</MemberID>
+    <MemberID>2</MemberID>
     <ProviderID>1</ProviderID>
   </AbvSession>
   <AbvSession>
     <SessionID>3</SessionID>
-    <MemberID>1</MemberID>
-    <ProviderID>1</ProviderID>
-  </AbvSession>
-  <AbvSession>
-    <SessionID>4</SessionID>
-    <MemberID>1</MemberID>
-    <ProviderID>1</ProviderID>
-  </AbvSession>
-  <AbvSession>
-    <SessionID>5</SessionID>
-    <MemberID>1</MemberID>
-    <ProviderID>1</ProviderID>
+    <MemberID>0</MemberID>
+    <ProviderID>2</ProviderID>
   </AbvSession>
 </ArrayOfAbvSession>

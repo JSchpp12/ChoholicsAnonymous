@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Session xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <sessionID>1</sessionID>
-  <memberID>5</memberID>
-  <providerID>55</providerID>
+  <memberID>1</memberID>
+  <providerID>0</providerID>
   <DateOfSession>
     <Month>5</Month>
     <Day>5</Day>
@@ -14,6 +14,6 @@
     <Year>2020</Year>
   </TimeOfCreation>
   <Comments>coms</Comments>
-  <serviceID>2</serviceID>
-  <serviceName>tesry</serviceName>
+  <serviceID>768925</serviceID>
+  <serviceName>Relaxation</serviceName>
 </Session>

@@ -15,13 +15,25 @@
   <Provider>
     <ProviderName>Provider1</ProviderName>
     <PhoneNumber>562352</PhoneNumber>
-    <Email>@some</Email>
+    <Email>@provider1email</Email>
     <ProviderID>1</ProviderID>
     <Address>
       <street>xyz</street>
       <state>kn</state>
       <city>pery</city>
       <postalCode>5252</postalCode>
+    </Address>
+  </Provider>
+  <Provider>
+    <ProviderName>Provider2</ProviderName>
+    <PhoneNumber>88888</PhoneNumber>
+    <Email>@provider2email</Email>
+    <ProviderID>2</ProviderID>
+    <Address>
+      <street>jkl</street>
+      <state>mn</state>
+      <city>goodcity</city>
+      <postalCode>8895</postalCode>
     </Address>
   </Provider>
 </ArrayOfProvider>

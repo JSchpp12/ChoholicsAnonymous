@@ -2,7 +2,7 @@
 <Session xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <sessionID>3</sessionID>
   <memberID>1</memberID>
-  <providerID>1</providerID>
+  <providerID>2</providerID>
   <DateOfSession>
     <Month>8</Month>
     <Day>7</Day>
@@ -14,6 +14,6 @@
     <Year>2020</Year>
   </TimeOfCreation>
   <Comments>gcfhvgjhb</Comments>
-  <serviceID>1</serviceID>
-  <serviceName>hgjghcgvhv</serviceName>
+  <serviceID>768925</serviceID>
+  <serviceName>Relaxation</serviceName>
 </Session>

@@ -19,8 +19,8 @@ namespace ChoholicsAnonymous
         public static List<Member> MemberList = new List<Member>();
         public static List<Provider> ProviderList = new List<Provider>();
         public static List<AbvSession> AbvSessionList = new List<AbvSession>();
-        public static List<Service> ServiceList = new List<Service>(); 
-
+        public static List<Service> ServiceList = new List<Service>();
+        
         //add a member to the data set
         public static void addMember(Member newMember)
         {
@@ -324,26 +324,10 @@ namespace ChoholicsAnonymous
 
             public static void generateWeeklySessionIDs(int sessionID)
             {
-            
-            DayOfWeek today = DateTime.Now.DayOfWeek;
-            string currentTime = DateTime.Now.ToString("t");
-             
-           // if(today != DayOfWeek.Friday && currentTime != ("12:00 PM") ) 
-              //  {
-                // add to the weekly file with friday's date of current week
 
-                string _date = DateTime.UtcNow.ToString("MM-dd-yyyy");
-                DateTime the_Date = DateTime.Parse(_date);
-                int num_days = DayOfWeek.Friday - the_Date.DayOfWeek;
-                if (num_days < 0) num_days += 7;
-                DateTime fridayDate = the_Date.AddDays(num_days);
-                string fridayFile = fridayDate.ToString("MM-dd-yyyy");
+            string path = getWeeklyFileName();
 
-                //write to file
-                string fullPath = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
-                string editedPath = fullPath.Replace("\\bin\\Debug", "\\SessionsDirectory\\weeklysessions\\" + fridayFile + ".txt");
-
-                File.AppendAllText(editedPath , sessionID.ToString() + Environment.NewLine);
+                File.AppendAllText(path, sessionID.ToString() + Environment.NewLine);
                 
 
           //  }         
@@ -355,8 +339,30 @@ namespace ChoholicsAnonymous
              //   }
 
              }
-                
-      
+              
+        public static string getWeeklyFileName()
+        {
+            DayOfWeek today = DateTime.Now.DayOfWeek;
+            string currentTime = DateTime.Now.ToString("t");
+
+            // if(today != DayOfWeek.Friday && currentTime != ("12:00 PM") ) 
+            //  {
+            // add to the weekly file with friday's date of current week
+
+            string _date = DateTime.UtcNow.ToString("MM-dd-yyyy");
+            DateTime the_Date = DateTime.Parse(_date);
+            int num_days = DayOfWeek.Friday - the_Date.DayOfWeek;
+            if (num_days < 0) num_days += 7;
+            DateTime fridayDate = the_Date.AddDays(num_days);
+            string fridayFile = fridayDate.ToString("MM-dd-yyyy");
+
+            //write to file
+            string fullPath = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
+            string editedPath = fullPath.Replace("\\bin\\Debug", "\\SessionsDirectory\\weeklysessions\\" + fridayFile + ".txt");
+            return editedPath;
+        }
+
+
 
 
         public static void initilizeServices()
@@ -401,6 +407,20 @@ namespace ChoholicsAnonymous
                 }
             }
             return ProviderCount++; 
+        }
+
+        public static Service lookupService(int serviceID)
+        {
+            Service service = new Service();
+            for (int i = 0; i<ServiceList.Count; i++)
+            {
+                if(ServiceList[i].ID == serviceID)
+                {
+                    service = ServiceList[i];
+                    break;
+                }
+            }
+            return service;
         }
     }
 }
