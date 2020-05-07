@@ -9,7 +9,7 @@ namespace ChoholicsAnonymous
     public class Provider
     {
         public string  ProviderName { get; set; }
-        public string  PhoneNumber  { get; set; }
+        public string PhoneNumber  { get; set; }
         public string  Email        { get; set; }
         public int     ProviderID   { get; set; }
         public Address Address      { get; set; }

@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="AbvSession.cs" />
     <Compile Include="Address.cs" />
+    <Compile Include="ProviderDirectory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProviderDirectory.Designer.cs">
+      <DependentUpon>ProviderDirectory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reporting.cs" />
     <Compile Include="CreditCard.cs" />
     <Compile Include="DataCenter.cs" />
@@ -88,6 +94,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ProviderDirectory.resx">
+      <DependentUpon>ProviderDirectory.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

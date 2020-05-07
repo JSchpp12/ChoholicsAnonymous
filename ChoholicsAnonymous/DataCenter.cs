@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -13,46 +16,41 @@ namespace ChoholicsAnonymous
 
     static class DataCenter
     {
-        public static int MemberCount { get; set; }
-        public static int SessionCount { get; set; }
+        public static int MemberCount   { get; set; }
+        public static int SessionCount  { get; set; }
         public static int ProviderCount { get; set; }
-        public static List<Member> MemberList = new List<Member>();
-        public static List<Provider> ProviderList = new List<Provider>();
-        public static List<AbvSession> AbvSessionList = new List<AbvSession>();
-        public static List<Service> ServiceList = new List<Service>();
-        
-        //add a member to the data set
-        public static void addMember(Member newMember)
-        {
-            MemberList.Add(newMember);
-            //writeMembersToFile("Member.xml");
 
-        }
+        public static List<Member>     MemberList     = new List<Member>();
+        public static List<Provider>   ProviderList   = new List<Provider>();
+        public static List<AbvSession> AbvSessionList = new List<AbvSession>();
+        public static List<Service>    ServiceList    = new List<Service>();
+
+        private static System.Threading.Timer weeklyTimer = new System.Threading.Timer(runWeeklyReport);  
 
         public static void writeToFile(string fileName, string dataType)
         {
+            string fullPath       = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
+            string editedPath     = fullPath.Replace("\\bin\\Debug", "\\" + fileName);
+            string abvSessionFile = fullPath.Replace("\\bin\\Debug", "\\SessionsDirectory\\" + fileName);
 
-            string fullPath = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
-            string editedPath = fullPath.Replace("\\bin\\Debug", "\\" + fileName);
             if (dataType == "member")
             {
                 XmlSerializer serial = new XmlSerializer(typeof(List<Member>));
-                StreamWriter file = new StreamWriter(editedPath);
+                StreamWriter  file   = new StreamWriter(editedPath);
                 serial.Serialize(file, MemberList);
                 file.Close();
             }
             else if (dataType == "provider")
             {
                 XmlSerializer serial = new XmlSerializer(typeof(List<Provider>));
-                StreamWriter file = new StreamWriter(editedPath);
+                StreamWriter  file   = new StreamWriter(editedPath);
                 serial.Serialize(file, ProviderList);
                 file.Close();
             }
             else if (dataType == "abvSession")
             {
-                string abvSessionFile = fullPath.Replace("\\bin\\Debug", "\\SessionsDirectory\\" + fileName);
                 XmlSerializer serial = new XmlSerializer(typeof(List<AbvSession>));
-                StreamWriter file = new StreamWriter(abvSessionFile);
+                StreamWriter  file   = new StreamWriter(abvSessionFile);
                 serial.Serialize(file, AbvSessionList);
                 file.Close();
             }
@@ -64,12 +62,58 @@ namespace ChoholicsAnonymous
             readInformation("Members.xml");
             readInformation("Providers.xml");
             readInformation("abvSessions.xml");
-            initilizeServices(); 
+            initilizeServices();
+            initilizeWeeklyTimer(); 
 
             //testing working of session below with hard coded parameters,
-            Session sessionFromsessionID = getSessionInfo_sessionID(1);
-            List<Session> sessions_memID = getSessionInfo_memberID(44);
-            List<Session> sessions_provID = getSessionInfo_providerID(55);
+            Session       sessionFromsessionID = getSessionInfo_sessionID(1);
+            List<Session> sessions_memID       = getSessionInfo_memberID(44);
+            List<Session> sessions_provID      = getSessionInfo_providerID(55);
+        }
+
+        private static void readInformation(string fileName)
+        {
+            string path = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
+
+            if (fileName == "Members.xml")
+            {
+                string        filePath = path.Replace("\\bin\\Debug", "\\" + fileName);
+                XmlSerializer reader   = new XmlSerializer(typeof(List<Member>));
+                StreamReader  file     = new StreamReader(filePath);
+                DataCenter.MemberList  = (List<Member>)reader.Deserialize(file);
+                file.Close();
+
+                MemberCount = MemberList.Count();
+            }
+
+            if (fileName == "Providers.xml")
+            {
+                string        filePath  = path.Replace("\\bin\\Debug", "\\" + fileName);
+                XmlSerializer reader    = new XmlSerializer(typeof(List<Provider>));
+                StreamReader  file      = new StreamReader(filePath);
+                DataCenter.ProviderList = (List<Provider>)reader.Deserialize(file);
+                file.Close();
+
+                ProviderCount = ProviderList.Count();
+            }
+
+            else if (fileName == "abvSessions.xml")
+            {
+                string        filePath    = path.Replace("\\bin\\Debug", "\\SessionsDirectory\\" + fileName);
+                XmlSerializer reader      = new XmlSerializer(typeof(List<AbvSession>));
+                StreamReader  file        = new StreamReader(filePath);
+                DataCenter.AbvSessionList = (List<AbvSession>)reader.Deserialize(file);
+                file.Close();
+            }
+        }
+
+        #region Member Functions
+
+        //add a member to the data set
+        public static void addMember(Member newMember)
+        {
+            MemberList.Add(newMember);
+            //writeMembersToFile("Member.xml");
 
         }
 
@@ -77,18 +121,16 @@ namespace ChoholicsAnonymous
         public static bool updateMember(Member updatedMember)
         {
             int indexOfMember = getIndexOfMember(updatedMember.MemberID);
+
             if (indexOfMember != -1)
             {
                 MemberList[indexOfMember] = updatedMember;
                 return true;
             }
-            else
-            {
-                //fail state
-                return false;
-            }
+            else { return false; }
         }
 
+        //searches for member in the list
         public static Member searchMember(int memberId)
         {
             Member memberResult = new Member(false);
@@ -97,15 +139,29 @@ namespace ChoholicsAnonymous
                 if (MemberList[i].MemberID == memberId)
                 {
                     memberResult = MemberList[i];
-                    break;
-               
+                    break;               
                 }
             }
             return memberResult;
-
         }
 
+        //searches for member via member phone number
+        public static bool checkMemNum(int memberNum)
+        {
+            bool numResult = false;
 
+            for (int i = 0; i < MemberList.Count(); i++)
+            {
+                if (Int32.Parse(MemberList[i].PhoneNumber) == memberNum)
+                {
+                    numResult = true;
+                    break;
+                }
+            }
+            return numResult;
+        }
+
+        //removes member from list
         public static void deleteMember(int memberID)
         {
             for (int i = 0; i < MemberList.Count(); i++)
@@ -136,44 +192,13 @@ namespace ChoholicsAnonymous
         private static int getMemberId(int index)
         {
             if (index < MemberList.Count())
+            {
                 return MemberList[index].MemberID;
-            else
-                return -1;
+            }
+            else { return -1; }
         }
 
-        private static void readInformation(string fileName)
-        {
-            string path = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
-            if (fileName == "Members.xml")
-            {
-                string filePath = path.Replace("\\bin\\Debug", "\\" + fileName);
-                XmlSerializer reader = new XmlSerializer(typeof(List<Member>));
-                StreamReader file = new StreamReader(filePath);
-                DataCenter.MemberList = (List<Member>)reader.Deserialize(file);
-                file.Close();
-                MemberCount = MemberList.Count();
-            }
-
-            if (fileName == "Providers.xml")
-            {
-                string filePath = path.Replace("\\bin\\Debug", "\\" + fileName);
-                XmlSerializer reader = new XmlSerializer(typeof(List<Provider>));
-                StreamReader file = new StreamReader(filePath);
-                DataCenter.ProviderList = (List<Provider>)reader.Deserialize(file);
-                file.Close();
-                ProviderCount =ProviderList.Count();
-            }
-
-            else if (fileName == "abvSessions.xml")
-            {
-                string filePath = path.Replace("\\bin\\Debug", "\\SessionsDirectory\\" + fileName);
-                XmlSerializer reader = new XmlSerializer(typeof(List<AbvSession>));
-                StreamReader file = new StreamReader(filePath);
-                DataCenter.AbvSessionList = (List<AbvSession>)reader.Deserialize(file);
-                file.Close();
-            }
-        }
-
+        //returns if member ID exists
         public static bool memberExists(int id)
         {
             bool verified = false;
@@ -188,7 +213,29 @@ namespace ChoholicsAnonymous
             return verified;     
         }
 
-        //Provider functions start here
+        //returns a new member ID, will be an unused ID 
+        public static int getNewMemberID()
+        {
+            int lastID = -1;
+            //search through the list and keep track of which IDs are in use until one that is not is found 
+            for (int i = 0; i < MemberList.Count; i++)
+            {
+                if (lastID != MemberList[i].MemberID - 1)
+                {
+                    //member object is null 
+                    MemberCount++;
+                    lastID++;
+                    return lastID;
+                }
+                lastID = MemberList[i].MemberID;
+            }
+            return MemberCount++;
+        }
+        #endregion
+
+        #region Provider Functions 
+
+        //adds a provider to the list
         public static void addProvider(Provider newProvider)
         {
             ProviderList.Add(newProvider);
@@ -196,6 +243,7 @@ namespace ChoholicsAnonymous
 
         }
 
+        //returns the index of the provider
         public static int getIndexOfProvider(int providerID)
         {
             int none = -1;
@@ -208,6 +256,8 @@ namespace ChoholicsAnonymous
             }
             return none; //will return -1 if member is not in list 
         }
+
+        //searches for a provider via the provider ID
         public static Provider searchProvider(int providerId)
         {
             Provider providerResult = new Provider();
@@ -222,6 +272,23 @@ namespace ChoholicsAnonymous
             return providerResult;
         }
 
+        //searches for provider via provider phone number
+        public static bool checkProNum(int providerNum)
+        {
+            bool numResult = false;
+
+            for (int i = 0; i < ProviderList.Count(); i++)
+            {
+                if (int.Parse(ProviderList[i].PhoneNumber) == providerNum)
+                {
+                    numResult = true;
+                    break;
+                }
+            }
+            return numResult;
+        }
+
+        //deletes a provider from the list
         public static void deleteProvider(int providerId)
         {
             for (int i = 0; i < ProviderList.Count(); i++)
@@ -234,17 +301,47 @@ namespace ChoholicsAnonymous
             }
         }
 
+        //returns if the provider ID exists
+        public static bool providerExists(int id)
+        {
+            bool verified = false;
+            for (int i = 0; i < ProviderList.Count(); i++)
+            {
+                if (ProviderList[i].ProviderID == id)
+                {
+                    verified = true;
+                    break;
+                }
+            }
+            return verified;
+        }
+
+        //returns a new provider ID, will be an unused ID 
+        public static int getNewProviderID()
+        {
+            for (int i = 0; i < ProviderList.Count; i++)
+            {
+                if (ProviderList[i] == null)
+                {
+                    ProviderCount++;
+                    return i;
+                }
+            }
+            return ProviderCount++;
+        }
+
+        #endregion
+
         //creates an abbreviated session and adds it to the list 
         public static void addAbvSession(int memberID, int sessionID, int providerID)
         {
             AbvSession newSession = new AbvSession();
-            newSession.MemberID = memberID;
-            newSession.SessionID = sessionID;
+
+            newSession.MemberID   = memberID;
+            newSession.SessionID  = sessionID;
             newSession.ProviderID = providerID;
             AbvSessionList.Add(newSession); 
-        }
-
-     
+        }     
 
         public static void createSessionFile(Session session, int sessionID)
         {
@@ -324,10 +421,26 @@ namespace ChoholicsAnonymous
 
             public static void generateWeeklySessionIDs(int sessionID)
             {
+            
+            DayOfWeek today = DateTime.Now.DayOfWeek;
+            string currentTime = DateTime.Now.ToString("t");
+             
+           // if(today != DayOfWeek.Friday && currentTime != ("12:00 PM") ) 
+              //  {
+                // add to the weekly file with friday's date of current week
 
-            string path = getWeeklyFileName();
+                string _date = DateTime.UtcNow.ToString("MM-dd-yyyy");
+                DateTime the_Date = DateTime.Parse(_date);
+                int num_days = DayOfWeek.Friday - the_Date.DayOfWeek;
+                if (num_days < 0) num_days += 7;
+                DateTime fridayDate = the_Date.AddDays(num_days);
+                string fridayFile = fridayDate.ToString("MM-dd-yyyy");
 
-                File.AppendAllText(path, sessionID.ToString() + Environment.NewLine);
+                //write to file
+                string fullPath = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
+                string editedPath = fullPath.Replace("\\bin\\Debug", "\\SessionsDirectory\\weeklysessions\\" + fridayFile + ".txt");
+
+                File.AppendAllText(editedPath , sessionID.ToString() + Environment.NewLine);
                 
 
           //  }         
@@ -339,30 +452,8 @@ namespace ChoholicsAnonymous
              //   }
 
              }
-              
-        public static string getWeeklyFileName()
-        {
-            DayOfWeek today = DateTime.Now.DayOfWeek;
-            string currentTime = DateTime.Now.ToString("t");
-
-            // if(today != DayOfWeek.Friday && currentTime != ("12:00 PM") ) 
-            //  {
-            // add to the weekly file with friday's date of current week
-
-            string _date = DateTime.UtcNow.ToString("MM-dd-yyyy");
-            DateTime the_Date = DateTime.Parse(_date);
-            int num_days = DayOfWeek.Friday - the_Date.DayOfWeek;
-            if (num_days < 0) num_days += 7;
-            DateTime fridayDate = the_Date.AddDays(num_days);
-            string fridayFile = fridayDate.ToString("MM-dd-yyyy");
-
-            //write to file
-            string fullPath = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
-            string editedPath = fullPath.Replace("\\bin\\Debug", "\\SessionsDirectory\\weeklysessions\\" + fridayFile + ".txt");
-            return editedPath;
-        }
-
-
+                
+      
 
 
         public static void initilizeServices()
@@ -376,51 +467,32 @@ namespace ChoholicsAnonymous
             file.Close();
         }
 
-        //returns a new member ID, will be an unused ID 
-        public static int getNewMemberID()
+        //is called at midnight on friday
+        private static void runWeeklyReport(object state)
         {
-            int lastID = -1;
-            //search through the list and keep track of which IDs are in use until one that is not is found 
-            for (int i = 0; i < MemberList.Count; i++)
-            {
-                if (lastID != MemberList[i].MemberID - 1)
-                {
-                    //member object is null 
-                    MemberCount++;
-                    lastID++;
-                    return lastID; 
-                }
-                lastID = MemberList[i].MemberID; 
-            }
-            return MemberCount++;
+            //disable clock object 
+            weeklyTimer.Dispose();
+            MessageBox.Show("RUNNING REPORTS");
+            //run report 
+             
+            //set up clock for next week
+            initilizeWeeklyTimer(); 
         }
 
-        //returns a new provider ID, will be an unused ID 
-        public static int getNewProviderID()
+        //sets up the timer object to trigger the weekly reporting on monday 
+        private static void initilizeWeeklyTimer()
         {
-            for (int i = 0; i<ProviderList.Count; i++)
-            {
-                if (ProviderList[i] == null)
-                {
-                    ProviderCount++; 
-                    return i; 
-                }
-            }
-            return ProviderCount++; 
-        }
 
-        public static Service lookupService(int serviceID)
-        {
-            Service service = new Service();
-            for (int i = 0; i<ServiceList.Count; i++)
-            {
-                if(ServiceList[i].ID == serviceID)
-                {
-                    service = ServiceList[i];
-                    break;
-                }
-            }
-            return service;
+            //DateTime today = DateTime.Today;
+            DateTime now = DateTime.Now;
+            //DateTime triggerTime = new DateTime(); 
+            DateTime triggerTime = DateTime.Today; 
+            int daysUntilFriday = (((int)DayOfWeek.Friday - (int)now.DayOfWeek + 7) % 7) + 1;
+            triggerTime = triggerTime.AddDays(daysUntilFriday);
+
+           int msUntilTrigger = (int)((triggerTime - now).TotalMilliseconds);
+
+            weeklyTimer = new System.Threading.Timer(new TimerCallback(runWeeklyReport), null, msUntilTrigger, 0); 
         }
     }
 }

@@ -58,21 +58,21 @@ namespace ChoholicsAnonymous
             //save user information
             if (User.Manager == true)
             {
-                if (verifyLogin(login_managerID.ToString()))
-                    User.UserID = login_managerID.ToString();
+                if (verifyLogin(login_managerID.Text))
+                    User.UserID = login_managerID.Text;
                 else
                     invalidID = true; 
             }
             if (User.Operator == true)
             {
-                if (verifyLogin(login_operatorID.ToString()))
-                    User.UserID = login_operatorID.ToString();
+                if (verifyLogin(login_operatorID.Text))
+                    User.UserID = login_operatorID.Text;
                 else
                     invalidID = true; 
             }
             if (User.Provider == true)
             {
-                if (verifyLogin(login_providerID.ToString()))
+                if (verifyLogin(login_providerID.Text))
                     User.UserID = login_providerID.Text;
                 else
                     invalidID = true; 
@@ -102,9 +102,9 @@ namespace ChoholicsAnonymous
         {
             char temp = id[1]; 
             //check if the first char is a blank
-            if (temp != 'S') 
+            if (id.Length == 6)
             {
-                return true;
+                return true; 
             }
             else
             {
