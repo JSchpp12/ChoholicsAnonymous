@@ -1,0 +1,17 @@
+Provider Name: Provider1
+Provider Number: 1
+Provider street Address: xyz
+Provider city: pery
+Provider state: kn
+Provider ZIP code: 5252
+
+	 Date of Service: 1-20-2020
+	 Date and Time Data Received: 2020-05-07 10:36:48 PM
+	 Member Name:Apple T
+	 Member Number: 2
+	 Service Code: 768925
+	 Fee to be paid: 50
+
+Total number of consultations: 1
+Total fees for the week: $50
+

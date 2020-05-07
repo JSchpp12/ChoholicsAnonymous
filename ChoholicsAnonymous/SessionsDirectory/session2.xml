@@ -8,11 +8,7 @@
     <Day>20</Day>
     <Year>2020</Year>
   </DateOfSession>
-  <TimeOfCreation>
-    <Month>5</Month>
-    <Day>5</Day>
-    <Year>2020</Year>
-  </TimeOfCreation>
+  <ComputerDateTime>2020-05-07 20:28:40</ComputerDateTime>
   <Comments>vbv</Comments>
   <serviceID>768925</serviceID>
   <serviceName>Relaxation</serviceName>

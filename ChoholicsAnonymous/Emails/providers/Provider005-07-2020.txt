@@ -1,0 +1,24 @@
+Provider Name: Provider0
+Provider Number: 0
+Provider street Address: abch 0 street
+Provider city: tol
+Provider state: oh
+Provider ZIP code: 555
+
+	 Date of Service: 11-12-2020
+	 Date and Time Data Received: 2020-05-07 10:36:47 PM
+	 Member Name:chand haryani
+	 Member Number: 0
+	 Service Code: 243876
+	 Fee to be paid: 100
+
+	 Date of Service: 5-5-2020
+	 Date and Time Data Received: 2020-05-07 10:36:47 PM
+	 Member Name:jacob Schaup
+	 Member Number: 1
+	 Service Code: 768925
+	 Fee to be paid: 50
+
+Total number of consultations: 2
+Total fees for the week: $150
+
