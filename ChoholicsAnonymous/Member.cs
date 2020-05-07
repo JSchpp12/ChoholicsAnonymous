@@ -19,7 +19,7 @@ namespace ChoholicsAnonymous
         public Date SubscriptionExpiration { get; set; } //when the member's subscription will expire 
         public Date SubscriptionStart { get; set; } //the day the member started their subscription
 
-        public Date Birthday { get; set; }
+        
         public Member()
         {
 
@@ -30,7 +30,7 @@ namespace ChoholicsAnonymous
             this.SubscriptionExpiration = new Date();
             this.Payment = new CreditCard();
             this.Address = new Address();
-            this.Birthday = new Date();
+           
 
             if (newMember)
             {
