@@ -48,6 +48,13 @@
   <ItemGroup>
     <Compile Include="AbvSession.cs" />
     <Compile Include="Address.cs" />
+    <Compile Include="Locked.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Locked.Designer.cs">
+      <DependentUpon>Locked.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LockTimer.cs" />
     <Compile Include="ProviderDirectory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +85,9 @@
     <Compile Include="Service.cs" />
     <Compile Include="Session.cs" />
     <Compile Include="User.cs" />
+    <EmbeddedResource Include="Locked.resx">
+      <DependentUpon>Locked.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>

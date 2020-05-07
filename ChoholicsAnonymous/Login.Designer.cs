@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.login_radManager = new System.Windows.Forms.RadioButton();
             this.login_radOperator = new System.Windows.Forms.RadioButton();
             this.login_radProvider = new System.Windows.Forms.RadioButton();
@@ -42,6 +43,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.login_bttn_login = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
+            this.LockTimer = new System.Windows.Forms.Timer(this.components);
             this.panel_managerID.SuspendLayout();
             this.panel_operatorID.SuspendLayout();
             this.panel_providerID.SuspendLayout();
@@ -196,6 +198,12 @@
             this.label19.TabIndex = 9;
             this.label19.Text = "Enter Login Information";
             // 
+            // LockTimer
+            // 
+            this.LockTimer.Enabled = true;
+            this.LockTimer.Interval = 1000;
+            this.LockTimer.Tick += new System.EventHandler(this.LockTimer_Tick);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -211,6 +219,7 @@
             this.Controls.Add(this.panel_managerID);
             this.Name = "Login";
             this.Text = "Login";
+            this.VisibleChanged += new System.EventHandler(this.Login_VisibleChanged);
             this.panel_managerID.ResumeLayout(false);
             this.panel_managerID.PerformLayout();
             this.panel_operatorID.ResumeLayout(false);
@@ -238,5 +247,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button login_bttn_login;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Timer LockTimer;
     }
 }

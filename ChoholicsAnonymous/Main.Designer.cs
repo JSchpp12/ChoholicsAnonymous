@@ -31,21 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStrip_home = new System.Windows.Forms.ToolStripButton();
-            this.toolStrip_member = new System.Windows.Forms.ToolStripDropDownButton();
-            this.toolStrip_verifyMember = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip_searchMember = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip_newMember = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip_provider = new System.Windows.Forms.ToolStripDropDownButton();
-            this.toolStrip_searchProvider = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip_newProvider = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip_providerDirectory = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip_reporting = new System.Windows.Forms.ToolStripDropDownButton();
-            this.toolStrip_viewReports = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip_runReports = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip_billing = new System.Windows.Forms.ToolStripButton();
-            this.toolStrip_print = new System.Windows.Forms.ToolStripButton();
-            this.toolStrip_logout = new System.Windows.Forms.ToolStripButton();
             this.panel_newMember = new System.Windows.Forms.Panel();
             this.newMem_expDay = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -217,7 +202,23 @@
             this.print_selectDocument = new System.Windows.Forms.ComboBox();
             this.label83 = new System.Windows.Forms.Label();
             this.label82 = new System.Windows.Forms.Label();
-            this.home_currentTimer = new System.Windows.Forms.Timer(this.components);
+            this.home_currentTime = new System.Windows.Forms.Label();
+            this.toolStrip_home = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip_member = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolStrip_verifyMember = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip_searchMember = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip_newMember = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip_provider = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolStrip_searchProvider = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip_newProvider = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip_providerDirectory = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip_reporting = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolStrip_viewReports = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip_runReports = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip_billing = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip_print = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip_logout = new System.Windows.Forms.ToolStripButton();
+            this.CurrentTimer = new System.Windows.Forms.Timer(this.components);
             this.toolStrip1.SuspendLayout();
             this.panel_newMember.SuspendLayout();
             this.panel_searchMem.SuspendLayout();
@@ -253,151 +254,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(820, 27);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStrip_home
-            // 
-            this.toolStrip_home.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStrip_home.Image = global::ChoholicsAnonymous.Properties.Resources.home;
-            this.toolStrip_home.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStrip_home.Name = "toolStrip_home";
-            this.toolStrip_home.Size = new System.Drawing.Size(24, 24);
-            this.toolStrip_home.Tag = "home";
-            this.toolStrip_home.Text = "toolStripButton1";
-            this.toolStrip_home.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
-            // 
-            // toolStrip_member
-            // 
-            this.toolStrip_member.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStrip_member.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStrip_verifyMember,
-            this.toolStrip_searchMember,
-            this.toolStrip_newMember});
-            this.toolStrip_member.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_member.Image")));
-            this.toolStrip_member.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStrip_member.Name = "toolStrip_member";
-            this.toolStrip_member.Size = new System.Drawing.Size(65, 24);
-            this.toolStrip_member.Text = "Member";
-            // 
-            // toolStrip_verifyMember
-            // 
-            this.toolStrip_verifyMember.Name = "toolStrip_verifyMember";
-            this.toolStrip_verifyMember.Size = new System.Drawing.Size(146, 22);
-            this.toolStrip_verifyMember.Tag = "verify";
-            this.toolStrip_verifyMember.Text = "Verify";
-            this.toolStrip_verifyMember.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
-            // 
-            // toolStrip_searchMember
-            // 
-            this.toolStrip_searchMember.Name = "toolStrip_searchMember";
-            this.toolStrip_searchMember.Size = new System.Drawing.Size(146, 22);
-            this.toolStrip_searchMember.Tag = "mem_search";
-            this.toolStrip_searchMember.Text = "Search";
-            this.toolStrip_searchMember.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
-            // 
-            // toolStrip_newMember
-            // 
-            this.toolStrip_newMember.Name = "toolStrip_newMember";
-            this.toolStrip_newMember.Size = new System.Drawing.Size(146, 22);
-            this.toolStrip_newMember.Tag = "newMember";
-            this.toolStrip_newMember.Text = "New Member";
-            this.toolStrip_newMember.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
-            // 
-            // toolStrip_provider
-            // 
-            this.toolStrip_provider.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStrip_provider.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStrip_searchProvider,
-            this.toolStrip_newProvider,
-            this.toolStrip_providerDirectory});
-            this.toolStrip_provider.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_provider.Image")));
-            this.toolStrip_provider.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStrip_provider.Name = "toolStrip_provider";
-            this.toolStrip_provider.Size = new System.Drawing.Size(64, 24);
-            this.toolStrip_provider.Text = "Provider";
-            // 
-            // toolStrip_searchProvider
-            // 
-            this.toolStrip_searchProvider.Name = "toolStrip_searchProvider";
-            this.toolStrip_searchProvider.Size = new System.Drawing.Size(169, 22);
-            this.toolStrip_searchProvider.Tag = "searchProvider";
-            this.toolStrip_searchProvider.Text = "Search";
-            this.toolStrip_searchProvider.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
-            // 
-            // toolStrip_newProvider
-            // 
-            this.toolStrip_newProvider.Name = "toolStrip_newProvider";
-            this.toolStrip_newProvider.Size = new System.Drawing.Size(169, 22);
-            this.toolStrip_newProvider.Tag = "newProvider";
-            this.toolStrip_newProvider.Text = "New Provider";
-            this.toolStrip_newProvider.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
-            // 
-            // toolStrip_providerDirectory
-            // 
-            this.toolStrip_providerDirectory.Name = "toolStrip_providerDirectory";
-            this.toolStrip_providerDirectory.Size = new System.Drawing.Size(169, 22);
-            this.toolStrip_providerDirectory.Tag = "directory";
-            this.toolStrip_providerDirectory.Text = "Provider Directory";
-            this.toolStrip_providerDirectory.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
-            // 
-            // toolStrip_reporting
-            // 
-            this.toolStrip_reporting.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStrip_reporting.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStrip_viewReports,
-            this.toolStrip_runReports});
-            this.toolStrip_reporting.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_reporting.Image")));
-            this.toolStrip_reporting.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStrip_reporting.Name = "toolStrip_reporting";
-            this.toolStrip_reporting.Size = new System.Drawing.Size(72, 24);
-            this.toolStrip_reporting.Text = "Reporting";
-            // 
-            // toolStrip_viewReports
-            // 
-            this.toolStrip_viewReports.Name = "toolStrip_viewReports";
-            this.toolStrip_viewReports.Size = new System.Drawing.Size(142, 22);
-            this.toolStrip_viewReports.Tag = "viewReports";
-            this.toolStrip_viewReports.Text = "View Reports";
-            this.toolStrip_viewReports.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
-            // 
-            // toolStrip_runReports
-            // 
-            this.toolStrip_runReports.Name = "toolStrip_runReports";
-            this.toolStrip_runReports.Size = new System.Drawing.Size(142, 22);
-            this.toolStrip_runReports.Tag = "runReports";
-            this.toolStrip_runReports.Text = "Run Reports";
-            this.toolStrip_runReports.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
-            // 
-            // toolStrip_billing
-            // 
-            this.toolStrip_billing.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStrip_billing.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_billing.Image")));
-            this.toolStrip_billing.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStrip_billing.Name = "toolStrip_billing";
-            this.toolStrip_billing.Size = new System.Drawing.Size(44, 24);
-            this.toolStrip_billing.Tag = "billing";
-            this.toolStrip_billing.Text = "Billing";
-            this.toolStrip_billing.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
-            // 
-            // toolStrip_print
-            // 
-            this.toolStrip_print.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStrip_print.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_print.Image")));
-            this.toolStrip_print.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStrip_print.Name = "toolStrip_print";
-            this.toolStrip_print.Size = new System.Drawing.Size(36, 24);
-            this.toolStrip_print.Text = "Print";
-            this.toolStrip_print.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
-            // 
-            // toolStrip_logout
-            // 
-            this.toolStrip_logout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStrip_logout.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_logout.Image")));
-            this.toolStrip_logout.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStrip_logout.Name = "toolStrip_logout";
-            this.toolStrip_logout.Size = new System.Drawing.Size(49, 24);
-            this.toolStrip_logout.Tag = "logout";
-            this.toolStrip_logout.Text = "Logout";
-            this.toolStrip_logout.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
             // 
             // panel_newMember
             // 
@@ -1225,6 +1081,7 @@
             // 
             // panel_home
             // 
+            this.panel_home.Controls.Add(this.home_currentTime);
             this.panel_home.Controls.Add(this.label18);
             this.panel_home.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_home.Location = new System.Drawing.Point(0, 0);
@@ -2232,9 +2089,167 @@
             this.label82.TabIndex = 1;
             this.label82.Text = "Print";
             // 
-            // home_currentTimer
+            // home_currentTime
             // 
-            this.home_currentTimer.Tick += new System.EventHandler(this.home_currentTimer_Tick);
+            this.home_currentTime.AutoSize = true;
+            this.home_currentTime.Font = new System.Drawing.Font("Segoe UI Light", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.home_currentTime.Location = new System.Drawing.Point(7, 71);
+            this.home_currentTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.home_currentTime.Name = "home_currentTime";
+            this.home_currentTime.Size = new System.Drawing.Size(115, 25);
+            this.home_currentTime.TabIndex = 15;
+            this.home_currentTime.Text = "Current Time:";
+            // 
+            // toolStrip_home
+            // 
+            this.toolStrip_home.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStrip_home.Image = global::ChoholicsAnonymous.Properties.Resources.home;
+            this.toolStrip_home.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_home.Name = "toolStrip_home";
+            this.toolStrip_home.Size = new System.Drawing.Size(24, 24);
+            this.toolStrip_home.Tag = "home";
+            this.toolStrip_home.Text = "toolStripButton1";
+            this.toolStrip_home.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+            // 
+            // toolStrip_member
+            // 
+            this.toolStrip_member.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStrip_member.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStrip_verifyMember,
+            this.toolStrip_searchMember,
+            this.toolStrip_newMember});
+            this.toolStrip_member.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_member.Image")));
+            this.toolStrip_member.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_member.Name = "toolStrip_member";
+            this.toolStrip_member.Size = new System.Drawing.Size(65, 24);
+            this.toolStrip_member.Text = "Member";
+            // 
+            // toolStrip_verifyMember
+            // 
+            this.toolStrip_verifyMember.Name = "toolStrip_verifyMember";
+            this.toolStrip_verifyMember.Size = new System.Drawing.Size(146, 22);
+            this.toolStrip_verifyMember.Tag = "verify";
+            this.toolStrip_verifyMember.Text = "Verify";
+            this.toolStrip_verifyMember.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+            // 
+            // toolStrip_searchMember
+            // 
+            this.toolStrip_searchMember.Name = "toolStrip_searchMember";
+            this.toolStrip_searchMember.Size = new System.Drawing.Size(146, 22);
+            this.toolStrip_searchMember.Tag = "mem_search";
+            this.toolStrip_searchMember.Text = "Search";
+            this.toolStrip_searchMember.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+            // 
+            // toolStrip_newMember
+            // 
+            this.toolStrip_newMember.Name = "toolStrip_newMember";
+            this.toolStrip_newMember.Size = new System.Drawing.Size(146, 22);
+            this.toolStrip_newMember.Tag = "newMember";
+            this.toolStrip_newMember.Text = "New Member";
+            this.toolStrip_newMember.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+            // 
+            // toolStrip_provider
+            // 
+            this.toolStrip_provider.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStrip_provider.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStrip_searchProvider,
+            this.toolStrip_newProvider,
+            this.toolStrip_providerDirectory});
+            this.toolStrip_provider.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_provider.Image")));
+            this.toolStrip_provider.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_provider.Name = "toolStrip_provider";
+            this.toolStrip_provider.Size = new System.Drawing.Size(64, 24);
+            this.toolStrip_provider.Text = "Provider";
+            // 
+            // toolStrip_searchProvider
+            // 
+            this.toolStrip_searchProvider.Name = "toolStrip_searchProvider";
+            this.toolStrip_searchProvider.Size = new System.Drawing.Size(169, 22);
+            this.toolStrip_searchProvider.Tag = "searchProvider";
+            this.toolStrip_searchProvider.Text = "Search";
+            this.toolStrip_searchProvider.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+            // 
+            // toolStrip_newProvider
+            // 
+            this.toolStrip_newProvider.Name = "toolStrip_newProvider";
+            this.toolStrip_newProvider.Size = new System.Drawing.Size(169, 22);
+            this.toolStrip_newProvider.Tag = "newProvider";
+            this.toolStrip_newProvider.Text = "New Provider";
+            this.toolStrip_newProvider.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+            // 
+            // toolStrip_providerDirectory
+            // 
+            this.toolStrip_providerDirectory.Name = "toolStrip_providerDirectory";
+            this.toolStrip_providerDirectory.Size = new System.Drawing.Size(169, 22);
+            this.toolStrip_providerDirectory.Tag = "directory";
+            this.toolStrip_providerDirectory.Text = "Provider Directory";
+            this.toolStrip_providerDirectory.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+            // 
+            // toolStrip_reporting
+            // 
+            this.toolStrip_reporting.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStrip_reporting.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStrip_viewReports,
+            this.toolStrip_runReports});
+            this.toolStrip_reporting.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_reporting.Image")));
+            this.toolStrip_reporting.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_reporting.Name = "toolStrip_reporting";
+            this.toolStrip_reporting.Size = new System.Drawing.Size(72, 24);
+            this.toolStrip_reporting.Text = "Reporting";
+            // 
+            // toolStrip_viewReports
+            // 
+            this.toolStrip_viewReports.Name = "toolStrip_viewReports";
+            this.toolStrip_viewReports.Size = new System.Drawing.Size(142, 22);
+            this.toolStrip_viewReports.Tag = "viewReports";
+            this.toolStrip_viewReports.Text = "View Reports";
+            this.toolStrip_viewReports.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+            // 
+            // toolStrip_runReports
+            // 
+            this.toolStrip_runReports.Name = "toolStrip_runReports";
+            this.toolStrip_runReports.Size = new System.Drawing.Size(142, 22);
+            this.toolStrip_runReports.Tag = "runReports";
+            this.toolStrip_runReports.Text = "Run Reports";
+            this.toolStrip_runReports.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+            // 
+            // toolStrip_billing
+            // 
+            this.toolStrip_billing.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStrip_billing.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_billing.Image")));
+            this.toolStrip_billing.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_billing.Name = "toolStrip_billing";
+            this.toolStrip_billing.Size = new System.Drawing.Size(44, 24);
+            this.toolStrip_billing.Tag = "billing";
+            this.toolStrip_billing.Text = "Billing";
+            this.toolStrip_billing.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+            // 
+            // toolStrip_print
+            // 
+            this.toolStrip_print.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStrip_print.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_print.Image")));
+            this.toolStrip_print.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_print.Name = "toolStrip_print";
+            this.toolStrip_print.Size = new System.Drawing.Size(36, 24);
+            this.toolStrip_print.Text = "Print";
+            this.toolStrip_print.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+            // 
+            // toolStrip_logout
+            // 
+            this.toolStrip_logout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStrip_logout.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_logout.Image")));
+            this.toolStrip_logout.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_logout.Name = "toolStrip_logout";
+            this.toolStrip_logout.Size = new System.Drawing.Size(49, 24);
+            this.toolStrip_logout.Tag = "logout";
+            this.toolStrip_logout.Text = "Logout";
+            this.toolStrip_logout.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+            // 
+            // CurrentTimer
+            // 
+            this.CurrentTimer.Enabled = true;
+            this.CurrentTimer.Interval = 1000;
+            this.CurrentTimer.Tick += new System.EventHandler(this.CurrentTimer_Tick);
             // 
             // Main
             // 
@@ -2257,6 +2272,7 @@
             this.Text = "Choholics Data Center";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_FormClosed);
             this.Load += new System.EventHandler(this.Main_Load);
+            this.VisibleChanged += new System.EventHandler(this.Main_VisibleChanged);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel_newMember.ResumeLayout(false);
@@ -2485,7 +2501,8 @@
         private System.Windows.Forms.ToolStripButton toolStrip_logout;
         private System.Windows.Forms.TextBox searchMem_phone;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Timer home_currentTimer;
+        private System.Windows.Forms.Label home_currentTime;
+        private System.Windows.Forms.Timer CurrentTimer;
     }
 }
 

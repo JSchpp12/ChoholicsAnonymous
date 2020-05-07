@@ -152,8 +152,6 @@ namespace ChoholicsAnonymous
         }
         #endregion 
 
-        #endregion
-
         #region Supporting Methods 
 
         //hides all panels currently in the control (FORM)
@@ -477,10 +475,35 @@ namespace ChoholicsAnonymous
             }
         }
 
-        //will update 
-        private void home_currentTimer_Tick(object sender, EventArgs e)
+        //called every second -- will update time labels and switch to locked form if needed 
+        private void CurrentTimer_Tick(object sender, EventArgs e)
         {
+            DateTime now = DateTime.Now;
+            if (now.Hour >= 21 || now.Hour < 6)
+            {
+                //lock screen 
+                Form newLocked = new Locked();
+                newLocked.Show();
+                this.Hide();
+            }
+            else
+            {
+                if (now.Hour > 12)
+                    home_currentTime.Text = "Current Time: " + (now.Hour % 12).ToString("D2") + ":" + now.Minute.ToString("D2") + ":" + now.Second.ToString("D2") + " PM";
+                else
+                    home_currentTime.Text = "Current Time: " + now.Hour.ToString("D2") + ":" + now.Minute.ToString("D2") + ":" + now.Second.ToString("D2") + " AM";
+            }
+        }
 
+        //enables the clock that controls lock and displays system time 
+        private void Main_VisibleChanged(object sender, EventArgs e)
+        {
+            Form currentForm = (Form)sender;
+            if (currentForm.Visible == true)
+                CurrentTimer.Enabled = true;
+            else
+                CurrentTimer.Enabled = false;
         }
     }      
 }
+#endregion

@@ -54,28 +54,28 @@ namespace ChoholicsAnonymous
         //call other panel and set user values 
         private void login_bttn_login_Click(object sender, EventArgs e)
         {
-            bool invalidID = false; 
+            bool invalidID = false;
             //save user information
             if (User.Manager == true)
             {
                 if (verifyLogin(login_managerID.Text))
                     User.UserID = login_managerID.Text;
                 else
-                    invalidID = true; 
+                    invalidID = true;
             }
             if (User.Operator == true)
             {
                 if (verifyLogin(login_operatorID.Text))
                     User.UserID = login_operatorID.Text;
                 else
-                    invalidID = true; 
+                    invalidID = true;
             }
             if (User.Provider == true)
             {
                 if (verifyLogin(login_providerID.Text))
                     User.UserID = login_providerID.Text;
                 else
-                    invalidID = true; 
+                    invalidID = true;
             }
             if (!invalidID)
             {
@@ -92,24 +92,47 @@ namespace ChoholicsAnonymous
             }
             else
             {
-                MessageBox.Show("User ID is invalid"); 
+                MessageBox.Show("User ID is invalid");
             }
-            
+
         }
 
         //verifys if the given login is valid, returns true if so 
         private bool verifyLogin(string id)
         {
-            char temp = id[1]; 
+            char temp = id[1];
             //check if the first char is a blank
             if (id.Length == 6)
             {
-                return true; 
+                return true;
             }
             else
             {
-                return false; 
+                return false;
             }
+        }
+
+        //will switch to lock screen 
+        private void LockTimer_Tick(object sender, EventArgs e)
+        {
+            DateTime currentTime = DateTime.Now;
+            if (currentTime.Hour >= 21 || currentTime.Hour < 6)
+            {
+                LockTimer.Enabled = false;
+                //lock screen 
+                Form newLocked = new Locked();
+                newLocked.Show();
+                this.Hide();
+            }
+        }
+
+        private void Login_VisibleChanged(object sender, EventArgs e)
+        {
+            Form currentForm = (Form)sender;
+            if (currentForm.Visible == true)
+                LockTimer.Enabled = true;
+            else
+                LockTimer.Enabled = false;
         }
     }
 }

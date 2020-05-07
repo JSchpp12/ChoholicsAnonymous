@@ -18,7 +18,12 @@ namespace ChoholicsAnonymous
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Main());
-            Application.Run(new Login()); 
+
+            if (LockTimer.checkIfLock())
+                Application.Run(new Locked());
+            else
+               // LockTimer.initilize(false); //set up the lockout timer -- and dont call lock screen
+                Application.Run(new Login()); 
         }
     }
 }
