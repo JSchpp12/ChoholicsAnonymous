@@ -63,12 +63,13 @@ namespace ChoholicsAnonymous
             readInformation("Providers.xml");
             readInformation("abvSessions.xml");
             initilizeServices();
-            initilizeWeeklyTimer(); 
+            initilizeWeeklyTimer();
+            emailReport();
 
             //testing working of session below with hard coded parameters,
-            Session       sessionFromsessionID = getSessionInfo_sessionID(1);
-            List<Session> sessions_memID       = getSessionInfo_memberID(44);
-            List<Session> sessions_provID      = getSessionInfo_providerID(55);
+            //Session       sessionFromsessionID = getSessionInfo_sessionID(1);
+            //List<Session> sessions_memID       = getSessionInfo_memberID(44);
+            //List<Session> sessions_provID      = getSessionInfo_providerID(55);
         }
 
         private static void readInformation(string fileName)
@@ -352,31 +353,8 @@ namespace ChoholicsAnonymous
             StreamWriter file = new StreamWriter(editedPath);
             serial.Serialize(file, session);
             file.Close();
-
-            //to write number of sessions in file
-            //string sessionCountFile = fullPath.Replace("\\bin\\Debug", "\\SessionsDirectory\\" + "sessionCount.txt");
-            //using (StreamWriter sw = new StreamWriter(sessionCountFile))
-            //{
-
-            //   sw.WriteLine(SessionCount);
-
-            //}
         }
       
-
-        //public static int getSessionCount(string fileName)
-        //{
-        //    string fullPath = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
-        //    string sessionCountFile = fullPath.Replace("\\bin\\Debug", "\\SessionsDirectory\\" + fileName);
-        //    string value;
-        //    using (StreamReader sr = new StreamReader(sessionCountFile))
-        //    {
-        //        value = sr.ReadLine();
-                
-        //    }
-        //    return Convert.ToInt32(value);
-        //}
-
         public static Session getSessionInfo_sessionID(int sessionID)
         {
             Session sessionInfo = new Session();
@@ -421,39 +399,44 @@ namespace ChoholicsAnonymous
 
             public static void generateWeeklySessionIDs(int sessionID)
             {
-            
+            string path = getWeeklyFileName();
+            File.AppendAllText(path, sessionID.ToString() + Environment.NewLine);
+                
+             }
+        public static string getWeeklyFileName()
+        {
             DayOfWeek today = DateTime.Now.DayOfWeek;
             string currentTime = DateTime.Now.ToString("t");
-             
-           // if(today != DayOfWeek.Friday && currentTime != ("12:00 PM") ) 
-              //  {
-                // add to the weekly file with friday's date of current week
 
-                string _date = DateTime.UtcNow.ToString("MM-dd-yyyy");
-                DateTime the_Date = DateTime.Parse(_date);
-                int num_days = DayOfWeek.Friday - the_Date.DayOfWeek;
-                if (num_days < 0) num_days += 7;
-                DateTime fridayDate = the_Date.AddDays(num_days);
-                string fridayFile = fridayDate.ToString("MM-dd-yyyy");
+            // if(today != DayOfWeek.Friday && currentTime != ("12:00 PM") ) 
+            //  {
+            // add to the weekly file with friday's date of current week
 
-                //write to file
-                string fullPath = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
-                string editedPath = fullPath.Replace("\\bin\\Debug", "\\SessionsDirectory\\weeklysessions\\" + fridayFile + ".txt");
+            string _date = DateTime.UtcNow.ToString("MM-dd-yyyy");
+            DateTime the_Date = DateTime.Parse(_date);
+            int num_days = DayOfWeek.Friday - the_Date.DayOfWeek;
+            if (num_days < 0) num_days += 7;
+            DateTime fridayDate = the_Date.AddDays(num_days);
+            string fridayFile = fridayDate.ToString("MM-dd-yyyy");
 
-                File.AppendAllText(editedPath , sessionID.ToString() + Environment.NewLine);
-                
-
-          //  }         
-                
-             //else if it's friday past midnigt, write into next week session file
-             //else if ()
-             //   {
-
-             //   }
-
-             }
-                
-      
+            //write to file
+            string fullPath = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
+            string editedPath = fullPath.Replace("\\bin\\Debug", "\\SessionsDirectory\\weeklysessions\\" + fridayFile + ".txt");
+            return editedPath;
+        }
+        public static Service lookupService(int serviceID)
+        {
+            Service service = new Service();
+            for (int i = 0; i < ServiceList.Count; i++)
+            {
+                if (ServiceList[i].ID == serviceID)
+                {
+                    service = ServiceList[i];
+                    break;
+                }
+            }
+            return service;
+        }
 
 
         public static void initilizeServices()
@@ -472,12 +455,53 @@ namespace ChoholicsAnonymous
         {
             //disable clock object 
             weeklyTimer.Dispose();
-            MessageBox.Show("RUNNING REPORTS");
-            //run report 
-             
+            
+            //run report
+            
+            
             //set up clock for next week
             initilizeWeeklyTimer(); 
         }
+        private static void  emailReport()
+        {
+              
+            string[] ids = File.ReadAllLines(getWeeklyFileName());
+            Dictionary<int, List<Session>> memberReport = new Dictionary<int, List<Session>>();
+            Dictionary<int, List<Session>> providerReport = new Dictionary<int, List<Session>>();
+            foreach (string id in ids)
+                {
+                    int sessionID = Int32.Parse(id);
+                    Session thisSession = DataCenter.getSessionInfo_sessionID(sessionID);
+                 
+                    if (!memberReport.ContainsKey(thisSession.memberID))
+                    {
+                        memberReport.Add(thisSession.memberID, DataCenter.getSessionInfo_memberID(thisSession.memberID));
+                    }
+                    if (!providerReport.ContainsKey(thisSession.providerID))
+                    {
+                        providerReport.Add(thisSession.providerID, DataCenter.getSessionInfo_providerID(thisSession.providerID));
+                    }
+
+            }
+            //to email members
+            foreach (KeyValuePair<int, List<Session>> pair in memberReport)
+            {
+                for (int i = 0; i < pair.Value.Count; i++)
+                {
+                    Email email = new Email( searchMember(getSessionInfo_sessionID(pair.Value[i].sessionID).memberID));
+                }
+            }
+            //to email providers
+            foreach (KeyValuePair<int, List<Session>> pair in providerReport)
+            {
+                for (int i = 0; i < pair.Value.Count; i++)
+                {
+                    Email email = new Email(searchProvider(getSessionInfo_sessionID(pair.Value[i].sessionID).providerID));
+                }
+            }
+        }
+        
+            
 
         //sets up the timer object to trigger the weekly reporting on monday 
         private static void initilizeWeeklyTimer()
@@ -494,5 +518,111 @@ namespace ChoholicsAnonymous
 
             weeklyTimer = new System.Threading.Timer(new TimerCallback(runWeeklyReport), null, msUntilTrigger, 0); 
         }
+
+        //To create weekly reports
+        public static string getReport(string type)
+        {  
+            // read sessionids from week file
+            string weekFile = DataCenter.getWeeklyFileName();
+            string[] ids = File.ReadAllLines(weekFile);
+            string display = "";
+            // print member report info
+            if (type == "member")
+            {
+                string memberDisplay = "";
+                Dictionary<int, List<Session>> memberReport = new Dictionary<int, List<Session>>();
+
+                foreach (string id in ids)
+                {
+                    int sessionID = Int32.Parse(id);
+                    Session thisSession = DataCenter.getSessionInfo_sessionID(sessionID);
+
+                    if (!memberReport.ContainsKey(thisSession.memberID))
+                    {
+                        memberReport.Add(thisSession.memberID, DataCenter.getSessionInfo_memberID(thisSession.memberID));
+                    }
+
+
+
+                }
+                
+                foreach (KeyValuePair<int, List<Session>> pair in memberReport)
+                {
+
+                    Member lookUP = DataCenter.searchMember(pair.Key);
+                    memberDisplay += "Member name: " + lookUP.FirstName + " " + lookUP.LastName + " \n"
+                     + "Member number: " + lookUP.MemberID + "\n"
+                     + "Member street address: " + lookUP.Address.street + "\n"
+                     + "Member city: " + lookUP.Address.city + "\n"
+                     + "Member state: " + lookUP.Address.state + "\n"
+                     + "Member ZIP code: " + lookUP.Address.postalCode + "\n\n";
+                    for (int i = 0; i < pair.Value.Count; i++)
+                    {
+                        memberDisplay += "\t" + "Date of Service:" + pair.Value[i].DateOfSession.convToString() + "\n\t"
+                         + "Provider name: " + DataCenter.searchProvider(pair.Value[i].providerID).ProviderName + "\n\t"
+                          + "Service name: " + pair.Value[i].serviceName + "\n\n";
+
+                    }
+
+                }
+                //report_box.Text = display;
+                display = memberDisplay;
+            }
+            // print provider report info
+            if (type == "provider")
+            {
+                string providerDisplay = "";
+                Dictionary<int, List<Session>> providerReport = new Dictionary<int, List<Session>>();
+
+                foreach (string id in ids)
+                {
+                    int sessionID = Int32.Parse(id);
+                    Session thisSession = DataCenter.getSessionInfo_sessionID(sessionID);
+
+                    if (!providerReport.ContainsKey(thisSession.providerID))
+                    {
+                        providerReport.Add(thisSession.providerID, DataCenter.getSessionInfo_memberID(thisSession.providerID));
+                    }
+
+
+                }
+                //string display = "";
+                int consultations = 0;
+                int totalFee = 0;
+                foreach (KeyValuePair<int, List<Session>> pair in providerReport)
+                {
+                    Provider lookUP = DataCenter.searchProvider(pair.Key);
+
+                    providerDisplay += "Provider name: " + lookUP.ProviderName + " \n"
+                     + "Provider number: " + lookUP.ProviderID + "\n"
+                     + "Provider street address: " + lookUP.Address.street + "\n"
+                     + "Provider city: " + lookUP.Address.city + "\n"
+                     + "Provider state: " + lookUP.Address.state + "\n"
+                     + "Provider ZIP code: " + lookUP.Address.postalCode + "\n";
+
+                    for (int i = 0; i < pair.Value.Count; i++)
+                    {
+                        consultations = pair.Value.Count;
+                        providerDisplay += "\n\t" + "Date of Service:" + pair.Value[i].DateOfSession.convToString() + "\n\t"
+                          + "Date and Time data is received: " + pair.Value[i].ComputerDateTime + "\n\t"
+                          + "Member name: " + DataCenter.searchMember(pair.Value[i].memberID).FirstName + " "
+                          + DataCenter.searchMember(pair.Value[i].memberID).LastName + "\n\t"
+                           + "Member number: " + pair.Value[i].memberID.ToString() + "\n\t"
+                           + "Service Code: " + pair.Value[i].serviceID + "\n\t";
+                        int fee = DataCenter.lookupService(pair.Value[i].serviceID).Fee;
+                        providerDisplay += "Fee to be Paid: " + fee.ToString() + "\n";
+                        totalFee += fee;
+                    }
+
+                    providerDisplay += "Total number of Consultations with members: " + consultations.ToString() + "\n"
+                     + "Total fee for week :" + totalFee.ToString() + "\n\n";
+                }
+                //report_box.Text = display + "\n\n\n";
+                display = providerDisplay;
+            }
+            return display;
+        }
+
+
     }
 }

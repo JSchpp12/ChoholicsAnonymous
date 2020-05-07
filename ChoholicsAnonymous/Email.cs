@@ -21,7 +21,7 @@ namespace ChoholicsAnonymous
         {   string dateOfReport = DateTime.UtcNow.ToString("MM-dd-yyyy");
             int  memberServices = DataCenter.getSessionInfo_memberID(member.MemberID).Count;
             string fullPath = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
-            FilePath  = fullPath.Replace("\\bin\\Debug", "\\Emails\\members" + member.FirstName + member.LastName + dateOfReport + ".txt"); //EX. JaneDoe01012020.txt
+            FilePath  = fullPath.Replace("\\bin\\Debug", "\\Emails\\members\\" + member.FirstName + member.LastName + dateOfReport + ".txt"); //EX. JaneDoe01012020.txt
              
 
             try
@@ -35,16 +35,16 @@ namespace ChoholicsAnonymous
                     sw.Write("Member Address street: " + member.Address.street + "\n");
                     sw.Write("Member city: " + member.Address.city + "\n");
                     sw.Write("Member state: " + member.Address.state + "\n");
-                    sw.Write("Member ZIP code: " + member.Address.postalCode + "\n");
+                    sw.Write("Member ZIP code: " + member.Address.postalCode + "\n\n");
 
 
                     //gets service info and puts it in the file
-                    for (int i = 1; i <= memberServices; i++)
+                    for (int i = 0 ; i <= memberServices; i++)
                     {
-                        sw.Write("Service " + i + ":\n");
+                       // sw.Write("Service " + i + ":\n");
                         sw.Write("\t Date of Service: " + DataCenter.getSessionInfo_memberID(member.MemberID)[i].DateOfSession.convToString() + "\n");
                         sw.Write("\t Provider Name: " + DataCenter.searchProvider(DataCenter.getSessionInfo_memberID(member.MemberID)[i].providerID).ProviderName + "\n");
-                        sw.Write("\t Service Name: " + DataCenter.getSessionInfo_sessionID(member.MemberID).serviceName + "\n");
+                        sw.Write("\t Service Name: " + DataCenter.getSessionInfo_sessionID(member.MemberID).serviceName + "\n\n");
                         //sw.Write("\t" + member.dateOfService + "\n");
                         //sw.Write("\t" + member.providerName + "\n");
                         //sw.Write("\t" + member.serviceName + "\n");
@@ -60,7 +60,7 @@ namespace ChoholicsAnonymous
         {   string dateOfReport = DateTime.UtcNow.ToString("MM-dd-yyyy");
             int providerServices = DataCenter.getSessionInfo_memberID(provider.ProviderID).Count;
             string fullPath = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
-            FilePath = fullPath.Replace("\\bin\\Debug", "\\Emails\\providers" + provider.ProviderName + dateOfReport + ".txt");//EX. Provider01012020.txt
+            FilePath = fullPath.Replace("\\bin\\Debug", "\\Emails\\providers\\" + provider.ProviderName + dateOfReport + ".txt");//EX. Provider01012020.txt
             int totalFee = 0;
             try
             {
@@ -68,31 +68,41 @@ namespace ChoholicsAnonymous
                 {
 
                     //gets provider info from session and puts it in file
-                    sw.Write(provider.ProviderName + "\n");
-                    sw.Write(provider.ProviderID + "\n");
-                    sw.Write(provider.Address.street + "\n");
-                    sw.Write(provider.Address.city + ", " + provider.Address.state
-                        + " " + provider.Address.postalCode + "\n");
+                    sw.Write("Provider Name: " +provider.ProviderName + "\n");
+                    sw.Write("Provider Number: "+provider.ProviderID + "\n");
+                    sw.Write("Provider street Address: " + provider.Address.street + "\n");
+                    sw.Write("Provider city: " + provider.Address.city + "\n");
+                    sw.Write("Provider state: " + provider.Address.state + "\n");   
+                     sw.Write("Provider ZIP code: " + provider.Address.postalCode + "\n\n");
+
 
                     //gets service info and puts it in the file
+                    
                     for (int i = 0; i <= providerServices; i++)
                     {
-                        sw.Write("Service " + i + ":\n");
+                       // sw.Write("Service " + i + ":\n");
                         sw.Write("\t Date of Service: " + DataCenter.getSessionInfo_providerID(provider.ProviderID)[i].DateOfSession.convToString() + "\n");
                         sw.Write("\t Date and Time Data Received: " + DateTime.UtcNow.ToString() + "\n");
-                        sw.Write("\t Member Name:"   + DataCenter.searchMember(DataCenter.getSessionInfo_providerID(provider.ProviderID)[i].memberID).FirstName +
-                            DataCenter.searchMember(DataCenter.getSessionInfo_providerID(provider.ProviderID)[i].memberID).LastName +
+                        sw.Write("\t Member Name:"   + DataCenter.searchMember(DataCenter.getSessionInfo_providerID(provider.ProviderID)[i].memberID).FirstName + " "
+                           + DataCenter.searchMember(DataCenter.getSessionInfo_providerID(provider.ProviderID)[i].memberID).LastName +
                             "\n"); ;
                         sw.Write("\t Member Number: " + DataCenter.searchMember(DataCenter.getSessionInfo_providerID(provider.ProviderID)[i].memberID).MemberID + "\n");
                         sw.Write("\t Service Code: " + DataCenter.getSessionInfo_providerID(provider.ProviderID)[i].serviceID + "\n");
                         int fee = DataCenter.lookupService(DataCenter.getSessionInfo_providerID(provider.ProviderID)[i].serviceID).Fee;
-                        sw.Write("\t Fee to be paid: " + fee.ToString()+ "\n");
+                        sw.Write("\t Fee to be paid: " + fee.ToString() + "\n\n");
                         totalFee += fee;
+                        
+                        if (i == (providerServices - 1))
+                        {
+                            sw.Write("Total number of consultations: " + providerServices + "\n");
+                            sw.Write("Total fees for the week: $" + totalFee.ToString() + "\n\n");
+                        }
+
              
                     }
-                    sw.Write("\t Total number of consultations: " + providerServices);
-                    sw.Write("Total fees for the week: $" + totalFee.ToString() + "\n");
-
+                   
+                        
+                    
                 }
 
             }

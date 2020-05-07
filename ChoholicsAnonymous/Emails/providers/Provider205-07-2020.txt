@@ -1,0 +1,17 @@
+Provider Name: Provider2
+Provider Number: 2
+Provider street Address: jkl
+Provider city: goodcity
+Provider state: mn
+Provider ZIP code: 8895
+
+	 Date of Service: 8-7-2020
+	 Date and Time Data Received: 2020-05-07 10:36:49 PM
+	 Member Name:jacob Schaup
+	 Member Number: 1
+	 Service Code: 768925
+	 Fee to be paid: 50
+
+Total number of consultations: 1
+Total fees for the week: $50
+

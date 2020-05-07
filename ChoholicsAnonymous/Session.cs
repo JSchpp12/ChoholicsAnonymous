@@ -14,19 +14,20 @@ namespace ChoholicsAnonymous
        public int providerID { get; set; }
        public Date DateOfSession { get; set; } //Date of S
        public Date TimeOfCreation { get; set; } //time when the session object is created 
+       public string ComputerDateTime { get; set; }
        public string Comments { get; set; }
        //public string DateOfService { get; set; } // make i
        public int serviceID { get; set; }
        public string serviceName { get; set; }
         public Session()
         {
-            String currDate              = DateTime.Now.ToString();
-            DateTime dateValue           = (Convert.ToDateTime(currDate.ToString()));
+            //String currDate              = DateTime.Now.ToString();
+            //DateTime dateValue           = (Convert.ToDateTime(currDate.ToString()));
             this.DateOfSession           = new Date();
-            this.TimeOfCreation          = new Date();
-            this.TimeOfCreation.Day      = dateValue.Day;
-            this.TimeOfCreation.Month    = dateValue.Month;
-            this.TimeOfCreation.Year     = dateValue.Year;
+            //this.TimeOfCreation          = new Date();
+            //this.TimeOfCreation.Day      = dateValue.Day;
+            //this.TimeOfCreation.Month    = dateValue.Month;
+            //this.TimeOfCreation.Year     = dateValue.Year;
             this.sessionID               = getSessionID();
         }
 
