@@ -126,6 +126,7 @@ namespace ChoholicsAnonymous
             }
         }
 
+        //enables or disables the clocks associated with the form 
         private void Login_VisibleChanged(object sender, EventArgs e)
         {
             Form currentForm = (Form)sender;

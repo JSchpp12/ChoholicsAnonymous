@@ -259,6 +259,31 @@ namespace ChoholicsAnonymous
                     break;
             }
         }
+
+        //enables the clock that controls lock and displays system time 
+        private void Main_VisibleChanged(object sender, EventArgs e)
+        {
+            Form currentForm = (Form)sender;
+            if (currentForm.Visible == true)
+                CurrentTimer.Enabled = true;
+            else
+                CurrentTimer.Enabled = false;
+        }
+
+        //autofill service name when the service id 
+        private void session_serviceCode_TextChanged(object sender, EventArgs e)
+        {
+            Service tempService = DataCenter.lookupService(Int32.Parse(session_serviceCode.Text));
+            session_service_Name.Text = tempService.Name;
+        }
+
+        //helper methods
+        private void Main_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            DataCenter.writeToFile("Members.xml", "member");
+            DataCenter.writeToFile("Providers.xml", "provider");
+            DataCenter.writeToFile("abvSessions.xml", "abvSession");
+        }
         #endregion
 
         //searches for member information and populates GUI with retrieved information 
@@ -388,14 +413,6 @@ namespace ChoholicsAnonymous
         }
 
         #endregion
-
-        //helper methods
-        private void Main_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            DataCenter.writeToFile("Members.xml", "member");
-            DataCenter.writeToFile("Providers.xml", "provider");
-            DataCenter.writeToFile("abvSessions.xml", "abvSession");
-        }
                 
         //Event for session/billing
         private void billing_session_submit_Click(object sender, EventArgs e)
@@ -511,16 +528,6 @@ namespace ChoholicsAnonymous
                 else
                     home_currentTime.Text = "Current Time: " + now.Hour.ToString("D2") + ":" + now.Minute.ToString("D2") + ":" + now.Second.ToString("D2") + " AM";
             }
-        }
-
-        //enables the clock that controls lock and displays system time 
-        private void Main_VisibleChanged(object sender, EventArgs e)
-        {
-            Form currentForm = (Form)sender;
-            if (currentForm.Visible == true)
-                CurrentTimer.Enabled = true;
-            else
-                CurrentTimer.Enabled = false;
         }
     }      
 }

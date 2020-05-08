@@ -153,6 +153,7 @@
             this.panel_billing = new System.Windows.Forms.Panel();
             this.verify_SessionMember = new System.Windows.Forms.Label();
             this.billing_panel_session = new System.Windows.Forms.Panel();
+            this.session_Comments = new System.Windows.Forms.RichTextBox();
             this.billing_session_submit = new System.Windows.Forms.Button();
             this.session_service_Name = new System.Windows.Forms.TextBox();
             this.label60 = new System.Windows.Forms.Label();
@@ -208,7 +209,7 @@
             this.label83 = new System.Windows.Forms.Label();
             this.label82 = new System.Windows.Forms.Label();
             this.CurrentTimer = new System.Windows.Forms.Timer(this.components);
-            this.session_Comments = new System.Windows.Forms.RichTextBox();
+            this.runReport_run = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.panel_newMember.SuspendLayout();
             this.panel_searchMem.SuspendLayout();
@@ -239,7 +240,7 @@
             this.toolStrip_logout});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1094, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(844, 27);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -264,7 +265,7 @@
             this.toolStrip_member.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_member.Image")));
             this.toolStrip_member.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStrip_member.Name = "toolStrip_member";
-            this.toolStrip_member.Size = new System.Drawing.Size(79, 24);
+            this.toolStrip_member.Size = new System.Drawing.Size(65, 24);
             this.toolStrip_member.Text = "Member";
             // 
             // toolStrip_verifyMember
@@ -343,7 +344,7 @@
             // toolStrip_viewReports
             // 
             this.toolStrip_viewReports.Name = "toolStrip_viewReports";
-            this.toolStrip_viewReports.Size = new System.Drawing.Size(179, 26);
+            this.toolStrip_viewReports.Size = new System.Drawing.Size(142, 22);
             this.toolStrip_viewReports.Tag = "viewReports";
             this.toolStrip_viewReports.Text = "View Reports";
             this.toolStrip_viewReports.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
@@ -351,7 +352,7 @@
             // toolStrip_runReports
             // 
             this.toolStrip_runReports.Name = "toolStrip_runReports";
-            this.toolStrip_runReports.Size = new System.Drawing.Size(179, 26);
+            this.toolStrip_runReports.Size = new System.Drawing.Size(142, 22);
             this.toolStrip_runReports.Tag = "runReports";
             this.toolStrip_runReports.Text = "Run Reports";
             this.toolStrip_runReports.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
@@ -425,7 +426,7 @@
             this.panel_newMember.Location = new System.Drawing.Point(0, 0);
             this.panel_newMember.Margin = new System.Windows.Forms.Padding(2);
             this.panel_newMember.Name = "panel_newMember";
-            this.panel_newMember.Size = new System.Drawing.Size(820, 707);
+            this.panel_newMember.Size = new System.Drawing.Size(844, 707);
             this.panel_newMember.TabIndex = 1;
             this.panel_newMember.Visible = false;
             // 
@@ -758,7 +759,7 @@
             this.panel_searchMem.Location = new System.Drawing.Point(0, 0);
             this.panel_searchMem.Margin = new System.Windows.Forms.Padding(2);
             this.panel_searchMem.Name = "panel_searchMem";
-            this.panel_searchMem.Size = new System.Drawing.Size(820, 707);
+            this.panel_searchMem.Size = new System.Drawing.Size(844, 707);
             this.panel_searchMem.TabIndex = 32;
             this.panel_searchMem.Visible = false;
             this.panel_searchMem.VisibleChanged += new System.EventHandler(this.panel__VisibleChanged);
@@ -1227,7 +1228,7 @@
             this.panel_home.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_home.Location = new System.Drawing.Point(0, 0);
             this.panel_home.Name = "panel_home";
-            this.panel_home.Size = new System.Drawing.Size(820, 707);
+            this.panel_home.Size = new System.Drawing.Size(844, 707);
             this.panel_home.TabIndex = 31;
             // 
             // home_currentTime
@@ -1264,7 +1265,7 @@
             this.panel_newProvider.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_newProvider.Location = new System.Drawing.Point(0, 0);
             this.panel_newProvider.Name = "panel_newProvider";
-            this.panel_newProvider.Size = new System.Drawing.Size(820, 707);
+            this.panel_newProvider.Size = new System.Drawing.Size(844, 707);
             this.panel_newProvider.TabIndex = 34;
             this.panel_newProvider.Visible = false;
             // 
@@ -1455,7 +1456,7 @@
             this.panel_verifyMember.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_verifyMember.Location = new System.Drawing.Point(0, 0);
             this.panel_verifyMember.Name = "panel_verifyMember";
-            this.panel_verifyMember.Size = new System.Drawing.Size(820, 707);
+            this.panel_verifyMember.Size = new System.Drawing.Size(844, 707);
             this.panel_verifyMember.TabIndex = 35;
             // 
             // verifyMember_verified
@@ -1526,7 +1527,7 @@
             this.panel_billing.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_billing.Location = new System.Drawing.Point(0, 0);
             this.panel_billing.Name = "panel_billing";
-            this.panel_billing.Size = new System.Drawing.Size(820, 707);
+            this.panel_billing.Size = new System.Drawing.Size(844, 707);
             this.panel_billing.TabIndex = 36;
             // 
             // verify_SessionMember
@@ -1559,6 +1560,15 @@
             this.billing_panel_session.Name = "billing_panel_session";
             this.billing_panel_session.Size = new System.Drawing.Size(610, 388);
             this.billing_panel_session.TabIndex = 24;
+            // 
+            // session_Comments
+            // 
+            this.session_Comments.Location = new System.Drawing.Point(97, 147);
+            this.session_Comments.MaxLength = 100;
+            this.session_Comments.Name = "session_Comments";
+            this.session_Comments.Size = new System.Drawing.Size(387, 96);
+            this.session_Comments.TabIndex = 5;
+            this.session_Comments.Text = "";
             // 
             // billing_session_submit
             // 
@@ -1622,6 +1632,7 @@
             this.session_serviceCode.Name = "session_serviceCode";
             this.session_serviceCode.Size = new System.Drawing.Size(162, 20);
             this.session_serviceCode.TabIndex = 3;
+            this.session_serviceCode.TextChanged += new System.EventHandler(this.session_serviceCode_TextChanged);
             // 
             // label57
             // 
@@ -1708,7 +1719,7 @@
             this.panel_searchProvider.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_searchProvider.Location = new System.Drawing.Point(0, 0);
             this.panel_searchProvider.Name = "panel_searchProvider";
-            this.panel_searchProvider.Size = new System.Drawing.Size(820, 707);
+            this.panel_searchProvider.Size = new System.Drawing.Size(844, 707);
             this.panel_searchProvider.TabIndex = 37;
             // 
             // searchProvider_search
@@ -1985,7 +1996,7 @@
             this.panel_viewReports.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_viewReports.Location = new System.Drawing.Point(0, 0);
             this.panel_viewReports.Name = "panel_viewReports";
-            this.panel_viewReports.Size = new System.Drawing.Size(820, 707);
+            this.panel_viewReports.Size = new System.Drawing.Size(844, 707);
             this.panel_viewReports.TabIndex = 38;
             // 
             // comboBox1
@@ -2035,6 +2046,7 @@
             // 
             // panel_runReports
             // 
+            this.panel_runReports.Controls.Add(this.runReport_run);
             this.panel_runReports.Controls.Add(this.runReports_reportType);
             this.panel_runReports.Controls.Add(this.label79);
             this.panel_runReports.Controls.Add(this.report_box);
@@ -2042,7 +2054,7 @@
             this.panel_runReports.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_runReports.Location = new System.Drawing.Point(0, 0);
             this.panel_runReports.Name = "panel_runReports";
-            this.panel_runReports.Size = new System.Drawing.Size(820, 707);
+            this.panel_runReports.Size = new System.Drawing.Size(844, 707);
             this.panel_runReports.TabIndex = 39;
             this.panel_runReports.Click += new System.EventHandler(this.Run_Click);
             // 
@@ -2073,12 +2085,15 @@
             // 
             // report_box
             // 
+            this.report_box.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.report_box.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.report_box.Location = new System.Drawing.Point(16, 183);
+            this.report_box.Location = new System.Drawing.Point(16, 141);
             this.report_box.Margin = new System.Windows.Forms.Padding(4);
             this.report_box.Name = "report_box";
             this.report_box.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.report_box.Size = new System.Drawing.Size(1054, 733);
+            this.report_box.Size = new System.Drawing.Size(815, 562);
             this.report_box.TabIndex = 2;
             this.report_box.Text = "";
             // 
@@ -2102,7 +2117,7 @@
             this.panel_print.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_print.Location = new System.Drawing.Point(0, 0);
             this.panel_print.Name = "panel_print";
-            this.panel_print.Size = new System.Drawing.Size(820, 707);
+            this.panel_print.Size = new System.Drawing.Size(844, 707);
             this.panel_print.TabIndex = 40;
             // 
             // print_print
@@ -2156,20 +2171,23 @@
             this.CurrentTimer.Interval = 1000;
             this.CurrentTimer.Tick += new System.EventHandler(this.CurrentTimer_Tick);
             // 
-            // session_Comments
+            // runReport_run
             // 
-            this.session_Comments.Location = new System.Drawing.Point(97, 147);
-            this.session_Comments.MaxLength = 100;
-            this.session_Comments.Name = "session_Comments";
-            this.session_Comments.Size = new System.Drawing.Size(387, 96);
-            this.session_Comments.TabIndex = 5;
-            this.session_Comments.Text = "";
+            this.runReport_run.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.runReport_run.Location = new System.Drawing.Point(323, 99);
+            this.runReport_run.Margin = new System.Windows.Forms.Padding(2);
+            this.runReport_run.Name = "runReport_run";
+            this.runReport_run.Size = new System.Drawing.Size(88, 35);
+            this.runReport_run.TabIndex = 22;
+            this.runReport_run.Text = "Run";
+            this.runReport_run.UseVisualStyleBackColor = true;
+            this.runReport_run.Click += new System.EventHandler(this.Run_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(820, 707);
+            this.ClientSize = new System.Drawing.Size(844, 707);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panel_billing);
             this.Controls.Add(this.panel_home);
@@ -2403,6 +2421,7 @@
         private System.Windows.Forms.Label home_currentTime;
         private System.Windows.Forms.Timer CurrentTimer;
         private System.Windows.Forms.RichTextBox session_Comments;
+        private System.Windows.Forms.Button runReport_run;
     }
 }
 

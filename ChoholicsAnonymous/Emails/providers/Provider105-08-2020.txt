@@ -6,7 +6,7 @@ Provider state: kn
 Provider ZIP code: 5252
 
 	 Date of Service: 1-20-2020
-	 Date and Time Data Received: 5/7/2020 11:52:33 PM
+	 Date and Time Data Received: 5/8/2020 12:04:19 AM
 	 Member Name:Apple T
 	 Member Number: 2
 	 Service Code: 768925
