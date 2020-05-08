@@ -94,7 +94,7 @@
             this.searchMem_res_providerID = new System.Windows.Forms.TextBox();
             this.searchMem_res_subExp = new System.Windows.Forms.TextBox();
             this.label40 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.searchMember_extendSubscription = new System.Windows.Forms.Button();
             this.label39 = new System.Windows.Forms.Label();
             this.searchMem_res_ccExp = new System.Windows.Forms.TextBox();
             this.label38 = new System.Windows.Forms.Label();
@@ -834,7 +834,7 @@
             this.searchMem_panel_Results.Controls.Add(this.searchMem_res_providerID);
             this.searchMem_panel_Results.Controls.Add(this.searchMem_res_subExp);
             this.searchMem_panel_Results.Controls.Add(this.label40);
-            this.searchMem_panel_Results.Controls.Add(this.button1);
+            this.searchMem_panel_Results.Controls.Add(this.searchMember_extendSubscription);
             this.searchMem_panel_Results.Controls.Add(this.label39);
             this.searchMem_panel_Results.Controls.Add(this.searchMem_res_ccExp);
             this.searchMem_panel_Results.Controls.Add(this.label38);
@@ -944,15 +944,15 @@
             this.label40.TabIndex = 35;
             this.label40.Text = "Exp Date";
             // 
-            // button1
+            // searchMember_extendSubscription
             // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(173, 388);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(121, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Extend Subscription";
-            this.button1.UseVisualStyleBackColor = true;
+            this.searchMember_extendSubscription.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchMember_extendSubscription.Location = new System.Drawing.Point(173, 388);
+            this.searchMember_extendSubscription.Name = "searchMember_extendSubscription";
+            this.searchMember_extendSubscription.Size = new System.Drawing.Size(121, 23);
+            this.searchMember_extendSubscription.TabIndex = 10;
+            this.searchMember_extendSubscription.Text = "Extend Subscription";
+            this.searchMember_extendSubscription.UseVisualStyleBackColor = true;
             // 
             // label39
             // 
@@ -2170,6 +2170,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(820, 707);
             this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.panel_searchMem);
+            this.Controls.Add(this.panel_newMember);
+            this.Controls.Add(this.panel_print);
             this.Controls.Add(this.panel_billing);
             this.Controls.Add(this.panel_home);
             this.Controls.Add(this.panel_runReports);
@@ -2177,9 +2180,6 @@
             this.Controls.Add(this.panel_searchProvider);
             this.Controls.Add(this.panel_verifyMember);
             this.Controls.Add(this.panel_newProvider);
-            this.Controls.Add(this.panel_searchMem);
-            this.Controls.Add(this.panel_newMember);
-            this.Controls.Add(this.panel_print);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Main";
             this.Text = "Choholics Data Center";
@@ -2274,7 +2274,7 @@
         private System.Windows.Forms.TextBox searchMem_res_providerID;
         private System.Windows.Forms.TextBox searchMem_res_subExp;
         private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button searchMember_extendSubscription;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.TextBox searchMem_res_ccExp;
         private System.Windows.Forms.Label label38;
