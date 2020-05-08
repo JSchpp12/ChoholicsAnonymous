@@ -4,6 +4,8 @@ using System.IO;
 using System.Windows.Forms;
 using System.Threading; 
 
+//Chand Branch 
+
 namespace ChoholicsAnonymous
 {
     public partial class Main : Form
@@ -154,138 +156,6 @@ namespace ChoholicsAnonymous
         }
         #endregion 
 
-        #region Supporting Methods 
-
-        //hides all panels currently in the control (FORM)
-        private void hideAllPanels()
-        {
-            foreach (Control c in this.Controls)
-            {
-                if (c is Panel) { c.Visible = false; }
-            }
-        }
-
-        //want to use to control initilization of panels when they are set to visible  --UNUSED--
-        private void panel__VisibleChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        //customize the toolbar based on what type of user is logged into system
-        private void initilizeToolbar()
-        {
-            //set the toolbar for whichever user is logged in 
-            if (User.Manager == true)
-            {
-                toolStrip_verifyMember.Visible      = false;
-                toolStrip_newMember.Visible         = false;
-                toolStrip_providerDirectory.Visible = false;
-                toolStrip_newProvider.Visible       = false;
-                toolStrip_billing.Visible           = false;
-                toolStrip_print.Visible             = false;
-
-            }
-            else if (User.Provider == true)
-            {
-                toolStrip_newMember.Visible   = false;
-                toolStrip_newProvider.Visible = false;
-                toolStrip_runReports.Visible  = false;
-                toolStrip_print.Visible       = false;
-            }
-            else if (User.Operator == true)
-            {
-                toolStrip_billing.Visible   = false;
-                toolStrip_reporting.Visible = false;
-            }
-            else
-            {
-                MessageBox.Show("User information not set correctly upon login");
-            }
-        }
-
-        //swtich which panel is visible to the user
-        private void switchPanel(string buttonTag)
-        {
-            switch (buttonTag)
-            {
-                case "mem_search":
-                    hideAllPanels();
-                    panel_searchMem.Visible = true;
-                    break;
-                case "newMember":
-                    hideAllPanels();
-                    panel_newMember.Visible = true;
-                    break;
-                case "billing":
-                    hideAllPanels();
-                    panel_billing.Visible = true;
-                    break;
-                case "verify":
-                    hideAllPanels();
-                    panel_verifyMember.Visible = true;
-                    break;
-                case "newProvider":
-                    hideAllPanels();
-                    panel_newProvider.Visible = true;
-                    break;
-                case "searchProvider":
-                    hideAllPanels();
-                    panel_searchProvider.Visible = true;
-                    break;
-                case "runReports":
-                    hideAllPanels();
-                    panel_runReports.Visible = true;
-                    break;
-                case "viewReports":
-                    hideAllPanels();
-                    panel_viewReports.Visible = true;
-                    break;
-                case "home":
-                    hideAllPanels();
-                    panel_home.Visible = true; 
-                    break;
-                case "logout":
-                    //go back to login screen
-                    Form newLogin = new Login();
-                    newLogin.Show();
-                    this.Hide();
-                    break;
-                case "directory":
-                    Form newDirectory = new ProviderDirectory();
-                    newDirectory.Show(); 
-                    break; 
-                default:
-                    MessageBox.Show("Panel Not Yet Created...");
-                    break;
-            }
-        }
-
-        //enables the clock that controls lock and displays system time 
-        private void Main_VisibleChanged(object sender, EventArgs e)
-        {
-            Form currentForm = (Form)sender;
-            if (currentForm.Visible == true)
-                CurrentTimer.Enabled = true;
-            else
-                CurrentTimer.Enabled = false;
-        }
-
-        //autofill service name when the service id 
-        private void session_serviceCode_TextChanged(object sender, EventArgs e)
-        {
-            Service tempService = DataCenter.lookupService(Int32.Parse(session_serviceCode.Text));
-            session_service_Name.Text = tempService.Name;
-        }
-
-        //helper methods
-        private void Main_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            DataCenter.writeToFile("Members.xml", "member");
-            DataCenter.writeToFile("Providers.xml", "provider");
-            DataCenter.writeToFile("abvSessions.xml", "abvSession");
-        }
-        #endregion
-
         //searches for member information and populates GUI with retrieved information 
         private void searchMem_bttn_search_Click(object sender, EventArgs e)
         {
@@ -413,6 +283,14 @@ namespace ChoholicsAnonymous
         }
 
         #endregion
+
+        //helper methods
+        private void Main_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            DataCenter.writeToFile("Members.xml", "member");
+            DataCenter.writeToFile("Providers.xml", "provider");
+            DataCenter.writeToFile("abvSessions.xml", "abvSession");
+        }
                 
         //Event for session/billing
         private void billing_session_submit_Click(object sender, EventArgs e)
@@ -510,6 +388,107 @@ namespace ChoholicsAnonymous
             //  createReport("member");
         }
 
+        #region Supporting Methods 
+
+        //hides all panels currently in the control (FORM)
+        private void hideAllPanels()
+        {
+            foreach (Control c in this.Controls)
+            {
+                if (c is Panel) { c.Visible = false; }
+            }
+        }
+
+        //customize the toolbar based on what type of user is logged into system
+        private void initilizeToolbar()
+        {
+            //set the toolbar for whichever user is logged in 
+            if (User.Manager == true)
+            {
+                toolStrip_verifyMember.Visible = false;
+                toolStrip_newMember.Visible = false;
+                toolStrip_providerDirectory.Visible = false;
+                toolStrip_newProvider.Visible = false;
+                toolStrip_billing.Visible = false;
+                toolStrip_print.Visible = false;
+
+            }
+            else if (User.Provider == true)
+            {
+                toolStrip_newMember.Visible = false;
+                toolStrip_newProvider.Visible = false;
+                toolStrip_runReports.Visible = false;
+                toolStrip_print.Visible = false;
+            }
+            else if (User.Operator == true)
+            {
+                toolStrip_billing.Visible = false;
+                toolStrip_reporting.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("User information not set correctly upon login");
+            }
+        }
+
+        //swtich which panel is visible to the user
+        private void switchPanel(string buttonTag)
+        {
+            switch (buttonTag)
+            {
+                case "mem_search":
+                    hideAllPanels();
+                    panel_searchMem.Visible = true;
+                    break;
+                case "newMember":
+                    hideAllPanels();
+                    panel_newMember.Visible = true;
+                    break;
+                case "billing":
+                    hideAllPanels();
+                    panel_billing.Visible = true;
+                    break;
+                case "verify":
+                    hideAllPanels();
+                    panel_verifyMember.Visible = true;
+                    break;
+                case "newProvider":
+                    hideAllPanels();
+                    panel_newProvider.Visible = true;
+                    break;
+                case "searchProvider":
+                    hideAllPanels();
+                    panel_searchProvider.Visible = true;
+                    break;
+                case "runReports":
+                    hideAllPanels();
+                    panel_runReports.Visible = true;
+                    break;
+                case "viewReports":
+                    hideAllPanels();
+                    panel_viewReports.Visible = true;
+                    break;
+                case "home":
+                    hideAllPanels();
+                    panel_home.Visible = true;
+                    break;
+                case "logout":
+                    //go back to login screen
+                    Form newLogin = new Login();
+                    newLogin.Show();
+                    this.Hide();
+                    break;
+                case "directory":
+                    Form newDirectory = new ProviderDirectory();
+                    newDirectory.Show();
+                    break;
+                default:
+                    MessageBox.Show("Panel Not Yet Created...");
+                    break;
+            }
+        }
+
+
         //called every second -- will update time labels and switch to locked form if needed 
         private void CurrentTimer_Tick(object sender, EventArgs e)
         {
@@ -529,6 +508,17 @@ namespace ChoholicsAnonymous
                     home_currentTime.Text = "Current Time: " + now.Hour.ToString("D2") + ":" + now.Minute.ToString("D2") + ":" + now.Second.ToString("D2") + " AM";
             }
         }
-    }      
+
+        //enables the clock that controls lock and displays system time 
+        private void Main_VisibleChanged(object sender, EventArgs e)
+        {
+            Form currentForm = (Form)sender;
+            if (currentForm.Visible == true)
+                CurrentTimer.Enabled = true;
+            else
+                CurrentTimer.Enabled = false;
+        }
+        #endregion
+    }
 }
 #endregion
